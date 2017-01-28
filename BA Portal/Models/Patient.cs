@@ -24,6 +24,7 @@ namespace BA_Portal.Models
         public string EmergencyContactPhone { get; set; }
 
         public string ReferredBy { get; set; }
+        public string PatiendID { get; set; }
 
 
 
