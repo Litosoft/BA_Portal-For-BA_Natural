@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace BA_Portal.Models
 {
     public class Patient
     {
+        public int ID { get; set; }
+
         public string Name { get; set; }
         public DateTime DOB { get; set; }
         public int Age { get; set; }
@@ -22,11 +25,18 @@ namespace BA_Portal.Models
 
         public string EmergencyContact { get; set; }
         public string EmergencyContactPhone { get; set; }
+        public string EmergencyContactRelationship { get; set; }
 
         public string ReferredBy { get; set; }
-        public string PatiendID { get; set; }
+        public int PatiendID { get; set; }
 
 
 
     }
+
+    public class PatientDbContext : DbContext
+    {
+        public DbSet<Patient> PatientDatabase { get; set; }
+    }
+
 }
