@@ -236,6 +236,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\FormPersonalinfo.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Patient.cs" />
@@ -317,7 +318,7 @@
     <Content Include="Views\Patients\Edit.cshtml" />
     <Content Include="Views\Patients\Index.cshtml" />
     <Content Include="Views\PDFtestClass\Index.cshtml" />
-    <Content Include="Views\Patients\Form1.cshtml" />
+    <Content Include="Views\Patients\FormPersonalinfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

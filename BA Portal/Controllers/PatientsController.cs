@@ -124,7 +124,7 @@ namespace BA_Portal.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult Form1(int? id) 
+        public ActionResult FormPersonalinfo(int? id) 
         {
             //intended to be the first form, personal information. 
             /*Usage: basic client info is taken before hand. then click to generate form 
