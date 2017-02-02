@@ -1,0 +1,138 @@
+﻿@model BA_Portal.Models.Patient
+
+@{
+    ViewBag.Title = "Form1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><strong>Personal Information</strong></h2>
+<br />
+<br />
+
+<table style="width:100%">
+    <tr>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Age</th>
+        <th>Sex</th>
+    </tr>
+    <tr>
+        <td>@Model.Name</td>
+        <td>@Model.DOB</td>
+        <td>@Model.Age</td>
+        @if (@Model.GenderISfemale == true)
+        {
+            <td>Femle</td>
+        }
+        else
+        {
+            <td>Male</td>
+        }
+    </tr>
+
+<tr>
+        <th>Address</th>
+        <th>City</th>
+        <th>Zip</th>
+    </tr>
+    <tr>
+        <td>@Model.Address</td>
+        <td>@Model.City</td>
+        <td>@Model.ZIP</td>
+    </tr>
+
+    <tr>
+        <th>Email</th>
+        <th>Phone (Home)</th>
+        <th>Phone (Cell)</th>
+    </tr>
+    <tr>
+        <td>@Model.Email</td>
+        <td>@Model.PhoneHome</td>
+        <td>@Model.PhoneCell</td>
+    </tr>
+
+    <tr>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
+
+    <tr>
+        <th>Emergency Contact</th>
+        <th>Phone</th>
+        <th>Relationship</th>
+    </tr>
+    <tr>
+        <td>@Model.EmergencyContact</td>
+        <td>@Model.EmergencyContactPhone</td>
+        <td>@Model.EmergencyContactRelationship</td>
+    </tr>
+    <tr>
+        <th>Referred by</th>
+    </tr>
+    <tr>
+        <td>@Model.ReferredBy</td>
+    </tr>
+
+</table>
+
+
+<br />
+<br />
+@using (Html.BeginForm())
+{
+    <strong>Do you have Allergies?</strong>  <br />
+    <input type="radio" name="allergyyes" value="yes" /> <bdo>Yes</bdo> <br />
+    <input type="radio" name="allergyno" value="No" /> <bdo>No</bdo> <br />
+    <input type="text" name="allergydescription" />    <bdo>If yes, please describe.</bdo> <br />
+    <br />
+    <h3>Check the box if you have ... </h3> <br />
+    <input type="radio" name="highbloodpressure" value="true" /> <bdo>High Blood Pressure</bdo> <br />
+    <input type="radio" name="lowbloodpressure" value="true" /> <bdo>Low Blood Pressure</bdo> <br />
+    <input type="radio" name="heartcondition" value="true" /> <bdo>Heart Condition</bdo> <br />
+    <input type="radio" name="diabetes" value="true" /> <bdo>Diabetes</bdo> <br />
+
+    <input type="radio" name="anemia" value="true" /> <bdo>Anemia</bdo> <br />
+    <input type="radio" name="highcholesterol" value="true" /> <bdo>High Cholesterol</bdo> <br />
+    <input type="radio" name="pacemaker" value="true" /> <bdo>Pacemaker</bdo> <br />
+    <input type="radio" name="epilepsy" value="true" /> <bdo>Epilepsy</bdo> <br />
+
+    <input type="radio" name="pregnant" value="true" /> <bdo>Pregnant/Breast Feeding</bdo> <br />
+    <input type="radio" name="cancer" value="true" /> <bdo>Cancer</bdo> <br />
+    <input type="radio" name="pacemaker" value="true" /> <bdo>Pacemaker</bdo> <br />
+    <input type="radio" name="std" value="true" /> <bdo>STD</bdo> <br />
+
+   
+    <h3>What is your main concern today? </h3> <br />
+    <input type="radio" name="pain" value="true" /> <bdo>Pain</bdo> <br />
+    <input type="text" name="painlocation" />    <bdo>If yes, where?</bdo> <br />
+    <input type="radio" name="headache" value="true" /> <bdo>Headache/Migrain</bdo> <br />
+    <input type="text" name="headachefrequency" />    <bdo>If yes, how often?</bdo> <br />
+    <input type="radio" name="cold" value="true" /> <bdo>Common Cold</bdo> <br />
+    <input type="radio" name="highbloodpressureconcern" value="true" /> <bdo>High Blood Pressure</bdo> <br />
+
+    <input type="radio" name="emotion" value="true" /> <bdo>Stress/Emotion</bdo> <br />
+    <input type="radio" name="depression" value="true" /> <bdo>Depression</bdo> <br />
+    <input type="radio" name="sleep" value="true" /> <bdo>Sleep</bdo> <br />
+    <input type="radio" name="menstruation" value="true" /> <bdo>Menstruation/Menopause</bdo> <br />
+
+    <input type="radio" name="fertility" value="true" /> <bdo>Fertility</bdo> <br />
+    <input type="radio" name="weightcontrol" value="true" /> <bdo>Weight Control</bdo> <br />
+    <input type="radio" name="other" value="true" /> <bdo>Other</bdo> <br />
+    <br />
+
+        <input type="submit" value="Submit" />
+
+
+}
+
+
+
+
+        <br />
+        <br />
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>

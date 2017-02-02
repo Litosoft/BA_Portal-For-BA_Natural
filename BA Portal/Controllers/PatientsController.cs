@@ -123,5 +123,26 @@ namespace BA_Portal.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Form1(int? id) 
+        {
+            //intended to be the first form, personal information. 
+            /*Usage: basic client info is taken before hand. then click to generate form 
+             * since it will be a daily thing (new one by session) for them.
+             * may want to automate allergies as well. all else will be on a session by session basis.
+             * How will I save all the data?
+             * first lets get a button etc for everything.
+             * */
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Patient patient = db.PatientDatabase.Find(id);
+            if (patient == null)
+            {
+                return HttpNotFound();
+            }
+            return View(patient);
+        }
     }
 }
