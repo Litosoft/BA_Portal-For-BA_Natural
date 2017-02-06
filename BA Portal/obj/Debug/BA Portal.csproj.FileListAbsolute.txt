@@ -247,9 +247,6 @@ C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\obj\Debug\BA Portal.csprojResolveAssemblyReference.cache
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\obj\Debug\BA Portal.dll
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\obj\Debug\BA Portal.pdb
-C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\obj\Debug\BA_Portal.Migrations.InitialCreate.resources
-C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\obj\Debug\BA Portal.csproj.GenerateResource.Cache
-C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\obj\Debug\BA_Portal.Migrations.UpdatewithTypes.resources
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\bin\itextsharp.xtra.dll
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\bin\RazorEngine.dll
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\bin\RazorEngine.xml

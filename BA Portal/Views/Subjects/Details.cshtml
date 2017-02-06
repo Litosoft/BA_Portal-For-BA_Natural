@@ -1,0 +1,347 @@
+﻿@model BA_Portal.Models.Subject
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Subject</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Male)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Male)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Female)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Female)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneHome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneHome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneCell)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneCell)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmergencyContact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmergencyContact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmergencyContactPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmergencyContactPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmergencyContactRelationship)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmergencyContactRelationship)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReferredBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReferredBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Allergy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Allergy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AllergyDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AllergyDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HighBloodPressure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HighBloodPressure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LowBloodPressure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LowBloodPressure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HeartCondition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HeartCondition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diabetes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diabetes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anemia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anemia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HighCholesterol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HighCholesterol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pacemaker)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pacemaker)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Epilepsy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Epilepsy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pregnant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pregnant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cancer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cancer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PainDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PainDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Headache)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Headache)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HeadacheDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HeadacheDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CommonCold)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommonCold)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HighBloodPressureConcern)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HighBloodPressureConcern)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Depression)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Depression)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sleep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sleep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Menstruation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Menstruation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fertility)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fertility)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeightControl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeightControl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Other)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Other)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

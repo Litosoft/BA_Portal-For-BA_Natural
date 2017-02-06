@@ -8,7 +8,8 @@ using System.Globalization;
 
 namespace BA_Portal.Models
 {
-    public class Patient
+    //this form needs to be filled out one time
+    public class Subject
     {
         //database ID
         public int ID { get; set; }
@@ -17,8 +18,8 @@ namespace BA_Portal.Models
         public string Name { get; set; }
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
-        public int Age { get; set; }
-        public bool GenderISfemale { get; set; }
+        public bool Male { get; set; }
+        public bool Female { get; set; }
 
         //address stuff
         public string Address { get; set; }
@@ -38,15 +39,49 @@ namespace BA_Portal.Models
         public string EmergencyContactRelationship { get; set; }
 
         public string ReferredBy { get; set; }
-        public int PatiendID { get; set; }
+
+        public DateTime DateCreated { get; set; }
+
+        //all conditions
+        public bool Allergy { get; set; }
+        public string AllergyDescription { get; set; }
+
+        public bool HighBloodPressure { get; set; }
+        public bool LowBloodPressure { get; set; }
+        public bool HeartCondition { get; set; }
+        public bool Diabetes { get; set; }
+        public bool Anemia { get; set; }
+        public bool HighCholesterol { get; set; }
+        public bool Pacemaker { get; set; }
+        public bool Epilepsy { get; set; }
+        public bool Pregnant { get; set; }
+        public bool Cancer { get; set; }
+        public bool STD { get; set; }
+
+        //reason for appointment
+
+        public bool Pain { get; set; }
+        public string PainDescription { get; set; }
+        public bool Headache { get; set; }
+        public string HeadacheDescription { get; set; }
+        public bool CommonCold { get; set; }
+        public bool HighBloodPressureConcern { get; set; }
+        public bool Stress { get; set; }
+        public bool Depression { get; set; }
+        public bool Sleep { get; set; }
+        public bool Menstruation { get; set; }
+        public bool Fertility { get; set; }
+        public bool WeightControl { get; set; }
+        public bool Other { get; set; }
+
 
 
 
     }
 
-    public class PatientDbContext : DbContext
+    public class SubjectDbContext : DbContext
     {
-        public DbSet<Patient> PatientDatabase { get; set; }
+        public DbSet<Subject> SubjectDatabase { get; set; }
     }
 
 }
