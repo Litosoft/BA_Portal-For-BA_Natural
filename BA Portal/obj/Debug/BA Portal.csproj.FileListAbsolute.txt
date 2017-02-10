@@ -251,3 +251,5 @@ C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\bin\RazorEngine.dll
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\bin\RazorEngine.xml
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\bin\MvcRazorToPdf.dll
+C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\obj\Debug\BA_Portal.Migrations.Roles.resources
+C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\obj\Debug\BA Portal.csproj.GenerateResource.Cache
