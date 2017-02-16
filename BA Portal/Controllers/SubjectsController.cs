@@ -15,9 +15,21 @@ namespace BA_Portal.Controllers
         private SubjectDbContext db = new SubjectDbContext();
 
         // GET: Subjects
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.SubjectDatabase.ToList());
+            var ClientsSelected = from m in db.SubjectDatabase select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                ClientsSelected = ClientsSelected.Where(s => s.Name.Contains(searchString));
+            }
+
+
+
+            return View(ClientsSelected);
+
+
+            //return View(db.SubjectDatabase.ToList());
         }
 
         // GET: Subjects/Details/5
@@ -50,6 +62,7 @@ namespace BA_Portal.Controllers
         {
             if (ModelState.IsValid)
             {
+                subject.DateCreated = DateTime.Now;
                 db.SubjectDatabase.Add(subject);
                 db.SaveChanges();
                 return RedirectToAction("Index");

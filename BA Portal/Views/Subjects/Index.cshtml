@@ -5,11 +5,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Clients</h2>
+<h1>Clients</h1> <br />
 
-<p>
-    @Html.ActionLink("New Patient", "Create")
-</p>
+@using (Html.BeginForm())
+{
+    <p>
+        <strong>Search by Name:</strong> @Html.TextBox("SearchString") 
+        <input type="submit" value="Search" /> <br /> <br />
+    </p>
+} <br />
+
+
+ 
+
 <table class="table">
     <tr>
         <th>
@@ -25,9 +33,10 @@
             @Html.DisplayNameFor(model => model.City)
         </th>
         <th>
-            First Seen On
+            First Seen
         </th>
 
+        <th></th>
         <th></th>
     </tr>
 
@@ -66,17 +75,31 @@
 
         </td>
         <td>
-            @Html.ActionLink("Insurance Form(s)", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Personal Information Form", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Soap Note(s)", "Delete", new { id = item.ID }) |
-            @Html.ActionLink("Manage Client", "Delete", new { id = item.ID }) |
+          
+                @Html.ActionLink("Insurance Form(s)", "Edit", new { id = item.ID }) |
+                <br />
+                @Html.ActionLink("Personal Information Form", "Details", new { id = item.ID }) |
+                <br />
+                @Html.ActionLink("Soap Note(s)", "Delete", new { id = item.ID }) |
+
             @*
     @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
     @Html.ActionLink("Details", "Details", new { id=item.ID }) |
     @Html.ActionLink("Delete", "Delete", new { id=item.ID })
             *@
         </td>
+        <td>
+
+            @Html.ActionLink("View Client", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Update Client", "Edit", new { id = item.ID }) |
+
+        </td>
     </tr>
 }
 
 </table>
+
+<br />
+<p>
+    @Html.ActionLink("New Patient", "Create")
+</p>

@@ -41,7 +41,7 @@
                 <ul class="dropdown-menu">
                     @if (ViewContext.HttpContext.User.IsInRole("CanManageUsers"))
                     {
-                        <li>@Html.ActionLink("Manage Users", "ManageUser", "Account")</li>
+                        <li>@Html.ActionLink("Manage Users", "Index", "Account")</li>
                     }
                     @*<li>@Html.ActionLink("Question Index", "Index", "DualDatabaseTestSchemeQuestions")</li>*@
 

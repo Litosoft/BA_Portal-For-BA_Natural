@@ -9,6 +9,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BA_Portal.Models;
+using System.Web.Security;
+using System.Collections.Generic;
+using System.Net;
 
 namespace BA_Portal.Controllers
 {
@@ -133,6 +136,92 @@ namespace BA_Portal.Controllers
                     return View(model);
             }
         }
+
+
+        //private List<ApplicationUser> userlist;
+        [Authorize(Roles = "CanManageUsers")]
+        public ActionResult Index()
+        {
+            List<ApplicationUser> userlist = new List<ApplicationUser>();
+
+            userlist = UserManager.Users.ToList();
+
+            int count = userlist.Count;
+            ViewBag.count = count;
+
+            return View(userlist);
+        }
+
+        [Authorize(Roles = "CanManageUsers")]
+        public async Task<ActionResult> DeleteUser(string id)
+        {
+
+            ViewBag.id = id;
+            ApplicationUser currentuser = await UserManager.FindByIdAsync(id);
+
+            ViewBag.username = currentuser.UserName;
+
+            //forbid canmanageusers from being deleted
+            var rolesForUser = await UserManager.GetRolesAsync(id);
+            var stringrolesforuser = rolesForUser.ToList();
+            int rolescount = stringrolesforuser.Count;
+
+            for (int k = 0; k < rolescount; k++)
+            {
+                if (stringrolesforuser[k] == "CanManageUsers")
+                {
+                    return RedirectToAction("Forbidden");
+                }
+            }
+
+            await UserManager.DeleteAsync(currentuser);
+
+
+
+            return RedirectToAction("Index");
+
+        }
+
+        public ActionResult Forbidden()
+        {
+
+            return View();
+        }
+
+        [Authorize(Roles = "CanManageUsers")]
+        public async Task<ActionResult> UserDetails(string id)
+        {
+
+            ViewBag.id = id;
+            ApplicationUser currentuser = await UserManager.FindByIdAsync(id);
+
+            ViewBag.username = currentuser.UserName;
+
+            var rolesForUser = await UserManager.GetRolesAsync(id);
+            var stringrolesforuser = rolesForUser.ToList();
+
+
+
+
+            return View(stringrolesforuser);
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //
         // GET: /Account/Register
