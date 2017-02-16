@@ -26,18 +26,41 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Patients", "Index", "Patients")</li>
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Clients", "Index", "Subjects")</li>
+      
                 </ul>
+
+
+@if (ViewContext.HttpContext.User.IsInRole("CanManageUsers"))
+{
+    <div class="navbar-collapse collapse navbar-left">
+        <ul class="nav navbar-nav">
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Management<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    @if (ViewContext.HttpContext.User.IsInRole("CanManageUsers"))
+                    {
+                        <li>@Html.ActionLink("Manage Users", "ManageUser", "Account")</li>
+                    }
+                    @*<li>@Html.ActionLink("Question Index", "Index", "DualDatabaseTestSchemeQuestions")</li>*@
+
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+
+
+
 
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-
-
-
 }
+
 
     <div class="container body-content">
         @RenderBody()

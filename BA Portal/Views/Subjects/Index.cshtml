@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Clients</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("New Patient", "Create")
 </p>
 <table class="table">
     <tr>
@@ -25,7 +25,7 @@
             @Html.DisplayNameFor(model => model.City)
         </th>
         <th>
-            Date Added
+            First Seen On
         </th>
 
         <th></th>
@@ -66,9 +66,15 @@
 
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Insurance Form(s)", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Personal Information Form", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Soap Note(s)", "Delete", new { id = item.ID }) |
+            @Html.ActionLink("Manage Client", "Delete", new { id = item.ID }) |
+            @*
+    @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+    @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+    @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            *@
         </td>
     </tr>
 }

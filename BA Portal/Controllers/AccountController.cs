@@ -136,7 +136,7 @@ namespace BA_Portal.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles = "CanManageUsers")]
         public ActionResult Register()
         {
             return View();
@@ -145,7 +145,7 @@ namespace BA_Portal.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = "CanManageUsers")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -155,6 +155,7 @@ namespace BA_Portal.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    await UserManager.AddToRoleAsync(user.Id, "CanEdit");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -172,6 +173,11 @@ namespace BA_Portal.Controllers
             return View(model);
         }
 
+        public ActionResult ManageUser()
+        {
+
+            return View();
+        }
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
