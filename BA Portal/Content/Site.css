@@ -20,5 +20,28 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 380px;
+}
+
+.signature-pad > canvas {
+    display: block;
+    width: 300px;
+    height: 150px;
+    margin-bottom: 5px;
+}
+
+h1, h2 {
+    color: purple;
+    font-family: Verdana;
+    
+}
+
+#border01 {
+    border: 2px double red;
+    padding: 1px;
+}
+
+span.border01 {
+    border: 2px double red;
+    padding: 1px;
 }
