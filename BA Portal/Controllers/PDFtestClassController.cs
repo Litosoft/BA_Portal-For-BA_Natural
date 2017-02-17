@@ -7,6 +7,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 using iTextSharp.text.html.simpleparser;
+using BA_Portal.Models;
 
 
 namespace BA_Portal.Controllers
@@ -17,6 +18,13 @@ namespace BA_Portal.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult Index2([Bind(Include = "MySignature")] MyDummyModel Signature)
+        {
+            ViewBag.s=Signature.MySignature;
+            
+            return View(Signature);
         }
 
 

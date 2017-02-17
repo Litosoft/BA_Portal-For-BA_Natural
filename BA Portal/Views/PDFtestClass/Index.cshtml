@@ -21,5 +21,13 @@ PDF tester <br />
 }
 
 <br />
+@using (Html.BeginForm("Index2", "PDFtestClass"))
+{
+
+
+    @Html.EditorFor(model => model.MySignature)
+   <br />
+     <input type="submit" value="submit" class="btn btn-default" />
+}
 
 
