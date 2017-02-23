@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BA_Portal.Models;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace BA_Portal.Controllers
 {
@@ -141,5 +143,100 @@ namespace BA_Portal.Controllers
         {
             return View();
         }
+
+        public ActionResult InsuranceForm()
+        {
+            return View();
+        }
+
+        public ActionResult Soap()
+        {
+            return View();
+        }
+
+        public ActionResult PersonalInformation()
+        {
+            return View();
+        }
+
+        public ActionResult Insurance(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subject subject = db.SubjectDatabase.Find(id);
+            return View(subject);
+        }
+
+        public ActionResult GeneratePDFforInsurance(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subject subject = db.SubjectDatabase.Find(id);
+            
+
+              //create new pdf form from template
+            var reader = new PdfReader(Server.MapPath("~/Content/PDFforInsuranceForm.pdf"));
+            var output = new MemoryStream();
+            var stamper = new PdfStamper(reader, output);
+
+           //fill fiels on pdf form. 
+            stamper.AcroFields.SetField("Name", subject.Name);
+            //string DOB = subject.DOB.Date.ToString();
+            stamper.AcroFields.SetField("DOB", subject.DOB.Date.ToShortDateString());
+            stamper.AcroFields.SetField("Address", subject.Address);
+            stamper.AcroFields.SetField("Email", subject.Email);
+            stamper.AcroFields.SetField("City", subject.City);
+            stamper.AcroFields.SetField("Zip", subject.ZIP.ToString());
+            stamper.AcroFields.SetField("Cell", subject.PhoneCell);
+            stamper.AcroFields.SetField("HomePhone", subject.PhoneHome);
+            stamper.AcroFields.SetField("EmergencyContact", subject.EmergencyContact);
+            stamper.AcroFields.SetField("EmergencyPhone", subject.EmergencyContactPhone);
+            stamper.AcroFields.SetField("Relationship", subject.EmergencyContactRelationship);
+            stamper.AcroFields.SetField("ReferredBy", subject.ReferredBy);
+
+            //generate age
+            DateTime now = DateTime.Today;
+            int age = now.Year - subject.DOB.Year;
+            if (now < subject.DOB.AddYears(age))
+            {
+                age--;
+            }
+            stamper.AcroFields.SetField("Age", age.ToString());
+
+            //generate gender
+            string gender = "Error";
+            if(subject.Male == true)
+            { gender = "Male"; }
+            else if (subject.Female == true)
+            { gender = "Female"; }
+            stamper.AcroFields.SetField("Sex", gender);
+
+
+
+
+
+            //close and create new pdf
+            // Form fields should no longer be editable
+            stamper.FormFlattening = true;
+
+            stamper.Close();
+            reader.Close();
+
+            Response.AddHeader("Content-Disposition", "attachment; filename=" + subject.Name + "_Insurance" + "_" + DateTime.Now.ToShortDateString() + ".pdf");
+            Response.ContentType = "application/pdf";
+
+            Response.BinaryWrite(output.ToArray());
+            Response.End();
+
+
+            //return View();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

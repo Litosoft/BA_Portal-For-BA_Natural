@@ -1,0 +1,20 @@
+﻿@model BA_Portal.Models.Subject
+@{
+    ViewBag.Title = "Insurance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Insurance</h2> <br />
+<br />
+View current and past insurance forms for (#name) or add a new insurance form. <br /> 
+Add New Insurance Form <br />
+
+
+
+<br /><br />
+<h4>Current Insurance Forms:</h4><br />
+
+<br /> 
+Insurance Form as PDF: <br />
+@Html.ActionLink("Personal Information Form", "GeneratePDFforInsurance", new { id = Model.ID }) 
+

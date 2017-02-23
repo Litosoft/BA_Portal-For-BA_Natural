@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
-using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
 namespace BA_Portal.Models

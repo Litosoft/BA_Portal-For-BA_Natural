@@ -45,3 +45,7 @@ span.border01 {
     border: 2px double red;
     padding: 1px;
 }
+
+pre {
+    background-color: white;
+}

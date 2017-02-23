@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rotativa;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,21 @@ namespace BA_Portal.Controllers
     {
         // GET: NewFunctionTests
         public ActionResult Index()
+        {
+            DateTime date = DateTime.Now;
+            string date1 = date.ToString();
+            string date2 = date.Date.ToString();
+            string date3 = date.Year.ToString();
+            string date4 = date.ToShortDateString();
+            ViewBag.date1 = date1;
+            ViewBag.date2 = date2;
+            ViewBag.date3 = date3;
+            ViewBag.date4 = date4;
+
+
+            return View();
+        }
+        public ActionResult Index1()
         {
             return View();
         }
@@ -24,6 +40,14 @@ namespace BA_Portal.Controllers
             ViewBag.teststring = teststring;
 
             return View();
+        }
+
+        public ActionResult PrintIndex()
+        {
+
+            return new ViewAsPdf("Index", new { name = "NewFunctionTests" });
+            //return new ViewAsPdf("Index", new { name = "NewFunctionTests" }) { FileName = "Test.pdf" };
+            //return new ActionAsPdf("Index", new { name = "NewFunctionTests" }) { FileName = "Test.pdf" };
         }
 
         public DateTime Date()
