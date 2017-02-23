@@ -237,6 +237,7 @@
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\PDFtestClass.cs" />
@@ -246,11 +247,17 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\backgroundimage1.jpg" />
     <Content Include="Content\backgroundimage18.jpg" />
+    <Content Include="Content\backgroundimage2.jpg" />
     <Content Include="Content\backgroundimage22.jpg" />
     <Content Include="Content\backgroundimage28.jpg" />
     <Content Include="Content\backgroundimage29.jpg" />
+    <Content Include="Content\backgroundimage3.jpg" />
     <Content Include="Content\backgroundimage32.jpg" />
+    <Content Include="Content\backgroundimage5.jpg" />
+    <Content Include="Content\backgroundimage6.jpg" />
+    <Content Include="Content\backgroundimage7.jpg" />
     <Content Include="Content\bootstrap-journal.css" />
     <Content Include="Content\bootstrap-journal.min.css" />
     <Content Include="Content\bootstrap-readable.css" />
