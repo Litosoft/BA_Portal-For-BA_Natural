@@ -26,12 +26,21 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }) |
+            @Html.ActionLink("Test", "Test", new { id = item.ID }) |
+
         </td>
     </tr>
 }
 
 </table>
+
+
+<br />
+
+
+
+
 
 @section Scripts {
     <script src="~/Scripts/signature_pad.min.js"></script>

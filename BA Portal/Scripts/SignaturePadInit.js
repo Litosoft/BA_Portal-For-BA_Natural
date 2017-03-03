@@ -1,6 +1,11 @@
-﻿var signaturePadWrappers = document.querySelectorAll('.signature-pad');
+﻿
+//grab all instance of signaturepad css on the page. so grab all objects of type signature.
 
-[].forEach.call(signaturePadWrappers, function (wrapper) {
+var signaturePadWrappers = document.querySelectorAll('.signature-pad');
+
+//foreach of the grabbed items in signaturepadwappers
+[].forEach.call(signaturePadWrappers, function (wrapper)
+{
     var canvas = wrapper.querySelector('canvas');
     var clearButton = wrapper.querySelector('.btn-clear-canvas');
     var hiddenInput = wrapper.querySelector('input[type="hidden"]');
@@ -10,22 +15,29 @@
     // Read base64 string from hidden input
     var base64str = hiddenInput.value;
 
-    if (base64str) {
+    if (base64str)
+    {
         // Draws signature image from data URL
         signaturePad.fromDataURL('data:image/png;base64,' + base64str);
     }
 
-    if (hiddenInput.disabled) {
+
+    if (hiddenInput.disabled)
+    {
         signaturePad.off();
         clearButton.classList.add('hidden');
-    } else {
-        signaturePad.onEnd = function () {
+    }
+    else
+    {
+        signaturePad.onEnd = function ()
+        {
             // Returns signature image as data URL and set it to hidden input
             base64str = signaturePad.toDataURL().split(',')[1];
             hiddenInput.value = base64str;
         };
 
-        clearButton.addEventListener('click', function () {
+        clearButton.addEventListener('click', function ()
+        {
             // Clear the canvas and hidden input
             signaturePad.clear();
             hiddenInput.value = '';

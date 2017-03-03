@@ -1,4 +1,6 @@
 ﻿
+
+@model BA_Portal.Models.Subject
 @{
     ViewBag.Title = "PersonalInformation";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,5 +13,12 @@ Add New Insurance Form <br />
 
 
 <br /><br />
-<h4>All Personal Information Forms:</h4><br />
+<h4>Current Personal Information Forms:</h4><br />
+
+
+@Html.ActionLink("Personal Information Form", "GeneratePDFforPI", new { id = Model.ID })
+
+
+
+
 

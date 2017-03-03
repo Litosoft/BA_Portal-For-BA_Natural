@@ -149,14 +149,24 @@ namespace BA_Portal.Controllers
             return View();
         }
 
-        public ActionResult Soap()
+        public ActionResult Soap(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subject subject = db.SubjectDatabase.Find(id);
+            return View(subject);
         }
 
-        public ActionResult PersonalInformation()
+        public ActionResult PersonalInformation(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subject subject = db.SubjectDatabase.Find(id);
+            return View(subject);
         }
 
         public ActionResult Insurance(int? id)
@@ -169,7 +179,7 @@ namespace BA_Portal.Controllers
             return View(subject);
         }
 
-        public ActionResult GeneratePDFforInsurance(int? id)
+        public ActionResult GeneratePDFforPI(int? id)
         {
             if (id == null)
             {
@@ -179,7 +189,7 @@ namespace BA_Portal.Controllers
             
 
               //create new pdf form from template
-            var reader = new PdfReader(Server.MapPath("~/Content/PDFforInsuranceForm.pdf"));
+            var reader = new PdfReader(Server.MapPath("~/Content/PDFforPersonalInformation.pdf"));
             var output = new MemoryStream();
             var stamper = new PdfStamper(reader, output);
 
@@ -197,6 +207,83 @@ namespace BA_Portal.Controllers
             stamper.AcroFields.SetField("EmergencyPhone", subject.EmergencyContactPhone);
             stamper.AcroFields.SetField("Relationship", subject.EmergencyContactRelationship);
             stamper.AcroFields.SetField("ReferredBy", subject.ReferredBy);
+            stamper.AcroFields.SetField("MonthNow", DateTime.Now.Month.ToString());
+            stamper.AcroFields.SetField("DayNow", DateTime.Now.Day.ToString());
+            stamper.AcroFields.SetField("YearNow", DateTime.Now.Year.ToString());
+
+            //checkboxes
+            if(subject.Allergy == true)
+            {
+            stamper.AcroFields.SetField("AllergyYes", "101", true);
+            }
+            if (subject.Allergy == false)
+            {
+            stamper.AcroFields.SetField("AllergyNo", "102", true);
+            }
+            if (subject.HighBloodPressure == true)
+            {
+            stamper.AcroFields.SetField("BloodPressure", "103", true);
+            }
+            if (subject.Diabetes == true)
+            {
+            stamper.AcroFields.SetField("Diabetes", "104", true);
+            }
+            if (subject.HighCholesterol == true)
+            {
+            stamper.AcroFields.SetField("HighCholesterol", "105", true);
+            }
+            if (subject.Epilepsy == true)
+            {
+            stamper.AcroFields.SetField("Epilepsy", "106", true);
+            }
+            if (subject.Cancer == true)
+            {
+            stamper.AcroFields.SetField("Cancer", "107", true);
+            }
+            if (subject.HeartCondition == true)
+            {
+            stamper.AcroFields.SetField("HeartCondition", "108", true);
+            }
+            if (subject.Anemia == true)
+            {
+            stamper.AcroFields.SetField("Anemia", "109", true);
+            }
+            if (subject.Pacemaker == true)
+            {
+            stamper.AcroFields.SetField("Pacemaker", "110", true);
+            //stamper.AcroFields.SetField
+            }
+            if (subject.Pregnant == true)
+            {
+            stamper.AcroFields.SetField("Pregnant", "111", true);
+            }
+            if (subject.STD == true)
+            {
+            stamper.AcroFields.SetField("STD", "112", true);
+            }
+            stamper.AcroFields.SetField("Depression", "201", true);
+            stamper.AcroFields.SetField("Sleep", "202", true);
+
+
+
+
+
+
+
+            iTextSharp.text.Image sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/backgroundimage1.jpg"));
+            // Scale image to fit
+            sigImg.ScaleToFit(60, 60);
+            // Set signature position on page
+            sigImg.SetAbsolutePosition(185, 60);
+            // Add signatures to desired page
+            PdfContentByte over = stamper.GetOverContent(1);
+            over.AddImage(sigImg);
+
+
+
+
+
+
 
             //generate age
             DateTime now = DateTime.Today;
