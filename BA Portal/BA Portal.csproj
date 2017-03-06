@@ -359,6 +359,9 @@
     <Content Include="Views\Subjects\PersonalInformation.cshtml" />
     <Content Include="Views\Signatures\Test.cshtml" />
     <Content Include="Views\Signatures\GeneratePDFforSignature.cshtml" />
+    <Content Include="Views\Signatures\GetClientSignature.cshtml" />
+    <Content Include="Views\Signatures\GetPractitionerSignature.cshtml" />
+    <Content Include="Views\Signatures\FinalResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
