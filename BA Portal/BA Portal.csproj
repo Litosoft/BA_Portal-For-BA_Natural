@@ -282,7 +282,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Browsers\qt.browser" />
-    <Content Include="Content\PDFforInsuranceForm.pdf" />
+    <Content Include="Content\PDFforInsurance.pdf" />
     <Content Include="Content\PDFforPersonalInformation.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

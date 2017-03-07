@@ -261,8 +261,54 @@ namespace BA_Portal.Controllers
             {
             stamper.AcroFields.SetField("STD", "112", true);
             }
-            stamper.AcroFields.SetField("Depression", "201", true);
+
+            //box option 2
+            if (subject.Depression == true)
+            {
+                stamper.AcroFields.SetField("Depression", "201", true);
+            }
+            if (subject.Sleep == true)
+            {
             stamper.AcroFields.SetField("Sleep", "202", true);
+            }
+            if (subject.Menstruation == true)
+            {
+                stamper.AcroFields.SetField("Menstruation", "203", true);
+            }
+            if (subject.Fertility == true)
+            {
+                stamper.AcroFields.SetField("Fertility", "204", true);
+            }
+            if (subject.WeightControl == true)
+            {
+                stamper.AcroFields.SetField("WeightControl", "205", true);
+            }
+            if (subject.Other == true)
+            {
+                stamper.AcroFields.SetField("Other", "206", true);
+            }
+            if (subject.Pain == true)
+            {
+                stamper.AcroFields.SetField("Pain", "207", true);
+            }
+            //stamper.AcroFields.SetField("Headache", "208", true);
+            if (subject.Headache == true)
+            {
+                stamper.AcroFields.SetField("Headache", "209", true);
+            }
+            if (subject.CommonCold == true)
+            {
+                stamper.AcroFields.SetField("CommonCold", "210", true);
+            }
+            if (subject.HighBloodPressure == true)
+            {
+                stamper.AcroFields.SetField("HighBloodPressure", "211", true);
+            }
+            if (subject.Stress == true)
+            {
+                stamper.AcroFields.SetField("Stress", "212", true);
+            }
+
 
 
 
