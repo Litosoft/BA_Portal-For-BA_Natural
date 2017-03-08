@@ -229,9 +229,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702092323274_Roles.cs" />
-    <Compile Include="Migrations\201702092323274_Roles.Designer.cs">
-      <DependentUpon>201702092323274_Roles.cs</DependentUpon>
+    <Compile Include="Migrations\201703080520155_InitialCreate.cs" />
+    <Compile Include="Migrations\201703080520155_InitialCreate.Designer.cs">
+      <DependentUpon>201703080520155_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -372,6 +372,11 @@
     <Content Include="Views\PDFs\Index.cshtml" />
     <Content Include="Views\PDFs\ReadPDFfromDatabase.cshtml" />
     <Content Include="Views\PDFs\SavePDFtoDatabase.cshtml" />
+    <Content Include="Views\Subjects\AllForms.cshtml" />
+    <Content Include="Views\Signatures\GetClientSignaturePI.cshtml" />
+    <Content Include="Views\Signatures\GetPractitionerSignaturePI.cshtml" />
+    <Content Include="Views\Subjects\GeneratePDFforPI.cshtml" />
+    <Content Include="Views\Subjects\GeneratePDF.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -385,8 +390,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702092323274_Roles.resx">
-      <DependentUpon>201702092323274_Roles.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703080520155_InitialCreate.resx">
+      <DependentUpon>201703080520155_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

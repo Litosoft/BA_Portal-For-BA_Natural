@@ -209,6 +209,27 @@ namespace BA_Portal.Controllers
             return View(signature);
         }
 
+        public ActionResult GetClientSignaturePI()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GetClientSignaturePI([Bind(Include = "ID,MySignature")] Signature signature)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["SignatureClientPI"] = signature;
+
+                return RedirectToAction("GetPractitionerSignaturePI");
+            }
+
+            return View(signature);
+        }
+
+
         public ActionResult GetClientSignature()
         {
 
@@ -229,6 +250,10 @@ namespace BA_Portal.Controllers
             return View(signature);
         }
 
+        // ////////////////////////////////////////////////////////////////////////
+        // seperator of similar functions
+        // ////////////////////////////////////////////////////////////////////////
+
         public ActionResult GetPractitionerSignature()
         {
 
@@ -247,6 +272,33 @@ namespace BA_Portal.Controllers
 
             return View(signature);
         }
+
+
+
+        public ActionResult GetPractitionerSignaturePI()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GetPractitionerSignaturePI([Bind(Include = "ID,MySignature")] Signature signature)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["SignaturePractioner"] = signature;
+
+                int ID = (int)TempData["DatabaseID_PI"];
+
+                return RedirectToAction("GeneratePDFforPI" + "/" + ID, "Subjects");
+            }
+
+            return View(signature);
+        }
+
+
+
 
         public ActionResult FinalResults()
         {

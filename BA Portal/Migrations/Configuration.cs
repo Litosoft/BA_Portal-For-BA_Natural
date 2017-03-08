@@ -4,43 +4,18 @@ namespace BA_Portal.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using BA_Portal.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<BA_Portal.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<BA_Portal.Models.PDFDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            ContextKey = "BA_Portal.Models.PDFDbContext";
         }
 
-        bool AddUserAndRole(BA_Portal.Models.ApplicationDbContext context)
-        {
-            //adds can edit role, and admin user using application dbcontext
-            IdentityResult ir;
-            var rm = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            ir = rm.Create(new IdentityRole("CanView"));
-            ir = rm.Create(new IdentityRole("CanEdit"));
-            ir = rm.Create(new IdentityRole("CanManageUsers"));
-            var um = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            var user = new ApplicationUser() { UserName = "SuperAdmin@codingisfun.com", };
-
-            //create new user with username and password using usermanager and add to app dbcontext
-            ir = um.Create(user, "Mypassword1!");
-            if (ir.Succeeded == false)
-                return ir.Succeeded;
-
-            ir = um.AddToRole(user.Id, "CanView");
-            ir = um.AddToRole(user.Id, "CanEdit");
-            ir = um.AddToRole(user.Id, "CanManageUsers");
-            return ir.Succeeded;
-        }
-
-        protected override void Seed(BA_Portal.Models.ApplicationDbContext context)
+        protected override void Seed(BA_Portal.Models.PDFDbContext context)
         {
             //  This method will be called after migrating to the latest version.
-            AddUserAndRole(context);
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.

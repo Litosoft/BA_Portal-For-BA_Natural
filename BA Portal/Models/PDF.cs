@@ -11,8 +11,12 @@ namespace BA_Portal.Models
     public class PDF
     {
         public int ID { get; set; }
+        //groupingid. who does this pdf belong to?
+        public int GroupingID { get; set; }
         //tag insurance, personal information, soap
         public string SearchTag { get; set; }
+        //same as searchtag, but possibly more descriptive.
+        public string Description { get; set; }
         public byte[] PDFinbytes { get; set; }
 
     }

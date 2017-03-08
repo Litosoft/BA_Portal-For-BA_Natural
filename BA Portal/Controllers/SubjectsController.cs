@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using BA_Portal.Models;
 using iTextSharp.text.pdf;
 using System.IO;
+using System.Drawing;
 
 namespace BA_Portal.Controllers
 {
@@ -67,7 +68,15 @@ namespace BA_Portal.Controllers
                 subject.DateCreated = DateTime.Now;
                 db.SubjectDatabase.Add(subject);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+
+
+
+
+                int ID = subject.ID;
+                TempData["DatabaseID_PI"] = ID;
+
+                return RedirectToAction("GetClientSignaturePI", "Signatures");
             }
 
             return View(subject);
@@ -179,7 +188,7 @@ namespace BA_Portal.Controllers
             return View(subject);
         }
 
-        public ActionResult GeneratePDFforPI(int? id)
+        public ActionResult GeneratePDF(int? id)
         {
             if (id == null)
             {
@@ -310,27 +319,6 @@ namespace BA_Portal.Controllers
             }
 
 
-
-
-
-
-
-
-            iTextSharp.text.Image sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/backgroundimage1.jpg"));
-            // Scale image to fit
-            sigImg.ScaleToFit(60, 60);
-            // Set signature position on page
-            sigImg.SetAbsolutePosition(185, 60);
-            // Add signatures to desired page
-            PdfContentByte over = stamper.GetOverContent(1);
-            over.AddImage(sigImg);
-
-
-
-
-
-
-
             //generate age
             DateTime now = DateTime.Today;
             int age = now.Year - subject.DOB.Year;
@@ -342,13 +330,11 @@ namespace BA_Portal.Controllers
 
             //generate gender
             string gender = "Error";
-            if(subject.Male == true)
+            if (subject.Male == true)
             { gender = "Male"; }
             else if (subject.Female == true)
             { gender = "Female"; }
             stamper.AcroFields.SetField("Sex", gender);
-
-
 
 
 
@@ -368,6 +354,211 @@ namespace BA_Portal.Controllers
 
             //return View();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult GeneratePDFforPI(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subject subject = db.SubjectDatabase.Find(id);
+
+
+            //create new pdf form from template
+            var reader = new PdfReader(Server.MapPath("~/Content/PDFforPersonalInformation.pdf"));
+            var output = new MemoryStream();
+            var stamper = new PdfStamper(reader, output);
+
+            //fill fiels on pdf form. 
+            stamper.AcroFields.SetField("Name", subject.Name);
+            //string DOB = subject.DOB.Date.ToString();
+            stamper.AcroFields.SetField("DOB", subject.DOB.Date.ToShortDateString());
+            stamper.AcroFields.SetField("Address", subject.Address);
+            stamper.AcroFields.SetField("Email", subject.Email);
+            stamper.AcroFields.SetField("City", subject.City);
+            stamper.AcroFields.SetField("Zip", subject.ZIP.ToString());
+            stamper.AcroFields.SetField("Cell", subject.PhoneCell);
+            stamper.AcroFields.SetField("HomePhone", subject.PhoneHome);
+            stamper.AcroFields.SetField("EmergencyContact", subject.EmergencyContact);
+            stamper.AcroFields.SetField("EmergencyPhone", subject.EmergencyContactPhone);
+            stamper.AcroFields.SetField("Relationship", subject.EmergencyContactRelationship);
+            stamper.AcroFields.SetField("ReferredBy", subject.ReferredBy);
+            stamper.AcroFields.SetField("MonthNow", DateTime.Now.Month.ToString());
+            stamper.AcroFields.SetField("DayNow", DateTime.Now.Day.ToString());
+            stamper.AcroFields.SetField("YearNow", DateTime.Now.Year.ToString());
+
+            //checkboxes
+            if (subject.Allergy == true)
+            {
+                stamper.AcroFields.SetField("AllergyYes", "101", true);
+            }
+            if (subject.Allergy == false)
+            {
+                stamper.AcroFields.SetField("AllergyNo", "102", true);
+            }
+            if (subject.HighBloodPressure == true)
+            {
+                stamper.AcroFields.SetField("BloodPressure", "103", true);
+            }
+            if (subject.Diabetes == true)
+            {
+                stamper.AcroFields.SetField("Diabetes", "104", true);
+            }
+            if (subject.HighCholesterol == true)
+            {
+                stamper.AcroFields.SetField("HighCholesterol", "105", true);
+            }
+            if (subject.Epilepsy == true)
+            {
+                stamper.AcroFields.SetField("Epilepsy", "106", true);
+            }
+            if (subject.Cancer == true)
+            {
+                stamper.AcroFields.SetField("Cancer", "107", true);
+            }
+            if (subject.HeartCondition == true)
+            {
+                stamper.AcroFields.SetField("HeartCondition", "108", true);
+            }
+            if (subject.Anemia == true)
+            {
+                stamper.AcroFields.SetField("Anemia", "109", true);
+            }
+            if (subject.Pacemaker == true)
+            {
+                stamper.AcroFields.SetField("Pacemaker", "110", true);
+                //stamper.AcroFields.SetField
+            }
+            if (subject.Pregnant == true)
+            {
+                stamper.AcroFields.SetField("Pregnant", "111", true);
+            }
+            if (subject.STD == true)
+            {
+                stamper.AcroFields.SetField("STD", "112", true);
+            }
+
+            //box option 2
+            if (subject.Depression == true)
+            {
+                stamper.AcroFields.SetField("Depression", "201", true);
+            }
+            if (subject.Sleep == true)
+            {
+                stamper.AcroFields.SetField("Sleep", "202", true);
+            }
+            if (subject.Menstruation == true)
+            {
+                stamper.AcroFields.SetField("Menstruation", "203", true);
+            }
+            if (subject.Fertility == true)
+            {
+                stamper.AcroFields.SetField("Fertility", "204", true);
+            }
+            if (subject.WeightControl == true)
+            {
+                stamper.AcroFields.SetField("WeightControl", "205", true);
+            }
+            if (subject.Other == true)
+            {
+                stamper.AcroFields.SetField("Other", "206", true);
+            }
+            if (subject.Pain == true)
+            {
+                stamper.AcroFields.SetField("Pain", "207", true);
+            }
+            //stamper.AcroFields.SetField("Headache", "208", true);
+            if (subject.Headache == true)
+            {
+                stamper.AcroFields.SetField("Headache", "209", true);
+            }
+            if (subject.CommonCold == true)
+            {
+                stamper.AcroFields.SetField("CommonCold", "210", true);
+            }
+            if (subject.HighBloodPressure == true)
+            {
+                stamper.AcroFields.SetField("HighBloodPressure", "211", true);
+            }
+            if (subject.Stress == true)
+            {
+                stamper.AcroFields.SetField("Stress", "212", true);
+            }
+
+
+            //generate age
+            DateTime now = DateTime.Today;
+            int age = now.Year - subject.DOB.Year;
+            if (now < subject.DOB.AddYears(age))
+            {
+                age--;
+            }
+            stamper.AcroFields.SetField("Age", age.ToString());
+
+            //generate gender
+            string gender = "Error";
+            if (subject.Male == true)
+            { gender = "Male"; }
+            else if (subject.Female == true)
+            { gender = "Female"; }
+            stamper.AcroFields.SetField("Sex", gender);
+
+            
+            //put in signatures
+            Signature signatureclient = (Signature)TempData["SignatureClientPI"];
+            Signature signaturepractioner = (Signature)TempData["SignaturePractioner"];
+
+            if (signatureclient == null || signaturepractioner == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            
+            //first signature
+            Image x = (Bitmap)((new ImageConverter()).ConvertFrom(signatureclient.MySignature));
+            System.Drawing.Image img = x;
+            img.Save(Server.MapPath("~/Content/signatureclient.png"), System.Drawing.Imaging.ImageFormat.Png);
+            iTextSharp.text.Image sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signatureclient.png"));
+            // Scale image to fit
+            sigImg.ScaleToFit(80, 80);
+            // Set signature position on page
+            sigImg.SetAbsolutePosition(169, 50);  //x, y
+            // Add signatures to desired page
+            PdfContentByte over = stamper.GetOverContent(1);
+            over.AddImage(sigImg);
+            //second signature
+            x = (Bitmap)((new ImageConverter()).ConvertFrom(signaturepractioner.MySignature));
+            img = x;
+            img.Save(Server.MapPath("~/Content/signaturepractioner.png"), System.Drawing.Imaging.ImageFormat.Png);
+            sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signaturepractioner.png"));
+            sigImg.ScaleToFit(80, 80);
+            sigImg.SetAbsolutePosition(440, 50);
+            over = stamper.GetOverContent(1);
+            over.AddImage(sigImg);
+            
+
+            //close and create new pdf
+            // Form fields should no longer be editable
+            stamper.FormFlattening = true;
+
+            stamper.Close();
+            reader.Close();
+
+            Response.AddHeader("Content-Disposition", "attachment; filename=" + subject.Name + "_Insurance" + "_" + DateTime.Now.ToShortDateString() + ".pdf");
+            Response.ContentType = "application/pdf";
+
+            Response.BinaryWrite(output.ToArray());
+            Response.End();
+
+
+            //return View();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult AllForms()
+        {
+            return View();
         }
 
 
