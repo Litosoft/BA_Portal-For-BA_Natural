@@ -127,15 +127,21 @@ namespace BA_Portal.Controllers
             base.Dispose(disposing);
         }
 
+        public ActionResult GenerateSignedPDFforInsurance()
+        {
 
+            return View();
+        }
 
         public ActionResult GeneratePDFforSignature(int? id)
         {
-
+            /*
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            }*/
+
+
             Signature signature = db.SignatureDatabase.Find(id);
 
             //this can be handled by converting the signature to jpg and saving locally in contents.
@@ -179,6 +185,28 @@ namespace BA_Portal.Controllers
 
             //return View();
             return RedirectToAction("Index");
+        }
+
+
+
+        public ActionResult GetClientSignatureInsurance()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GetClientSignatureInsurance([Bind(Include = "ID,MySignature")] Signature signature)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["SignatureClientInsurance"] = signature;
+
+                return RedirectToAction("GetPractitionerSignature");
+            }
+
+            return View(signature);
         }
 
         public ActionResult GetClientSignature()

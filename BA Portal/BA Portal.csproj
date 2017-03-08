@@ -223,6 +223,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewFunctionTestsController.cs" />
+    <Compile Include="Controllers\PDFsController.cs" />
     <Compile Include="Controllers\SignaturesController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -240,6 +241,7 @@
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\PDF.cs" />
     <Compile Include="Models\PDFtestClass.cs" />
     <Compile Include="Models\Signature.cs" />
     <Compile Include="Models\SOAP.cs" />
@@ -284,6 +286,7 @@
     <Content Include="App_Browsers\qt.browser" />
     <Content Include="Content\PDFforInsurance.pdf" />
     <Content Include="Content\PDFforPersonalInformation.pdf" />
+    <Content Include="PDF_handler\Elmo_Insurance_3_6_2017.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -333,15 +336,15 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\NewFunctionTests\Index.cshtml" />
-    <Content Include="Views\NewFunctionTests\OptionalParamater.cshtml" />
+    <Content Include="NewFunctionTests\Index.cshtml" />
+    <Content Include="NewFunctionTests\OptionalParamater.cshtml" />
     <Content Include="Views\Subjects\Create.cshtml" />
     <Content Include="Views\Subjects\Delete.cshtml" />
     <Content Include="Views\Subjects\Details.cshtml" />
     <Content Include="Views\Subjects\Edit.cshtml" />
     <Content Include="Views\Subjects\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
-    <Content Include="Views\Subjects\InsuranceForm.cshtml" />
+    <Content Include="Views\Signatures\GetClientSignatureInsurance.cshtml" />
     <Content Include="Views\Subjects\ConsentFormModel.cshtml" />
     <Content Include="Views\Account\Forbidden.cshtml" />
     <Content Include="Views\Account\UserDetails.cshtml" />
@@ -353,7 +356,7 @@
     <Content Include="Views\Signatures\Edit.cshtml" />
     <Content Include="Views\Signatures\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutwithoutNavigation.cshtml" />
-    <Content Include="Views\NewFunctionTests\Index1.cshtml" />
+    <Content Include="NewFunctionTests\Index1.cshtml" />
     <Content Include="Views\Subjects\Soap.cshtml" />
     <Content Include="Views\Subjects\Insurance.cshtml" />
     <Content Include="Views\Subjects\PersonalInformation.cshtml" />
@@ -362,6 +365,13 @@
     <Content Include="Views\Signatures\GetClientSignature.cshtml" />
     <Content Include="Views\Signatures\GetPractitionerSignature.cshtml" />
     <Content Include="Views\Signatures\FinalResults.cshtml" />
+    <Content Include="Views\PDFs\Create.cshtml" />
+    <Content Include="Views\PDFs\Delete.cshtml" />
+    <Content Include="Views\PDFs\Details.cshtml" />
+    <Content Include="Views\PDFs\Edit.cshtml" />
+    <Content Include="Views\PDFs\Index.cshtml" />
+    <Content Include="Views\PDFs\ReadPDFfromDatabase.cshtml" />
+    <Content Include="Views\PDFs\SavePDFtoDatabase.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

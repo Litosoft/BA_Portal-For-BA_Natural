@@ -41,9 +41,14 @@ h1, h2 {
     padding: 1px;
 }
 
+#border02 {
+    border: 2px solid purple;
+    padding: 25px;
+}
+
 span.border01 {
-    border: 2px double red;
-    padding: 1px;
+    border: 5px double black;
+    padding: 10px;
 }
 
 pre {
