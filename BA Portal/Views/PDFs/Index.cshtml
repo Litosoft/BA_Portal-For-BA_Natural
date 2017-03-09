@@ -16,7 +16,7 @@
             @Html.DisplayNameFor(model => model.SearchTag)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PDFinbytes)
+            @Html.DisplayNameFor(model => model.GroupingID)
         </th>
         <th></th>
     </tr>
@@ -27,10 +27,10 @@
             @Html.DisplayFor(modelItem => item.SearchTag)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PDFinbytes)
+            @Html.DisplayFor(model => item.GroupingID)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>

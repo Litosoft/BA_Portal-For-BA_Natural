@@ -124,33 +124,33 @@ namespace BA_Portal.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult SavePDFtoDatabase()
+        public ActionResult SavePDFtoDatabase(string path, string tag, int GroupingID)
         {
 
-            byte[] bytes = System.IO.File.ReadAllBytes(Server.MapPath("~/PDF_handler/Elmo_Insurance_3_6_2017.pdf"));
-            PDF testPDF = new PDF();
-            testPDF.PDFinbytes = bytes;
-            testPDF.SearchTag = "test";
+            byte[] bytes = System.IO.File.ReadAllBytes(Server.MapPath(path));
+            PDF PDFtoStore = new PDF();
+            PDFtoStore.PDFinbytes = bytes;
+            PDFtoStore.SearchTag = tag;
+            PDFtoStore.GroupingID = GroupingID;
 
-            db.PDFDatabase.Add(testPDF);
+            db.PDFDatabase.Add(PDFtoStore);
             db.SaveChanges();
-            return View();
-            //return RedirectToAction("Index");
+            //return View();
+            return RedirectToAction("Index");
 
    
         }
 
-        public ActionResult ReadPDFfromDatabase(int? id)
+
+        public FileContentResult ReadPDFfromDatabase(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
 
             PDF pDF = db.PDFDatabase.Find(id);
-            System.IO.File.WriteAllBytes(Server.MapPath("~/Content/testpdf.pdf"), pDF.PDFinbytes);
+            System.IO.File.WriteAllBytes(Server.MapPath("~/PDF_handler/readpdf.pdf"), pDF.PDFinbytes);
+            byte[] doc = pDF.PDFinbytes;
+            Response.AppendHeader("Content-Disposition", "inline; filename=" + "readpdf.pdf");
+            return File(doc, "application/pdf");
 
-            return View();
         }
 
 

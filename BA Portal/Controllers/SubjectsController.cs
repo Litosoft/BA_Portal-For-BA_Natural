@@ -196,10 +196,15 @@ namespace BA_Portal.Controllers
             }
             Subject subject = db.SubjectDatabase.Find(id);
             
+            /*
+             * This is how to save the file locally. using filestream, filemod.create, and a path that includes 
+             * the filename 
+             */
 
               //create new pdf form from template
             var reader = new PdfReader(Server.MapPath("~/Content/PDFforPersonalInformation.pdf"));
-            var output = new MemoryStream();
+            //var output = new MemoryStream();
+            var output = new FileStream(Server.MapPath("~/Content/GeneratePDFforPI.pdf"), FileMode.Create);
             var stamper = new PdfStamper(reader, output);
 
            //fill fiels on pdf form. 
@@ -344,14 +349,14 @@ namespace BA_Portal.Controllers
 
             stamper.Close();
             reader.Close();
-
+            /*
             Response.AddHeader("Content-Disposition", "attachment; filename=" + subject.Name + "_Insurance" + "_" + DateTime.Now.ToShortDateString() + ".pdf");
             Response.ContentType = "application/pdf";
 
             Response.BinaryWrite(output.ToArray());
             Response.End();
-
-
+            */
+            
             //return View();
             return RedirectToAction("Index");
         }
@@ -364,10 +369,11 @@ namespace BA_Portal.Controllers
             }
             Subject subject = db.SubjectDatabase.Find(id);
 
-
+            
             //create new pdf form from template
             var reader = new PdfReader(Server.MapPath("~/Content/PDFforPersonalInformation.pdf"));
-            var output = new MemoryStream();
+            //var output = new MemoryStream();
+            var output = new FileStream(Server.MapPath("~/PDF_handler/GeneratePDFforPI.pdf"), FileMode.Create);
             var stamper = new PdfStamper(reader, output);
 
             //fill fiels on pdf form. 
@@ -545,15 +551,20 @@ namespace BA_Portal.Controllers
             stamper.Close();
             reader.Close();
 
+            /*
             Response.AddHeader("Content-Disposition", "attachment; filename=" + subject.Name + "_Insurance" + "_" + DateTime.Now.ToShortDateString() + ".pdf");
             Response.ContentType = "application/pdf";
 
             Response.BinaryWrite(output.ToArray());
             Response.End();
+            */
 
+            string path = "~/PDF_handler/GeneratePDFforPI.pdf";
+            string tag = "Personal Information";
+            string GroupingID = id.ToString();
 
             //return View();
-            return RedirectToAction("Index");
+            return RedirectToAction("SavePDFtoDatabase", "PDFs", new { path = path, tag = tag, GroupingID = GroupingID });
         }
 
         public ActionResult AllForms()
