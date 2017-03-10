@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "TakeAnotherAction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} 
+
+<h3>Would you like to also add an insurance form?</h3> 
+<div >
+    <h2>@Html.ActionLink("Yes", "GetClientSignatureInsurance", new { GroupingID = ViewBag.findid }) </h2>
+    <h2>@Html.ActionLink("No", "Index", "Signatures")</h2>
+</div>

@@ -284,9 +284,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Browsers\qt.browser" />
-    <Content Include="Content\PDFforInsurance.pdf" />
     <Content Include="Content\PDFforPersonalInformation.pdf" />
     <Content Include="PDF_handler\Elmo_Insurance_3_6_2017.pdf" />
+    <Content Include="Content\PDFforInsurance.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -377,6 +377,8 @@
     <Content Include="Views\Signatures\GetPractitionerSignaturePI.cshtml" />
     <Content Include="Views\Subjects\GeneratePDFforPI.cshtml" />
     <Content Include="Views\Subjects\GeneratePDF.cshtml" />
+    <Content Include="Views\PDFs\TakeAnotherAction.cshtml" />
+    <Content Include="Views\Signatures\CaptureIDandRedirectforInsurance.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

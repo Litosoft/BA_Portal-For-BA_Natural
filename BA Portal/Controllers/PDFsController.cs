@@ -132,10 +132,18 @@ namespace BA_Portal.Controllers
             PDFtoStore.PDFinbytes = bytes;
             PDFtoStore.SearchTag = tag;
             PDFtoStore.GroupingID = GroupingID;
+            PDFtoStore.Description = DateTime.Now.ToShortDateString();
 
             db.PDFDatabase.Add(PDFtoStore);
             db.SaveChanges();
-            //return View();
+
+
+            if(PDFtoStore.SearchTag == "Personal Information")
+            {
+
+                return RedirectToAction("TakeAnotherAction", "PDFs", new { GroupingID = GroupingID });
+            }
+                
             return RedirectToAction("Index");
 
    
@@ -151,6 +159,20 @@ namespace BA_Portal.Controllers
             Response.AppendHeader("Content-Disposition", "inline; filename=" + "readpdf.pdf");
             return File(doc, "application/pdf");
 
+        }
+
+        public ActionResult TakeAnotherAction(int? GroupingID)
+        {
+            /*
+            if (GroupingID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            */
+
+            ViewBag.findid = 1;
+
+            return View();
         }
 
 

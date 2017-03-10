@@ -188,6 +188,21 @@ namespace BA_Portal.Controllers
         }
 
 
+        //entry point for new insurance forms
+        public ActionResult CaptureIDandRedirectforInsurance(int? id =1)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            TempData["InsuranceID"] = id;
+
+            return RedirectToAction("GetClientSignatureInsurance");
+
+        }
+
+
 
         public ActionResult GetClientSignatureInsurance()
         {
@@ -202,8 +217,9 @@ namespace BA_Portal.Controllers
             if (ModelState.IsValid)
             {
                 TempData["SignatureClientInsurance"] = signature;
+                int idInsurance = (int)TempData["InsuranceID"];
 
-                return RedirectToAction("GetPractitionerSignature");
+                return RedirectToAction("GeneratePDFforInsurance", "Subjects", new { id = idInsurance});
             }
 
             return View(signature);

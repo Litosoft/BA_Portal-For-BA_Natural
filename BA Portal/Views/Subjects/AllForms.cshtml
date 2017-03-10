@@ -4,5 +4,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>AllForms</h2>
+<h2>All Forms</h2>
+ID selected = @ViewBag.AllFormsID <br />
+ID selected = @ViewBag.AllFormsID <br />
+ID selected = @ViewBag.AllFormsID <br />
+
+<br /><br />
+<h4>Personal Information Form(s)</h4> <br /><br /><br />
+
+
+<h4>Insurance Form(s)</h4> <br />
+@Html.ActionLink("Add a new Insurance Form", "CaptureIDandRedirectforInsurance", "Signatures", new { id = ViewBag.AllFormsID },null)
+
+<br /><br />
+
+<h4>Soap Form(s)</h4> <br /><br /><br />
 

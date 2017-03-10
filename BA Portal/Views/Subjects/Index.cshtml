@@ -76,11 +76,8 @@
         </td>
         <td>
           
-                @Html.ActionLink("Insurance Form(s)", "Insurance", new { id = item.ID }) |
-                <br />
-                @Html.ActionLink("Personal Information Form", "PersonalInformation", new { id = item.ID }) |
-                <br />
-                @Html.ActionLink("Soap Note(s)", "Soap", new { id = item.ID }) |
+            <strong> @Html.ActionLink("All Form(s)", "AllForms", new { id = item.ID }) </strong>
+                
 
             @*
     @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

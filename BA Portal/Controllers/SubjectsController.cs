@@ -567,9 +567,69 @@ namespace BA_Portal.Controllers
             return RedirectToAction("SavePDFtoDatabase", "PDFs", new { path = path, tag = tag, GroupingID = GroupingID });
         }
 
-        public ActionResult AllForms()
+        public ActionResult AllForms(int? id)
         {
+
+            ViewBag.AllFormsID = id;
             return View();
+        }
+
+
+        public ActionResult GeneratePDFforInsurance(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subject subject = db.SubjectDatabase.Find(id);
+
+
+            //create new pdf form from template
+            var reader = new PdfReader(Server.MapPath("~/Content/PDFforInsurance.pdf"));
+            //var output = new MemoryStream();
+            var output = new FileStream(Server.MapPath("~/PDF_handler/GeneratePDFforInsurance.pdf"), FileMode.Create);
+            var stamper = new PdfStamper(reader, output);
+
+            //fill fiels on pdf form. 
+            stamper.AcroFields.SetField("FullName", subject.Name);
+            stamper.AcroFields.SetField("Date", DateTime.Now.ToShortDateString());
+
+
+
+            //put in signatures
+            Signature signatureclient = (Signature)TempData["SignatureClientInsurance"];
+
+            if (signatureclient == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+
+            //first signature
+            Image x = (Bitmap)((new ImageConverter()).ConvertFrom(signatureclient.MySignature));
+            System.Drawing.Image img = x;
+            img.Save(Server.MapPath("~/Content/signatureclient.png"), System.Drawing.Imaging.ImageFormat.Png);
+            iTextSharp.text.Image sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signatureclient.png"));
+            // Scale image to fit
+            sigImg.ScaleToFit(75, 75);
+            // Set signature position on page
+            sigImg.SetAbsolutePosition(110, 112);  //x, y
+            // Add signatures to desired page
+            PdfContentByte over = stamper.GetOverContent(1);
+            over.AddImage(sigImg);
+
+
+            stamper.FormFlattening = true;
+
+            stamper.Close();
+            reader.Close();
+
+            string path = "~/PDF_handler/GeneratePDFforInsurance.pdf";
+            string tag = "Insurance";
+            string GroupingID = id.ToString();
+
+            //return View();
+            return RedirectToAction("SavePDFtoDatabase", "PDFs", new { path = path, tag = tag, GroupingID = GroupingID });
         }
 
 

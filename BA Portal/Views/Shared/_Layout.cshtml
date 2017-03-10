@@ -31,7 +31,7 @@
                 </ul>
 
 
-@if (ViewContext.HttpContext.User.IsInRole("CanManageUsers"))
+@if (ViewContext.HttpContext.User.IsInRole("CanManageUsers") || ViewContext.HttpContext.User.IsInRole("CanEdit"))
 {
     <div class="navbar-collapse collapse navbar-left">
         <ul class="nav navbar-nav">
@@ -42,9 +42,12 @@
                     @if (ViewContext.HttpContext.User.IsInRole("CanManageUsers"))
                     {
                         <li>@Html.ActionLink("Manage Users", "Index", "Account")</li>
+                        <li>@Html.ActionLink("Manage PDFs", "Index", "PDFs")</li>
+                        <li>@Html.ActionLink("Signatures", "Index", "Signatures")</li>
+                        
                     }
-                    <li>@Html.ActionLink("Signatures", "Index", "Signatures")</li>
-                    @*<li>@Html.ActionLink("Question Index", "Index", "DualDatabaseTestSchemeQuestions")</li>*@
+
+                    @*<li>@Html.ActionLink("Placeholder", "Index", "Home")</li> *@
 
                 </ul>
             </li>
