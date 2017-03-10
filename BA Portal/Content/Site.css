@@ -46,6 +46,16 @@ h1, h2 {
     padding: 25px;
 }
 
+#border03 {
+    border: 2px solid yellow;
+    padding: 25px;
+}
+
+#border04 {
+    border: 2px solid blue;
+    padding: 25px;
+}
+
 span.border01 {
     border: 5px double black;
     padding: 10px;

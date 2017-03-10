@@ -163,16 +163,44 @@ namespace BA_Portal.Controllers
 
         public ActionResult TakeAnotherAction(int? GroupingID)
         {
-            /*
+            
             if (GroupingID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            */
 
-            ViewBag.findid = 1;
+         
 
             return View();
+        }
+
+        public ActionResult AllForms(int? GroupingID)
+        {
+            if (GroupingID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Subject subject = (Subject)TempData["PassSubjecttoAllForms"];
+
+            if (subject == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewBag.Name = subject.Name;
+            ViewBag.DOB = subject.DOB.ToShortDateString();
+            ViewBag.PhoneHome = subject.PhoneHome;
+            ViewBag.PhoneCell = subject.PhoneCell;
+
+
+            var FormsSelected = from m in db.PDFDatabase select m;
+            //FormsSelected = FormsSelected.Where(s => s.GroupingID.Equals(GroupingID));
+            FormsSelected = FormsSelected.Where(s => s.GroupingID == GroupingID);
+
+            return View(FormsSelected);
+
+
         }
 
 

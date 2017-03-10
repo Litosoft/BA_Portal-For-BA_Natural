@@ -20,23 +20,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SearchTag)
-        </td>
-        <td>
-            @Html.DisplayFor(model => item.GroupingID)
-        </td>
-        <td>
-            @Html.DisplayFor(model => item.Description)
-        </td>
-        <td>
-            <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SearchTag)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.GroupingID)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Description)
+            </td>
+            <td>
+                <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>

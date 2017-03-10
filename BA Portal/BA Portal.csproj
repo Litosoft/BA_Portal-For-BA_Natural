@@ -372,7 +372,7 @@
     <Content Include="Views\PDFs\Index.cshtml" />
     <Content Include="Views\PDFs\ReadPDFfromDatabase.cshtml" />
     <Content Include="Views\PDFs\SavePDFtoDatabase.cshtml" />
-    <Content Include="Views\Subjects\AllForms.cshtml" />
+    <Content Include="Views\PDFs\AllForms.cshtml" />
     <Content Include="Views\Signatures\GetClientSignaturePI.cshtml" />
     <Content Include="Views\Signatures\GetPractitionerSignaturePI.cshtml" />
     <Content Include="Views\Subjects\GeneratePDFforPI.cshtml" />

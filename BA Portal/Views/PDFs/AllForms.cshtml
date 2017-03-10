@@ -1,0 +1,125 @@
+﻿
+
+@model IEnumerable<BA_Portal.Models.PDF>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewBag.Name</h1> 
+Born: @ViewBag.DOB    <br />
+Home Phone: @ViewBag.PhoneHome     <br />
+Cell Phone: @ViewBag.PhoneCell    <br />
+
+<br />
+<h1>All Forms</h1> 
+<br />
+
+<h3>Personal Information:</h3><br />
+@{
+
+    <table id="border02" class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchTag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.SearchTag == "Personal Information")
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SearchTag)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Description)
+                    </td>
+                    <td>
+                        <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+}
+<br />
+<h3>Insurance:</h3><br />
+@{
+
+    <table id="border02" class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchTag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.SearchTag == "Insurance")
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SearchTag)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Description)
+                    </td>
+                    <td>
+                        <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+}
+<br />
+<h3>Soap:</h3><br />
+@{
+
+    <table id="border02" class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchTag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.SearchTag == "Soap")
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SearchTag)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Description)
+                    </td>
+                    <td>
+                        <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+}

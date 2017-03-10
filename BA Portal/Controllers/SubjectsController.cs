@@ -567,13 +567,6 @@ namespace BA_Portal.Controllers
             return RedirectToAction("SavePDFtoDatabase", "PDFs", new { path = path, tag = tag, GroupingID = GroupingID });
         }
 
-        public ActionResult AllForms(int? id)
-        {
-
-            ViewBag.AllFormsID = id;
-            return View();
-        }
-
 
         public ActionResult GeneratePDFforInsurance(int? id)
         {
@@ -631,6 +624,21 @@ namespace BA_Portal.Controllers
             //return View();
             return RedirectToAction("SavePDFtoDatabase", "PDFs", new { path = path, tag = tag, GroupingID = GroupingID });
         }
+
+        public ActionResult PassSubjecttoAllForms(int? id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subject subject = db.SubjectDatabase.Find(id);
+            TempData["PassSubjecttoAllForms"] = subject;
+
+
+            return RedirectToAction("AllForms", "PDFs", new { GroupingID = id });
+        }
+
 
 
     }
