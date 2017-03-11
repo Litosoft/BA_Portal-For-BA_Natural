@@ -144,7 +144,7 @@ namespace BA_Portal.Controllers
                 return RedirectToAction("TakeAnotherAction", "PDFs", new { GroupingID = GroupingID });
             }
                 
-            return RedirectToAction("Index");
+            return RedirectToAction("PassSubjecttoAllForms", "Subjects", new { id = GroupingID });
 
    
         }
@@ -169,6 +169,8 @@ namespace BA_Portal.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            ViewBag.ID = GroupingID;
+
          
 
             return View();
@@ -192,6 +194,12 @@ namespace BA_Portal.Controllers
             ViewBag.DOB = subject.DOB.ToShortDateString();
             ViewBag.PhoneHome = subject.PhoneHome;
             ViewBag.PhoneCell = subject.PhoneCell;
+            ViewBag.Id = subject.ID;
+
+            ViewBag.City = subject.City;
+            ViewBag.Email = subject.Email;
+            ViewBag.Allergy = subject.Allergy.ToString();
+            ViewBag.ReferredBy = subject.ReferredBy;
 
 
             var FormsSelected = from m in db.PDFDatabase select m;

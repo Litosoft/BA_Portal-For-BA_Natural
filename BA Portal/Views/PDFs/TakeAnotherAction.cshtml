@@ -6,6 +6,6 @@
 
 <h3>Would you like to also add an insurance form?</h3> 
 <div >
-    <h2>@Html.ActionLink("Yes", "GetClientSignatureInsurance", new { GroupingID = ViewBag.findid }) </h2>
-    <h2>@Html.ActionLink("No", "Index", "Signatures")</h2>
+    <h2>@Html.ActionLink("Yes", "CaptureIDandRedirectforInsurance", "Signatures", new { id = ViewBag.ID },null) </h2>
+    <h2>@Html.ActionLink("No", "PassSubjecttoAllForms", "Subjects", new { id = ViewBag.ID }, null)</h2>
 </div>

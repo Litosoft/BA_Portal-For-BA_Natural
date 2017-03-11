@@ -202,6 +202,19 @@ namespace BA_Portal.Controllers
 
         }
 
+        public ActionResult CaptureIDandRedirectforPI(int? id = 1)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            TempData["DatabaseID_PI"] = id;
+
+            return RedirectToAction("GetClientSignaturePI");
+
+        }
+
 
 
         public ActionResult GetClientSignatureInsurance()
