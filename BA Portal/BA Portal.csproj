@@ -225,15 +225,11 @@
     <Compile Include="Controllers\NewFunctionTestsController.cs" />
     <Compile Include="Controllers\PDFsController.cs" />
     <Compile Include="Controllers\SignaturesController.cs" />
+    <Compile Include="Controllers\SOAPFormsController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703080520155_InitialCreate.cs" />
-    <Compile Include="Migrations\201703080520155_InitialCreate.Designer.cs">
-      <DependentUpon>201703080520155_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -244,7 +240,7 @@
     <Compile Include="Models\PDF.cs" />
     <Compile Include="Models\PDFtestClass.cs" />
     <Compile Include="Models\Signature.cs" />
-    <Compile Include="Models\SOAP.cs" />
+    <Compile Include="Models\SOAPForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -336,8 +332,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="NewFunctionTests\Index.cshtml" />
-    <Content Include="NewFunctionTests\OptionalParamater.cshtml" />
+    <Content Include="Views\NewFunctionTests\Index.cshtml" />
+    <Content Include="Views\NewFunctionTests\OptionalParamater.cshtml" />
     <Content Include="Views\Subjects\Create.cshtml" />
     <Content Include="Views\Subjects\Delete.cshtml" />
     <Content Include="Views\Subjects\Details.cshtml" />
@@ -356,7 +352,7 @@
     <Content Include="Views\Signatures\Edit.cshtml" />
     <Content Include="Views\Signatures\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutwithoutNavigation.cshtml" />
-    <Content Include="NewFunctionTests\Index1.cshtml" />
+    <Content Include="Views\NewFunctionTests\Index1.cshtml" />
     <Content Include="Views\Subjects\Soap.cshtml" />
     <Content Include="Views\Subjects\Insurance.cshtml" />
     <Content Include="Views\Subjects\PersonalInformation.cshtml" />
@@ -379,6 +375,14 @@
     <Content Include="Views\Subjects\GeneratePDF.cshtml" />
     <Content Include="Views\PDFs\TakeAnotherAction.cshtml" />
     <Content Include="Views\Signatures\CaptureIDandRedirectforInsurance.cshtml" />
+    <Content Include="Views\NewFunctionTests\TESTFORM.cshtml" />
+    <Content Include="Views\NewFunctionTests\CheckFormValues.cshtml" />
+    <Content Include="Views\NewFunctionTests\TESTFORM1.cshtml" />
+    <Content Include="Views\SOAPForms\Create.cshtml" />
+    <Content Include="Views\SOAPForms\Delete.cshtml" />
+    <Content Include="Views\SOAPForms\Details.cshtml" />
+    <Content Include="Views\SOAPForms\Edit.cshtml" />
+    <Content Include="Views\SOAPForms\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -390,11 +394,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703080520155_InitialCreate.resx">
-      <DependentUpon>201703080520155_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BA_Portal.Models;
 
 namespace BA_Portal.Controllers
 {
@@ -55,6 +56,30 @@ namespace BA_Portal.Controllers
             DateTime now = DateTime.Now;
 
             return (now);
+        }
+
+        public ActionResult TESTFORM()
+        {
+            return View();
+        }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult TESTFORM1(string string1, string string2, [Bind(Include = "ID,SearchTag,PDFinbytes")] PDF pDF)
+        {
+            pDF.Description = string2;
+            
+            TempData["pdftest"] = pDF;
+
+            return RedirectToAction("CheckFormValues");
+        }
+
+        public ActionResult CheckFormValues()
+        {
+            PDF pDF = new PDF();
+            pDF = (PDF)TempData["pdftest"];
+            return View(pDF);
+
         }
     }
 }

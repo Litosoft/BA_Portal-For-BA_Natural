@@ -1,0 +1,544 @@
+﻿@model IEnumerable<BA_Portal.Models.SOAPForm>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PractionerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PractionerLicenseNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BodyTemperature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubjectiveObjectiveNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateFilledIn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeTreatmentStarted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeTreatmentEnded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsGeneral)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PresentingProblems)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsChillsFeverNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsChillsFeverNone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsChillsFeverSubjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsChillsFeverObjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsPerspiratonNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsPerspiratonNone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsPerspiratonSubjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsPerspiratonObjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsUrinationNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsUrinationNormal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsUrinationSubjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsUrinationObjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsHeadacheBodyacheNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsHeadacheBodyacheNone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsRespirationNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsRespirationNormal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsRespirationSubjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsRespirationObjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsSleepEnergyNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsSleepEnergyNormal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsSleepEnergySubjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsSleepEnergyObjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsReproductiveNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsReproductiveNormal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsMentalEmotionalNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsMentalEmotionalNormal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsMentalEmotionalSubjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsMentalEmotionalObjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsEarsEyesTeethGumsNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsEarsEyesTeethGumsNormal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsEarsEyesTeethGumsSubjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsEarsEyesTeethGumsObjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsAppetiteDigestionDefecationNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsAppetiteDigestionDefecationNormal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsAppetiteDigestionDefecationSubjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsAppetiteDigestionDefecationObjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsPalpitationDizzinessNumbnessNotes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsPalpitationDizzinessNumbnessNone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsPalpitationDizzinessNumbnessSubjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymptomsPalpitationDizzinessNumbnessObjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TongueBodyColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TongueCoating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoatColoration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoatRooting)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PulseRight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PulseLeft)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssessmentandDiagnosis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlanofTreatment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CleanNeedSet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet1ElectricalStimulation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet1TuiNa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet1CuppingTherapy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet2ElectricalStimulation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet2TuiNa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet2CuppingTherapy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet3ElectricalStimulation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet3TuiNa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet3CuppingTherapy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet4ElectricalStimulation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet4TuiNa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet4CuppingTherapy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet5ElectricalStimulation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet5TuiNa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet5CuppingTherapy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet6ElectricalStimulation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet6TuiNa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlingSet6CuppingTherapy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HerbalFormulaId1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HerbalFormulaId1Directions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HerbalFormulaId2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HerbalFormulaId2Directions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HerbalFormulaId3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HerbalFormulaId3Directions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostTreatmentAssessment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Recomendations)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PractionerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PractionerLicenseNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatientName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BodyTemperature)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubjectiveObjectiveNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateFilledIn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeTreatmentStarted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeTreatmentEnded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsGeneral)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PresentingProblems)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsChillsFeverNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsChillsFeverNone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsChillsFeverSubjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsChillsFeverObjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsPerspiratonNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsPerspiratonNone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsPerspiratonSubjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsPerspiratonObjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsUrinationNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsUrinationNormal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsUrinationSubjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsUrinationObjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsHeadacheBodyacheNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsHeadacheBodyacheNone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsRespirationNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsRespirationNormal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsRespirationSubjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsRespirationObjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsSleepEnergyNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsSleepEnergyNormal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsSleepEnergySubjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsSleepEnergyObjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsReproductiveNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsReproductiveNormal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsMentalEmotionalNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsMentalEmotionalNormal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsMentalEmotionalSubjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsMentalEmotionalObjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsEarsEyesTeethGumsNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsEarsEyesTeethGumsNormal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsEarsEyesTeethGumsSubjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsEarsEyesTeethGumsObjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsAppetiteDigestionDefecationNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsAppetiteDigestionDefecationNormal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsAppetiteDigestionDefecationSubjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsAppetiteDigestionDefecationObjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsPalpitationDizzinessNumbnessNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsPalpitationDizzinessNumbnessNone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsPalpitationDizzinessNumbnessSubjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymptomsPalpitationDizzinessNumbnessObjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TongueBodyColor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TongueCoating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoatColoration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoatRooting)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PulseRight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PulseLeft)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssessmentandDiagnosis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlanofTreatment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CleanNeedSet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet1ElectricalStimulation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet1TuiNa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet1CuppingTherapy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet2ElectricalStimulation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet2TuiNa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet2CuppingTherapy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet3ElectricalStimulation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet3TuiNa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet3CuppingTherapy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet4ElectricalStimulation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet4TuiNa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet4CuppingTherapy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet5ElectricalStimulation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet5TuiNa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet5CuppingTherapy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet6ElectricalStimulation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet6TuiNa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlingSet6CuppingTherapy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HerbalFormulaId1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HerbalFormulaId1Directions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HerbalFormulaId2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HerbalFormulaId2Directions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HerbalFormulaId3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HerbalFormulaId3Directions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostTreatmentAssessment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Recomendations)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
