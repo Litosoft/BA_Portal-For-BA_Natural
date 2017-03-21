@@ -625,6 +625,236 @@ namespace BA_Portal.Controllers
             return RedirectToAction("SavePDFtoDatabase", "PDFs", new { path = path, tag = tag, GroupingID = GroupingID });
         }
 
+        public ActionResult GeneratePDFforDisclaimer1(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subject subject = db.SubjectDatabase.Find(id);
+
+
+            //create new pdf form from template
+            var reader = new PdfReader(Server.MapPath("~/Content/Disclaimer.pdf"));
+            //var output = new MemoryStream();
+            var output = new FileStream(Server.MapPath("~/PDF_handler/Disclaimer.pdf"), FileMode.Create);
+            var stamper = new PdfStamper(reader, output);
+
+            //fill fiels on pdf form. 
+            stamper.AcroFields.SetField("PrintName", subject.Name);
+            stamper.AcroFields.SetField("Date", DateTime.Now.ToShortDateString());
+
+
+
+            //put in signatures
+            Signature signatureclient = (Signature)TempData["SignatureClientInsurance"];
+
+            if (signatureclient == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+
+            //first signature
+            Image x = (Bitmap)((new ImageConverter()).ConvertFrom(signatureclient.MySignature));
+            System.Drawing.Image img = x;
+            img.Save(Server.MapPath("~/Content/signatureclient.png"), System.Drawing.Imaging.ImageFormat.Png);
+            iTextSharp.text.Image sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signatureclient.png"));
+            // Scale image to fit
+            sigImg.ScaleToFit(70, 70);
+            // Set signature position on page
+            sigImg.SetAbsolutePosition(55, 132);  //x, y
+            // Add signatures to desired page
+            PdfContentByte over = stamper.GetOverContent(1);
+            over.AddImage(sigImg);
+
+
+            stamper.FormFlattening = true;
+
+            stamper.Close();
+            reader.Close();
+
+            string path = "~/PDF_handler/Disclaimer.pdf";
+            string tag = "Disclaimer1";
+            string GroupingID = id.ToString();
+
+            //return View();
+            return RedirectToAction("SavePDFtoDatabase", "PDFs", new { path = path, tag = tag, GroupingID = GroupingID });
+        }
+
+        public ActionResult GeneratePDFforDisclaimer2(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subject subject = db.SubjectDatabase.Find(id);
+
+
+            //create new pdf form from template
+            var reader = new PdfReader(Server.MapPath("~/Content/Disclaimer_PT_Benefits.pdf"));
+            //var output = new MemoryStream();
+            var output = new FileStream(Server.MapPath("~/PDF_handler/Disclaimer_PT_Benefits.pdf"), FileMode.Create);
+            var stamper = new PdfStamper(reader, output);
+
+            //fill fiels on pdf form. 
+            stamper.AcroFields.SetField("PrintName", subject.Name);
+            stamper.AcroFields.SetField("DateFinal", DateTime.Now.ToShortDateString());
+
+            //have to choose to fill in one field or the other. additional input required.
+
+            //put in signatures
+            Signature signatureclient = (Signature)TempData["SignatureClientInsurance"];
+
+            if (signatureclient == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+
+            //first signature
+            Image x = (Bitmap)((new ImageConverter()).ConvertFrom(signatureclient.MySignature));
+            System.Drawing.Image img = x;
+            img.Save(Server.MapPath("~/Content/signatureclient.png"), System.Drawing.Imaging.ImageFormat.Png);
+            iTextSharp.text.Image sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signatureclient.png"));
+            // Scale image to fit
+            sigImg.ScaleToFit(57, 57);
+            // Set signature position on page
+            sigImg.SetAbsolutePosition(45, 99);  //x, y
+            // Add signatures to desired page
+            PdfContentByte over = stamper.GetOverContent(1);
+            over.AddImage(sigImg);
+
+
+            stamper.FormFlattening = true;
+
+            stamper.Close();
+            reader.Close();
+
+            string path = "~/PDF_handler/Disclaimer_PT_Benefits.pdf";
+            string tag = "Disclaimer2";
+            string GroupingID = id.ToString();
+
+            //return View();
+            return RedirectToAction("SavePDFtoDatabase", "PDFs", new { path = path, tag = tag, GroupingID = GroupingID });
+        }
+
+        public ActionResult GeneratePDFforFinancialPolicy(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subject subject = db.SubjectDatabase.Find(id);
+
+
+            //create new pdf form from template
+            var reader = new PdfReader(Server.MapPath("~/Content/FinancialPolicy.pdf"));
+            //var output = new MemoryStream();
+            var output = new FileStream(Server.MapPath("~/PDF_handler/FinancialPolicy.pdf"), FileMode.Create);
+            var stamper = new PdfStamper(reader, output);
+
+            //fill fiels on pdf form. 
+            stamper.AcroFields.SetField("PrintName", subject.Name);
+            stamper.AcroFields.SetField("PrintName2", subject.Name);
+            stamper.AcroFields.SetField("Date", DateTime.Now.ToShortDateString());
+
+
+
+            //put in signatures
+            Signature signatureclient = (Signature)TempData["SignatureClientInsurance"];
+
+            if (signatureclient == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+
+            //first signature
+            Image x = (Bitmap)((new ImageConverter()).ConvertFrom(signatureclient.MySignature));
+            System.Drawing.Image img = x;
+            img.Save(Server.MapPath("~/Content/signatureclient.png"), System.Drawing.Imaging.ImageFormat.Png);
+            iTextSharp.text.Image sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signatureclient.png"));
+            // Scale image to fit
+            sigImg.ScaleToFit(45, 45);
+            // Set signature position on page
+            sigImg.SetAbsolutePosition(45, 55);  //x, y
+            // Add signatures to desired page
+            PdfContentByte over = stamper.GetOverContent(1);
+            over.AddImage(sigImg);
+
+
+            stamper.FormFlattening = true;
+
+            stamper.Close();
+            reader.Close();
+
+            string path = "~/PDF_handler/FinancialPolicy.pdf";
+            string tag = "Financial_Policy";
+            string GroupingID = id.ToString();
+
+            //return View();
+            return RedirectToAction("SavePDFtoDatabase", "PDFs", new { path = path, tag = tag, GroupingID = GroupingID });
+        }
+
+        public ActionResult GeneratePDFforPayingatTimeofService(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subject subject = db.SubjectDatabase.Find(id);
+
+
+            //create new pdf form from template
+            var reader = new PdfReader(Server.MapPath("~/Content/Paying.pdf"));
+            //var output = new MemoryStream();
+            var output = new FileStream(Server.MapPath("~/PDF_handler/Paying.pdf"), FileMode.Create);
+            var stamper = new PdfStamper(reader, output);
+
+            //fill fiels on pdf form. 
+            stamper.AcroFields.SetField("PrintName", subject.Name);
+            stamper.AcroFields.SetField("Date", DateTime.Now.ToShortDateString());
+
+
+
+            //put in signatures
+            Signature signatureclient = (Signature)TempData["SignatureClientInsurance"];
+
+            if (signatureclient == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+
+            //first signature
+            Image x = (Bitmap)((new ImageConverter()).ConvertFrom(signatureclient.MySignature));
+            System.Drawing.Image img = x;
+            img.Save(Server.MapPath("~/Content/signatureclient.png"), System.Drawing.Imaging.ImageFormat.Png);
+            iTextSharp.text.Image sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signatureclient.png"));
+            // Scale image to fit
+            sigImg.ScaleToFit(70, 70);
+            // Set signature position on page
+            sigImg.SetAbsolutePosition(80, 215);  //x, y
+            // Add signatures to desired page
+            PdfContentByte over = stamper.GetOverContent(1);
+            over.AddImage(sigImg);
+
+
+            stamper.FormFlattening = true;
+
+            stamper.Close();
+            reader.Close();
+
+            string path = "~/PDF_handler/Paying.pdf";
+            string tag = "PayingatTimeofService";
+            string GroupingID = id.ToString();
+
+            //return View();
+            return RedirectToAction("SavePDFtoDatabase", "PDFs", new { path = path, tag = tag, GroupingID = GroupingID });
+        }
+
+
         public ActionResult PassSubjecttoAllForms(int? id)
         {
 

@@ -113,7 +113,23 @@ namespace BA_Portal.Controllers
             db.PDFDatabase.Remove(pDF);
             db.SaveChanges();
             return RedirectToAction("Index");
+            //return RedirectToAction("PassSubjecttoAllForms", "Subjects", new { id = ID });
         }
+
+        public ActionResult DeleteAllForms(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            PDF pDF = db.PDFDatabase.Find(id);
+            if (pDF == null)
+            {
+                return HttpNotFound();
+            }
+            return View(pDF);
+        }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -7,6 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BA_Portal.Models;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Drawing;
 
 namespace BA_Portal.Controllers
 {
@@ -32,6 +35,7 @@ namespace BA_Portal.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(sOAPForm);
         }
 
@@ -46,13 +50,118 @@ namespace BA_Portal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,PractionerName,PractionerLicenseNumber,PatientName,BP,BodyTemperature,SubjectiveObjectiveNotes,DateFilledIn,TimeTreatmentStarted,TimeTreatmentEnded,SymptomsGeneral,PresentingProblems,SymptomsChillsFeverNotes,SymptomsChillsFeverNone,SymptomsChillsFeverSubjective,SymptomsChillsFeverObjective,SymptomsPerspiratonNotes,SymptomsPerspiratonNone,SymptomsPerspiratonSubjective,SymptomsPerspiratonObjective,SymptomsUrinationNotes,SymptomsUrinationNormal,SymptomsUrinationSubjective,SymptomsUrinationObjective,SymptomsHeadacheBodyacheNotes,SymptomsHeadacheBodyacheNone,SymptomsRespirationNotes,SymptomsRespirationNormal,SymptomsRespirationSubjective,SymptomsRespirationObjective,SymptomsSleepEnergyNotes,SymptomsSleepEnergyNormal,SymptomsSleepEnergySubjective,SymptomsSleepEnergyObjective,SymptomsReproductiveNotes,SymptomsReproductiveNormal,SymptomsMentalEmotionalNotes,SymptomsMentalEmotionalNormal,SymptomsMentalEmotionalSubjective,SymptomsMentalEmotionalObjective,SymptomsEarsEyesTeethGumsNotes,SymptomsEarsEyesTeethGumsNormal,SymptomsEarsEyesTeethGumsSubjective,SymptomsEarsEyesTeethGumsObjective,SymptomsAppetiteDigestionDefecationNotes,SymptomsAppetiteDigestionDefecationNormal,SymptomsAppetiteDigestionDefecationSubjective,SymptomsAppetiteDigestionDefecationObjective,SymptomsPalpitationDizzinessNumbnessNotes,SymptomsPalpitationDizzinessNumbnessNone,SymptomsPalpitationDizzinessNumbnessSubjective,SymptomsPalpitationDizzinessNumbnessObjective,TongueBodyColor,TongueCoating,CoatColoration,CoatRooting,PulseRight,PulseLeft,AssessmentandDiagnosis,PlanofTreatment,CleanNeedSet,NeedlingSet1ElectricalStimulation,NeedlingSet1TuiNa,NeedlingSet1CuppingTherapy,NeedlingSet2ElectricalStimulation,NeedlingSet2TuiNa,NeedlingSet2CuppingTherapy,NeedlingSet3ElectricalStimulation,NeedlingSet3TuiNa,NeedlingSet3CuppingTherapy,NeedlingSet4ElectricalStimulation,NeedlingSet4TuiNa,NeedlingSet4CuppingTherapy,NeedlingSet5ElectricalStimulation,NeedlingSet5TuiNa,NeedlingSet5CuppingTherapy,NeedlingSet6ElectricalStimulation,NeedlingSet6TuiNa,NeedlingSet6CuppingTherapy,HerbalFormulaId1,HerbalFormulaId1Directions,HerbalFormulaId2,HerbalFormulaId2Directions,HerbalFormulaId3,HerbalFormulaId3Directions,PostTreatmentAssessment,Recomendations")] SOAPForm sOAPForm)
+        public ActionResult Create(string Set1Point1, string Set1Point2, string Set1Point3, string Set1Point4, string Set1Point5, string Set2Point1, string Set2Point2, string Set2Point3, string Set2Point4, string Set2Point5, string Set3Point1, string Set3Point2, string Set3Point3, string Set3Point4, string Set3Point5, string Set4Point1, string Set4Point2, string Set4Point3, string Set4Point4, string Set4Point5, string Set5Point1, string Set5Point2, string Set5Point3, string Set5Point4, string Set5Point5, string Set6Point1, string Set6Point2, string Set6Point3, string Set6Point4, string Set6Point5, [Bind(Include = "ID,PractionerName,PractionerLicenseNumber,PatientName,BP,BodyTemperature,SubjectiveObjectiveNotes,DateFilledIn,TimeTreatmentStarted,TimeTreatmentEnded,SymptomsGeneral,PresentingProblems,SymptomsChillsFeverNotes,SymptomsChillsFeverNone,SymptomsChillsFeverSubjective,SymptomsChillsFeverObjective,SymptomsPerspiratonNotes,SymptomsPerspiratonNone,SymptomsPerspiratonSubjective,SymptomsPerspiratonObjective,SymptomsUrinationNotes,SymptomsUrinationNormal,SymptomsUrinationSubjective,SymptomsUrinationObjective,SymptomsHeadacheBodyacheNotes,SymptomsHeadacheBodyacheNone,SymptomsRespirationNotes,SymptomsRespirationNormal,SymptomsRespirationSubjective,SymptomsRespirationObjective,SymptomsSleepEnergyNotes,SymptomsSleepEnergyNormal,SymptomsSleepEnergySubjective,SymptomsSleepEnergyObjective,SymptomsReproductiveNotes,SymptomsReproductiveNormal,SymptomsMentalEmotionalNotes,SymptomsMentalEmotionalNormal,SymptomsMentalEmotionalSubjective,SymptomsMentalEmotionalObjective,SymptomsEarsEyesTeethGumsNotes,SymptomsEarsEyesTeethGumsNormal,SymptomsEarsEyesTeethGumsSubjective,SymptomsEarsEyesTeethGumsObjective,SymptomsAppetiteDigestionDefecationNotes,SymptomsAppetiteDigestionDefecationNormal,SymptomsAppetiteDigestionDefecationSubjective,SymptomsAppetiteDigestionDefecationObjective,SymptomsPalpitationDizzinessNumbnessNotes,SymptomsPalpitationDizzinessNumbnessNone,SymptomsPalpitationDizzinessNumbnessSubjective,SymptomsPalpitationDizzinessNumbnessObjective,TongueBodyColor,TongueCoating,CoatColoration,CoatRooting,PulseRight,PulseLeft,AssessmentandDiagnosis,PlanofTreatment,CleanNeedSet,NeedlingSet1ElectricalStimulation,NeedlingSet1TuiNa,NeedlingSet1CuppingTherapy,NeedlingSet2ElectricalStimulation,NeedlingSet2TuiNa,NeedlingSet2CuppingTherapy,NeedlingSet3ElectricalStimulation,NeedlingSet3TuiNa,NeedlingSet3CuppingTherapy,NeedlingSet4ElectricalStimulation,NeedlingSet4TuiNa,NeedlingSet4CuppingTherapy,NeedlingSet5ElectricalStimulation,NeedlingSet5TuiNa,NeedlingSet5CuppingTherapy,NeedlingSet6ElectricalStimulation,NeedlingSet6TuiNa,NeedlingSet6CuppingTherapy,HerbalFormulaId1,HerbalFormulaId1Directions,HerbalFormulaId2,HerbalFormulaId2Directions,HerbalFormulaId3,HerbalFormulaId3Directions,PostTreatmentAssessment,Recomendations")] SOAPForm sOAPForm)
         {
             if (ModelState.IsValid)
             {
+                sOAPForm.NeedlingSet1 = new string[5];
+                sOAPForm.NeedlingSet2 = new string[5];
+                sOAPForm.NeedlingSet3 = new string[5];
+                sOAPForm.NeedlingSet4 = new string[5];
+                sOAPForm.NeedlingSet5 = new string[5];
+                sOAPForm.NeedlingSet6 = new string[5];
+
+                sOAPForm.NeedlingSet1[0] = Set1Point1;
+                sOAPForm.NeedlingSet1[1] = Set1Point2;
+                sOAPForm.NeedlingSet1[2] = Set1Point3;
+                sOAPForm.NeedlingSet1[3] = Set1Point4;
+                sOAPForm.NeedlingSet1[4] = Set1Point5;
+
+                foreach (var item in sOAPForm.NeedlingSet1)
+                {
+                    if (string.IsNullOrWhiteSpace(item) != true)
+                    {
+                        sOAPForm.NeedlingSet1asString = sOAPForm.NeedlingSet1asString + item + ", ";
+                    }
+
+                }   
+
+                sOAPForm.NeedlingSet2[0] = Set2Point1;
+                sOAPForm.NeedlingSet2[1] = Set2Point2;
+                sOAPForm.NeedlingSet2[2] = Set2Point3;
+                sOAPForm.NeedlingSet2[3] = Set2Point4;
+                sOAPForm.NeedlingSet2[4] = Set2Point5;
+
+                foreach (var item in sOAPForm.NeedlingSet2)
+                {
+                    if (string.IsNullOrWhiteSpace(item) != true)
+                    {
+                        sOAPForm.NeedlingSet2asString = sOAPForm.NeedlingSet2asString + item + ", ";
+                    }
+
+                }
+
+                sOAPForm.NeedlingSet3[0] = Set3Point1;
+                sOAPForm.NeedlingSet3[1] = Set3Point2;
+                sOAPForm.NeedlingSet3[2] = Set3Point3;
+                sOAPForm.NeedlingSet3[3] = Set3Point4;
+                sOAPForm.NeedlingSet3[4] = Set3Point5;
+
+                foreach (var item in sOAPForm.NeedlingSet3)
+                {
+                    if (string.IsNullOrWhiteSpace(item) != true)
+                    {
+                        sOAPForm.NeedlingSet3asString = sOAPForm.NeedlingSet3asString + item + ", ";
+                    }
+
+                }
+
+                sOAPForm.NeedlingSet4[0] = Set4Point1;
+                sOAPForm.NeedlingSet4[1] = Set4Point2;
+                sOAPForm.NeedlingSet4[2] = Set4Point3;
+                sOAPForm.NeedlingSet4[3] = Set4Point4;
+                sOAPForm.NeedlingSet4[4] = Set4Point5;
+
+                foreach (var item in sOAPForm.NeedlingSet4)
+                {
+                    if (string.IsNullOrWhiteSpace(item) != true)
+                    {
+                        sOAPForm.NeedlingSet4asString = sOAPForm.NeedlingSet4asString + item + ", ";
+                    }
+
+                }
+
+                sOAPForm.NeedlingSet5[0] = Set5Point1;
+                sOAPForm.NeedlingSet5[1] = Set5Point2;
+                sOAPForm.NeedlingSet5[2] = Set5Point3;
+                sOAPForm.NeedlingSet5[3] = Set5Point4;
+                sOAPForm.NeedlingSet5[4] = Set5Point5;
+
+                foreach (var item in sOAPForm.NeedlingSet5)
+                {
+                    if (string.IsNullOrWhiteSpace(item) != true)
+                    {
+                        sOAPForm.NeedlingSet5asString = sOAPForm.NeedlingSet5asString + item + ", ";
+                    }
+
+                }
+
+                sOAPForm.NeedlingSet6[0] = Set6Point1;
+                sOAPForm.NeedlingSet6[1] = Set6Point2;
+                sOAPForm.NeedlingSet6[2] = Set6Point3;
+                sOAPForm.NeedlingSet6[3] = Set6Point4;
+                sOAPForm.NeedlingSet6[4] = Set6Point5;
+
+                foreach (var item in sOAPForm.NeedlingSet6)
+                {
+                    if (string.IsNullOrWhiteSpace(item) != true)
+                    {
+                        sOAPForm.NeedlingSet6asString = sOAPForm.NeedlingSet6asString + item + ", ";
+                    }
+
+                }
+
+
+                sOAPForm.DateFilledIn = DateTime.Now;
+                int groupingid = (int)TempData["MultiID"];
+                TempData["MultiID"] = groupingid;
+                sOAPForm.GroupingID = groupingid;
+
                 db.SOAPFormDatabase.Add(sOAPForm);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("GeneratePDFforSOAP");
+                TempData["SOAPFormID"] = sOAPForm.ID;
+                return RedirectToAction("GetDoctorSignatureSOAP", "Signatures");
             }
 
             return View(sOAPForm);
@@ -122,6 +231,72 @@ namespace BA_Portal.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+        public ActionResult GeneratePDFforSOAP(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            //ID is soapform ID. id is subject id
+            //int ID = (int)TempData["SOAPFormID"];
+            //int ID = id;
+            SOAPForm sOAPFORM = db.SOAPFormDatabase.Find(id);
+
+
+            //create new pdf form from template
+            var reader = new PdfReader(Server.MapPath("~/Content/PDFSoap.pdf"));
+            //var output = new MemoryStream();
+            var output = new FileStream(Server.MapPath("~/PDF_handler/PDFSoap.pdf"), FileMode.Create);
+            var stamper = new PdfStamper(reader, output);
+
+            //fill fiels on pdf form. 
+            stamper.AcroFields.SetField("PrintName", sOAPFORM.PatientName);
+            stamper.AcroFields.SetField("Date", DateTime.Now.ToShortDateString());
+
+
+
+            //put in signatures
+            Signature signatureclient = (Signature)TempData["SignaturePractioner"];
+
+            if (signatureclient == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+
+            //first signature
+            Image x = (Bitmap)((new ImageConverter()).ConvertFrom(signatureclient.MySignature));
+            System.Drawing.Image img = x;
+            img.Save(Server.MapPath("~/Content/signatureclient.png"), System.Drawing.Imaging.ImageFormat.Png);
+            iTextSharp.text.Image sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signatureclient.png"));
+            // Scale image to fit
+            sigImg.ScaleToFit(70, 70);
+            // Set signature position on page
+            sigImg.SetAbsolutePosition(55, 132);  //x, y
+            // Add signatures to desired page
+            PdfContentByte over = stamper.GetOverContent(1);
+            over.AddImage(sigImg);
+
+
+            stamper.FormFlattening = true;
+
+            stamper.Close();
+            reader.Close();
+
+            string path = "~/PDF_handler/PDFSoap.pdf";
+            string tag = "SOAP";
+            //string GroupingID = id.ToString();
+
+            //pick up subject grouping id from tempdata
+            int groupingid = (int)TempData["MultiID"];
+            string GroupingID = groupingid.ToString();
+
+            //return View();
+            return RedirectToAction("SavePDFtoDatabase", "PDFs", new { path = path, tag = tag, GroupingID = GroupingID });
         }
     }
 }

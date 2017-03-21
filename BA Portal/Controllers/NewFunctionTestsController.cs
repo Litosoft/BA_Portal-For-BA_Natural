@@ -65,20 +65,34 @@ namespace BA_Portal.Controllers
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult TESTFORM1(string string1, string string2, [Bind(Include = "ID,SearchTag,PDFinbytes")] PDF pDF)
+        public ActionResult TESTFORM1(string string1, string string2, string Set1Point1, string Set1Point2, [Bind(Include = "string1,string2")] TESTMODEL tESTMODEL)
         {
-            pDF.Description = string2;
-            
-            TempData["pdftest"] = pDF;
+
+            tESTMODEL.stringarray = new string[5];
+            tESTMODEL.stringarray[0] = Set1Point1;
+            tESTMODEL.stringarray[1] = Set1Point2;
+            //tESTMODEL.string3 = tESTMODEL.stringarray[0] + "" + tESTMODEL.stringarray[1] + " ";
+
+            foreach(var item in tESTMODEL.stringarray)
+            {
+                if(string.IsNullOrWhiteSpace(item) != true)
+                {
+                    tESTMODEL.string3 = tESTMODEL.string3 + item + ", ";
+                }
+                
+            }
+
+
+            TempData["tESTMODEL"] = tESTMODEL;
 
             return RedirectToAction("CheckFormValues");
         }
 
         public ActionResult CheckFormValues()
         {
-            PDF pDF = new PDF();
-            pDF = (PDF)TempData["pdftest"];
-            return View(pDF);
+            TESTMODEL tESTMODEL = new TESTMODEL();
+            tESTMODEL = (TESTMODEL)TempData["tESTMODEL"];
+            return View(tESTMODEL);
 
         }
     }

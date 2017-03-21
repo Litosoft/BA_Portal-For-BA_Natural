@@ -13,6 +13,7 @@ namespace BA_Portal.Models
 
         [Key]
         public int ID { get; set; }
+        public int GroupingID { get; set; }
 
         public string PractionerName { get; set; }
         public string PractionerLicenseNumber { get; set; }
@@ -22,8 +23,12 @@ namespace BA_Portal.Models
         public string BodyTemperature { get; set; }
         public string SubjectiveObjectiveNotes { get; set; }
         public DateTime DateFilledIn { get; set; }
+
+
         public DateTime TimeTreatmentStarted { get; set; }
+        //public string TimeTreatmentStarted { get; set; }
         public DateTime TimeTreatmentEnded { get; set; }
+        //public string TimeTreatmentEnded { get; set; }
 
         public string SymptomsGeneral { get; set; }
         public string PresentingProblems { get; set; }
@@ -110,31 +115,37 @@ namespace BA_Portal.Models
 
         public bool CleanNeedSet { get; set; }
         public string[] NeedlingSet1 { get; set; }
+        public string NeedlingSet1asString { get; set; }
         public bool NeedlingSet1ElectricalStimulation { get; set; }
         public bool NeedlingSet1TuiNa { get; set; }
         public bool NeedlingSet1CuppingTherapy { get; set; }
 
         public string[] NeedlingSet2 { get; set; }
+        public string NeedlingSet2asString { get; set; }
         public bool NeedlingSet2ElectricalStimulation { get; set; }
         public bool NeedlingSet2TuiNa { get; set; }
         public bool NeedlingSet2CuppingTherapy { get; set; }
 
         public string[] NeedlingSet3 { get; set; }
+        public string NeedlingSet3asString { get; set; }
         public bool NeedlingSet3ElectricalStimulation { get; set; }
         public bool NeedlingSet3TuiNa { get; set; }
         public bool NeedlingSet3CuppingTherapy { get; set; }
 
         public string[] NeedlingSet4 { get; set; }
+        public string NeedlingSet4asString { get; set; }
         public bool NeedlingSet4ElectricalStimulation { get; set; }
         public bool NeedlingSet4TuiNa { get; set; }
         public bool NeedlingSet4CuppingTherapy { get; set; }
 
         public string[] NeedlingSet5 { get; set; }
+        public string NeedlingSet5asString { get; set; }
         public bool NeedlingSet5ElectricalStimulation { get; set; }
         public bool NeedlingSet5TuiNa { get; set; }
         public bool NeedlingSet5CuppingTherapy { get; set; }
 
         public string[] NeedlingSet6 { get; set; }
+        public string NeedlingSet6asString { get; set; }
         public bool NeedlingSet6ElectricalStimulation { get; set; }
         public bool NeedlingSet6TuiNa { get; set; }
         public bool NeedlingSet6CuppingTherapy { get; set; }

@@ -189,7 +189,7 @@ namespace BA_Portal.Controllers
 
 
         //entry point for new insurance forms
-        public ActionResult CaptureIDandRedirectforInsurance(int? id =1)
+        public ActionResult CaptureIDandRedirectforInsurance(int? id)
         {
             if (id == null)
             {
@@ -202,7 +202,7 @@ namespace BA_Portal.Controllers
 
         }
 
-        public ActionResult CaptureIDandRedirectforPI(int? id = 1)
+        public ActionResult CaptureIDandRedirectforPI(int? id)
         {
             if (id == null)
             {
@@ -215,6 +215,45 @@ namespace BA_Portal.Controllers
 
         }
 
+        public ActionResult CaptureIDandRedirectforMultipleForms(int? id, string RedirectIdentifier)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            TempData["RedirectIdentifier"] = RedirectIdentifier;
+            TempData["MultiID"] = id;
+
+            if (RedirectIdentifier == "Disclaimer1")
+            {
+                return RedirectToAction("GetClientSignatureMultiple");
+            }
+            if (RedirectIdentifier == "Disclaimer2")
+            {
+                return RedirectToAction("GetClientSignatureMultiple");
+            }
+            if (RedirectIdentifier == "FinancialPolicy")
+            {
+                return RedirectToAction("GetClientSignatureMultiple");
+            }
+            if (RedirectIdentifier == "PayingatTimeofService")
+            {
+                return RedirectToAction("GetClientSignatureMultiple");
+            }
+            if (RedirectIdentifier == "SOAP")
+            {
+                //redirect to create
+                return RedirectToAction("Create", "SoapForms", new { GroupingID = id });
+
+         
+            }
+
+
+
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+        }
 
 
         public ActionResult GetClientSignatureInsurance()
@@ -263,6 +302,60 @@ namespace BA_Portal.Controllers
         {
 
             return View();
+        }
+
+        public ActionResult GetClientSignatureMultiple()
+        {
+            if(TempData["RedirectIdentifier"] != null)
+            {
+                string RedirectIdentifier = (string)TempData["RedirectIdentifier"];
+                TempData["RedirectIdentifier"] = RedirectIdentifier;
+
+                ViewBag.RedirectIdentifier = RedirectIdentifier;
+            }
+
+
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GetClientSignatureMultiple([Bind(Include = "ID,MySignature")] Signature signature)
+        {
+            if (ModelState.IsValid)
+            {
+             
+
+   
+            }
+
+            //missnamed now
+            TempData["SignatureClientInsurance"] = signature;
+
+            int MultiID = (int)TempData["MultiID"];
+
+            string RedirectIdentifier = (string)TempData["RedirectIdentifier"];
+
+            if (RedirectIdentifier == "Disclaimer1")
+            {
+                return RedirectToAction("GeneratePDFforDisclaimer1", "Subjects", new { id = MultiID });
+            }
+            if (RedirectIdentifier == "Disclaimer2")
+            {
+                return RedirectToAction("GeneratePDFforDisclaimer2", "Subjects", new { id = MultiID });
+            }
+            if (RedirectIdentifier == "FinancialPolicy")
+            {
+                return RedirectToAction("GeneratePDFforFinancialPolicy", "Subjects", new { id = MultiID });
+            }
+            if (RedirectIdentifier == "PayingatTimeofService")
+            {
+                return RedirectToAction("GeneratePDFforPayingatTimeofService", "Subjects", new { id = MultiID });
+            }
+
+
+            return View(signature);
         }
 
         [HttpPost]
@@ -321,6 +414,28 @@ namespace BA_Portal.Controllers
                 int ID = (int)TempData["DatabaseID_PI"];
 
                 return RedirectToAction("GeneratePDFforPI" + "/" + ID, "Subjects");
+            }
+
+            return View(signature);
+        }
+
+        public ActionResult GetDoctorSignatureSOAP()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GetDoctorSignatureSOAP([Bind(Include = "ID,MySignature")] Signature signature)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["SignaturePractioner"] = signature;
+
+                int SoapFormID = (int)TempData["SOAPFormID"];
+
+                return RedirectToAction("GeneratePDFforSOAP", "SOAPForms", new { id = SoapFormID });
             }
 
             return View(signature);

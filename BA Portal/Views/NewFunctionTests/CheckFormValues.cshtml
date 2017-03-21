@@ -1,4 +1,4 @@
-﻿@model BA_Portal.Models.PDF
+﻿@model BA_Portal.Models.TESTMODEL
 
 @{
     ViewBag.Title = "CheckFormValues";
@@ -8,7 +8,10 @@
 <h2>CheckFormValues</h2> <br />
 
  
-    A: @Model.SearchTag <br />
-    B: @Model.Description
+    A: @Model.string1 <br />
+    B: @Model.string2 <br />
+    C: @Model.stringarray[0] <br />
+    D: @Model.stringarray[1] <br />
+    E: @Model.string3
 
 

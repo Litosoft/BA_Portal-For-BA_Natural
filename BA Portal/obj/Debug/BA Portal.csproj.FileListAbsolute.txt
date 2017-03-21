@@ -252,3 +252,6 @@ C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\bin\MvcRazorToPdf.dll
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\obj\Debug\BA Portal.csprojResolveAssemblyReference.cache
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\bin\Rotativa.dll
+C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\bin\DHTMLX.dll
+C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\bin\DHTMLX.xml
+C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\bin\DHTMLX.pdb

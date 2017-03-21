@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="text-align:center">
+    <h1>Welcome to BA Portal!</h1> <br />
+    The acupuncture management application for BA Natural. <br /><br />
+
+
+
+
+    <h2>Event Planner</h2>
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DHXScheduler initialization sample</title>
+    <style>
+        body
+        {
+            @* background-color:#eee;*@
+        }
+    </style>
+</head>
+<body>
+    <div style="height:700px;width:900px;margin:0 auto">
+        @Html.Raw(Model.Render())
+    </div>
+</body>
+</html>

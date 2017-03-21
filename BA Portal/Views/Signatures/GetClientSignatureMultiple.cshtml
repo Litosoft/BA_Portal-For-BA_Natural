@@ -1,0 +1,156 @@
+﻿
+
+@model BA_Portal.Models.Signature
+
+@{
+    ViewBag.Title = "InsuranceForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<br />
+@{
+    if (@ViewBag.RedirectIdentifier == "PayingatTimeofService")
+    {
+        <h2><strong>Time of service</strong></h2> <br />
+        <div id="border02" style="white-space: pre-wrap;">
+            <strong>To:  Patients Paying at the Time of Service</strong>
+            In an effort to minimize costs and create the best possible atmosphere for healing, we have made the following adjustments to our Usual and Customary Rates.  We are able to do this because paying at time of service frees this office from time-consuming paper work and tracking of filed insurance claims.
+            At your initial visit, you will be responsible for the New Patient office visit.  The bill will show the office visit and my fee.  However, there are several procedures that may occur during your visit, which will be modified.  Any of the following procedures used during your treatment will be reduced to $0.00, and you will be responsible for the office visit fee only.
+            97810-52 Acupuncture  1st 15 min
+            97811-52 Acupuncture  Add’l 15 min
+            97813-52  Acupuncture w/Elec Stim 1st 15 min
+            97814-52  Acupuncture w/Elec Stim Add’l 15 min
+            97014-52 Microelectric Current (Unattended)
+            97032-52 Microelectric Current (Attended)
+            99070-52 Needles
+            97016-52 Vaso-Pneumatic
+            97026-52 Infrared Light 97110-52 Therapeutic Exercises
+            97140-52 Manual Therapy
+            The fee for the New Patient office visit (code 99203) is $  120.00    for patients paying at time of service.     The fee for each office visit after the initial visit (code 99213) is $  80.00    for patients paying at time of service.
+            I, (PRINT NAME)            ,  have read and understand the information contained therein.
+
+
+            Yours in Health,
+            Chao-Lung Liu, AP Pei-Lu Betty Chang, AP Acupuncture Physicians
+
+            <em>
+                If you wish to view the version of this form that will be stored in our system and that may be sent to your insurance provider <a href="~/Content/Paying.pdf">please click here</a>
+            </em>
+</div>
+
+    }
+
+    if (@ViewBag.RedirectIdentifier == "Disclaimer1")
+    {
+        <h2><strong>Disclaimer1</strong></h2> <br />
+        <div id="border02" style="white-space: pre-wrap;">
+            <strong>To All Insurance Patients:</strong>
+            The explanation of benefits that we provide for you is not a guarantee of payment.  Also, when getting eligibility and benefit information from your insurance company, we are sometimes given incorrect information.  We are only as good as your insurance company’s weakest link.  We pass on to you the information we are given, but we make no guarantees that this information is correct.  Each insurance company recites a disclaimer when giving eligibility and benefits, to excuse them from any misinformation given or any changes that may occur in your plan since the benefits inquiry. Here are two examples of the disclaimers we are given from the insurance companies:
+            BCBS of Florida Benefits Disclaimer:  UNLESS OTHERWISE REQUIRED BY STATE LAW, THIS NOTICE IS NOT A GUARANTEE OF PAYMENT. BENEFITS ARE SUBJECT TO ALL CONTRACT LIMITS AND THE MEMBER'S STATUS ON THE DATE OF SERVICE. ACCUMULATED AMOUNTS MAY CHANGE AS ADDITIONAL CLAIMS ARE PROCESSED.
+            CIGNA Benefits Disclaimer: THIS IS NOT A GUARANTEE OF BENEFITS.  BENEFITS ARE CONTINGENT UPON THE PLAN BEING IN FORCE AND THAT THE PATIENT IS INSURED AT THE TIME THE SERVICES ARE RENDERED
+            We do the best we can to assist you, but please understand it is ultimately your responsibility to know the benefits of your insurance plan.
+            Please sign below indicating that you have read and understand the above information.
+            <br />
+            <em>
+                If you wish to view the version of this form that will be stored in our system and that may be sent to your insurance provider <a href="~/Content/Disclaimer.pdf">please click here</a>
+            </em>
+</div>
+
+    }
+
+    if (@ViewBag.RedirectIdentifier == "Disclaimer2")
+    {
+        <h2><strong>Disclaimer2</strong></h2> <br />
+        <div id="border02" style="white-space: pre-wrap;">
+            <strong>To All Insurance Patients:</strong>
+            The explanation of benefits that we provide for you is not a guarantee of payment.  Also, when getting eligibility and benefit information from your insurance company, we are sometimes given incorrect information.  We are only as good as your insurance company’s weakest link.  We pass on to you the information we are given, but we make no guarantees that this information is correct.  Each insurance company recites a disclaimer when giving eligibility and benefits, to excuse them from any misinformation given or any changes that may occur in your plan since the benefits inquiry.
+            We do the best we can to assist you, but please understand it is ultimately your responsibility to know the benefits of your insurance plan.
+            
+            <strong>Physical Therapy benefits</strong>
+            Also, there are times when tui na or gua sha, (both are types of medical massage), may be appropriate for your treatment.  When we bill an insurance company for those procedures, the insurance company may consider it a physical therapy benefit, and if so, it will go against your physical therapy benefits.  Please keep in mind that when we bill against your physical therapy benefits, they may get used up for the year.  If down the road you need to use them for something else, (e.g. you’ve had an accident and need physical therapy), you may not have those benefits available to you.  As a courtesy to you, I am letting you know this ahead of time so that you can decide if you would like your insurance billed for this service, or if you would prefer to pay out of pocket for it. Once the insurance is billed and processed for these procedures, there is no reversing it.  It is a legitimate claim, and we cannot ‘undo’ it down the road for any reason.
+            Please initial and date one of the following:
+            I would like (CHAO-LUNG LIU / PEI-LU BETTY CHANG) to bill any tui na or gua sha procedures needed during my treatment(s) to my insurance company.
+
+            I would like to pay (CHAO-LUNG LIU / PEI-LU BETTY CHANG) out of pocket for any tui na or gua sha procedures needed during my treatment(s).
+
+            Please sign below indicating that you have read and understand the above information.
+            <br />
+            <em>
+                If you wish to view the version of this form that will be stored in our system and that may be sent to your insurance provider <a href="~/Content/Disclaimer_PT_Benefits.pdf">please click here</a>
+            </em>
+</div>
+
+    }
+
+    if (@ViewBag.RedirectIdentifier == "FinancialPolicy")
+    {
+        <h2><strong>FinancialPolicy</strong></h2> <br />
+        <div id="border02" style="white-space: pre-wrap;">
+            Financial policy contract between Chao-Lung Liu, AP / Pei-Lu B Chang, AP herein after referred to as “PROVIDER” and PATIENT NAME __________________________________, herein after referred to as “PATIENT”, for services provided at  BA NATURAL BODY CARE, herein after referred to as “FACILITY”.
+            Thank you for choosing us as your health care provider.  We are committed to your treatment being successful.  Please understand that payment of your bill is considered part of your treatment.  The following is a statement of our Financial Policy, which we require you to read and sign prior to any treatment.  All patients must complete our Patient Information sheet before seeing the doctor. FULL PAYMENT IS DUE AT TIME OF SERVICE.  WE ACCEPT CASH, MASTERCARD, VISA, AMEX AND DISCOVER.
+            
+            <strong>Regarding Insurance</strong>
+            We will verify coverage prior to treatment.  If for any reason we are not able to verify coverage prior to your treatment, the PATIENT will be charged for each treatment until verification is obtained.  PROVIDER’s fees are determined by the complexity of the particular case and the different services used during treatment.  Any balance due on PATIENT’s treatments is PATIENT’s responsibility whether PATIENT’s insurance company pays or not.   PROVIDER cannot bill your insurance company unless PATIENT brings in all insurance information.  PATIENT’s insurance policy is a contract between PATIENT and PATIENT’s insurance company.  PROVIDER is not party to that contract.  In the event PROVIDER does not accept assignment of benefits, PROVIDER requires that PATIENT provide a credit card number with authorization to bill that account for any balance PATIENT’s insurance company does not pay.  If PATIENT’s insurance company has not paid PATIENT’s account in full within 60 days, the balance of PATIENT’s account will be automatically transferred to PATIENT’s credit card. If PATIENT receives a check from their insurance company for services provided by this PROVIDER, PATIENT will sign over that check in full immediately and give to PROVIDER.     When billing for a new insurance patient, it is the policy of this PROVIDER to charge the appropriate office visit fee, (Patient’s Paying at Time of Service’ price).  Until PROVIDER actually receives payment from the insurance company, there is no guarantee of payment from the insurance company, (no matter what we were told / thus the ‘Benefits Disclaimer’ form).
+            
+                <strong>Assignment of Benefits</strong>
+            This AGREEMENT is made and entered into by and between the PATIENT and PROVIDER.  Whereas, PATIENT desires to receive services from this PROVIDER and therefore desires to assign certain rights and benefits to PROVIDER, it is hereby agreed that I, the PATIENT, assign to my Health Care PROVIDER, all money to which I am entitled for medically related expenses received at or through the above mentioned facility.  If PATIENT receives a check from their insurance company for services provided by this PROVIDER, PATIENT will sign over that check in full immediately and give to PROVIDER.
+            
+                <strong>Usual and Customary Rates (UCR)</strong>
+            Our practice is committed to providing the best treatment possible for our patients.  We charge what is usual and customary for our area.  Please be aware that some and at times perhaps all of the services provided may be “non-covered” services and not considered reasonable and necessary under the Medicare program and/or by other medical insurance.  You are responsible for payment in full regardless of any insurance company’s arbitrary determination of usual and customary rates.
+            
+            <strong>Cancellations</strong>
+            Please be kindly to call and cancel appointments 12-24 hours in advance.  If patient fail to call our office in advance to cancel, our policy is to charge $25 for missed appointments from the patients.  Your treatments will be more effective if you follow your doctor’s guidelines and stick to your treatment schedule.  Please help us to serve you better by keeping scheduled appointments.
+            
+            <strong>
+                In signing this document, you are assigning benefits to the provider(s)/office listed at the top of this page, to which you are eligible to receive for care rendered by this provider(s)/office.  Additionally, in signing this document, you authorize the release of any information to any insurance company, adjustor, insurance biller, or attorney that will assist in the payment of a claim.
+            </strong>
+            Thank you for understanding our financial Policy.  Please let us know if you have any questions or concerns.  I have read the Financial Policy.  I understand and agree to this Financial Policy.  A photocopy of this form shall be considered as effective as the original.
+            <br />
+            <em>
+                If you wish to view the version of this form that will be stored in our system and that may be sent to your insurance provider <a href="~/Content/FinancialPolicy.pdf">please click here</a>
+            </em>
+</div>
+
+    }
+
+}
+
+
+<br />
+<br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Signature</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MySignature, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MySignature, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Confirm" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+@section Scripts {
+    <script src="~/Scripts/signature_pad.min.js"></script>
+    <script src="~/Scripts/SignaturePadInit.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

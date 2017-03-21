@@ -20,7 +20,7 @@
 input,
 select,
 textarea {
-    max-width: 380px;
+    max-width: 300px;
 }
 
 .signature-pad > canvas {
