@@ -697,9 +697,45 @@ namespace BA_Portal.Controllers
             var output = new FileStream(Server.MapPath("~/PDF_handler/Disclaimer_PT_Benefits.pdf"), FileMode.Create);
             var stamper = new PdfStamper(reader, output);
 
-            //fill fiels on pdf form. 
+            
+            //check which checkbox to tick.
+            string MassagePaymentOption = (string)TempData["MassagePaymentOption"];
+
+            if (MassagePaymentOption == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+
+            //fill fields on pdf form. 
             stamper.AcroFields.SetField("PrintName", subject.Name);
             stamper.AcroFields.SetField("DateFinal", DateTime.Now.ToShortDateString());
+
+            if(MassagePaymentOption == "insurance")
+            {
+                //get initials
+                string initials = subject.Name;
+                var firstChars = " ";
+                initials.Split(' ').ToList().ForEach(i => firstChars = firstChars + i[0]);
+
+                stamper.AcroFields.SetField("DateInsurance", DateTime.Now.ToShortDateString());
+                stamper.AcroFields.SetField("InitialInsurance", firstChars);
+
+            }
+
+
+            if (MassagePaymentOption == "outofpocket")
+            {
+                //get initials
+                string initials = subject.Name;
+                var firstChars = " ";
+                initials.Split(' ').ToList().ForEach(i => firstChars = firstChars + i[0]);
+
+                stamper.AcroFields.SetField("DatePocket", DateTime.Now.ToShortDateString());
+                stamper.AcroFields.SetField("InitialPocket", firstChars);
+            }
+     
+
 
             //have to choose to fill in one field or the other. additional input required.
 
@@ -778,7 +814,7 @@ namespace BA_Portal.Controllers
             // Scale image to fit
             sigImg.ScaleToFit(45, 45);
             // Set signature position on page
-            sigImg.SetAbsolutePosition(45, 55);  //x, y
+            sigImg.SetAbsolutePosition(100, 55);  //x, y
             // Add signatures to desired page
             PdfContentByte over = stamper.GetOverContent(1);
             over.AddImage(sigImg);

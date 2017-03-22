@@ -256,6 +256,20 @@ namespace BA_Portal.Controllers
         }
 
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GetClientSignature([Bind(Include = "ID,MySignature")] Signature signature)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["SignatureClient"] = signature;
+
+                return RedirectToAction("GetPractitionerSignature");
+            }
+
+            return View(signature);
+        }
+
         public ActionResult GetClientSignatureInsurance()
         {
 
@@ -321,7 +335,7 @@ namespace BA_Portal.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult GetClientSignatureMultiple([Bind(Include = "ID,MySignature")] Signature signature)
+        public ActionResult GetClientSignatureMultiple([Bind(Include = "ID,MySignature")] Signature signature, string MassagePaymentOption)
         {
             if (ModelState.IsValid)
             {
@@ -343,6 +357,7 @@ namespace BA_Portal.Controllers
             }
             if (RedirectIdentifier == "Disclaimer2")
             {
+                TempData["MassagePaymentOption"] = MassagePaymentOption;
                 return RedirectToAction("GeneratePDFforDisclaimer2", "Subjects", new { id = MultiID });
             }
             if (RedirectIdentifier == "FinancialPolicy")
@@ -358,19 +373,7 @@ namespace BA_Portal.Controllers
             return View(signature);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult GetClientSignature([Bind(Include = "ID,MySignature")] Signature signature)
-        {
-            if (ModelState.IsValid)
-            {
-                TempData["SignatureClient"] = signature;
 
-                return RedirectToAction("GetPractitionerSignature");
-            }
-
-            return View(signature);
-        }
 
         // ////////////////////////////////////////////////////////////////////////
         // seperator of similar functions

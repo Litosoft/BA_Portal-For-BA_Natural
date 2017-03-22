@@ -1,6 +1,4 @@
-﻿
-
-@model BA_Portal.Models.Signature
+﻿@model BA_Portal.Models.Signature
 
 @{
     ViewBag.Title = "InsuranceForm";
@@ -10,7 +8,10 @@
 
 
 <br />
-@{
+@using (Html.BeginForm() )
+{
+    @Html.AntiForgeryToken()
+
     if (@ViewBag.RedirectIdentifier == "PayingatTimeofService")
     {
         <h2><strong>Time of service</strong></h2> <br />
@@ -72,8 +73,10 @@
             Also, there are times when tui na or gua sha, (both are types of medical massage), may be appropriate for your treatment.  When we bill an insurance company for those procedures, the insurance company may consider it a physical therapy benefit, and if so, it will go against your physical therapy benefits.  Please keep in mind that when we bill against your physical therapy benefits, they may get used up for the year.  If down the road you need to use them for something else, (e.g. you’ve had an accident and need physical therapy), you may not have those benefits available to you.  As a courtesy to you, I am letting you know this ahead of time so that you can decide if you would like your insurance billed for this service, or if you would prefer to pay out of pocket for it. Once the insurance is billed and processed for these procedures, there is no reversing it.  It is a legitimate claim, and we cannot ‘undo’ it down the road for any reason.
             Please initial and date one of the following:
             I would like (CHAO-LUNG LIU / PEI-LU BETTY CHANG) to bill any tui na or gua sha procedures needed during my treatment(s) to my insurance company.
+            <input type="checkbox" name="MassagePaymentOption" value="insurance">
 
             I would like to pay (CHAO-LUNG LIU / PEI-LU BETTY CHANG) out of pocket for any tui na or gua sha procedures needed during my treatment(s).
+            <input type="checkbox" name="MassagePaymentOption" value="outofpocket">
 
             Please sign below indicating that you have read and understand the above information.
             <br />
@@ -115,14 +118,12 @@
 
     }
 
-}
+
 
 
 <br />
 <br />
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+
 
     <div class="form-horizontal">
         <h4>Signature</h4>

@@ -101,6 +101,7 @@ namespace BA_Portal.Models
         public bool SymptomsPalpitationDizzinessNumbnessObjective { get; set; }
 
         public string TongueBodyColor { get; set; }
+        //public string TongueBodyShape { get; set; } //add
         public string TongueCoating { get; set; }
         public string CoatColoration { get; set; }
         public string CoatRooting { get; set; }

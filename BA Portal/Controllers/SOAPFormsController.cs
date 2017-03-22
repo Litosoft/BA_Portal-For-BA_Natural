@@ -254,9 +254,48 @@ namespace BA_Portal.Controllers
             var stamper = new PdfStamper(reader, output);
 
             //fill fiels on pdf form. 
-            stamper.AcroFields.SetField("PrintName", sOAPFORM.PatientName);
+            stamper.AcroFields.SetField("PatientName", sOAPFORM.PatientName);
             stamper.AcroFields.SetField("Date", DateTime.Now.ToShortDateString());
+            stamper.AcroFields.SetField("BP", sOAPFORM.BP.ToString());
 
+            stamper.AcroFields.SetField("PresentingProblems", sOAPFORM.PresentingProblems);
+            stamper.AcroFields.SetField("Symptom", sOAPFORM.SymptomsGeneral);
+            stamper.AcroFields.SetField("ChillFeverNotes", sOAPFORM.SymptomsChillsFeverNotes);
+            stamper.AcroFields.SetField("PerspirationNotes", sOAPFORM.SymptomsPerspiratonNotes);
+            //stamper.AcroFields.SetField("ThirstNotes", sOAPFORM.); //forgot to add
+            stamper.AcroFields.SetField("UrinationNotes", sOAPFORM.SymptomsUrinationNotes);
+            stamper.AcroFields.SetField("HeadacheBodyNotes", sOAPFORM.SymptomsHeadacheBodyacheNotes);
+            stamper.AcroFields.SetField("RespirationNotes", sOAPFORM.SymptomsRespirationNotes);
+            stamper.AcroFields.SetField("SleepEnergyNotes", sOAPFORM.SymptomsSleepEnergyNotes);
+            stamper.AcroFields.SetField("ReproductiveNotes", sOAPFORM.SymptomsReproductiveNotes);
+            stamper.AcroFields.SetField("MentalEmotionalNotes", sOAPFORM.SymptomsMentalEmotionalNotes);
+            stamper.AcroFields.SetField("EarsEyesTeethGumsNotes", sOAPFORM.SymptomsEarsEyesTeethGumsNotes);
+            stamper.AcroFields.SetField("AppetiteDigestionDefecationNotes", sOAPFORM.SymptomsAppetiteDigestionDefecationNotes);
+            stamper.AcroFields.SetField("PalpitationDizzinessNumbnessNotes", sOAPFORM.SymptomsPalpitationDizzinessNumbnessNotes);
+
+            //all checkboxes
+
+            //
+            stamper.AcroFields.SetField("TongueBodyColor", sOAPFORM.TongueBodyColor);
+            //stamper.AcroFields.SetField("TongueBodyShape", sOAPFORM.);
+            stamper.AcroFields.SetField("TongueCoating", sOAPFORM.TongueCoating);
+            stamper.AcroFields.SetField("TongueColoration", sOAPFORM.CoatColoration);
+            stamper.AcroFields.SetField("TongueRooting", sOAPFORM.CoatRooting);
+
+            //needling sets
+            stamper.AcroFields.SetField("NeedlingSet1", sOAPFORM.NeedlingSet1asString);
+            stamper.AcroFields.SetField("NeedlingSet2", sOAPFORM.NeedlingSet2asString);
+            stamper.AcroFields.SetField("NeedlingSet3", sOAPFORM.NeedlingSet3asString);
+            stamper.AcroFields.SetField("NeedlingSet4", sOAPFORM.NeedlingSet4asString);
+            stamper.AcroFields.SetField("NeedlingSet5", sOAPFORM.NeedlingSet5asString);
+            stamper.AcroFields.SetField("NeedlingSet6", sOAPFORM.NeedlingSet6asString);
+
+            stamper.AcroFields.SetField("Notes1", sOAPFORM.SubjectiveObjectiveNotes);
+            stamper.AcroFields.SetField("PulseRight", sOAPFORM.PulseRight.ToString());
+            stamper.AcroFields.SetField("PulseLeft", sOAPFORM.PulseLeft.ToString());
+            stamper.AcroFields.SetField("AssessmentDiagnosis", sOAPFORM.AssessmentandDiagnosis);
+            //stamper.AcroFields.SetField("TreatmentPrinciples", sOAPFORM.tre; //missed this one
+            stamper.AcroFields.SetField("PlanofTreatment", sOAPFORM.PlanofTreatment);
 
 
             //put in signatures

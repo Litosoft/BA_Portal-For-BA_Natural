@@ -23,6 +23,22 @@ namespace BA_Portal.Controllers
             ViewBag.date3 = date3;
             ViewBag.date4 = date4;
 
+            string initials = "Tyler Loeper";
+            initials.Split(' ').ToList().ForEach(i => Console.Write(i[0] + " "));
+            ViewBag.Initials = initials;
+
+            //atempt 2
+            string initials2 = "Tyler Loeper";
+            var firstChars = initials2.Split(' ').Select(s => s[0]);
+            ViewBag.firstchars = firstChars;
+
+            //atempt 3
+            string initials3 = "Tyler Loeper";
+            var firstChars3 = " ";
+            initials3.Split(' ').ToList().ForEach(i => firstChars3 = firstChars3 + i[0]);
+
+            ViewBag.firstchars3 = firstChars3;
+
 
             return View();
         }
