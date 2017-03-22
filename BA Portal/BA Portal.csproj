@@ -311,16 +311,16 @@
     <Content Include="Content\PDFforPersonalInformation.pdf" />
     <Content Include="PDF_handler\Elmo_Insurance_3_6_2017.pdf" />
     <Content Include="Content\PDFforInsurance.pdf" />
-    <Content Include="Content\Disclaimer.pdf" />
-    <Content Include="Content\Disclaimer_PT_Benefits.pdf" />
-    <Content Include="Content\Paying.pdf" />
-    <Content Include="Content\FinancialPolicy.pdf" />
-    <Content Include="Content\PDFSoap.pdf" />
     <Content Include="Models\Sample.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Sample.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Content\Disclaimer.pdf" />
+    <Content Include="Content\Disclaimer_PT_Benefits.pdf" />
+    <Content Include="Content\Paying.pdf" />
+    <Content Include="Content\PDFSoap.pdf" />
+    <Content Include="Content\FinancialPolicy.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DayPilot\daypilot-all.min.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
