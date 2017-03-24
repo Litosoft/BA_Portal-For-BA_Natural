@@ -10,6 +10,7 @@ namespace BA_Portal.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(BA_Portal.Models.SOAPFormDbContext context)

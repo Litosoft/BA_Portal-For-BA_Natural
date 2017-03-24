@@ -25,88 +25,102 @@ namespace BA_Portal.Models
         public DateTime DateFilledIn { get; set; }
 
 
-        public DateTime TimeTreatmentStarted { get; set; }
-        //public string TimeTreatmentStarted { get; set; }
-        public DateTime TimeTreatmentEnded { get; set; }
-        //public string TimeTreatmentEnded { get; set; }
+  
+
 
         public string SymptomsGeneral { get; set; }
         public string PresentingProblems { get; set; }
-        //there are three options here. So int between 1 and 3 will determine the option.
-        //with a string for descriptions
-        //public int SymptomsChillsFever { get; set; }
+
         public string SymptomsChillsFeverNotes { get; set; }
         public bool SymptomsChillsFeverNone { get; set; }
         public bool SymptomsChillsFeverSubjective { get; set; }
         public bool SymptomsChillsFeverObjective { get; set; }
 
-        //public int SymptomsPerspiraton { get; set; }
+   
         public string SymptomsPerspiratonNotes { get; set; }
         public bool SymptomsPerspiratonNone { get; set; }
         public bool SymptomsPerspiratonSubjective { get; set; }
         public bool SymptomsPerspiratonObjective { get; set; }
 
-        //public int SymptomsUrination { get; set; }
+
         public string SymptomsUrinationNotes { get; set; }
         public bool SymptomsUrinationNormal { get; set; }
         public bool SymptomsUrinationSubjective { get; set; }
         public bool SymptomsUrinationObjective { get; set; }
 
-        //public int SymptomsHeadacheBodyache { get; set; }
+ 
         public string SymptomsHeadacheBodyacheNotes { get; set; }
         public bool SymptomsHeadacheBodyacheNone { get; set; }
 
 
-        //public int SymptomsRespiration { get; set; }
+
         public string SymptomsRespirationNotes { get; set; }
         public bool SymptomsRespirationNormal { get; set; }
         public bool SymptomsRespirationSubjective { get; set; }
         public bool SymptomsRespirationObjective { get; set; }
 
-        //public int SymptomsSleepEnergy { get; set; }
+       
         public string SymptomsSleepEnergyNotes { get; set; }
         public bool SymptomsSleepEnergyNormal { get; set; }
         public bool SymptomsSleepEnergySubjective { get; set; }
         public bool SymptomsSleepEnergyObjective { get; set; }
 
-        //public int SymptomsReproductive { get; set; }
+     
         public string SymptomsReproductiveNotes { get; set; }
         public bool SymptomsReproductiveNormal { get; set; }
 
 
 
-        //public int SymptomsMentalEmotional { get; set; }
         public string SymptomsMentalEmotionalNotes { get; set; }
         public bool SymptomsMentalEmotionalNormal { get; set; }
         public bool SymptomsMentalEmotionalSubjective { get; set; }
         public bool SymptomsMentalEmotionalObjective { get; set; }
 
-
-        //public int SymptomsEarsEyesTeethGums { get; set; }
+        
         public string SymptomsEarsEyesTeethGumsNotes { get; set; }
         public bool SymptomsEarsEyesTeethGumsNormal { get; set; }
         public bool SymptomsEarsEyesTeethGumsSubjective { get; set; }
         public bool SymptomsEarsEyesTeethGumsObjective { get; set; }
 
-        //public int SymptomsAppetiteDigestionDefecation { get; set; }
+
         public string SymptomsAppetiteDigestionDefecationNotes { get; set; }
         public bool SymptomsAppetiteDigestionDefecationNormal { get; set; }
         public bool SymptomsAppetiteDigestionDefecationSubjective { get; set; }
         public bool SymptomsAppetiteDigestionDefecationObjective { get; set; }
 
-        //public int SymptomsPalpitationDizzinessNumbness { get; set; }
+      
         public string SymptomsPalpitationDizzinessNumbnessNotes { get; set; }
         public bool SymptomsPalpitationDizzinessNumbnessNone { get; set; }
         public bool SymptomsPalpitationDizzinessNumbnessSubjective { get; set; }
         public bool SymptomsPalpitationDizzinessNumbnessObjective { get; set; }
 
         public string TongueBodyColor { get; set; }
-        //public string TongueBodyShape { get; set; } //add
         public string TongueCoating { get; set; }
         public string CoatColoration { get; set; }
         public string CoatRooting { get; set; }
 
-        //otherphyiscal exams. what goes here?
+        //missed variables
+        public string TongueBodyShape { get; set; } 
+        public string TreatmentPrinciples { get; set; } 
+        public string ThirstNotes { get; set; } 
+        public string OtherPhysicalExamsNotes { get; set; } 
+
+
+        //public DateTime TimeTreatmentStarted { get; set; }
+        //public DateTime TimeTreatmentEnded { get; set; }
+        public string TimeTreatmentStarts { get; set; }
+        public string TimeTreatmentEnds { get; set; }
+
+        public bool ThirstNormal { get; set; }
+        public bool ThirstSubjective { get; set; }
+        public bool ThirstObjective { get; set; }
+
+        //END missed variables
+        //TimeTreatmentStarts,TimeTreatmentEnds,TongueBodyShape,TreatmentPrinciples,ThirstNotes,OtherPhysicalExamsNotes,
+        //ThirstNormal,ThirstSubjective,ThirstObjective,
+
+
+
 
         public int PulseRight { get; set; }
         public int PulseLeft { get; set; }

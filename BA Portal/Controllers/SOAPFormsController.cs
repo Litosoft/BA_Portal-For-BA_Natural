@@ -50,8 +50,13 @@ namespace BA_Portal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(string Set1Point1, string Set1Point2, string Set1Point3, string Set1Point4, string Set1Point5, string Set2Point1, string Set2Point2, string Set2Point3, string Set2Point4, string Set2Point5, string Set3Point1, string Set3Point2, string Set3Point3, string Set3Point4, string Set3Point5, string Set4Point1, string Set4Point2, string Set4Point3, string Set4Point4, string Set4Point5, string Set5Point1, string Set5Point2, string Set5Point3, string Set5Point4, string Set5Point5, string Set6Point1, string Set6Point2, string Set6Point3, string Set6Point4, string Set6Point5, [Bind(Include = "ID,PractionerName,PractionerLicenseNumber,PatientName,BP,BodyTemperature,SubjectiveObjectiveNotes,DateFilledIn,TimeTreatmentStarted,TimeTreatmentEnded,SymptomsGeneral,PresentingProblems,SymptomsChillsFeverNotes,SymptomsChillsFeverNone,SymptomsChillsFeverSubjective,SymptomsChillsFeverObjective,SymptomsPerspiratonNotes,SymptomsPerspiratonNone,SymptomsPerspiratonSubjective,SymptomsPerspiratonObjective,SymptomsUrinationNotes,SymptomsUrinationNormal,SymptomsUrinationSubjective,SymptomsUrinationObjective,SymptomsHeadacheBodyacheNotes,SymptomsHeadacheBodyacheNone,SymptomsRespirationNotes,SymptomsRespirationNormal,SymptomsRespirationSubjective,SymptomsRespirationObjective,SymptomsSleepEnergyNotes,SymptomsSleepEnergyNormal,SymptomsSleepEnergySubjective,SymptomsSleepEnergyObjective,SymptomsReproductiveNotes,SymptomsReproductiveNormal,SymptomsMentalEmotionalNotes,SymptomsMentalEmotionalNormal,SymptomsMentalEmotionalSubjective,SymptomsMentalEmotionalObjective,SymptomsEarsEyesTeethGumsNotes,SymptomsEarsEyesTeethGumsNormal,SymptomsEarsEyesTeethGumsSubjective,SymptomsEarsEyesTeethGumsObjective,SymptomsAppetiteDigestionDefecationNotes,SymptomsAppetiteDigestionDefecationNormal,SymptomsAppetiteDigestionDefecationSubjective,SymptomsAppetiteDigestionDefecationObjective,SymptomsPalpitationDizzinessNumbnessNotes,SymptomsPalpitationDizzinessNumbnessNone,SymptomsPalpitationDizzinessNumbnessSubjective,SymptomsPalpitationDizzinessNumbnessObjective,TongueBodyColor,TongueCoating,CoatColoration,CoatRooting,PulseRight,PulseLeft,AssessmentandDiagnosis,PlanofTreatment,CleanNeedSet,NeedlingSet1ElectricalStimulation,NeedlingSet1TuiNa,NeedlingSet1CuppingTherapy,NeedlingSet2ElectricalStimulation,NeedlingSet2TuiNa,NeedlingSet2CuppingTherapy,NeedlingSet3ElectricalStimulation,NeedlingSet3TuiNa,NeedlingSet3CuppingTherapy,NeedlingSet4ElectricalStimulation,NeedlingSet4TuiNa,NeedlingSet4CuppingTherapy,NeedlingSet5ElectricalStimulation,NeedlingSet5TuiNa,NeedlingSet5CuppingTherapy,NeedlingSet6ElectricalStimulation,NeedlingSet6TuiNa,NeedlingSet6CuppingTherapy,HerbalFormulaId1,HerbalFormulaId1Directions,HerbalFormulaId2,HerbalFormulaId2Directions,HerbalFormulaId3,HerbalFormulaId3Directions,PostTreatmentAssessment,Recomendations")] SOAPForm sOAPForm)
+        public ActionResult Create(string Set1Point1, string Set1Point2, string Set1Point3, string Set1Point4, string Set1Point5, string Set2Point1, string Set2Point2, string Set2Point3, string Set2Point4, string Set2Point5, string Set3Point1, string Set3Point2, string Set3Point3, string Set3Point4, string Set3Point5, string Set4Point1, string Set4Point2, string Set4Point3, string Set4Point4, string Set4Point5, string Set5Point1, string Set5Point2, string Set5Point3, string Set5Point4, string Set5Point5, string Set6Point1, string Set6Point2, string Set6Point3, string Set6Point4, string Set6Point5, [Bind(Include = "ID,PractionerName,PractionerLicenseNumber,ThirstNormal,ThirstSubjective,ThirstObjective,TimeTreatmentStarts,TimeTreatmentEnds,TongueBodyShape,TreatmentPrinciples,ThirstNotes,OtherPhysicalExamsNotes,PatientName,BP,BodyTemperature,SubjectiveObjectiveNotes,DateFilledIn,SymptomsGeneral,PresentingProblems,SymptomsChillsFeverNotes,SymptomsChillsFeverNone,SymptomsChillsFeverSubjective,SymptomsChillsFeverObjective,SymptomsPerspiratonNotes,SymptomsPerspiratonNone,SymptomsPerspiratonSubjective,SymptomsPerspiratonObjective,SymptomsUrinationNotes,SymptomsUrinationNormal,SymptomsUrinationSubjective,SymptomsUrinationObjective,SymptomsHeadacheBodyacheNotes,SymptomsHeadacheBodyacheNone,SymptomsRespirationNotes,SymptomsRespirationNormal,SymptomsRespirationSubjective,SymptomsRespirationObjective,SymptomsSleepEnergyNotes,SymptomsSleepEnergyNormal,SymptomsSleepEnergySubjective,SymptomsSleepEnergyObjective,SymptomsReproductiveNotes,SymptomsReproductiveNormal,SymptomsMentalEmotionalNotes,SymptomsMentalEmotionalNormal,SymptomsMentalEmotionalSubjective,SymptomsMentalEmotionalObjective,SymptomsEarsEyesTeethGumsNotes,SymptomsEarsEyesTeethGumsNormal,SymptomsEarsEyesTeethGumsSubjective,SymptomsEarsEyesTeethGumsObjective,SymptomsAppetiteDigestionDefecationNotes,SymptomsAppetiteDigestionDefecationNormal,SymptomsAppetiteDigestionDefecationSubjective,SymptomsAppetiteDigestionDefecationObjective,SymptomsPalpitationDizzinessNumbnessNotes,SymptomsPalpitationDizzinessNumbnessNone,SymptomsPalpitationDizzinessNumbnessSubjective,SymptomsPalpitationDizzinessNumbnessObjective,TongueBodyColor,TongueCoating,CoatColoration,CoatRooting,PulseRight,PulseLeft,AssessmentandDiagnosis,PlanofTreatment,CleanNeedSet,NeedlingSet1ElectricalStimulation,NeedlingSet1TuiNa,NeedlingSet1CuppingTherapy,NeedlingSet2ElectricalStimulation,NeedlingSet2TuiNa,NeedlingSet2CuppingTherapy,NeedlingSet3ElectricalStimulation,NeedlingSet3TuiNa,NeedlingSet3CuppingTherapy,NeedlingSet4ElectricalStimulation,NeedlingSet4TuiNa,NeedlingSet4CuppingTherapy,NeedlingSet5ElectricalStimulation,NeedlingSet5TuiNa,NeedlingSet5CuppingTherapy,NeedlingSet6ElectricalStimulation,NeedlingSet6TuiNa,NeedlingSet6CuppingTherapy,HerbalFormulaId1,HerbalFormulaId1Directions,HerbalFormulaId2,HerbalFormulaId2Directions,HerbalFormulaId3,HerbalFormulaId3Directions,PostTreatmentAssessment,Recomendations")] SOAPForm sOAPForm)
         {
+
+            //notes
+            //,TimeTreatmentStarted,TimeTreatmentEnded
+
+
             if (ModelState.IsValid)
             {
                 sOAPForm.NeedlingSet1 = new string[5];
@@ -260,9 +265,8 @@ namespace BA_Portal.Controllers
 
             stamper.AcroFields.SetField("PresentingProblems", sOAPFORM.PresentingProblems);
             stamper.AcroFields.SetField("Symptom", sOAPFORM.SymptomsGeneral);
-            stamper.AcroFields.SetField("ChillFeverNotes", sOAPFORM.SymptomsChillsFeverNotes);
+            stamper.AcroFields.SetField("ChillsFeverNotes", sOAPFORM.SymptomsChillsFeverNotes);
             stamper.AcroFields.SetField("PerspirationNotes", sOAPFORM.SymptomsPerspiratonNotes);
-            //stamper.AcroFields.SetField("ThirstNotes", sOAPFORM.); //forgot to add
             stamper.AcroFields.SetField("UrinationNotes", sOAPFORM.SymptomsUrinationNotes);
             stamper.AcroFields.SetField("HeadacheBodyNotes", sOAPFORM.SymptomsHeadacheBodyacheNotes);
             stamper.AcroFields.SetField("RespirationNotes", sOAPFORM.SymptomsRespirationNotes);
@@ -273,11 +277,15 @@ namespace BA_Portal.Controllers
             stamper.AcroFields.SetField("AppetiteDigestionDefecationNotes", sOAPFORM.SymptomsAppetiteDigestionDefecationNotes);
             stamper.AcroFields.SetField("PalpitationDizzinessNumbnessNotes", sOAPFORM.SymptomsPalpitationDizzinessNumbnessNotes);
 
-            //all checkboxes
+            stamper.AcroFields.SetField("TreatmentPrinciples", sOAPFORM.TreatmentPrinciples); //missed this one
+            stamper.AcroFields.SetField("TongueBodyShape", sOAPFORM.TongueBodyShape);
+            stamper.AcroFields.SetField("ThirstNotes", sOAPFORM.ThirstNotes); //forgot to add
+            stamper.AcroFields.SetField("OtherPhysicalExamsNotes", sOAPFORM.OtherPhysicalExamsNotes); //forgot to add
+            stamper.AcroFields.SetField("AppointmentStartTime", sOAPFORM.TimeTreatmentStarts);
+            stamper.AcroFields.SetField("AppointmentEndTime", sOAPFORM.TimeTreatmentEnds);
 
             //
             stamper.AcroFields.SetField("TongueBodyColor", sOAPFORM.TongueBodyColor);
-            //stamper.AcroFields.SetField("TongueBodyShape", sOAPFORM.);
             stamper.AcroFields.SetField("TongueCoating", sOAPFORM.TongueCoating);
             stamper.AcroFields.SetField("TongueColoration", sOAPFORM.CoatColoration);
             stamper.AcroFields.SetField("TongueRooting", sOAPFORM.CoatRooting);
@@ -290,12 +298,245 @@ namespace BA_Portal.Controllers
             stamper.AcroFields.SetField("NeedlingSet5", sOAPFORM.NeedlingSet5asString);
             stamper.AcroFields.SetField("NeedlingSet6", sOAPFORM.NeedlingSet6asString);
 
-            stamper.AcroFields.SetField("Notes1", sOAPFORM.SubjectiveObjectiveNotes);
+            stamper.AcroFields.SetField("SubjectiveObjectiveNotes", sOAPFORM.SubjectiveObjectiveNotes);
             stamper.AcroFields.SetField("PulseRight", sOAPFORM.PulseRight.ToString());
             stamper.AcroFields.SetField("PulseLeft", sOAPFORM.PulseLeft.ToString());
             stamper.AcroFields.SetField("AssessmentDiagnosis", sOAPFORM.AssessmentandDiagnosis);
-            //stamper.AcroFields.SetField("TreatmentPrinciples", sOAPFORM.tre; //missed this one
+       
             stamper.AcroFields.SetField("PlanofTreatment", sOAPFORM.PlanofTreatment);
+
+            stamper.AcroFields.SetField("HerbalFormulaId1", sOAPFORM.HerbalFormulaId1);
+            stamper.AcroFields.SetField("HerbalFormulaId1Directions", sOAPFORM.HerbalFormulaId1Directions);
+
+            stamper.AcroFields.SetField("HerbalFormulaId2", sOAPFORM.HerbalFormulaId2);
+            stamper.AcroFields.SetField("HerbalFormulaId2Directions", sOAPFORM.HerbalFormulaId2Directions);
+
+            stamper.AcroFields.SetField("HerbalFormulaId3", sOAPFORM.HerbalFormulaId3);
+            stamper.AcroFields.SetField("HerbalFormulaId3Directions", sOAPFORM.HerbalFormulaId3Directions);
+
+            stamper.AcroFields.SetField("PostTreatmentAssessment", sOAPFORM.PostTreatmentAssessment);
+            stamper.AcroFields.SetField("Recommendations", sOAPFORM.Recomendations);
+            stamper.AcroFields.SetField("Date_2", DateTime.Now.ToShortDateString());
+
+
+            //all checkboxes
+            if (sOAPFORM.SymptomsChillsFeverNone == true)
+            {
+                stamper.AcroFields.SetField("ChillsFeverNone", "200", true);
+            }
+            if (sOAPFORM.SymptomsChillsFeverObjective == true)
+            {
+                stamper.AcroFields.SetField("ChillsFeverS", "201", true);
+            }
+            if (sOAPFORM.SymptomsChillsFeverSubjective == true)
+            {
+                stamper.AcroFields.SetField("ChillsFeverO", "202", true);
+            }
+            if (sOAPFORM.SymptomsHeadacheBodyacheNone == true)
+            {
+                stamper.AcroFields.SetField("HeadacheNone", "206", true);
+            }
+            if (sOAPFORM.SymptomsSleepEnergyNormal == true)
+            {
+                stamper.AcroFields.SetField("SleepNone", "207", true);
+            }
+            if (sOAPFORM.SymptomsSleepEnergySubjective == true)
+            {
+                stamper.AcroFields.SetField("SleepS", "208", true);
+            }
+            if (sOAPFORM.SymptomsSleepEnergyObjective == true)
+            {
+                stamper.AcroFields.SetField("SleepO", "209", true);
+            }
+            if (sOAPFORM.SymptomsMentalEmotionalNormal == true)
+            {
+                stamper.AcroFields.SetField("MentalNormal", "210", true);
+            }
+            if (sOAPFORM.SymptomsMentalEmotionalSubjective == true)
+            {
+                stamper.AcroFields.SetField("MentalS", "211", true);
+            }
+            if (sOAPFORM.SymptomsMentalEmotionalObjective == true)
+            {
+                stamper.AcroFields.SetField("MentalO", "212", true);
+            }
+            if (sOAPFORM.SymptomsAppetiteDigestionDefecationNormal == true)
+            {
+                stamper.AcroFields.SetField("AppetiteNormal", "213", true);
+            }
+            if (sOAPFORM.SymptomsAppetiteDigestionDefecationSubjective == true)
+            {
+                stamper.AcroFields.SetField("AppetiteS", "214", true);
+            }
+            if (sOAPFORM.SymptomsAppetiteDigestionDefecationObjective == true)
+            {
+                stamper.AcroFields.SetField("AppetiteO", "215", true);
+            }
+            if (sOAPFORM.SymptomsPerspiratonNone == true)
+            {
+                stamper.AcroFields.SetField("PerspirationNone", "216", true);
+            }
+            if (sOAPFORM.SymptomsPerspiratonSubjective == true)
+            {
+                stamper.AcroFields.SetField("PerspirationS", "217", true);
+            }
+            if (sOAPFORM.SymptomsPerspiratonObjective == true)
+            {
+                stamper.AcroFields.SetField("PerspirationO", "218", true);
+            }
+            if (sOAPFORM.SymptomsUrinationNormal == true)
+            {
+                stamper.AcroFields.SetField("UrinationNormal", "219", true);
+            }
+            if (sOAPFORM.SymptomsUrinationSubjective == true)
+            {
+                stamper.AcroFields.SetField("UrinationS", "220", true);
+            }
+            if (sOAPFORM.SymptomsUrinationObjective == true)
+            {
+                stamper.AcroFields.SetField("UrinationO", "221", true);
+            }
+            if (sOAPFORM.SymptomsRespirationNormal == true)
+            {
+                stamper.AcroFields.SetField("RespirationNormal", "222", true);
+            }
+            if (sOAPFORM.SymptomsRespirationSubjective == true)
+            {
+                stamper.AcroFields.SetField("RespirationS", "223", true);
+            }
+            if (sOAPFORM.SymptomsRespirationObjective == true)
+            {
+                stamper.AcroFields.SetField("RespirationO", "224", true);
+            }
+            if (sOAPFORM.SymptomsReproductiveNormal == true)
+            {
+                stamper.AcroFields.SetField("ReproductiveNormal", "225", true);
+            }
+            if (sOAPFORM.SymptomsEarsEyesTeethGumsNormal == true)
+            {
+                stamper.AcroFields.SetField("EarsNormal", "226", true);
+            }
+            if (sOAPFORM.SymptomsEarsEyesTeethGumsSubjective == true)
+            {
+                stamper.AcroFields.SetField("EarsS", "227", true);
+            }
+            if (sOAPFORM.SymptomsEarsEyesTeethGumsObjective == true)
+            {
+                stamper.AcroFields.SetField("EarsO", "228", true);
+            }
+            if (sOAPFORM.SymptomsPalpitationDizzinessNumbnessNone == true)
+            {
+                stamper.AcroFields.SetField("PalpitationNone", "229", true);
+            }
+            if (sOAPFORM.SymptomsPalpitationDizzinessNumbnessSubjective == true)
+            {
+                stamper.AcroFields.SetField("PalpitationS", "230", true);
+            }
+            if (sOAPFORM.SymptomsPalpitationDizzinessNumbnessObjective == true)
+            {
+                stamper.AcroFields.SetField("PalpitationO", "231", true);
+            }
+
+            if (sOAPFORM.NeedlingSet1ElectricalStimulation == true)
+            {
+                stamper.AcroFields.SetField("ElectricalStimulation1", "232", true);
+            }
+            if (sOAPFORM.NeedlingSet2ElectricalStimulation == true)
+            {
+                stamper.AcroFields.SetField("ElectricalStimulation2", "233", true);
+            }
+            if (sOAPFORM.NeedlingSet3ElectricalStimulation == true)
+            {
+                stamper.AcroFields.SetField("ElectricalStimulation3", "234", true);
+            }
+            if (sOAPFORM.NeedlingSet4ElectricalStimulation == true)
+            {
+                stamper.AcroFields.SetField("ElectricalStimulation4", "235", true);
+            }
+            if (sOAPFORM.NeedlingSet5ElectricalStimulation == true)
+            {
+                stamper.AcroFields.SetField("ElectricalStimulation5", "236", true);
+            }
+            if (sOAPFORM.NeedlingSet6ElectricalStimulation == true)
+            {
+                stamper.AcroFields.SetField("ElectricalStimulation6", "237", true);
+            }
+
+            if (sOAPFORM.NeedlingSet1TuiNa == true)
+            {
+                stamper.AcroFields.SetField("TuiNa1", "238", true);
+            }
+            if (sOAPFORM.NeedlingSet2TuiNa == true)
+            {
+                stamper.AcroFields.SetField("TuiNa2", "239", true);
+            }
+            if (sOAPFORM.NeedlingSet3TuiNa == true)
+            {
+                stamper.AcroFields.SetField("TuiNa3", "240", true);
+            }
+            if (sOAPFORM.NeedlingSet4TuiNa == true)
+            {
+                stamper.AcroFields.SetField("TuiNa4", "241", true);
+            }
+            if (sOAPFORM.NeedlingSet5TuiNa == true)
+            {
+                stamper.AcroFields.SetField("TuiNa5", "242", true);
+            }
+            if (sOAPFORM.NeedlingSet6TuiNa == true)
+            {
+                stamper.AcroFields.SetField("TuiNa6", "243", true);
+            }
+
+            if (sOAPFORM.NeedlingSet1CuppingTherapy == true)
+            {
+                stamper.AcroFields.SetField("CuppingTherapy1", "244", true);
+            }
+            if (sOAPFORM.NeedlingSet2CuppingTherapy == true)
+            {
+                stamper.AcroFields.SetField("CuppingTherapy2", "245", true);
+            }
+            if (sOAPFORM.NeedlingSet3CuppingTherapy == true)
+            {
+                stamper.AcroFields.SetField("CuppingTherapy3", "246", true);
+            }
+            if (sOAPFORM.NeedlingSet4CuppingTherapy == true)
+            {
+                stamper.AcroFields.SetField("CuppingTherapy4", "247", true);
+            }
+            if (sOAPFORM.NeedlingSet5CuppingTherapy == true)
+            {
+                stamper.AcroFields.SetField("CuppingTherapy5", "248", true);
+            }
+            if (sOAPFORM.NeedlingSet6CuppingTherapy == true)
+            {
+                stamper.AcroFields.SetField("CuppingTherapy6", "249", true);
+            }
+
+            if (sOAPFORM.CleanNeedSet == true)
+            {
+                stamper.AcroFields.SetField("CleanNeedle", "250", true);
+            }
+
+            if (sOAPFORM.ThirstNormal == true)
+            {
+                stamper.AcroFields.SetField("ThirstNormal", "203", true);
+            }
+            if (sOAPFORM.ThirstSubjective == true)
+            {
+                stamper.AcroFields.SetField("ThirstS", "204", true);
+            }
+            if (sOAPFORM.ThirstObjective == true)
+            {
+                stamper.AcroFields.SetField("ThirstO", "205", true);
+            }
+
+
+
+
+
+
+
+
 
 
             //put in signatures
@@ -315,9 +556,9 @@ namespace BA_Portal.Controllers
             // Scale image to fit
             sigImg.ScaleToFit(70, 70);
             // Set signature position on page
-            sigImg.SetAbsolutePosition(55, 132);  //x, y
+            sigImg.SetAbsolutePosition(55, 382);  //x, y
             // Add signatures to desired page
-            PdfContentByte over = stamper.GetOverContent(1);
+            PdfContentByte over = stamper.GetOverContent(3);
             over.AddImage(sigImg);
 
 

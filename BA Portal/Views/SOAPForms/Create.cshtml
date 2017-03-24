@@ -59,6 +59,53 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                @Html.LabelFor(model => model.TongueBodyShape, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TongueBodyShape, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TongueBodyShape, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TreatmentPrinciples, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TreatmentPrinciples, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TreatmentPrinciples, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ThirstNotes, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ThirstNotes, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ThirstNotes, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.OtherPhysicalExamsNotes, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.OtherPhysicalExamsNotes, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.OtherPhysicalExamsNotes, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TimeTreatmentStarts, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TimeTreatmentStarts, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TimeTreatmentStarts, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TimeTreatmentEnds, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TimeTreatmentEnds, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TimeTreatmentEnds, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
 
             <div class="form-group">
@@ -80,7 +127,7 @@
             @Html.ValidationMessageFor(model => model.DateFilledIn, "", new { @class = "text-danger" })
         </div>
     </div>
-            *@
+
 
 
             <div class="form-group">
@@ -102,7 +149,7 @@
 
                     </div>
                 </div>
-
+            *@
            
 
                 <div class="form-group">
@@ -12782,6 +12829,39 @@
                     </div>
                 </div>
             </div>
+            //
+
+                        <div class="form-group">
+                @Html.LabelFor(model => model.ThirstNormal, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-sm-8 col-md-8 col-lg-8">
+                    <div class="checkbox col-sm-2 col-md-2 col-lg-2">
+                        @Html.EditorFor(model => model.ThirstNormal)
+                        @Html.ValidationMessageFor(model => model.ThirstNormal, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ThirstSubjective, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.ThirstSubjective)
+                        @Html.ValidationMessageFor(model => model.ThirstSubjective, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ThirstObjective, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.ThirstObjective)
+                        @Html.ValidationMessageFor(model => model.ThirstObjective, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div> 
+            //
 
             <div class="form-group">
                 @Html.LabelFor(model => model.SymptomsPerspiratonNotes, htmlAttributes: new { @class = "control-label col-md-2" })

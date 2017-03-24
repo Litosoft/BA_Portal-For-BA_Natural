@@ -319,8 +319,8 @@
     <Content Include="Content\Disclaimer.pdf" />
     <Content Include="Content\Disclaimer_PT_Benefits.pdf" />
     <Content Include="Content\Paying.pdf" />
-    <Content Include="Content\PDFSoap.pdf" />
     <Content Include="Content\FinancialPolicy.pdf" />
+    <Content Include="Content\PDFSoap.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DayPilot\daypilot-all.min.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
