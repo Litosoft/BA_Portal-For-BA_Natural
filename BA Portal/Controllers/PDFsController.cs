@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BA_Portal.Models;
+using System.IO;
 
 namespace BA_Portal.Controllers
 {
@@ -227,6 +228,44 @@ namespace BA_Portal.Controllers
 
         }
 
+
+        public ActionResult file(int id, string RedirectIdentifier)
+        {
+
+            TempData["GroupingID"] = id;
+            TempData["tag"] = RedirectIdentifier;
+            //int id, string RedirectIdentifier 
+
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult file(HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0)
+                try
+                {
+                    string path = Path.Combine(Server.MapPath("~/PDF_handler/Scans"), Path.GetFileName("Scans.pdf"));
+                    file.SaveAs(path);
+                    ViewBag.Message = "File uploaded successfully";
+                    int id = (int)TempData["GroupingID"];
+                    string tagstring = (string)TempData["tag"];
+                    string pathforfile = "~/PDF_handler/Scans/Scans.pdf";
+
+                    return RedirectToAction("SavePDFtoDatabase", "PDFs", new { GroupingID = id, path = pathforfile, tag = tagstring});
+
+
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+            }
+            return View();
+        }
 
 
     }

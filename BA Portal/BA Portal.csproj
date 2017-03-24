@@ -605,6 +605,7 @@
     <Content Include="Views\Signatures\GetClientSignatureMultiple.cshtml" />
     <Content Include="Views\Signatures\GetDoctorSignatureSOAP.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\PDFs\file.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -621,6 +622,9 @@
     <None Include="Models\Sample.dbml.layout">
       <DependentUpon>Sample.dbml</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PDF_handler\Scans\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
