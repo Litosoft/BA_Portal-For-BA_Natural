@@ -72,13 +72,20 @@
         </ul>
     </div>
 }
+                <div >
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Help", "Help", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+
+
+                    </ul>
+                </div>
 
 
 
 
 
-                @Html.Partial("_LoginPartial")
-            </div>
+                    @Html.Partial("_LoginPartial")
+                </div>
         </div>
     </div>
 }

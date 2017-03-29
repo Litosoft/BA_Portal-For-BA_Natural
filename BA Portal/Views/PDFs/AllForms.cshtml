@@ -28,9 +28,9 @@
             
            
             <strong>City:</strong> @ViewBag.City <br />
-            <strong>Has Allergy:</strong> @ViewBag.Allergy <br /> 
+            <strong>Has an Allergy:</strong> @ViewBag.Allergy <br /> 
             <strong>First Seen:</strong> @ViewBag.firstseen <br />
-            <strong>Last Seen::</strong> @ViewBag.lastseen <br /> 
+            <strong>Last Seen:</strong> @ViewBag.lastseen <br /> 
 
 
             
@@ -57,9 +57,18 @@
 <h1>All Forms</h1> 
 <br />
 
-<h3>Personal Information:</h3><br />
-@Html.ActionLink("Add new Personal Information Form", "CaptureIDandRedirectforPI", "Signatures", new { id = ViewBag.Id }, null) 
+<h3>Personal Information:</h3>
+
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <strong>
+    @Html.ActionLink("Add new Personal Information Form", "CaptureIDandRedirectforPI", "Signatures", new { id = ViewBag.Id }, null)
+    </strong>
+</div>
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <a href="~/Content/PDFforPersonalInformation.pdf">What is a Personal Information form?</a>
+</div>
 <br />(Forms will use the client's current personal information, but require that the practioner and the client re-sign the form again).
+
 
 
 @{
@@ -99,8 +108,17 @@
     </table>
 }
 <br />
-<h3>Consent:</h3><br />
-@Html.ActionLink("Add new Consent Form", "CaptureIDandRedirectforInsurance", "Signatures" , new { id = ViewBag.Id }, null)
+<h3>Consent:</h3>
+<br />
+
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <strong>
+@Html.ActionLink("Add new Consent Form", "CaptureIDandRedirectforInsurance", "Signatures", new { id = ViewBag.Id }, null)
+    </strong>
+</div>
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <a href="~/Content/PDFforInsurance.pdf">What is a consent form?</a>
+</div><br />
 @{
 
     <table id="border02" class="table">
@@ -138,9 +156,17 @@
     </table>
 }
 <br />
-<h3>Soap:</h3><br />
+<h3>Soap:</h3>
+
+
+<div class="col-sm-6 col-md-6 col-lg-6">
+<strong>
 @Html.ActionLink("Add new Soap", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "SOAP" }, null)
-<br />
+</strong>
+</div>
+<div class="col-sm-6 col-md-6 col-lg-6">
+   <a href="~/Content/PDFSoap.pdf">What is a SOAP form?</a>
+</div>
 @{
 
     <table id="border02" class="table">
@@ -180,10 +206,21 @@
 
 <br />
 <h3>Disclaimers:</h3><br />
-@Html.ActionLink("Add new Disclaimer", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "Disclaimer1" }, null)
-<br />
+<div class="col-sm-6 col-md-6 col-lg-6">
+  <strong>
+    @Html.ActionLink("Add new Disclaimer", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "Disclaimer1" }, null)
+    <br />
+    </strong> 
+    <strong>
 @Html.ActionLink("Add new Disclaimer PT Benefits", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "Disclaimer2" }, null)
-<br />
+    </strong>
+</div>
+
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <a href="~/Content/Disclaimer.pdf">What is a Disclaimer form?</a>
+    <br /><a href="~/Content/Disclaimer_PT_Benefits.pdf">What is a Disclaimer PT Benefits form?</a>
+</div>
+
 <table id="border02" class="table">
     <tr>
         <th>
@@ -242,8 +279,16 @@
 
 <br />
 <h3>Financial Policy:</h3><br />
-@Html.ActionLink("Add new FinancialPolicy", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "FinancialPolicy" }, null)
-<br />
+
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <strong>
+       @Html.ActionLink("Add new Financial Policy", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "FinancialPolicy" }, null)
+
+    </strong>
+</div>
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <a href="~/Content/FinancialPolicy.pdf">What is a Financial Policy form?</a>
+</div>
 <table id="border02" class="table">
     <tr>
         <th>
@@ -282,8 +327,14 @@
 
 <br />
 <h3>Paying at time of service:</h3><br />
-@Html.ActionLink("Add new PayingatTimeofService", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "PayingatTimeofService" }, null)
-<br />
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <strong>
+       @Html.ActionLink("Add new Paying at Time of Service", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "PayingatTimeofService" }, null)
+    </strong>
+</div>
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <a href="~/Content/Paying.pdf">What is a Paying at time of service form?</a>
+</div>
 <table id="border02" class="table">
     <tr>
         <th>
@@ -319,9 +370,8 @@
 </table>
 <br />
 
-<h3>Scanned Files:</h3><br />
-<br />
-@Html.ActionLink("Scan new file", "file", "PDFs", new { id = ViewBag.Id, RedirectIdentifier = "Scan" }, null)
+<h3>Scanned Files:</h3>
+@Html.ActionLink("Scan a new file", "file", "PDFs", new { id = ViewBag.Id, RedirectIdentifier = "Scan" }, null)
 <br />
 <table id="border02" class="table">
     <tr>

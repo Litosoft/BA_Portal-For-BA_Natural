@@ -294,6 +294,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\forbiddenimage.jpg" />
+    <Content Include="Content\Help1.png" />
+    <Content Include="Content\Help2.png" />
+    <Content Include="Content\Help3.png" />
+    <Content Include="Content\Help4.png" />
     <Content Include="dhxscheduler.sample.mvc3.readme.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -608,6 +612,7 @@
     <Content Include="Views\PDFs\file.cshtml" />
     <Content Include="Views\Account\Upgrade.cshtml" />
     <Content Include="Views\NewFunctionTests\exceptionthrower.cshtml" />
+    <Content Include="Views\Home\Help.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
