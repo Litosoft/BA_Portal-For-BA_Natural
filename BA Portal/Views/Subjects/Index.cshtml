@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     <p>
-        <strong>Search by Name:</strong> @Html.TextBox("SearchString") 
+        <strong>Search by Name:</strong> @Html.TextBox("SearchString", null, new { @class = "text-danger" }) 
         <input type="submit" value="Search" /> <br /> <br />
     </p>
 } <br />

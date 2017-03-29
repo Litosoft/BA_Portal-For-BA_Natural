@@ -139,7 +139,7 @@ namespace BA_Portal.Controllers
 
 
         //private List<ApplicationUser> userlist;
-        [Authorize(Roles = "CanManageUsers")]
+        [Authorize(Roles = "CanEdit")]
         public ActionResult Index()
         {
             List<ApplicationUser> userlist = new List<ApplicationUser>();
@@ -261,6 +261,16 @@ namespace BA_Portal.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+
+        public ActionResult Upgrade(string id)
+        {
+
+            UserManager.AddToRole(id, "CanManageUsers");
+            return View();
+            //return RedirectToAction("Index", "Account");
+        }
+
 
         public ActionResult ManageUser()
         {

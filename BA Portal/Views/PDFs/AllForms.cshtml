@@ -58,7 +58,7 @@
 
 <h3>Personal Information:</h3><br />
 @Html.ActionLink("Add new Personal Information Form", "CaptureIDandRedirectforPI", "Signatures", new { id = ViewBag.Id }, null) 
-<br />(Forms will use the client's current personal information, but requires that the practioner and the client re-sign the form).
+<br />(Forms will use the client's current personal information, but require that the practioner and the client re-sign the form again).
 
 
 @{
@@ -66,12 +66,14 @@
     <table id="border02" class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SearchTag)
+                @Html.DisplayName("Type")
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayName("Options")
+            </th>
         </tr>
 
         @foreach (var item in Model)
@@ -103,12 +105,14 @@
     <table id="border02" class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SearchTag)
+                @Html.DisplayName("Type")
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayName("Options")
+            </th>
         </tr>
 
         @foreach (var item in Model)
@@ -117,10 +121,10 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.SearchTag)
+                        Consent
                     </td>
                     <td>
-                        @Html.DisplayFor(model => item.Description)
+                        @Html.DisplayNameFor(model => model.Description)
                     </td>
                     <td>
                         <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
@@ -141,12 +145,14 @@
     <table id="border02" class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SearchTag)
+                @Html.DisplayName("Type")
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayName("Options")
+            </th>
         </tr>
 
         @foreach (var item in Model)
@@ -173,28 +179,50 @@
 
 <br />
 <h3>Disclaimers:</h3><br />
-@Html.ActionLink("Add new Disclaimer1", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "Disclaimer1" }, null)
+@Html.ActionLink("Add new Disclaimer", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "Disclaimer1" }, null)
 <br />
-@Html.ActionLink("Add new Disclaimer2", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "Disclaimer2" }, null)
+@Html.ActionLink("Add new Disclaimer PT Benefits", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "Disclaimer2" }, null)
 <br />
 <table id="border02" class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.SearchTag)
+            @Html.DisplayName("Type")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayName("Options")
+        </th>
     </tr>
 
     @foreach (var item in Model)
     {
-        if (item.SearchTag == "Disclaimer1" || item.SearchTag == "Disclaimer2")
+        if (item.SearchTag == "Disclaimer1")
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.SearchTag)
+                    Disclaimer
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Description)
+                </td>
+                <td>
+                    <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    }
+
+    @foreach (var item in Model)
+    {
+        if (item.SearchTag == "Disclaimer2")
+        {
+            <tr>
+                <td>
+                    Disclaimer PT Benefits
                 </td>
                 <td>
                     @Html.DisplayFor(model => item.Description)
@@ -218,12 +246,14 @@
 <table id="border02" class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.SearchTag)
+            @Html.DisplayName("Type")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayName("Options")
+        </th>
     </tr>
 
     @foreach (var item in Model)
@@ -232,7 +262,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.SearchTag)
+                    Financial Policy
                 </td>
                 <td>
                     @Html.DisplayFor(model => item.Description)
@@ -256,12 +286,14 @@
 <table id="border02" class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.SearchTag)
+            @Html.DisplayName("Type")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayName("Options")
+        </th>
     </tr>
 
     @foreach (var item in Model)
@@ -270,7 +302,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.SearchTag)
+                    Paying at Time of Service
                 </td>
                 <td>
                     @Html.DisplayFor(model => item.Description)
@@ -293,12 +325,14 @@
 <table id="border02" class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.SearchTag)
+            @Html.DisplayName("Type")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayName("Options")
+        </th>
     </tr>
 
     @foreach (var item in Model)

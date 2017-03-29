@@ -39,16 +39,33 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Management<b class="caret"></b></a>
                 <ul class="dropdown-menu">
+
+                    <li>@Html.ActionLink("Manage Users", "Index", "Account")</li>
+
+
+
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+@if (ViewContext.HttpContext.User.IsInRole("CanManageUsers"))
+{
+    <div class="navbar-collapse collapse navbar-left">
+        <ul class="nav navbar-nav">
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><em>Backend Management</em> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
                     @if (ViewContext.HttpContext.User.IsInRole("CanManageUsers"))
-                    {
-                        <li>@Html.ActionLink("Manage Users", "Index", "Account")</li>
+    {
                         <li>@Html.ActionLink("Manage PDFs", "Index", "PDFs")</li>
-                        <li>@Html.ActionLink("Signatures", "Index", "Signatures")</li>
-                        <li>@Html.ActionLink("SoapForms", "Index", "SOAPForms")</li>
+                        <li>@Html.ActionLink("Manage Signatures", "Index", "Signatures")</li>
+                        <li>@Html.ActionLink("Manage SoapForms", "Index", "SOAPForms")</li>
 
                     }
 
-                    @*<li>@Html.ActionLink("Placeholder", "Index", "Home")</li> *@
 
                 </ul>
             </li>

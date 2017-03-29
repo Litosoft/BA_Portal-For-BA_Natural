@@ -7,14 +7,15 @@
 
 <h2>User Management</h2><br />
 
-    There are at this time 5 levels of user authorization: <br />
-1. CanManageUsers (SuperAdmin) <br />
+    There are at this time 4 levels of user authorization: <br />
+1. CanUserManage (SuperAdmin) <br />
 2. CanEdit (Admin) <br />
-3. CanView (may view record but not edit)<br />
-4. User (no role. May login but may not view anything)<br />
-5. Anonymous (may not login) <br />
+3. CanView (may view record but not edit) <em>[Not implemented]</em><br />
+4. Anonymous (may not login) <br />
+<br />
 
-    Currently SuperAdmin (the CanUserManage role) can create other admins of the CanEdit level (admin) by clicking on this link: @Html.ActionLink("New CanEdit Admin", "Register", "Account") <br />
+    Currently SuperAdmin (the CanUserManage role) can create other admins of the CanEdit level (admin) by clicking on this link: <strong> @Html.ActionLink("New CanEdit Admin", "Register", "Account")</strong> <br />
+    SuperAdmin (CanUserManage) accounts can also upgrade other accounts to the CanUserManage level by clicking on "Upgrade". This button is only visible to current SuperAdmins.
     <br />
 
 
@@ -62,8 +63,12 @@
                     <td></td>
 
                     <td>
+@if (ViewContext.HttpContext.User.IsInRole("CanManageUsers"))
+{
+                        @Html.ActionLink("Delete", "DeleteUser", new { id = user.Id })    <span>| | |</span>
+                        <strong>@Html.ActionLink("Upgrade", "Upgrade", new { id = user.Id })</strong>    <span>| | |</span>
+}
 
-                        @Html.ActionLink("Delete", "DeleteUser", new { id = user.Id }) | | |
                         @Html.ActionLink("Details", "UserDetails", new { id = user.Id })
                     </td>
 
