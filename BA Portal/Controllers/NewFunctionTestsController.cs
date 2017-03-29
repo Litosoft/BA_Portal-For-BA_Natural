@@ -111,5 +111,12 @@ namespace BA_Portal.Controllers
             return View(tESTMODEL);
 
         }
+
+        public ActionResult exceptionthrower(int id)
+        {
+            ViewBag.id = id;
+
+            return View();
+        }
     }
 }

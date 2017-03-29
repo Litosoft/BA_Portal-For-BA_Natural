@@ -41,6 +41,7 @@ namespace BA_Portal.Models
         public string ReferredBy { get; set; }
 
         public DateTime DateCreated { get; set; }
+        public DateTime LastSeen { get; set; }
 
         //all conditions
         public bool Allergy { get; set; }

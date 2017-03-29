@@ -24,13 +24,19 @@ namespace BA_Portal
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
- 
+        //exception handler. remove this to see detailed exceptions, but they will crash the application.
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception exception = Server.GetLastError();
 
+            // Do something with the error.
+            System.Diagnostics.Debug.WriteLine(exception);
 
+            // Redirect somewhere or return an error code in case of web api
+            Response.Redirect("/Account/Forbidden");
+        }
 
     }
-
-
 
 
 }

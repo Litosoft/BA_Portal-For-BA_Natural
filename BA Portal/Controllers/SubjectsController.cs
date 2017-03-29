@@ -66,6 +66,7 @@ namespace BA_Portal.Controllers
             if (ModelState.IsValid)
             {
                 subject.DateCreated = DateTime.Now;
+                subject.LastSeen = DateTime.Now;
                 db.SubjectDatabase.Add(subject);
                 db.SaveChanges();
 
@@ -903,6 +904,19 @@ namespace BA_Portal.Controllers
 
 
             return RedirectToAction("AllForms", "PDFs", new { GroupingID = id });
+        }
+
+        public ActionResult UpdateActivityStatus(int id)
+        {
+
+            Subject subject = db.SubjectDatabase.Find(id);
+            subject.LastSeen = DateTime.Now;
+ 
+            db.Entry(subject).State = EntityState.Modified;
+            db.SaveChanges();
+
+
+            return RedirectToAction("PassSubjecttoAllForms", "Subjects", new { id = id });
         }
 
 

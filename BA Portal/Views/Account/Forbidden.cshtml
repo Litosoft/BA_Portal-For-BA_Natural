@@ -4,8 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2> <strong>Forbidden</strong> </h2> <br />
-This is a general error message. The attempted operation is forbidden. <br /><br />
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+<span class="text-danger">Likely cause: <br />
+    1. An exception was encountered. To solve this problem try your operation again. It was most likely caused by accessing a page in the wrong order. <br />
+    2. The page does not exist. This error can only be solved the the developer. If the page has worked before, this is not the issue. <br />
+    
+    
+    </span>
 
 <body background="~/Content/forbiddenimage.jpg">
 </body>

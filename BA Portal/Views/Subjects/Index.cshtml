@@ -10,19 +10,23 @@
 @using (Html.BeginForm())
 {
     <p>
-        <strong>Search by Name:</strong> @Html.TextBox("SearchString", null, new { @class = "text-danger" }) 
+        <strong>Search by Name:</strong> @Html.TextBox("SearchString", null, new { @class = "checkbox" }) 
         <input type="submit" value="Search" /> <br /> <br />
     </p>
 } <br />
 
 
  
+<p>
+    <strong>@Html.ActionLink("New Patient", "Create")</strong>
+</p>
 
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
+        <th>Status</th>
         <th>
             Age
         </th>
@@ -32,9 +36,15 @@
         <th>
             @Html.DisplayNameFor(model => model.City)
         </th>
-        <th>
-            First Seen
-        </th>
+@*
+    <th>
+        First Seen
+    </th>
+*@
+    <th>Last Seen</th>
+
+   
+        
 
         <th></th>
         <th></th>
@@ -44,6 +54,25 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @{
+                DateTime nowstatus = DateTime.Today;
+                int agestatus = (nowstatus - item.LastSeen).Days;
+                if (agestatus > 182)
+                {
+                    <span><font color="red"><em>Inactive</em></font></span>
+                }
+                else if (agestatus <= 182)
+                {
+                    <font color="green"><em><strong>Active</strong></em></font>
+                }
+                else
+                {
+                    <font color="blue"><em>NA</em></font>
+                }
+
+            }
         </td>
         <td>
             @{ 
@@ -66,29 +95,31 @@
         <td>
             @Html.DisplayFor(modelItem => item.City)
         </td>
+
+ @*
+    <td>
+        @{
+            string date = item.DateCreated.ToShortDateString();
+            @date
+        }
+    </td>
+*@
+    <td>
+        @{
+            string lastseen = item.LastSeen.ToShortDateString();
+            @lastseen
+        }
+    </td>
+
+
+
         <td>
-            @{
-                string date = item.DateCreated.ToShortDateString();
-                @date
-            }
-
-
+            <strong> @Html.ActionLink("All Form(s)", "PassSubjecttoAllForms", new { id = item.ID }) </strong>    
         </td>
         <td>
-          
-            <strong> @Html.ActionLink("All Form(s)", "PassSubjecttoAllForms", new { id = item.ID }) </strong>
-                
 
-            @*
-    @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-    @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-    @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-            *@
-        </td>
-        <td>
-
-            @Html.ActionLink("View Client", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Update Client", "Edit", new { id = item.ID }) |
+            @*@Html.ActionLink("View Client's Personal Info", "Details", new { id = item.ID }) |*@
+            @Html.ActionLink("Update Client Personal Info", "Edit", new { id = item.ID }) |
             @Html.ActionLink("Delete Client Records", "Delete", new { id = item.ID })
 
         </td>
@@ -98,6 +129,4 @@
 </table>
 
 <br />
-<p>
-    @Html.ActionLink("New Patient", "Create")
-</p>
+

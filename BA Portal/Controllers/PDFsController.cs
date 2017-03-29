@@ -160,7 +160,15 @@ namespace BA_Portal.Controllers
 
                 return RedirectToAction("TakeAnotherAction", "PDFs", new { GroupingID = GroupingID });
             }
-                
+
+            if (PDFtoStore.SearchTag == "SOAP")
+            {
+                //if soap pass to one more field before all forms and set last seen to now.
+
+                return RedirectToAction("UpdateActivityStatus", "Subjects", new { id = GroupingID });
+                //return RedirectToAction("PassSubjecttoAllForms", "Subjects", new { id = GroupingID });
+            }
+
             return RedirectToAction("PassSubjecttoAllForms", "Subjects", new { id = GroupingID });
 
    
@@ -217,6 +225,9 @@ namespace BA_Portal.Controllers
             ViewBag.Email = subject.Email;
             ViewBag.Allergy = subject.Allergy.ToString();
             ViewBag.ReferredBy = subject.ReferredBy;
+
+            ViewBag.firstseen = subject.DateCreated.ToShortDateString();
+            ViewBag.lastseen = subject.LastSeen.ToShortDateString();
 
 
             var FormsSelected = from m in db.PDFDatabase select m;
