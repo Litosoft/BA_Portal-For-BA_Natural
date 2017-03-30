@@ -1,6 +1,7 @@
 # BA-Portal
 App for Local business to handle records, inventory, insurance, etc.
-A vieo showcasing this project is availible here: [Pending]
+
+A video showcasing this project is availible here: [Pending]
 The project is made in Asp.net MVC 5 using Visual Studio 2015 Community Edition.
 
 This is a brief overview:
