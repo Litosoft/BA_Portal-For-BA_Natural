@@ -13,6 +13,7 @@
     <WebStackScaffolding_ViewDialogWidth>600</WebStackScaffolding_ViewDialogWidth>
     <ProjectView>ShowAllFiles</ProjectView>
     <IISExpressSSLPort>44399</IISExpressSSLPort>
+    <NameOfLastUsedPublishProfile>account</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
