@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title BA Portal</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+<body>
+@if (ViewContext.HttpContext.User.IsInRole("CanManageUsers") || ViewContext.HttpContext.User.IsInRole("CanEdit"))
+{
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("BA Portal", "Index", "Calendar", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Clients", "Index", "Subjects")</li>
+      
+                </ul>
+
+
+@if (ViewContext.HttpContext.User.IsInRole("CanManageUsers") || ViewContext.HttpContext.User.IsInRole("CanEdit"))
+{
+    <div class="navbar-collapse collapse navbar-left">
+        <ul class="nav navbar-nav">
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Management<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+
+                    <li>@Html.ActionLink("Manage Users", "Index", "Account")</li>
+
+
+
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+
+@if (ViewContext.HttpContext.User.IsInRole("CanManageUsers"))
+{
+    <div class="navbar-collapse collapse navbar-left">
+        <ul class="nav navbar-nav">
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><em>Backend Management</em> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    @if (ViewContext.HttpContext.User.IsInRole("CanManageUsers"))
+    {
+                        <li>@Html.ActionLink("Manage PDFs", "Index", "PDFs")</li>
+                        <li>@Html.ActionLink("Manage Signatures", "Index", "Signatures")</li>
+                        <li>@Html.ActionLink("Manage SoapForms", "Index", "SOAPForms")</li>
+
+                    }
+
+
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
+                <div >
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Help", "Help", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+
+
+                    </ul>
+                </div>
+
+
+
+
+
+                    @Html.Partial("_LoginPartial")
+                </div>
+        </div>
+    </div>
+}
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - BA Natural Limited</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

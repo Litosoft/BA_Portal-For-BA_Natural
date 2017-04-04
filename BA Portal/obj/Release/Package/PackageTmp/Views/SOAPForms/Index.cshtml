@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BA_Portal.Models.SOAPForm>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+For Developers Use Only. <br />
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PractionerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PractionerLicenseNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientName)
+        </th>
+        <th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PractionerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PractionerLicenseNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatientName)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

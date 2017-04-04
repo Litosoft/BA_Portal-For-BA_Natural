@@ -1,0 +1,408 @@
+﻿
+
+@model IEnumerable<BA_Portal.Models.PDF>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewBag.Name</h1> 
+
+<table>
+    <tr>
+        <td>
+            <strong>Born:</strong> @ViewBag.DOB    <br />
+            <strong>Home Phone:</strong> @ViewBag.PhoneHome     <br />
+            <strong>Cell Phone:</strong> @ViewBag.PhoneCell    <br />
+            <strong>Email:</strong> @ViewBag.Email <br />
+        </td>
+
+        <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+        </td>
+        
+        <td>
+            
+           
+            <strong>City:</strong> @ViewBag.City <br />
+            <strong>Has an Allergy:</strong> @ViewBag.Allergy <br /> 
+            <strong>First Seen:</strong> @ViewBag.firstseen <br />
+            <strong>Last Seen:</strong> @ViewBag.lastseen <br /> 
+
+
+            
+        </td>
+
+        <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+        </td>
+
+        <td>
+            <strong>Referred by:</strong> @ViewBag.ReferredBy <br />
+            <br />
+            <br />
+            <br />
+
+        </td>
+    </tr>
+</table>
+
+
+<br />
+<h1>All Forms</h1> 
+<br />
+
+<h3>Personal Information:</h3>
+
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <strong>
+    @Html.ActionLink("Add new Personal Information Form", "CaptureIDandRedirectforPI", "Signatures", new { id = ViewBag.Id }, null)
+    </strong>
+</div>
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <a href="~/Content/PDFforPersonalInformation.pdf">What is a Personal Information form?</a>
+</div>
+<br />(Forms will use the client's current personal information, but require that the practioner and the client re-sign the form again).
+
+
+
+@{
+
+    <table id="border02" class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Type")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayName("Options")
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.SearchTag == "Personal Information")
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SearchTag)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Description)
+                    </td>
+                    <td>
+                        <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+}
+<br />
+<h3>Consent:</h3>
+<br />
+
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <strong>
+@Html.ActionLink("Add new Consent Form", "CaptureIDandRedirectforInsurance", "Signatures", new { id = ViewBag.Id }, null)
+    </strong>
+</div>
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <a href="~/Content/PDFforInsurance.pdf">What is a consent form?</a>
+</div><br />
+@{
+
+    <table id="border02" class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Type")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayName("Options")
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.SearchTag == "Insurance")
+            {
+                <tr>
+                    <td>
+                        Consent
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </td>
+                    <td>
+                        <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+}
+<br />
+<h3>Soap:</h3>
+
+
+<div class="col-sm-6 col-md-6 col-lg-6">
+<strong>
+@Html.ActionLink("Add new Soap", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "SOAP" }, null)
+</strong>
+</div>
+<div class="col-sm-6 col-md-6 col-lg-6">
+   <a href="~/Content/PDFSoap.pdf">What is a SOAP form?</a>
+</div>
+@{
+
+    <table id="border02" class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Type")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayName("Options")
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.SearchTag == "SOAP")
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SearchTag)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Description)
+                    </td>
+                    <td>
+                        <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+}
+
+<br />
+<h3>Disclaimers:</h3><br />
+<div class="col-sm-6 col-md-6 col-lg-6">
+  <strong>
+    @Html.ActionLink("Add new Disclaimer", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "Disclaimer1" }, null)
+    <br />
+    </strong> 
+    <strong>
+@Html.ActionLink("Add new Disclaimer PT Benefits", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "Disclaimer2" }, null)
+    </strong>
+</div>
+
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <a href="~/Content/Disclaimer.pdf">What is a Disclaimer form?</a>
+    <br /><a href="~/Content/Disclaimer_PT_Benefits.pdf">What is a Disclaimer PT Benefits form?</a>
+</div>
+
+<table id="border02" class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Type")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayName("Options")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.SearchTag == "Disclaimer1")
+        {
+            <tr>
+                <td>
+                    Disclaimer
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Description)
+                </td>
+                <td>
+                    <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    }
+
+    @foreach (var item in Model)
+    {
+        if (item.SearchTag == "Disclaimer2")
+        {
+            <tr>
+                <td>
+                    Disclaimer PT Benefits
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Description)
+                </td>
+                <td>
+                    <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+
+
+<br />
+<h3>Financial Policy:</h3><br />
+
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <strong>
+       @Html.ActionLink("Add new Financial Policy", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "FinancialPolicy" }, null)
+
+    </strong>
+</div>
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <a href="~/Content/FinancialPolicy.pdf">What is a Financial Policy form?</a>
+</div>
+<table id="border02" class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Type")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayName("Options")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.SearchTag == "Financial_Policy")
+        {
+            <tr>
+                <td>
+                    Financial Policy
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Description)
+                </td>
+                <td>
+                    <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+
+
+<br />
+<h3>Paying at time of service:</h3><br />
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <strong>
+       @Html.ActionLink("Add new Paying at Time of Service", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "PayingatTimeofService" }, null)
+    </strong>
+</div>
+<div class="col-sm-6 col-md-6 col-lg-6">
+    <a href="~/Content/Paying.pdf">What is a Paying at time of service form?</a>
+</div>
+<table id="border02" class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Type")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayName("Options")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.SearchTag == "PayingatTimeofService")
+        {
+            <tr>
+                <td>
+                    Paying at Time of Service
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Description)
+                </td>
+                <td>
+                    <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    }
+</table>
+<br />
+
+<h3>Scanned Files:</h3>
+@Html.ActionLink("Scan a new file", "file", "PDFs", new { id = ViewBag.Id, RedirectIdentifier = "Scan" }, null)
+<br />
+<table id="border02" class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Type")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayName("Options")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.SearchTag == "Scan")
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SearchTag)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Description)
+                </td>
+                <td>
+                    <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    }
+</table>

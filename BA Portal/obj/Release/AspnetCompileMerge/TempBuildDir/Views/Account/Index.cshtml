@@ -1,0 +1,87 @@
+﻿@model IEnumerable<BA_Portal.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User Management</h2><br />
+
+    There are at this time 4 levels of user authorization: <br />
+1. CanUserManage (SuperAdmin) <br />
+2. CanEdit (Admin) <br />
+3. CanView (may view record but not edit) <em>[Not implemented]</em><br />
+4. Anonymous (may not login) <br />
+<br />
+
+    Currently SuperAdmin (the CanUserManage role) can create other admins of the CanEdit level (admin) by clicking on this link: <strong> @Html.ActionLink("New CanEdit Admin", "Register", "Account")</strong> <br />
+    SuperAdmin (CanUserManage) accounts can also upgrade other accounts to the CanUserManage level by clicking on "Upgrade". This button is only visible to current SuperAdmins.
+    <br />
+
+
+    <br /><br />
+    <h3>List of Users:</h3> 
+
+
+    @{
+        int i = 0;
+
+        <table class="table">
+            <tr>
+                <th>
+                    <strong>#</strong>
+                </th>
+                <th>
+                    <strong>Username</strong>
+                </th>
+
+                <th>
+
+                </th>
+                <th>
+                    <strong>Options</strong>
+                </th>
+            </tr>
+
+
+
+            @foreach (var user in Model)
+            {
+
+
+                i++;
+                <tr>
+                    <td>
+                        <strong>@i. </strong>
+
+                    </td>
+                    <td>
+                        @user.UserName
+
+
+                    </td>
+                    <td></td>
+
+                    <td>
+@if (ViewContext.HttpContext.User.IsInRole("CanManageUsers"))
+{
+                        @Html.ActionLink("Delete", "DeleteUser", new { id = user.Id })    <span>| | |</span>
+                        <strong>@Html.ActionLink("Upgrade", "Upgrade", new { id = user.Id })</strong>    <span>| | |</span>
+}
+
+                        @Html.ActionLink("Details", "UserDetails", new { id = user.Id })
+                    </td>
+
+                </tr>
+            }
+        </table>
+
+
+
+    }
+
+<br />
+<span id="border01">User Count: @ViewBag.count</span>
+
+
+

@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "file";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2>Upload file</h2> <br />
+<em>PDFs only.</em>
+@using (Html.BeginForm("file", "PDFs", FormMethod.Post,
+                                     new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" id="file" /><br><br>
+    <input type="submit" value="Upload file" />
+    <br><br>
+    @ViewBag.Message
+}

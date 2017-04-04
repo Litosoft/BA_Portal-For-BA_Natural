@@ -1,0 +1,131 @@
+﻿@using BA_Portal.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+@*<div align="center"><h1>BA Portal</h1></div><br />*@
+<h2>@ViewBag.Title.</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Log in" class="btn btn-default" />
+                    </div>
+                </div>
+
+                @* Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>*@
+            }
+        </section>
+    </div>
+  
+</div>
+
+
+
+
+    @{
+        Random random = new Random();
+        int choose = random.Next(1, 12);
+
+        if (choose == 1)
+        {
+            <body background="~/Content/backgroundimage18.jpg">
+            </body>
+        }
+    
+        else if (choose == 2)
+        {
+            <body background="~/Content/backgroundimage28.jpg">
+            </body>
+        }
+        else if (choose == 3)
+        {
+            <body background="~/Content/backgroundimage29.jpg">
+            </body>
+        }
+        else if (choose == 4)
+        {
+            <body background="~/Content/backgroundimage22.jpg">
+            </body>
+        }
+        else if (choose == 5)
+        {
+            <body background="~/Content/backgroundimage32.jpg">
+            </body>
+        }
+        else if (choose == 6)
+        {
+            <body background="~/Content/backgroundimage1.jpg">
+            </body>
+        }
+        else if (choose == 7)
+        {
+            <body background="~/Content/backgroundimage2.jpg">
+            </body>
+        }
+        else if (choose == 8)
+        {
+            <body background="~/Content/backgroundimage3.jpg">
+            </body>
+        }
+        else if (choose == 9)
+        {
+            <body background="~/Content/backgroundimage5.jpg">
+            </body>
+        }
+        else if (choose == 10)
+        {
+            <body background="~/Content/backgroundimage6.jpg">
+            </body>
+        }
+        else if (choose == 11)
+        {
+            <body background="~/Content/backgroundimage7.jpg">
+            </body>
+        }
+        else
+        {
+            <body background="~/Content/backgroundimage29.jpg">
+            </body>
+        }
+
+
+
+    }
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

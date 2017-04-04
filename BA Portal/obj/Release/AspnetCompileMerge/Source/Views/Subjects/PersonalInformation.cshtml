@@ -1,0 +1,24 @@
+﻿
+
+@model BA_Portal.Models.Subject
+@{
+    ViewBag.Title = "PersonalInformation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PersonalInformation</h2> <br /><br />
+View current and past Personal Information forms for (#name) or add a new Personal Information form. <br />
+Add New Insurance Form <br />
+
+
+
+<br /><br />
+<h4>Current Personal Information Forms:</h4><br />
+
+
+@Html.ActionLink("Personal Information Form", "GeneratePDFforPI", new { id = Model.ID })
+
+
+
+
+

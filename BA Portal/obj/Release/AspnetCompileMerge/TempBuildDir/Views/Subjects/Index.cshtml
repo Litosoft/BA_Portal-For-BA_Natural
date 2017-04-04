@@ -1,0 +1,132 @@
+﻿@model IEnumerable<BA_Portal.Models.Subject>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Clients</h1> <br />
+
+@using (Html.BeginForm())
+{
+    <p>
+        <strong>Search by Name:</strong> @Html.TextBox("SearchString", null, new { @class = "checkbox" }) 
+        <input type="submit" value="Search" /> <br /> <br />
+    </p>
+} <br />
+
+
+ 
+<p>
+    <strong>@Html.ActionLink("New Patient", "Create")</strong>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>Status</th>
+        <th>
+            Age
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+@*
+    <th>
+        First Seen
+    </th>
+*@
+    <th>Last Seen</th>
+
+   
+        
+
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @{
+                DateTime nowstatus = DateTime.Today;
+                int agestatus = (nowstatus - item.LastSeen).Days;
+                if (agestatus > 182)
+                {
+                    <span><font color="red"><em>Inactive</em></font></span>
+                }
+                else if (agestatus <= 182)
+                {
+                    <font color="green"><em><strong>Active</strong></em></font>
+                }
+                else
+                {
+                    <font color="blue"><em>NA</em></font>
+                }
+
+            }
+        </td>
+        <td>
+            @{ 
+                DateTime now = DateTime.Today;
+                int age = now.Year - item.DOB.Year;
+                if (now < item.DOB.AddYears(age))
+                {
+                    age--;
+                }
+                @age
+            }
+        </td>
+        <td>
+            @if (item.Male == true)
+            { @Html.DisplayNameFor(model => model.Male)}
+            else if (item.Female == true)
+            {@Html.DisplayNameFor(model => model.Female) }
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+
+ @*
+    <td>
+        @{
+            string date = item.DateCreated.ToShortDateString();
+            @date
+        }
+    </td>
+*@
+    <td>
+        @{
+            string lastseen = item.LastSeen.ToShortDateString();
+            @lastseen
+        }
+    </td>
+
+
+
+        <td>
+            <strong> @Html.ActionLink("All Form(s)", "PassSubjecttoAllForms", new { id = item.ID }) </strong>    
+        </td>
+        <td>
+
+            @*@Html.ActionLink("View Client's Personal Info", "Details", new { id = item.ID }) |*@
+            @Html.ActionLink("Update Client Personal Info", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Delete Client Records", "Delete", new { id = item.ID })
+
+        </td>
+    </tr>
+}
+
+</table>
+
+<br />
+
