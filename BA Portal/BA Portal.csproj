@@ -340,6 +340,9 @@
     <Content Include="Content\Help2.png" />
     <Content Include="Content\Help3.png" />
     <Content Include="Content\Help4.png" />
+    <Content Include="Content\logotiny.gif" />
+    <Content Include="Content\logotransparent.gif" />
+    <Content Include="Content\logoverytiny.gif" />
     <Content Include="dhxscheduler.sample.mvc3.readme.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
