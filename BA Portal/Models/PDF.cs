@@ -21,8 +21,12 @@ namespace BA_Portal.Models
 
     }
 
-    public class PDFDbContext : DbContext
+    public class PDFDbContext : System.Data.Entity.DbContext
     {
+        public PDFDbContext() : base("DefaultConnection")
+        {
+
+        }
         public DbSet<PDF> PDFDatabase { get; set; }
     }
 }

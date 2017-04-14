@@ -283,6 +283,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\PDFDbContext\Configuration.cs" />
+    <Compile Include="Migrations\SignatureDbContext\Configuration.cs" />
+    <Compile Include="Migrations\SOAPFormDbContext\Configuration.cs" />
+    <Compile Include="Migrations\SubjectDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -565,7 +569,9 @@
     <Content Include="Scripts\signature_pad.js" />
     <Content Include="Scripts\signature_pad.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

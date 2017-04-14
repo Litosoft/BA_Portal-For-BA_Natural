@@ -80,8 +80,12 @@ namespace BA_Portal.Models
 
     }
 
-    public class SubjectDbContext : DbContext
+    public class SubjectDbContext : System.Data.Entity.DbContext
     {
+        public SubjectDbContext() : base("DefaultConnection")
+        {
+
+        }
         public DbSet<Subject> SubjectDatabase { get; set; }
     }
 

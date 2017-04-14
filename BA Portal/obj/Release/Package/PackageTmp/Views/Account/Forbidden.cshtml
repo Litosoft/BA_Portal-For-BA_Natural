@@ -5,14 +5,22 @@
 }
 
 <h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
-<span class="text-danger">Likely cause: <br />
-    1. An exception was encountered. To solve this problem try your operation again. It was most likely caused by accessing a page in the wrong order. <br />
-    2. The page does not exist. This error can only be solved the the developer. If the page has worked before, this is not the issue. <br />
-    
-    
-    </span>
+<h2 class="text-danger">An error occurred while processing your request.</h2> <br />
+<span class="text-danger">
+    Likely causes: <br />
+    1. <strong>An exception was encountered:</strong> To solve this problem try your operation again. It was most likely caused by accessing a page in the wrong order. <br />
+    2. <strong>The page does not exist:</strong> This error can only be solved the the developer. If the page has worked before, this is not the issue. <br />
+    3. <strong>The prelogin handshake timed out:</strong> This can happen because of a slow internet connection. The best solution is to just to try again and hope the connection reaches the server this time.
 
-<body background="~/Content/forbiddenimage.jpg">
-</body>
+
+</span>
+
+
+@*
+       <body background="~/Content/forbiddenimage.jpg">
+    </body>
+
+*@
+
+
 

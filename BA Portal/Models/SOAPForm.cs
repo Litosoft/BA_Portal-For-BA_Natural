@@ -181,8 +181,12 @@ namespace BA_Portal.Models
 
 
 
-    public class SOAPFormDbContext : DbContext
+    public class SOAPFormDbContext : System.Data.Entity.DbContext
     {
+        public SOAPFormDbContext() : base("DefaultConnection")
+        {
+
+        }
         public DbSet<SOAPForm> SOAPFormDatabase { get; set; }
     }
 

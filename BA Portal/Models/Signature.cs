@@ -16,10 +16,14 @@ namespace BA_Portal.Models
         
     }
 
-    public class SignatureDbContext : DbContext
+
+    public class SignatureDbContext : System.Data.Entity.DbContext
     {
+        public SignatureDbContext() : base("DefaultConnection")
+        {
+
+        }
         public DbSet<Signature> SignatureDatabase { get; set; }
     }
-
-
 }
+

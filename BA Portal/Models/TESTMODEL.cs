@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -14,5 +15,11 @@ namespace BA_Portal.Models
         public string[] stringarray { get;set;}
         public int testint { get; set; }
 
+    }
+
+
+    public class TestDbContext : DbContext
+    {
+        public DbSet<TESTMODEL> TestDatabase { get; set; }
     }
 }
