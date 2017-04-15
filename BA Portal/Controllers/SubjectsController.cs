@@ -191,6 +191,8 @@ namespace BA_Portal.Controllers
 
         public ActionResult GeneratePDF(int? id)
         {
+            //personal info pdf generator
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -225,9 +227,13 @@ namespace BA_Portal.Controllers
             stamper.AcroFields.SetField("MonthNow", DateTime.Now.Month.ToString());
             stamper.AcroFields.SetField("DayNow", DateTime.Now.Day.ToString());
             stamper.AcroFields.SetField("YearNow", DateTime.Now.Year.ToString());
+            //paindescription
+            stamper.AcroFields.SetField("PainDescription1", subject.PainDescription);
+            //headache description
+            stamper.AcroFields.SetField("HeadacheLocation", subject.HeadacheDescription);
 
             //checkboxes
-            if(subject.Allergy == true)
+            if (subject.Allergy == true)
             {
             stamper.AcroFields.SetField("AllergyYes", "101", true);
             }
@@ -306,11 +312,14 @@ namespace BA_Portal.Controllers
             {
                 stamper.AcroFields.SetField("Pain", "207", true);
             }
-            //stamper.AcroFields.SetField("Headache", "208", true);
+
+
             if (subject.Headache == true)
             {
                 stamper.AcroFields.SetField("Headache", "209", true);
             }
+
+
             if (subject.CommonCold == true)
             {
                 stamper.AcroFields.SetField("CommonCold", "210", true);
@@ -394,6 +403,13 @@ namespace BA_Portal.Controllers
             stamper.AcroFields.SetField("MonthNow", DateTime.Now.Month.ToString());
             stamper.AcroFields.SetField("DayNow", DateTime.Now.Day.ToString());
             stamper.AcroFields.SetField("YearNow", DateTime.Now.Year.ToString());
+            //paindescription
+            stamper.AcroFields.SetField("PainDescription1", subject.PainDescription);
+            //headache description
+            stamper.AcroFields.SetField("HeadacheLocation", subject.HeadacheDescription);
+            stamper.AcroFields.SetField("AllergyDescription", subject.AllergyDescription);
+
+            
 
             //checkboxes
             if (subject.Allergy == true)
