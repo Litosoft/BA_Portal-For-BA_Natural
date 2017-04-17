@@ -258,7 +258,15 @@ namespace BA_Portal.Controllers
             var output = new FileStream(Server.MapPath("~/PDF_handler/PDFSoap.pdf"), FileMode.Create);
             var stamper = new PdfStamper(reader, output);
 
-            //fill fiels on pdf form. 
+            //fill header
+            stamper.AcroFields.SetField("PractionerName1", sOAPFORM.PractionerName);
+            stamper.AcroFields.SetField("LicenseNumber1", sOAPFORM.PractionerLicenseNumber);
+            stamper.AcroFields.SetField("PractionerName2", sOAPFORM.PractionerName);
+            stamper.AcroFields.SetField("LicenseNumber2", sOAPFORM.PractionerLicenseNumber);
+            stamper.AcroFields.SetField("PractionerName3", sOAPFORM.PractionerName);
+            stamper.AcroFields.SetField("LicenseNumber3", sOAPFORM.PractionerLicenseNumber);
+
+            //fill fields on pdf form. 
             stamper.AcroFields.SetField("PatientName", sOAPFORM.PatientName);
             stamper.AcroFields.SetField("Date", DateTime.Now.ToShortDateString());
             stamper.AcroFields.SetField("BP", sOAPFORM.BP.ToString());
