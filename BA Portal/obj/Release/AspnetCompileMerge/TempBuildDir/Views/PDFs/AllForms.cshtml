@@ -163,6 +163,9 @@
 <strong>
 @Html.ActionLink("Add new Soap", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "SOAP" }, null)
 </strong>
+    <br />
+    <strong>@Html.ActionLink("Complete SOAP", "RedirectToPatientSOAPIndex", new { id = ViewBag.ID })</strong> 
+
 </div>
 <div class="col-sm-6 col-md-6 col-lg-6">
    <a href="~/Content/PDFSoap.pdf">What is a SOAP form?</a>
@@ -180,6 +183,7 @@
             <th>
                 @Html.DisplayName("Options")
             </th>
+ 
         </tr>
 
         @foreach (var item in Model)
@@ -198,6 +202,7 @@
                         @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                         @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                     </td>
+   
                 </tr>
             }
         }

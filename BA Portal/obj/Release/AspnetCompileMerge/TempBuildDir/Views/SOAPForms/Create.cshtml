@@ -817,15 +817,7 @@
                 </div>
             </div>
 
-
-
                 *@
-
-
-
-
-
-
 
       
         <div class="col-sm-12 col-md-12 col-lg-12">
@@ -843,30 +835,113 @@
                 </div>
             </div>
 
+        @* Pulse *@
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group form-group col-sm-2 col-md-2 col-lg-2">
+                @Html.LabelFor(model => model.PulseRight, "Pulse Right", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+  
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm-8 col-md-8 col-lg-8">
 
 
 
        
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PulseRight, "Pulse Right", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.PulseRight, new { htmlAttributes = new { @class = "form-control" } })
-                            
-                    @Html.ValidationMessageFor(model => model.PulseRight, "", new { @class = "text-danger" })
-                            
-                </div>
+                <select multiple name="PulseRight">
+
+                    <option value=""> </option>
+                    <option value="Floating, Superficial">Floating, Superficial</option>
+                    <option value="Excess, Full, Replete, Forceful">Excess, Full, Replete, Forceful</option>
+                    <option value="Wiry, Taut">Wiry, Taut</option>
+                    <option value="Slippery, Rolling">Slippery, Rolling</option>
+                    <option value="Deep">Deep</option>
+                    <option value="Hidden">Hidden</option>
+                    <option value="Weak">Weak</option>
+                    <option value="Slow">Slow</option>
+                    <option value="Soft or Soggy">Soft or Soggy</option>
+                    <option value="Choppy, Hesitant">Choppy, Hesitant</option>
+                    <option value="Short">Short</option>
+                    <option value="Long">Long</option>
+                    <option value="Large, Big">Large, Big</option>
+
+                    <option value="Surging, Flooding">Surging, Flooding</option>
+                    <option value="Leather, Drum-skin, Tympanic, Hard">Leather, Drum-skin, Tympanic, Hard</option>
+                    <option value="Hollow or Scallion Stalk, Green Onion">Hollow or Scallion Stalk, Green Onion</option>
+                    <option value="Scattered">Scattered</option>
+                    <option value="Forceless, Empty Deficient">Forceless, Empty Deficient</option>
+                    <option value="Firm, Confined">Firm, Confined</option>
+                    <option value="Slowed down, Moderate, or Relaxed">Slowed down, Moderate, or Relaxed</option>
+                    <option value="Knotted, Bound">Knotted, Bound</option>
+                    <option value="Tight, Tense">Tight, Tense</option>
+                    <option value="Minute, Faint, Indistinct">Minute, Faint, Indistinct</option>
+                    <option value="Thread, Thin">Thread, Thin</option>
+                    <option value="Regularly Intermittent">Regularly Intermittent</option>
+                    <option value="Rapid">Rapid</option>
+                    <option value="Racing, Swift, Hurried">Racing, Swift, Hurried</option>
+                    <option value="Rapid-Irregular, Skipping, Abrupt">Rapid-Irregular, Skipping, Abrupt</option>
+                    <option value="Moving, Throbbing, Stirring">Moving, Throbbing, Stirring</option>
+
+                </select>
+
+            </div>
+ 
+
+        </div>
+ 
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group form-group col-sm-2 col-md-2 col-lg-2">
+                @Html.LabelFor(model => model.PulseLeft, "Pulse Left", htmlAttributes: new { @class = "control-label col-md-2" })
+
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.PulseLeft, "Pulse Left", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.PulseLeft, new { htmlAttributes = new { @class = "form-control" } })
-                    
-                    @Html.ValidationMessageFor(model => model.PulseLeft, "", new { @class = "text-danger" })
-                    
-                </div>
+            <div class="form-group col-sm-8 col-md-8 col-lg-8">
+
+                <select name="PulseLeft">
+
+                    <option value=""> </option>
+                    <option value="Floating, Superficial">Floating, Superficial</option>
+                    <option value="Excess, Full, Replete, Forceful">Excess, Full, Replete, Forceful</option>
+                    <option value="Wiry, Taut">Wiry, Taut</option>
+                    <option value="Slippery, Rolling">Slippery, Rolling</option>
+                    <option value="Deep">Deep</option>
+                    <option value="Hidden">Hidden</option>
+                    <option value="Weak">Weak</option>
+                    <option value="Slow">Slow</option>
+                    <option value="Soft or Soggy">Soft or Soggy</option>
+                    <option value="Choppy, Hesitant">Choppy, Hesitant</option>
+                    <option value="Short">Short</option>
+                    <option value="Long">Long</option>
+                    <option value="Large, Big">Large, Big</option>
+
+                    <option value="Surging, Flooding">Surging, Flooding</option>
+                    <option value="Leather, Drum-skin, Tympanic, Hard">Leather, Drum-skin, Tympanic, Hard</option>
+                    <option value="Hollow or Scallion Stalk, Green Onion">Hollow or Scallion Stalk, Green Onion</option>
+                    <option value="Scattered">Scattered</option>
+                    <option value="Forceless, Empty Deficient">Forceless, Empty Deficient</option>
+                    <option value="Firm, Confined">Firm, Confined</option>
+                    <option value="Slowed down, Moderate, or Relaxed">Slowed down, Moderate, or Relaxed</option>
+                    <option value="Knotted, Bound">Knotted, Bound</option>
+                    <option value="Tight, Tense">Tight, Tense</option>
+                    <option value="Minute, Faint, Indistinct">Minute, Faint, Indistinct</option>
+                    <option value="Thread, Thin">Thread, Thin</option>
+                    <option value="Regularly Intermittent">Regularly Intermittent</option>
+                    <option value="Rapid">Rapid</option>
+                    <option value="Racing, Swift, Hurried">Racing, Swift, Hurried</option>
+                    <option value="Rapid-Irregular, Skipping, Abrupt">Rapid-Irregular, Skipping, Abrupt</option>
+                    <option value="Moving, Throbbing, Stirring">Moving, Throbbing, Stirring</option>
+
+                </select>
+
             </div>
+            
+        </div>
+
+        @*Assesment*@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.AssessmentandDiagnosis, "Assessment and Diagnosis", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -898,47 +973,143 @@
             <h3>Tongue Diagnosis:</h3> <br />
         </div>
 
+        <div class="col-sm-12 col-md-12 col-lg-12">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TongueBodyShape, "Tongue Body Shape", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TongueBodyShape, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TongueBodyShape, "", new { @class = "text-danger" })
+            <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                @Html.LabelFor(model => model.TongueBodyShape, "Tongue Body Shape", htmlAttributes: new { @class = "control-label col-md-2" })
+
             </div>
+
+            <div class="form-group col-sm-8 col-md-8 col-lg-8">
+                <div> <br />
+                    <select name="TongueBodyShape1">
+                        <option value=""></option>
+                        <option value="Cracked">Cracked</option>
+                        <option value="Deviated">Deviated</option>
+                        <option value="Flaccid">Flaccid</option>
+                        <option value="Long">Long</option>
+                        <option value="Rigid">Rigid</option>
+                        <option value="Short">Short</option>
+                        <option value="Stiff">Stiff</option>
+                        <option value="Swollen">Swollen</option>
+                        <option value="Teeth marks">Teeth marks</option>
+                        <option value="Thin">Thin</option>
+                        <option value="Thorny">Thorny</option>
+                        <option value="Trembling">Trembling</option>
+
+                        </select>
+
+                </div>
+            </div>
+
         </div>
 
+
+
         <div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.TongueBodyColor, "Tongue Color", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.TongueBodyColor, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.TongueBodyColor, "", new { @class = "text-danger" })
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                    @Html.LabelFor(model => model.TongueBodyColor, "Tongue Color", htmlAttributes: new { @class = "control-label col-md-2" })
+
                 </div>
+
+                <div class="form-group col-sm-8 col-md-8 col-lg-8">
+                    <div>
+                        <br />
+         
+
+                        <select name="TongueBodyColor1">
+
+
+                            <option value=""></option>
+                            <option value="Pink">Pink</option>
+                            <option value="Pale">Pale</option>
+                            <option value="Red">Red</option>
+                            <option value="Dark Red">Dark Red</option>
+                            <option value="Purple">Purple</option>
+                            <option value="Blue">Blue</option>
+
+                        </select>
+
+                    </div>
+                </div>
+
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.TongueCoating, "Tongue Coating", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.TongueCoating, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.TongueCoating, "", new { @class = "text-danger" })
+
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                    @Html.LabelFor(model => model.TongueCoating, "Tongue Coating", htmlAttributes: new { @class = "control-label col-md-2" })
+
                 </div>
+
+                <div class="form-group col-sm-8 col-md-8 col-lg-8">
+                    <div>
+                        <br />
+                        <select name="TongueCoating1">
+                            <option value=""></option>
+                            <option value="Thin">Thin</option>
+                            <option value="Thick">Thick</option>
+                            <option value="Dry">Dry</option>
+                            <option value="Moist">Moist</option>
+                            <option value="Sticky">Sticky</option>
+
+
+                        </select>
+
+                    </div>
+                </div>
+
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.CoatColoration, "Tongue Coat Coloration", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CoatColoration, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CoatColoration, "", new { @class = "text-danger" })
+
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                    @Html.LabelFor(model => model.CoatColoration, "Tongue Coat Coloration", htmlAttributes: new { @class = "control-label col-md-2" })
+ 
                 </div>
+
+                <div class="form-group col-sm-8 col-md-8 col-lg-8">
+                    <div>
+                        <br />
+                        <select name="CoatColoration1">
+                            <option value=""></option>
+                            <option value="White">White</option>
+                            <option value="Yellow">Yellow</option>
+                            <option value="Gray">Gray</option>
+                            <option value="Black">Black</option>
+      
+
+                        </select>
+
+                    </div>
+                </div>
+
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.CoatRooting, "Tongue Coat Rooting", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CoatRooting, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CoatRooting, "", new { @class = "text-danger" })
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                    @Html.LabelFor(model => model.CoatRooting, "Tongue Coat Rooting", htmlAttributes: new { @class = "control-label col-md-2" })
+   
                 </div>
+
+                <div class="form-group col-sm-8 col-md-8 col-lg-8">
+                    <div>
+                        <br />
+                        <select name="CoatRooting1">
+                            <option value=""></option>
+                            <option value="Rooted">Rooted</option>
+                            <option value="Rootless">Rootless</option>
+                            <option value="Peeled">Peeled</option>
+         
+
+                        </select>
+
+                    </div>
+                </div>
+
             </div>
+
         </div>
        
 
@@ -1011,7 +1182,7 @@
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <div class="col-sm-1 col-md-1 col-lg-1">
-                    <select name="Set1Point1">
+                    <select multiple name="Set1Point1">
                         <option value=""> </option>
                         <option value="LU-1">LU-1</option>
                         <option value="LU-2">LU-2</option>

@@ -19,7 +19,12 @@ namespace BA_Portal.Models
         public string PractionerLicenseNumber { get; set; }
         public string PatientName { get; set; }
 
-        public int BP { get; set; }
+        /// <summary>
+        /// bp used to be an int, string
+        /// </summary>
+        public string BP { get; set; }
+
+
         public string BodyTemperature { get; set; }
         public string SubjectiveObjectiveNotes { get; set; }
         public DateTime DateFilledIn { get; set; }
@@ -121,9 +126,11 @@ namespace BA_Portal.Models
 
 
 
-
-        public int PulseRight { get; set; }
-        public int PulseLeft { get; set; }
+            /// <summary>
+            /// used to be int, now string
+            /// </summary>
+        public string PulseRight { get; set; }
+        public string PulseLeft { get; set; }
 
         public string AssessmentandDiagnosis { get; set; }
         public string PlanofTreatment { get; set; }

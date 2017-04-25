@@ -9,7 +9,7 @@ namespace BA_Portal.Migrations.SubjectDbContext
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             MigrationsDirectory = @"Migrations\SubjectDbContext";
         }
 

@@ -18,7 +18,7 @@ namespace BA_Portal.Controllers
         public ActionResult Index()
         {
             //Being initialized in that way, scheduler will use CalendarController.Data as a the datasource and CalendarController.Save to process changes
-            var scheduler = new DHXScheduler(this);
+            //var scheduler = new DHXScheduler(this);
 
             /*
              * It's possible to use different actions of the current controller
@@ -36,14 +36,16 @@ namespace BA_Portal.Controllers
              * The default codebase folder is ~/Scripts/dhtmlxScheduler. It can be overriden:
              *      scheduler.Codebase = Url.Content("~/customCodebaseFolder");
              */
-            
- 
+
+
             //scheduler.InitialDate = new DateTime(2012, 09, 03);
 
-            scheduler.LoadData = true;
-            scheduler.EnableDataprocessor = true;
+            //scheduler.LoadData = true;
+            //scheduler.EnableDataprocessor = true;
 
-            return View(scheduler);
+            //return View(scheduler);
+
+            return View();
         }
 
         public ContentResult Data()

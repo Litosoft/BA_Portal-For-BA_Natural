@@ -186,6 +186,14 @@ namespace BA_Portal.Controllers
 
         }
 
+
+        public ActionResult RedirectToPatientSOAPIndex(int id)
+        {
+            int passid = id;
+            return RedirectToAction("PatientSOAPIndex", "SOAPForms", new { id = passid });
+
+        }
+
         public ActionResult TakeAnotherAction(int? GroupingID)
         {
             
@@ -214,6 +222,7 @@ namespace BA_Portal.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.ID = GroupingID;
 
             ViewBag.Name = subject.Name;
             ViewBag.DOB = subject.DOB.ToShortDateString();

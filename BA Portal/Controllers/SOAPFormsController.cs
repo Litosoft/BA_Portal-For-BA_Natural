@@ -23,6 +23,13 @@ namespace BA_Portal.Controllers
             return View(db.SOAPFormDatabase.ToList());
         }
 
+        public ActionResult IncompleteSoapFormRedirecttocreatePDF(int id)
+        {
+
+            TempData["SOAPFormID"] = id;
+            return RedirectToAction("GetDoctorSignatureSOAP", "Signatures");
+        }
+
         // GET: SOAPForms/Details/5
         public ActionResult Details(int? id)
         {
@@ -45,122 +52,286 @@ namespace BA_Portal.Controllers
             return View();
         }
 
+        public ActionResult PatientSOAPIndex(int id)
+        {
+            ViewBag.ID = id;
+            return View(db.SOAPFormDatabase.ToList());
+        }
+
         // POST: SOAPForms/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(string TongueBodyShape1, string TongueBodyColor1, string TongueCoating1, string CoatColoration1, string CoatRooting1, string Set1Point1, string Set1Point2, string Set1Point3, string Set1Point4, string Set1Point5, string Set2Point1, string Set2Point2, string Set2Point3, string Set2Point4, string Set2Point5, string Set3Point1, string Set3Point2, string Set3Point3, string Set3Point4, string Set3Point5, string Set4Point1, string Set4Point2, string Set4Point3, string Set4Point4, string Set4Point5, string Set5Point1, string Set5Point2, string Set5Point3, string Set5Point4, string Set5Point5, string Set6Point1, string Set6Point2, string Set6Point3, string Set6Point4, string Set6Point5, [Bind(Include = "ID,PractionerName,PractionerLicenseNumber,ThirstNormal,ThirstSubjective,ThirstObjective,TimeTreatmentStarts,TimeTreatmentEnds,TreatmentPrinciples,ThirstNotes,OtherPhysicalExamsNotes,PatientName,BP,BodyTemperature,SubjectiveObjectiveNotes,DateFilledIn,SymptomsGeneral,PresentingProblems,SymptomsChillsFeverNotes,SymptomsChillsFeverNone,SymptomsChillsFeverSubjective,SymptomsChillsFeverObjective,SymptomsPerspiratonNotes,SymptomsPerspiratonNone,SymptomsPerspiratonSubjective,SymptomsPerspiratonObjective,SymptomsUrinationNotes,SymptomsUrinationNormal,SymptomsUrinationSubjective,SymptomsUrinationObjective,SymptomsHeadacheBodyacheNotes,SymptomsHeadacheBodyacheNone,SymptomsRespirationNotes,SymptomsRespirationNormal,SymptomsRespirationSubjective,SymptomsRespirationObjective,SymptomsSleepEnergyNotes,SymptomsSleepEnergyNormal,SymptomsSleepEnergySubjective,SymptomsSleepEnergyObjective,SymptomsReproductiveNotes,SymptomsReproductiveNormal,SymptomsMentalEmotionalNotes,SymptomsMentalEmotionalNormal,SymptomsMentalEmotionalSubjective,SymptomsMentalEmotionalObjective,SymptomsEarsEyesTeethGumsNotes,SymptomsEarsEyesTeethGumsNormal,SymptomsEarsEyesTeethGumsSubjective,SymptomsEarsEyesTeethGumsObjective,SymptomsAppetiteDigestionDefecationNotes,SymptomsAppetiteDigestionDefecationNormal,SymptomsAppetiteDigestionDefecationSubjective,SymptomsAppetiteDigestionDefecationObjective,SymptomsPalpitationDizzinessNumbnessNotes,SymptomsPalpitationDizzinessNumbnessNone,SymptomsPalpitationDizzinessNumbnessSubjective,SymptomsPalpitationDizzinessNumbnessObjective,PulseRight,PulseLeft,AssessmentandDiagnosis,PlanofTreatment,CleanNeedSet,NeedlingSet1ElectricalStimulation,NeedlingSet1TuiNa,NeedlingSet1CuppingTherapy,NeedlingSet2ElectricalStimulation,NeedlingSet2TuiNa,NeedlingSet2CuppingTherapy,NeedlingSet3ElectricalStimulation,NeedlingSet3TuiNa,NeedlingSet3CuppingTherapy,NeedlingSet4ElectricalStimulation,NeedlingSet4TuiNa,NeedlingSet4CuppingTherapy,NeedlingSet5ElectricalStimulation,NeedlingSet5TuiNa,NeedlingSet5CuppingTherapy,NeedlingSet6ElectricalStimulation,NeedlingSet6TuiNa,NeedlingSet6CuppingTherapy,HerbalFormulaId1,HerbalFormulaId1Directions,HerbalFormulaId2,HerbalFormulaId2Directions,HerbalFormulaId3,HerbalFormulaId3Directions,PostTreatmentAssessment,Recomendations")] SOAPForm sOAPForm)
+        public ActionResult Create(string[] PulseRight1, string[] PulseLeft1, string[] TongueBodyShape1, string[] TongueBodyColor1, string[] TongueCoating1, string[] CoatColoration1, string[] CoatRooting1, string[] Set1Points, string[] Set2Points, string[] Set3Points, string[] Set4Points, string[] Set5Points, string[] Set6Points, [Bind(Include = "ID,PractionerName,PractionerLicenseNumber,ThirstNormal,ThirstSubjective,ThirstObjective,TimeTreatmentStarts,TimeTreatmentEnds,TreatmentPrinciples,ThirstNotes,OtherPhysicalExamsNotes,PatientName,BP,BodyTemperature,SubjectiveObjectiveNotes,DateFilledIn,SymptomsGeneral,PresentingProblems,SymptomsChillsFeverNotes,SymptomsChillsFeverNone,SymptomsChillsFeverSubjective,SymptomsChillsFeverObjective,SymptomsPerspiratonNotes,SymptomsPerspiratonNone,SymptomsPerspiratonSubjective,SymptomsPerspiratonObjective,SymptomsUrinationNotes,SymptomsUrinationNormal,SymptomsUrinationSubjective,SymptomsUrinationObjective,SymptomsHeadacheBodyacheNotes,SymptomsHeadacheBodyacheNone,SymptomsRespirationNotes,SymptomsRespirationNormal,SymptomsRespirationSubjective,SymptomsRespirationObjective,SymptomsSleepEnergyNotes,SymptomsSleepEnergyNormal,SymptomsSleepEnergySubjective,SymptomsSleepEnergyObjective,SymptomsReproductiveNotes,SymptomsReproductiveNormal,SymptomsMentalEmotionalNotes,SymptomsMentalEmotionalNormal,SymptomsMentalEmotionalSubjective,SymptomsMentalEmotionalObjective,SymptomsEarsEyesTeethGumsNotes,SymptomsEarsEyesTeethGumsNormal,SymptomsEarsEyesTeethGumsSubjective,SymptomsEarsEyesTeethGumsObjective,SymptomsAppetiteDigestionDefecationNotes,SymptomsAppetiteDigestionDefecationNormal,SymptomsAppetiteDigestionDefecationSubjective,SymptomsAppetiteDigestionDefecationObjective,SymptomsPalpitationDizzinessNumbnessNotes,SymptomsPalpitationDizzinessNumbnessNone,SymptomsPalpitationDizzinessNumbnessSubjective,SymptomsPalpitationDizzinessNumbnessObjective,AssessmentandDiagnosis,PlanofTreatment,CleanNeedSet,NeedlingSet1ElectricalStimulation,NeedlingSet1TuiNa,NeedlingSet1CuppingTherapy,NeedlingSet2ElectricalStimulation,NeedlingSet2TuiNa,NeedlingSet2CuppingTherapy,NeedlingSet3ElectricalStimulation,NeedlingSet3TuiNa,NeedlingSet3CuppingTherapy,NeedlingSet4ElectricalStimulation,NeedlingSet4TuiNa,NeedlingSet4CuppingTherapy,NeedlingSet5ElectricalStimulation,NeedlingSet5TuiNa,NeedlingSet5CuppingTherapy,NeedlingSet6ElectricalStimulation,NeedlingSet6TuiNa,NeedlingSet6CuppingTherapy,HerbalFormulaId1,HerbalFormulaId1Directions,HerbalFormulaId2,HerbalFormulaId2Directions,HerbalFormulaId3,HerbalFormulaId3Directions,PostTreatmentAssessment,Recomendations")] SOAPForm sOAPForm)
         {
 
             //notes
-            //,TimeTreatmentStarted,TimeTreatmentEnded
+            //TimeTreatmentStarted,TimeTreatmentEnded
 
 
             if (ModelState.IsValid)
             {
-                sOAPForm.NeedlingSet1 = new string[5];
-                sOAPForm.NeedlingSet2 = new string[5];
-                sOAPForm.NeedlingSet3 = new string[5];
-                sOAPForm.NeedlingSet4 = new string[5];
-                sOAPForm.NeedlingSet5 = new string[5];
-                sOAPForm.NeedlingSet6 = new string[5];
 
-                sOAPForm.NeedlingSet1[0] = Set1Point1;
-                sOAPForm.NeedlingSet1[1] = Set1Point2;
-                sOAPForm.NeedlingSet1[2] = Set1Point3;
-                sOAPForm.NeedlingSet1[3] = Set1Point4;
-                sOAPForm.NeedlingSet1[4] = Set1Point5;
-
-                foreach (var item in sOAPForm.NeedlingSet1)
                 {
-                    if (string.IsNullOrWhiteSpace(item) != true)
-                    {
-                        sOAPForm.NeedlingSet1asString = sOAPForm.NeedlingSet1asString + item + ", ";
-                    }
 
-                }   
-
-                sOAPForm.NeedlingSet2[0] = Set2Point1;
-                sOAPForm.NeedlingSet2[1] = Set2Point2;
-                sOAPForm.NeedlingSet2[2] = Set2Point3;
-                sOAPForm.NeedlingSet2[3] = Set2Point4;
-                sOAPForm.NeedlingSet2[4] = Set2Point5;
-
-                foreach (var item in sOAPForm.NeedlingSet2)
-                {
-                    if (string.IsNullOrWhiteSpace(item) != true)
-                    {
-                        sOAPForm.NeedlingSet2asString = sOAPForm.NeedlingSet2asString + item + ", ";
-                    }
-
+                    //redundant
+                    sOAPForm.NeedlingSet1 = new string[5];
+                    sOAPForm.NeedlingSet2 = new string[5];
+                    sOAPForm.NeedlingSet3 = new string[5];
+                    sOAPForm.NeedlingSet4 = new string[5];
+                    sOAPForm.NeedlingSet5 = new string[5];
+                    sOAPForm.NeedlingSet6 = new string[5];
                 }
 
-                sOAPForm.NeedlingSet3[0] = Set3Point1;
-                sOAPForm.NeedlingSet3[1] = Set3Point2;
-                sOAPForm.NeedlingSet3[2] = Set3Point3;
-                sOAPForm.NeedlingSet3[3] = Set3Point4;
-                sOAPForm.NeedlingSet3[4] = Set3Point5;
-
-                foreach (var item in sOAPForm.NeedlingSet3)
+                //iterate through multi select, which returns a string[].
+                //set to null so that there is no comma befor first item is printed.
                 {
-                    if (string.IsNullOrWhiteSpace(item) != true)
+                    ///use this scheme for all other multiselects
+                    sOAPForm.NeedlingSet1asString = null;
+                    foreach (var item in Set1Points)
                     {
-                        sOAPForm.NeedlingSet3asString = sOAPForm.NeedlingSet3asString + item + ", ";
-                    }
+                        if (sOAPForm.NeedlingSet1asString == null)
+                        {
+                            sOAPForm.NeedlingSet1asString = item;
+                        }
+                        else
+                        {
+                            sOAPForm.NeedlingSet1asString = sOAPForm.NeedlingSet1asString + ", " + item;
+                        }
 
+                    }
                 }
 
-                sOAPForm.NeedlingSet4[0] = Set4Point1;
-                sOAPForm.NeedlingSet4[1] = Set4Point2;
-                sOAPForm.NeedlingSet4[2] = Set4Point3;
-                sOAPForm.NeedlingSet4[3] = Set4Point4;
-                sOAPForm.NeedlingSet4[4] = Set4Point5;
-
-                foreach (var item in sOAPForm.NeedlingSet4)
+                //iterate through multi select, which returns a string[].
+                //set to null so that there is no comma befor first item is printed.
                 {
-                    if (string.IsNullOrWhiteSpace(item) != true)
+                    ///use this scheme for all other multiselects
+                    sOAPForm.NeedlingSet2asString = null;
+                    foreach (var item in Set2Points)
                     {
-                        sOAPForm.NeedlingSet4asString = sOAPForm.NeedlingSet4asString + item + ", ";
-                    }
+                        if (sOAPForm.NeedlingSet2asString == null)
+                        {
+                            sOAPForm.NeedlingSet2asString = item;
+                        }
+                        else
+                        {
+                            sOAPForm.NeedlingSet2asString = sOAPForm.NeedlingSet2asString + ", " + item;
+                        }
 
+                    }
                 }
 
-                sOAPForm.NeedlingSet5[0] = Set5Point1;
-                sOAPForm.NeedlingSet5[1] = Set5Point2;
-                sOAPForm.NeedlingSet5[2] = Set5Point3;
-                sOAPForm.NeedlingSet5[3] = Set5Point4;
-                sOAPForm.NeedlingSet5[4] = Set5Point5;
-
-                foreach (var item in sOAPForm.NeedlingSet5)
+                //iterate through multi select, which returns a string[].
+                //set to null so that there is no comma befor first item is printed.
                 {
-                    if (string.IsNullOrWhiteSpace(item) != true)
+                    ///use this scheme for all other multiselects
+                    sOAPForm.NeedlingSet3asString = null;
+                    foreach (var item in Set3Points)
                     {
-                        sOAPForm.NeedlingSet5asString = sOAPForm.NeedlingSet5asString + item + ", ";
-                    }
+                        if (sOAPForm.NeedlingSet3asString == null)
+                        {
+                            sOAPForm.NeedlingSet3asString = item;
+                        }
+                        else
+                        {
+                            sOAPForm.NeedlingSet3asString = sOAPForm.NeedlingSet3asString + ", " + item;
+                        }
 
+                    }
                 }
 
-                sOAPForm.NeedlingSet6[0] = Set6Point1;
-                sOAPForm.NeedlingSet6[1] = Set6Point2;
-                sOAPForm.NeedlingSet6[2] = Set6Point3;
-                sOAPForm.NeedlingSet6[3] = Set6Point4;
-                sOAPForm.NeedlingSet6[4] = Set6Point5;
-
-                foreach (var item in sOAPForm.NeedlingSet6)
+                //iterate through multi select, which returns a string[].
+                //set to null so that there is no comma befor first item is printed.
                 {
-                    if (string.IsNullOrWhiteSpace(item) != true)
+                    ///use this scheme for all other multiselects
+                    sOAPForm.NeedlingSet4asString = null;
+                    foreach (var item in Set4Points)
                     {
-                        sOAPForm.NeedlingSet6asString = sOAPForm.NeedlingSet6asString + item + ", ";
-                    }
+                        if (sOAPForm.NeedlingSet4asString == null)
+                        {
+                            sOAPForm.NeedlingSet4asString = item;
+                        }
+                        else
+                        {
+                            sOAPForm.NeedlingSet4asString = sOAPForm.NeedlingSet4asString + ", " + item;
+                        }
 
+                    }
                 }
 
-                sOAPForm.TongueBodyShape = TongueBodyShape1;
-                sOAPForm.TongueBodyColor = TongueBodyColor1;
-                sOAPForm.TongueCoating = TongueCoating1;
-                sOAPForm.CoatColoration = CoatColoration1;
-                sOAPForm.CoatRooting = CoatRooting1;
+                //iterate through multi select, which returns a string[].
+                //set to null so that there is no comma befor first item is printed.
+                {
+                    ///use this scheme for all other multiselects
+                    sOAPForm.NeedlingSet5asString = null;
+                    foreach (var item in Set5Points)
+                    {
+                        if (sOAPForm.NeedlingSet5asString == null)
+                        {
+                            sOAPForm.NeedlingSet5asString = item;
+                        }
+                        else
+                        {
+                            sOAPForm.NeedlingSet5asString = sOAPForm.NeedlingSet5asString + ", " + item;
+                        }
+
+                    }
+                }
+
+                //iterate through multi select, which returns a string[].
+                //set to null so that there is no comma befor first item is printed.
+                {
+                    ///use this scheme for all other multiselects
+                    sOAPForm.NeedlingSet6asString = null;
+                    foreach (var item in Set6Points)
+                    {
+                        if (sOAPForm.NeedlingSet6asString == null)
+                        {
+                            sOAPForm.NeedlingSet6asString = item;
+                        }
+                        else
+                        {
+                            sOAPForm.NeedlingSet6asString = sOAPForm.NeedlingSet6asString + ", " + item;
+                        }
+
+                    }
+                }
+                // END NEEDLING SETS
+
+
+                //iterate through multi select, which returns a string[].
+                //set to null so that there is no comma befor first item is printed.
+                {
+                    ///use this scheme for all other multiselects
+                    sOAPForm.TongueBodyShape = null;
+                    foreach (var item in TongueBodyShape1)
+                    {
+                        if (sOAPForm.TongueBodyShape == null)
+                        {
+                            sOAPForm.TongueBodyShape = item;
+                        }
+                        else
+                        {
+                            sOAPForm.TongueBodyShape = sOAPForm.TongueBodyShape + ", " + item;
+                        }
+
+                    }
+                }
+
+                //iterate through multi select, which returns a string[].
+                //set to null so that there is no comma befor first item is printed.
+                {
+                    ///use this scheme for all other multiselects
+                    sOAPForm.TongueBodyColor = null;
+                    foreach (var item in TongueBodyColor1)
+                    {
+                        if (sOAPForm.TongueBodyColor == null)
+                        {
+                            sOAPForm.TongueBodyColor = item;
+                        }
+                        else
+                        {
+                            sOAPForm.TongueBodyColor = sOAPForm.TongueBodyColor + ", " + item;
+                        }
+
+                    }
+                }
+
+                //iterate through multi select, which returns a string[].
+                //set to null so that there is no comma befor first item is printed.
+                {
+                    ///use this scheme for all other multiselects
+                    sOAPForm.TongueCoating = null;
+                    foreach (var item in TongueCoating1)
+                    {
+                        if (sOAPForm.TongueCoating == null)
+                        {
+                            sOAPForm.TongueCoating = item;
+                        }
+                        else
+                        {
+                            sOAPForm.TongueCoating = sOAPForm.TongueCoating + ", " + item;
+                        }
+
+                    }
+                }
+
+                //iterate through multi select, which returns a string[].
+                //set to null so that there is no comma befor first item is printed.
+                {
+                    ///use this scheme for all other multiselects
+                    sOAPForm.CoatColoration = null;
+                    foreach (var item in CoatColoration1)
+                    {
+                        if (sOAPForm.CoatColoration == null)
+                        {
+                            sOAPForm.CoatColoration = item;
+                        }
+                        else
+                        {
+                            sOAPForm.CoatColoration = sOAPForm.CoatColoration + ", " + item;
+                        }
+
+                    }
+                }
+
+                //iterate through multi select, which returns a string[].
+                //set to null so that there is no comma befor first item is printed.
+                {
+                    ///use this scheme for all other multiselects
+                    sOAPForm.CoatRooting = null;
+                    foreach (var item in CoatRooting1)
+                    {
+                        if (sOAPForm.CoatRooting == null)
+                        {
+                            sOAPForm.CoatRooting = item;
+                        }
+                        else
+                        {
+                            sOAPForm.CoatRooting = sOAPForm.CoatRooting + ", " + item;
+                        }
+
+                    }
+                }
+
+                //iterate through multi select, which returns a string[].
+                //set to null so that there is no comma befor first item is printed.
+                {
+                    ///use this scheme for all other multiselects
+                    sOAPForm.PulseRight = null;
+                    foreach (var item in PulseRight1)
+                    {
+                        if (sOAPForm.PulseRight == null)
+                        {
+                            sOAPForm.PulseRight = item;
+                        }
+                        else
+                        {
+                            sOAPForm.PulseRight = sOAPForm.PulseRight + ", " + item;
+                        }
+
+                    }
+                }
+                //iterate through multi select, which returns a string[].
+                //set to null so that there is no comma befor first item is printed.
+                {
+                    ///use this scheme for all other multiselects
+                    sOAPForm.PulseLeft = null;
+                    foreach (var item in PulseLeft1)
+                    {
+                        if (sOAPForm.PulseLeft == null)
+                        {
+                            sOAPForm.PulseLeft = item;
+                        }
+                        else
+                        {
+                            sOAPForm.PulseLeft = sOAPForm.PulseLeft + ", " + item;
+                        }
+
+                    }
+                }
+
 
                 sOAPForm.DateFilledIn = DateTime.Now;
                 int groupingid = (int)TempData["MultiID"];
@@ -274,7 +445,9 @@ namespace BA_Portal.Controllers
             //fill fields on pdf form. 
             stamper.AcroFields.SetField("PatientName", sOAPFORM.PatientName);
             stamper.AcroFields.SetField("Date", DateTime.Now.ToShortDateString());
-            stamper.AcroFields.SetField("BP", sOAPFORM.BP.ToString());
+
+            stamper.AcroFields.SetField("BP", sOAPFORM.BP);
+            //stamper.AcroFields.SetField("BP", sOAPFORM.BP.ToString());
 
             stamper.AcroFields.SetField("PresentingProblems", sOAPFORM.PresentingProblems);
             stamper.AcroFields.SetField("Symptom", sOAPFORM.SymptomsGeneral);
@@ -312,8 +485,8 @@ namespace BA_Portal.Controllers
             stamper.AcroFields.SetField("NeedlingSet6", sOAPFORM.NeedlingSet6asString);
 
             stamper.AcroFields.SetField("SubjectiveObjectiveNotes", sOAPFORM.SubjectiveObjectiveNotes);
-            stamper.AcroFields.SetField("PulseRight", sOAPFORM.PulseRight.ToString());
-            stamper.AcroFields.SetField("PulseLeft", sOAPFORM.PulseLeft.ToString());
+            stamper.AcroFields.SetField("PulseRight", sOAPFORM.PulseRight);
+            stamper.AcroFields.SetField("PulseLeft", sOAPFORM.PulseLeft);
             stamper.AcroFields.SetField("AssessmentDiagnosis", sOAPFORM.AssessmentandDiagnosis);
        
             stamper.AcroFields.SetField("PlanofTreatment", sOAPFORM.PlanofTreatment);
