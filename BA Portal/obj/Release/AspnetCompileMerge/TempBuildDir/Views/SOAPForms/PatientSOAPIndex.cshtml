@@ -26,6 +26,9 @@ For Developers Use Only. <br />
             @Html.DisplayNameFor(model => model.PatientName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.GroupingID)
+        </th>
+        <th>
 
         <th></th>
     </tr>
@@ -44,11 +47,16 @@ For Developers Use Only. <br />
                 <td>
                     @Html.DisplayFor(modelItem => item.PatientName)
                 </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroupingID)
+                </td>
 
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
+                    @Html.ActionLink("Generate PDF", "----", new { id = ViewBag.ID })
+                    @Html.ActionLink("Generate PDF", "IncompleteSoapFormRedirecttocreatePDF", "SOAPForms", new { id = item.ID}, null)
                 </td>
             </tr>
 

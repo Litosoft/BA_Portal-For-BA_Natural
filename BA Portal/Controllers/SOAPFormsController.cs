@@ -88,8 +88,9 @@ namespace BA_Portal.Controllers
                 //set to null so that there is no comma befor first item is printed.
                 {
                     ///use this scheme for all other multiselects
+                    ///?? acts as if null then ...
                     sOAPForm.NeedlingSet1asString = null;
-                    foreach (var item in Set1Points)
+                    foreach (var item in Set1Points ?? new string[0])
                     {
                         if (sOAPForm.NeedlingSet1asString == null)
                         {
@@ -108,7 +109,7 @@ namespace BA_Portal.Controllers
                 {
                     ///use this scheme for all other multiselects
                     sOAPForm.NeedlingSet2asString = null;
-                    foreach (var item in Set2Points)
+                    foreach (var item in Set2Points ?? new string[0])
                     {
                         if (sOAPForm.NeedlingSet2asString == null)
                         {
@@ -127,7 +128,7 @@ namespace BA_Portal.Controllers
                 {
                     ///use this scheme for all other multiselects
                     sOAPForm.NeedlingSet3asString = null;
-                    foreach (var item in Set3Points)
+                    foreach (var item in Set3Points ?? new string[0])
                     {
                         if (sOAPForm.NeedlingSet3asString == null)
                         {
@@ -146,7 +147,7 @@ namespace BA_Portal.Controllers
                 {
                     ///use this scheme for all other multiselects
                     sOAPForm.NeedlingSet4asString = null;
-                    foreach (var item in Set4Points)
+                    foreach (var item in Set4Points ?? new string[0])
                     {
                         if (sOAPForm.NeedlingSet4asString == null)
                         {
@@ -165,7 +166,7 @@ namespace BA_Portal.Controllers
                 {
                     ///use this scheme for all other multiselects
                     sOAPForm.NeedlingSet5asString = null;
-                    foreach (var item in Set5Points)
+                    foreach (var item in Set5Points ?? new string[0])
                     {
                         if (sOAPForm.NeedlingSet5asString == null)
                         {
@@ -184,7 +185,7 @@ namespace BA_Portal.Controllers
                 {
                     ///use this scheme for all other multiselects
                     sOAPForm.NeedlingSet6asString = null;
-                    foreach (var item in Set6Points)
+                    foreach (var item in Set6Points ?? new string[0])
                     {
                         if (sOAPForm.NeedlingSet6asString == null)
                         {
@@ -205,7 +206,7 @@ namespace BA_Portal.Controllers
                 {
                     ///use this scheme for all other multiselects
                     sOAPForm.TongueBodyShape = null;
-                    foreach (var item in TongueBodyShape1)
+                    foreach (var item in TongueBodyShape1 ?? new string[0])
                     {
                         if (sOAPForm.TongueBodyShape == null)
                         {
@@ -224,7 +225,7 @@ namespace BA_Portal.Controllers
                 {
                     ///use this scheme for all other multiselects
                     sOAPForm.TongueBodyColor = null;
-                    foreach (var item in TongueBodyColor1)
+                    foreach (var item in TongueBodyColor1 ?? new string[0])
                     {
                         if (sOAPForm.TongueBodyColor == null)
                         {
@@ -243,7 +244,7 @@ namespace BA_Portal.Controllers
                 {
                     ///use this scheme for all other multiselects
                     sOAPForm.TongueCoating = null;
-                    foreach (var item in TongueCoating1)
+                    foreach (var item in TongueCoating1 ?? new string[0])
                     {
                         if (sOAPForm.TongueCoating == null)
                         {
@@ -262,7 +263,7 @@ namespace BA_Portal.Controllers
                 {
                     ///use this scheme for all other multiselects
                     sOAPForm.CoatColoration = null;
-                    foreach (var item in CoatColoration1)
+                    foreach (var item in CoatColoration1 ?? new string[0])
                     {
                         if (sOAPForm.CoatColoration == null)
                         {
@@ -281,7 +282,7 @@ namespace BA_Portal.Controllers
                 {
                     ///use this scheme for all other multiselects
                     sOAPForm.CoatRooting = null;
-                    foreach (var item in CoatRooting1)
+                    foreach (var item in CoatRooting1 ?? new string[0])
                     {
                         if (sOAPForm.CoatRooting == null)
                         {
@@ -300,7 +301,7 @@ namespace BA_Portal.Controllers
                 {
                     ///use this scheme for all other multiselects
                     sOAPForm.PulseRight = null;
-                    foreach (var item in PulseRight1)
+                    foreach (var item in PulseRight1 ?? new string[0])
                     {
                         if (sOAPForm.PulseRight == null)
                         {
@@ -318,7 +319,7 @@ namespace BA_Portal.Controllers
                 {
                     ///use this scheme for all other multiselects
                     sOAPForm.PulseLeft = null;
-                    foreach (var item in PulseLeft1)
+                    foreach (var item in PulseLeft1 ?? new string[0])
                     {
                         if (sOAPForm.PulseLeft == null)
                         {

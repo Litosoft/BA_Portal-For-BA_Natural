@@ -22,7 +22,9 @@ namespace BA_Portal.Controllers
         {
             var ClientsSelected = from m in db.SubjectDatabase select m;
 
-            if (!String.IsNullOrEmpty(searchString))
+        
+
+                if (!String.IsNullOrEmpty(searchString))
             {
                 ClientsSelected = ClientsSelected.Where(s => s.Name.Contains(searchString));
             }
@@ -910,6 +912,7 @@ namespace BA_Portal.Controllers
 
         public ActionResult PassSubjecttoAllForms(int? id)
         {
+           
 
             if (id == null)
             {
