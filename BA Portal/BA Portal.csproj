@@ -296,6 +296,7 @@
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\PDF.cs" />
     <Compile Include="Models\PDFtestClass.cs" />
+    <Compile Include="Models\Practioner.cs" />
     <Compile Include="Models\Sample.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -307,6 +308,7 @@
     <Compile Include="Models\TESTMODEL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Views\PractionerController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\CalendarDatabase.mdf" />
@@ -666,6 +668,9 @@
     <Content Include="Views\NewFunctionTests\exceptionthrower.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />
     <Content Include="Views\SOAPForms\PatientSOAPIndex.cshtml" />
+    <Content Include="Views\Practioner\Index.cshtml" />
+    <Content Include="Views\Practioner\AddNewPractioner.cshtml" />
+    <Content Include="Views\Practioner\DeletePractioner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

@@ -27,7 +27,9 @@ namespace BA_Portal.Models
 
         public string BodyTemperature { get; set; }
         public string SubjectiveObjectiveNotes { get; set; }
-        public DateTime DateFilledIn { get; set; }
+
+        //[DataType(DataType.Date)]
+        public string DateFilledIn { get; set; }
 
 
   

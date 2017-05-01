@@ -49,6 +49,8 @@ namespace BA_Portal.Controllers
         // GET: SOAPForms/Create
         public ActionResult Create()
         {
+           
+
             return View();
         }
 
@@ -63,7 +65,7 @@ namespace BA_Portal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(string[] PulseRight1, string[] PulseLeft1, string[] TongueBodyShape1, string[] TongueBodyColor1, string[] TongueCoating1, string[] CoatColoration1, string[] CoatRooting1, string[] Set1Points, string[] Set2Points, string[] Set3Points, string[] Set4Points, string[] Set5Points, string[] Set6Points, [Bind(Include = "ID,PractionerName,PractionerLicenseNumber,ThirstNormal,ThirstSubjective,ThirstObjective,TimeTreatmentStarts,TimeTreatmentEnds,TreatmentPrinciples,ThirstNotes,OtherPhysicalExamsNotes,PatientName,BP,BodyTemperature,SubjectiveObjectiveNotes,DateFilledIn,SymptomsGeneral,PresentingProblems,SymptomsChillsFeverNotes,SymptomsChillsFeverNone,SymptomsChillsFeverSubjective,SymptomsChillsFeverObjective,SymptomsPerspiratonNotes,SymptomsPerspiratonNone,SymptomsPerspiratonSubjective,SymptomsPerspiratonObjective,SymptomsUrinationNotes,SymptomsUrinationNormal,SymptomsUrinationSubjective,SymptomsUrinationObjective,SymptomsHeadacheBodyacheNotes,SymptomsHeadacheBodyacheNone,SymptomsRespirationNotes,SymptomsRespirationNormal,SymptomsRespirationSubjective,SymptomsRespirationObjective,SymptomsSleepEnergyNotes,SymptomsSleepEnergyNormal,SymptomsSleepEnergySubjective,SymptomsSleepEnergyObjective,SymptomsReproductiveNotes,SymptomsReproductiveNormal,SymptomsMentalEmotionalNotes,SymptomsMentalEmotionalNormal,SymptomsMentalEmotionalSubjective,SymptomsMentalEmotionalObjective,SymptomsEarsEyesTeethGumsNotes,SymptomsEarsEyesTeethGumsNormal,SymptomsEarsEyesTeethGumsSubjective,SymptomsEarsEyesTeethGumsObjective,SymptomsAppetiteDigestionDefecationNotes,SymptomsAppetiteDigestionDefecationNormal,SymptomsAppetiteDigestionDefecationSubjective,SymptomsAppetiteDigestionDefecationObjective,SymptomsPalpitationDizzinessNumbnessNotes,SymptomsPalpitationDizzinessNumbnessNone,SymptomsPalpitationDizzinessNumbnessSubjective,SymptomsPalpitationDizzinessNumbnessObjective,AssessmentandDiagnosis,PlanofTreatment,CleanNeedSet,NeedlingSet1ElectricalStimulation,NeedlingSet1TuiNa,NeedlingSet1CuppingTherapy,NeedlingSet2ElectricalStimulation,NeedlingSet2TuiNa,NeedlingSet2CuppingTherapy,NeedlingSet3ElectricalStimulation,NeedlingSet3TuiNa,NeedlingSet3CuppingTherapy,NeedlingSet4ElectricalStimulation,NeedlingSet4TuiNa,NeedlingSet4CuppingTherapy,NeedlingSet5ElectricalStimulation,NeedlingSet5TuiNa,NeedlingSet5CuppingTherapy,NeedlingSet6ElectricalStimulation,NeedlingSet6TuiNa,NeedlingSet6CuppingTherapy,HerbalFormulaId1,HerbalFormulaId1Directions,HerbalFormulaId2,HerbalFormulaId2Directions,HerbalFormulaId3,HerbalFormulaId3Directions,PostTreatmentAssessment,Recomendations")] SOAPForm sOAPForm)
+        public ActionResult Create(string PractionerName1, string[] TreatmentPrinciples1, string[] Planoftreatment1, string[] AssessmentandDiagnosis1, string[] PulseRight1, string[] PulseLeft1, string[] TongueBodyShape1, string[] TongueBodyColor1, string[] TongueCoating1, string[] CoatColoration1, string[] CoatRooting1, string[] Set1Points, string[] Set2Points, string[] Set3Points, string[] Set4Points, string[] Set5Points, string[] Set6Points, [Bind(Include = "ID,PractionerLicenseNumber,ThirstNormal,ThirstSubjective,ThirstObjective,TimeTreatmentStarts,TimeTreatmentEnds,TreatmentPrinciples,ThirstNotes,OtherPhysicalExamsNotes,PatientName,BP,BodyTemperature,SubjectiveObjectiveNotes,DateFilledIn,SymptomsGeneral,PresentingProblems,SymptomsChillsFeverNotes,SymptomsChillsFeverNone,SymptomsChillsFeverSubjective,SymptomsChillsFeverObjective,SymptomsPerspiratonNotes,SymptomsPerspiratonNone,SymptomsPerspiratonSubjective,SymptomsPerspiratonObjective,SymptomsUrinationNotes,SymptomsUrinationNormal,SymptomsUrinationSubjective,SymptomsUrinationObjective,SymptomsHeadacheBodyacheNotes,SymptomsHeadacheBodyacheNone,SymptomsRespirationNotes,SymptomsRespirationNormal,SymptomsRespirationSubjective,SymptomsRespirationObjective,SymptomsSleepEnergyNotes,SymptomsSleepEnergyNormal,SymptomsSleepEnergySubjective,SymptomsSleepEnergyObjective,SymptomsReproductiveNotes,SymptomsReproductiveNormal,SymptomsMentalEmotionalNotes,SymptomsMentalEmotionalNormal,SymptomsMentalEmotionalSubjective,SymptomsMentalEmotionalObjective,SymptomsEarsEyesTeethGumsNotes,SymptomsEarsEyesTeethGumsNormal,SymptomsEarsEyesTeethGumsSubjective,SymptomsEarsEyesTeethGumsObjective,SymptomsAppetiteDigestionDefecationNotes,SymptomsAppetiteDigestionDefecationNormal,SymptomsAppetiteDigestionDefecationSubjective,SymptomsAppetiteDigestionDefecationObjective,SymptomsPalpitationDizzinessNumbnessNotes,SymptomsPalpitationDizzinessNumbnessNone,SymptomsPalpitationDizzinessNumbnessSubjective,SymptomsPalpitationDizzinessNumbnessObjective,CleanNeedSet,NeedlingSet1ElectricalStimulation,NeedlingSet1TuiNa,NeedlingSet1CuppingTherapy,NeedlingSet2ElectricalStimulation,NeedlingSet2TuiNa,NeedlingSet2CuppingTherapy,NeedlingSet3ElectricalStimulation,NeedlingSet3TuiNa,NeedlingSet3CuppingTherapy,NeedlingSet4ElectricalStimulation,NeedlingSet4TuiNa,NeedlingSet4CuppingTherapy,NeedlingSet5ElectricalStimulation,NeedlingSet5TuiNa,NeedlingSet5CuppingTherapy,NeedlingSet6ElectricalStimulation,NeedlingSet6TuiNa,NeedlingSet6CuppingTherapy,HerbalFormulaId1,HerbalFormulaId1Directions,HerbalFormulaId2,HerbalFormulaId2Directions,HerbalFormulaId3,HerbalFormulaId3Directions,PostTreatmentAssessment,Recomendations")] SOAPForm sOAPForm)
         {
 
             //notes
@@ -333,8 +335,62 @@ namespace BA_Portal.Controllers
                     }
                 }
 
+                //iterate through multi select, which returns a string[].
+                //set to null so that there is no comma befor first item is printed.
+                {
+                    ///use this scheme for all other multiselects
+                    sOAPForm.TreatmentPrinciples = null;
+                    foreach (var item in TreatmentPrinciples1 ?? new string[0])
+                    {
+                        if (sOAPForm.TreatmentPrinciples == null)
+                        {
+                            sOAPForm.TreatmentPrinciples = item;
+                        }
+                        else
+                        {
+                            sOAPForm.TreatmentPrinciples = sOAPForm.TreatmentPrinciples + ", " + item;
+                        }
 
-                sOAPForm.DateFilledIn = DateTime.Now;
+                    }
+                }
+
+                {
+                    ///use this scheme for all other multiselects
+                    sOAPForm.PlanofTreatment = null;
+                    foreach (var item in Planoftreatment1 ?? new string[0])
+                    {
+                        if (sOAPForm.PlanofTreatment == null)
+                        {
+                            sOAPForm.PlanofTreatment = item;
+                        }
+                        else
+                        {
+                            sOAPForm.PlanofTreatment = sOAPForm.PlanofTreatment + ", " + item;
+                        }
+
+                    }
+                }
+
+                {
+                    ///use this scheme for all other multiselects
+                    sOAPForm.AssessmentandDiagnosis = null;
+                    foreach (var item in AssessmentandDiagnosis1 ?? new string[0])
+                    {
+                        if (sOAPForm.AssessmentandDiagnosis == null)
+                        {
+                            sOAPForm.AssessmentandDiagnosis = item;
+                        }
+                        else
+                        {
+                            sOAPForm.AssessmentandDiagnosis = sOAPForm.AssessmentandDiagnosis + ", " + item;
+                        }
+
+                    }
+                }
+
+
+                //sOAPForm.DateFilledIn = DateTime.Now;
+                sOAPForm.PractionerName = PractionerName1;
                 int groupingid = (int)TempData["MultiID"];
                 TempData["MultiID"] = groupingid;
                 sOAPForm.GroupingID = groupingid;
@@ -445,7 +501,8 @@ namespace BA_Portal.Controllers
 
             //fill fields on pdf form. 
             stamper.AcroFields.SetField("PatientName", sOAPFORM.PatientName);
-            stamper.AcroFields.SetField("Date", DateTime.Now.ToShortDateString());
+            stamper.AcroFields.SetField("Date", sOAPFORM.DateFilledIn);
+            stamper.AcroFields.SetField("Date_2", sOAPFORM.DateFilledIn);
 
             stamper.AcroFields.SetField("BP", sOAPFORM.BP);
             //stamper.AcroFields.SetField("BP", sOAPFORM.BP.ToString());
@@ -503,7 +560,7 @@ namespace BA_Portal.Controllers
 
             stamper.AcroFields.SetField("PostTreatmentAssessment", sOAPFORM.PostTreatmentAssessment);
             stamper.AcroFields.SetField("Recommendations", sOAPFORM.Recomendations);
-            stamper.AcroFields.SetField("Date_2", DateTime.Now.ToShortDateString());
+
 
 
             //all checkboxes

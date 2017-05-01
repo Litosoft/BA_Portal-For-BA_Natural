@@ -118,9 +118,10 @@
         </td>
         <td>
 
-            @*@Html.ActionLink("View Client's Personal Info", "Details", new { id = item.ID }) |*@
-            @Html.ActionLink("Update Client Personal Info", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Delete Client Records", "Delete", new { id = item.ID })
+            
+            @Html.ActionLink("Update Personal Info", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("View Personal Info", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete Record", "Delete", new { id = item.ID })
 
         </td>
     </tr>

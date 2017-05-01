@@ -16,7 +16,12 @@ namespace BA_Portal.Models
 
         //phyiscal attributes
         public string Name { get; set; }
-        [DataType(DataType.Date)]
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
+
+
+
+
         public DateTime DOB { get; set; }
         public bool Male { get; set; }
         public bool Female { get; set; }
