@@ -852,10 +852,10 @@
         @* Pulse *@
 
         <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="form-group form-group col-sm-2 col-md-2 col-lg-2">
+            <div class="col-sm-12 col-md-12 col-lg-12">
                 @Html.LabelFor(model => model.PulseRight, "Pulse Right", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.PulseRight, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.PulseRight, new { htmlAttributes = new { @class = "form-control long-textbox" } })
                     @Html.ValidationMessageFor(model => model.PulseRight, "", new { @class = "text-danger" })
 
                 </div>
@@ -865,7 +865,7 @@
         </div>
 
         <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="form-group form-group col-sm-2 col-md-2 col-lg-2">
+            <div class="col-sm-12 col-md-12 col-lg-12">
                 @Html.LabelFor(model => model.PulseLeft, "Pulse Left", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.PulseLeft, new { htmlAttributes = new { @class = "form-control" } })
@@ -880,7 +880,7 @@
         @*Assesment*@
 
         <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="form-group form-group col-sm-2 col-md-2 col-lg-2">
+            <div class="col-sm-12 col-md-12 col-lg-12">
                 @Html.LabelFor(model => model.AssessmentandDiagnosis, "Assessment and Diagnosis", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.AssessmentandDiagnosis, new { htmlAttributes = new { @class = "form-control" } })
@@ -893,7 +893,7 @@
 
 
         <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="form-group form-group col-sm-2 col-md-2 col-lg-2">
+            <div class="col-sm-12 col-md-12 col-lg-12">
                 @Html.LabelFor(model => model.TreatmentPrinciples, "Treatment Principles", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.TreatmentPrinciples, new { htmlAttributes = new { @class = "form-control" } })
@@ -906,7 +906,7 @@
 
         <div class="col-sm-12 col-md-12 col-lg-12">
 
-            <div class="form-group form-group col-sm-2 col-md-2 col-lg-2">
+            <div class="col-sm-12 col-md-12 col-lg-12">
                 @Html.LabelFor(model => model.PlanofTreatment, "Plan of treatment", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.PlanofTreatment, new { htmlAttributes = new { @class = "form-control" } })
@@ -934,7 +934,7 @@
 
         <div class="col-sm-12 col-md-12 col-lg-12">
 
-            <div class="form-group col-sm-2 col-md-2 col-lg-2">
+            <div class="col-sm-12 col-md-12 col-lg-12">
                 @Html.LabelFor(model => model.TongueBodyShape, "Tongue Body Shape", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.TongueBodyShape, new { htmlAttributes = new { @class = "form-control" } })
@@ -951,7 +951,7 @@
 
         <div>
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                <div class="col-sm-12 col-md-12 col-lg-12">
                     @Html.LabelFor(model => model.TongueBodyColor, "Tongue Color", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.TongueBodyColor, new { htmlAttributes = new { @class = "form-control" } })
@@ -966,7 +966,7 @@
 
 
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                <div class="col-sm-12 col-md-12 col-lg-12">
                     @Html.LabelFor(model => model.TongueCoating, "Tongue Coating", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.TongueCoating, new { htmlAttributes = new { @class = "form-control" } })
@@ -981,7 +981,7 @@
 
 
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                <div class="col-sm-12 col-md-12 col-lg-12">
                     @Html.LabelFor(model => model.CoatColoration, "Tongue Coat Coloration", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.CoatColoration, new { htmlAttributes = new { @class = "form-control" } })
@@ -995,7 +995,7 @@
             </div>
 
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                <div class="col-sm-12 col-md-12 col-lg-12">
                     @Html.LabelFor(model => model.CoatRooting, "Tongue Coat Rooting", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.CoatRooting, new { htmlAttributes = new { @class = "form-control" } })
@@ -1493,9 +1493,20 @@
             </div>
         </div>
 
+        <div class="form-group col-sm-6 col-md-6 col-lg-6">
+
+            @Html.LabelFor(model => model.GroupingID, "Grouping ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @Html.EditorFor(model => model.GroupingID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GroupingID, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BA_Portal.Models.Practioner>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Practioners</h2><br />
+
+
+@{ 
+    foreach(var item in Model)
+    {
+        <span>Name: @item.Name</span>        <span>| License Number: @item.LicenseID</span> <br />
+
+    }
+
+}
+<br />
+<br />Add new Practioner: <br />
+@using (Html.BeginForm("AddNewPractioner", "Practioner"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        Full Name:<br>
+        <input type="text" name="Name"><br>
+        License #:<br>
+        <input type="text" name="License"><br>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add New Practioner" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<br />Remove Practioner (type the name and id of the practioner below): <br />
+@using (Html.BeginForm("DeletePractioner", "Practioner"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        Full Name:<br>
+        <input type="text" name="NameDelete"><br>
+        License #:<br>
+        <input type="text" name="LicenseDelete"><br>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Delete Practioner" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+

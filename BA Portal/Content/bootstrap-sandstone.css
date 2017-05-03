@@ -6908,3 +6908,8 @@ input:focus,
 .panel-default .panel-footer {
   color: #98978b;
 }
+
+.long-textbox{
+    width:600px;
+    height:600px;
+}

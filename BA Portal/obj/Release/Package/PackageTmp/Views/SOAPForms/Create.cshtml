@@ -1,4 +1,6 @@
-﻿@model BA_Portal.Models.SOAPForm
+﻿@using BA_Portal.Models;
+@model BA_Portal.Models.SOAPForm
+
 
 @{
     ViewBag.Title = "Create";
@@ -20,11 +22,22 @@
         <div class="col-sm-12 col-md-12 col-lg-12">
 
             <div class="form-group col-sm-6 col-md-6 col-lg-6">
+                
                 @Html.LabelFor(model => model.PractionerName, "Practitioner Name", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.PractionerName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.PractionerName, "", new { @class = "text-danger" })
-                </div>
+                    <br />
+                    <select name="PractionerName1">
+
+                            <option value=""> </option>
+
+                        @foreach (var item in PractionerList.PractionerFilledList)
+                        {
+                            <option value=@item.Name>@item.Name</option>
+                        }
+
+
+                        </select>
+                 </div>
             </div>
 
             <div class="form-group col-sm-6 col-md-6 col-lg-6">
@@ -36,6 +49,17 @@
             </div>
 
         </div>
+
+        <div class="form-group col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group col-sm-6 col-md-6 col-lg-6">
+                @Html.LabelFor(model => model.DateFilledIn, "Date", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DateFilledIn, new { htmlAttributes = new { @Value = DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year, @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DateFilledIn, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
 
 
 
@@ -127,7 +151,7 @@
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                        
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsChillsFeverNone, "Chills/ Fever None", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsChillsFeverNone, "None", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -144,7 +168,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                        @Html.LabelFor(model => model.SymptomsChillsFeverSubjective, "Chills/ Fever Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.SymptomsChillsFeverSubjective, "Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
                         
 
                         </div>
@@ -164,7 +188,7 @@
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                        
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsChillsFeverObjective, "Chills/ Fever Objective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsChillsFeverObjective, "Objective", htmlAttributes: new { @class = "control-label col-md-2" })
 
                         </div>
 
@@ -194,7 +218,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.ThirstNormal, "Thirst Normal", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.ThirstNormal, "Normal", htmlAttributes: new { @class = "control-label col-md-2" })
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                           <div class="col-md-10">
@@ -209,7 +233,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.ThirstSubjective, "Thirst Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.ThirstSubjective, "Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
                         
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
@@ -225,7 +249,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.ThirstObjective, "Thirst Objective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.ThirstObjective, "Objective", htmlAttributes: new { @class = "control-label col-md-2" })
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                   <div class="col-md-10">
@@ -254,7 +278,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsPerspiratonNone, "Perspiration None", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsPerspiratonNone, "None", htmlAttributes: new { @class = "control-label col-md-2" })
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="col-md-10">
@@ -272,7 +296,7 @@
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
 
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsPerspiratonSubjective, "Perspiration Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsPerspiratonSubjective, "Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -291,7 +315,7 @@
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
 
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsPerspiratonObjective, "Perspiration Objective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsPerspiratonObjective, "Objective", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -322,7 +346,7 @@
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                        
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                             @Html.LabelFor(model => model.SymptomsUrinationNormal, "Urination Normal", htmlAttributes: new { @class = "control-label col-md-2" })
+                             @Html.LabelFor(model => model.SymptomsUrinationNormal, "Normal", htmlAttributes: new { @class = "control-label col-md-2" })
                         
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
@@ -339,7 +363,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsUrinationSubjective, "Urination Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsUrinationSubjective, "Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -357,7 +381,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsUrinationObjective, "Urination Objective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsUrinationObjective, "Objective", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -384,7 +408,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsHeadacheBodyacheNone, "Headache/ Body Pain None", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsHeadacheBodyacheNone, "None", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -411,7 +435,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsRespirationNormal, "Respiration Normal", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsRespirationNormal, "Normal", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -428,7 +452,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsRespirationSubjective, "Respiration Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsRespirationSubjective, "Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -445,7 +469,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsRespirationObjective, "Respiration Objective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsRespirationObjective, "Objective", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -478,7 +502,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsSleepEnergyNormal, "Sleep Energy Normal", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsSleepEnergyNormal, "Normal", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -495,7 +519,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                                    @Html.LabelFor(model => model.SymptomsSleepEnergySubjective, "Sleep Energy Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    @Html.LabelFor(model => model.SymptomsSleepEnergySubjective, "Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
                         
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
@@ -512,7 +536,7 @@
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsSleepEnergyObjective, "Sleep Energy Objective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsSleepEnergyObjective, "Objective", htmlAttributes: new { @class = "control-label col-md-2" })
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="col-md-10">
@@ -540,7 +564,7 @@
                 <div class="form-group col-sm-2 col-md-2 col-lg-2">
                    
                     <div class="col-sm-8 col-md-8 col-lg-8">
-                        @Html.LabelFor(model => model.SymptomsReproductiveNormal, "Reproductive Normal", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.SymptomsReproductiveNormal, "Normal", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                     </div>
@@ -568,7 +592,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsMentalEmotionalNormal, "Mental/ Emotional Normal", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsMentalEmotionalNormal, "Normal", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -585,7 +609,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsMentalEmotionalSubjective, "Mental/ Emotional Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsMentalEmotionalSubjective, "Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -602,7 +626,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                                @Html.LabelFor(model => model.SymptomsMentalEmotionalObjective, "Mental/ Emotional Objective", htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.LabelFor(model => model.SymptomsMentalEmotionalObjective, "Objective", htmlAttributes: new { @class = "control-label col-md-2" })
                         
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
@@ -629,7 +653,7 @@
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsEarsEyesTeethGumsNormal, "Ears/ Eyes/ Teeth/ Gums Normal", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsEarsEyesTeethGumsNormal, "Normal", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -646,7 +670,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                                @Html.LabelFor(model => model.SymptomsEarsEyesTeethGumsSubjective, "Ears/ Eyes/ Teeth/ Gums Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.LabelFor(model => model.SymptomsEarsEyesTeethGumsSubjective, "Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
 
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
@@ -662,7 +686,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsEarsEyesTeethGumsObjective, "Ears/ Eyes/ Teeth/ Gums Objective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsEarsEyesTeethGumsObjective, "Objective", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -689,7 +713,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsAppetiteDigestionDefecationNormal, "Appetite/ Digestion/ Defecation Normal", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsAppetiteDigestionDefecationNormal, "Normal", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -706,7 +730,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsAppetiteDigestionDefecationSubjective, "Appetite/ Digestion/ Defecation Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsAppetiteDigestionDefecationSubjective, "Subjective", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -724,7 +748,7 @@
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsAppetiteDigestionDefecationObjective, "Appetite/ Digestion/ Defecation Objective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsAppetiteDigestionDefecationObjective, "Objective", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -753,7 +777,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                                    @Html.LabelFor(model => model.SymptomsPalpitationDizzinessNumbnessNone, "Palpitation/ Dizziness/ Numbness None", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    @Html.LabelFor(model => model.SymptomsPalpitationDizzinessNumbnessNone, "None", htmlAttributes: new { @class = "control-label col-md-2" })
 
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
@@ -769,7 +793,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                                @Html.LabelFor(model => model.SymptomsPalpitationDizzinessNumbnessSubjective, "Palpitation/ Dizziness/ Subject", htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.LabelFor(model => model.SymptomsPalpitationDizzinessNumbnessSubjective, "Subject", htmlAttributes: new { @class = "control-label col-md-2" })
 
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
@@ -785,7 +809,7 @@
 
                     <div class="form-group col-sm-2 col-md-2 col-lg-2">
                         <div class="col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(model => model.SymptomsPalpitationDizzinessNumbnessObjective, "Palpitation/ Dizziness/ Numbness Objective", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SymptomsPalpitationDizzinessNumbnessObjective, "Objective", htmlAttributes: new { @class = "control-label col-md-2" })
 
 
                         </div>
@@ -847,10 +871,6 @@
             </div>
 
             <div class="form-group col-sm-8 col-md-8 col-lg-8">
-
-
-
-       
 
                 <select multiple name="PulseRight1">
 
@@ -943,30 +963,191 @@
 
         @*Assesment*@
 
-            <div class="form-group">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group form-group col-sm-2 col-md-2 col-lg-2">
                 @Html.LabelFor(model => model.AssessmentandDiagnosis, "Assessment and Diagnosis", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.AssessmentandDiagnosis, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.AssessmentandDiagnosis, "", new { @class = "text-danger" })
-                </div>
+          
             </div>
+            <div class="form-group col-sm-8 col-md-8 col-lg-8">
+
+                <select multiple name="AssessmentandDiagnosis1">
+
+                    <option value=""> </option>
+                    <option value="Bladder Damp Heat">Bladder Damp Heat	</option>
+                    <option value="Blood Stagnation">Blood Stagnation</option>
+                    <option value="Heart Blood Deficiency">Heart Blood Deficiency</option>
+                    <option value="Heart Blood Stagnation">Heart Blood Stagnation</option>
+                    <option value="Heart Fire">Heart Fire</option>
+                    <option value="Heart Qi Deficiency">Heart Qi Deficiency</option>
+                    <option value="Heart Yang Collapse">Heart Yang Collapse	</option>
+                    <option value="Heart Yang Deficiency">Heart Yang Deficiency</option>
+                    <option value="Heart Yin Deficiency">Heart Yin Deficiency</option>
+                    <option value="Heat in the Blood">Heat in the Blood</option>
+                    <option value="Kidney Jing Deficiency">Kidney Jing Deficiency</option>
+                    <option value="Kidney Qi Deficiency">Kidney Qi Deficiency</option>
+                    <option value="Kidney Yang Deficiency">Kidney Yang Deficiency</option>
+                    <option value="Kidney Yin Deficiency">Kidney Yin Deficiency</option>
+                    <option value="Large Intestine Blood Stagnation">Large Intestine Blood Stagnation</option>
+                    <option value="Large Intestine Cold	">Large Intestine Cold	</option>
+                    <option value="Large Intestine Damp Heat from LI">Large Intestine Damp Heat from LI</option>
+                    <option value="Large Intestine Dryness">Large Intestine Dryness</option>
+                    <option value="Liver and Gallbladder Damp Heat">Liver and Gallbladder Damp Heat</option>
+                    <option value="Liver Attacking the Spleen">Liver Attacking the Spleen</option>
+                    <option value="Liver Blood Deficiency">Liver Blood Deficiency</option>
+                    <option value="Liver Blood Stagnation">Liver Blood Stagnation</option>
+                    <option value="Liver Cold Stagnation Stagnation">Liver Cold Stagnation Stagnation</option>
+                    <option value="Liver Fire">Liver Fire</option>
+                    <option value="Liver Qi Stagnation">Liver Qi Stagnation</option>
+                    <option value="Liver Wind">Liver Wind</option>
+                    <option value="Liver Yang Rising">Liver Yang Rising</option>
+                    <option value="Liver Yin Deficiency	">Liver Yin Deficiency	</option>
+                    <option value="Lung Dampness - Phlegm Cold">Lung Dampness - Phlegm Cold</option>
+                    <option value="Lung Dampness - Phlegm Heat">Lung Dampness - Phlegm Heat	</option>
+                    <option value="Lung Dryness">Lung Dryness	</option>
+                    <option value="Lung Qi Deficiency">Lung Qi Deficiency</option>
+                    <option value="Lung Rebellious Qi">Lung Rebellious Qi	</option>
+                    <option value="Lung Wind Invasion - Wind Cold">Lung Wind Invasion - Wind Cold</option>
+                    <option value="Lung Wind Invasion - Wind Heat">Lung Wind Invasion - Wind Heat</option>
+                    <option value="Lung Yin Deficiency">Lung Yin Deficiency</option>
+                    <option value="Phlegm Fire">Phlegm Fire</option>
+                    <option value="Phlegm Misting the Heart">Phlegm Misting the Heart</option>
+                    <option value="Phlegm Stagnation">Phlegm Stagnation</option>
+                    <option value="Shen Disturbance">Shen Disturbance</option>
+                    <option value="Spleen and Stomach Damp Heat">Spleen and Stomach Damp Heat</option>
+                    <option value="Spleen Blood Deficiency">Spleen Blood Deficiency</option>
+                    <option value="Spleen Invasion - Cold Damp">Spleen Invasion - Cold Damp</option>
+                    <option value="Spleen Not Controlling the Blood">Spleen Not Controlling the Blood</option>
+                    <option value="Spleen Qi Deficiency">Spleen Qi Deficiency</option>
+                    <option value="Spleen Qi Sinking">Spleen Qi Sinking</option>
+                    <option value="Spleen Yang Deficiency">Spleen Yang Deficiency</option>
+                    <option value="Stomach Blood Stagnation">Stomach Blood Stagnation</option>
+                    <option value="Stomach Cold">Stomach Cold</option>
+                    <option value="Stomach Dampness">Stomach Dampness</option>
+                    <option value="Stomach Fire">Stomach Fire</option>
+                    <option value="Stomach Food Stagnation">Stomach Food Stagnation</option>
+                    <option value="Stomach Qi Deficiency">Stomach Qi Deficiency</option>
+                    <option value="Stomach Rebellious Qi">Stomach Rebellious Qi</option>
+                    <option value="Stomach Yin Deficiency">Stomach Yin Deficiency</option>
+                    <option value="Summer Heat">Summer Heat</option>
 
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TreatmentPrinciples, "Treatment Principles", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TreatmentPrinciples, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TreatmentPrinciples, "", new { @class = "text-danger" })
+                </select>
+
             </div>
         </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.PlanofTreatment, "Plan of treatment", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.PlanofTreatment, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.PlanofTreatment, "", new { @class = "text-danger" })
-                </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group form-group col-sm-2 col-md-2 col-lg-2">
+                @Html.LabelFor(model => model.TreatmentPrinciples, "Treatment Principles", htmlAttributes: new { @class = "control-label col-md-2" })
+
             </div>
+            <div class="form-group col-sm-8 col-md-8 col-lg-8">
+
+                <select multiple name="TreatmentPrinciples1">
+
+                    <option value=""> </option>
+                    <option value="Expel UB Dampness / Clear Heat">Expel UB Dampness / Clear Heat</option>
+                    <option value="Remove Blood stasis">Remove Blood stasis</option>
+                    <option value="Tonify HT Blood">Tonify HT Blood</option>
+                    <option value="Remove HT Blood stasis">Remove HT Blood stasis</option>
+                    <option value="Clear HT Fire">Clear HT Fire</option>
+                    <option value="Tonify HT Qi">Tonify HT Qi</option>
+                    <option value="Revive HT Yang">Revive HT Yang</option>
+                    <option value="Tonify HT Yang">Tonify HT Yang</option>
+                    <option value="Tonify HT Yin">Tonify HT Yin</option>
+                    <option value="Clear Heat in the Blood">Clear Heat in the Blood</option>
+                    <option value="Tonify KD Jing">Tonify KD Jing</option>
+                    <option value="Tonify KD Qi">Tonify KD Qi</option>
+                    <option value="Tonify KD Yang">Tonify KD Yang</option>
+                    <option value="Tonify KD Yin">Tonify KD Yin</option>
+                    <option value="Remove Blood Stasis from LI">Remove Blood Stasis from LI</option>
+                    <option value="Warm up LI">Warm up LI</option>
+                    <option value="Expel Dampness and Clear Heat from LI">Expel Dampness and Clear Heat from LI</option>
+                    <option value="Moisturize LI">Moisturize LI </option>
+                    <option value="Clear Damp Heat from LR & GB">Clear Damp Heat from LR & GB</option>
+                    <option value="Harmonize LV & SP">Harmonize LV & SP</option>
+                    <option value="Tonify LV Blood">Tonify LV Blood</option>
+                    <option value="Remove Blood Stasis from LV">Remove Blood Stasis from LV</option>
+                    <option value="Warms up LV to remove Stagnation">Warms up LV to remove Stagnation</option>
+                    <option value="Clear LV Fire">Clear LV Fire</option>
+                    <option value="Sooth LV Qi">Sooth LV Qi</option>
+                    <option value="Expel LV Wind">Expel LV Wind</option>
+                    <option value="Subdue LV Yang">Subdue LV Yang </option>
+                    <option value="Tonify LV Yin">Tonify LV Yin</option>
+                    <option value="Expel LU Dampness – Warm up LU">Expel LU Dampness – Warm up LU</option>
+                    <option value="Expel LU Dampness – Clear Heat in LU">Expel LU Dampness – Clear Heat in LU</option>
+                    <option value="Moisten LU">Moisten LU</option>
+                    <option value="Tonify LU Qi">Tonify LU Qi</option>
+                    <option value="Sooth LU Qi">Sooth LU Qi</option>
+                    <option value="Expel Wind – Warm up LU">Expel Wind – Warm up LU</option>
+                    <option value="Expel Wind – Clear Heat in LU">Expel Wind – Clear Heat in LU</option>
+                    <option value="Tonify LU Yin">Tonify LU Yin</option>
+                    <option value="Clear Phlegm & Fire">Clear Phlegm & Fire</option>
+                    <option value="Clear Phlegm">Clear Phlegm</option>
+                    <option value="Clear Phlegm, Remove Stagnation">Clear Phlegm, Remove Stagnation</option>
+                    <option value="Calm Shen">Calm Shen</option>
+                    <option value="Expel Damp Heat from SP & ST">Expel Damp Heat from SP & ST</option>
+                    <option value="Tonify SP Blood">Tonify SP Blood</option>
+                    <option value="Expel damp & warm up spleen">Expel damp & warm up spleen</option>
+                    <option value="Tonify SP">Tonify SP</option>
+                    <option value="Tonify SP Qi">Tonify SP Qi</option>
+                    <option value="Tonify & Raise SP Qi">Tonify & Raise SP Qi</option>
+                    <option value="Tonify SP Yang">Tonify SP Yang</option>
+                    <option value="Remove blood stagnation">Remove blood stagnation</option>
+
+                    <option value="Warm up ST">Warm up ST</option>
+                    <option value="Expel ST Dampness">Expel ST Dampness</option>
+                    <option value="Clear ST Fire">Clear ST Fire</option>
+                    <option value="Remove Food Stagnation">Remove Food Stagnation </option>
+                    <option value="Tonify ST Qi">Tonify ST Qi</option>
+                    <option value="Sooth ST Qi">Sooth ST Qi</option>
+                    <option value="Tonify ST Yin">Tonify ST Yin</option>
+                    <option value="Clear Summer Heat">Clear Summer Heat</option>
+
+
+
+                </select>
+
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+
+            <div class="form-group form-group col-sm-2 col-md-2 col-lg-2">
+                @Html.LabelFor(model => model.PlanofTreatment, "Plan of treatment", htmlAttributes: new { @class = "control-label col-md-2" })
+
+            </div>
+            <div class="form-group col-sm-8 col-md-8 col-lg-8">
+
+                <select multiple name="Planoftreatment1">
+
+                    <option value=""> </option>
+                    <option value="Acupuncture">Acupuncture</option>
+                    <option value="Acupressure / Tui-Na / Body Alignment">Acupressure / Tui-Na / Body Alignment</option>
+                    <option value="Cupping Therapy / Gua-Sha Therapy">Cupping Therapy / Gua-Sha Therapy</option>
+                    <option value="Electric Stimulation">Electric Stimulation</option>
+                    <option value="Heat / TDP Lamp Therapy">Heat / TDP Lamp Therapy</option>
+                    <option value="Moxa Therapy">Moxa Therapy</option>
+                    <option value="Herbal Formula">Herbal Formula</option>
+                    <option value="Aromatherapy">Aromatherapy</option>
+
+
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+ 
 
         @*Tongue Diagnosis*@
         <div class="col-sm-12 col-md-12 col-lg-12">
@@ -4002,11 +4183,59 @@
         <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="form-group col-sm-6 col-md-6 col-lg-6">
                 @Html.LabelFor(model => model.HerbalFormulaId1, "Herbal Formula #1", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.HerbalFormulaId1, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.HerbalFormulaId1, "", new { @class = "text-danger" })
+                <div>
+                    <select name="HerbalFormulaId11">
+
+                        <option value=""> </option>
+                        <option value="Ba Zhen Pian	八珍片">Ba Zhen Pian	八珍片</option>
+                        <option value="Bai He Gu Jin Tang	百合固金湯">Bai He Gu Jin Tang	百合固金湯</option>
+                        <option value="Bai Hu Jia Ren Shen Tang	白虎加人參湯">Bai Hu Jia Ren Shen Tang	白虎加人參湯</option>
+                        <option value="Bao He Pian	保和片">Bao He Pian	保和片</option>
+                        <option value="Bu Zhong Yi Qi Tang	補中益氣湯">Bu Zhong Yi Qi Tang	補中益氣湯</option>
+                        <option value="Chai Hu Long Gu Mu Li Pian	柴胡龍骨牡蠣片">Chai Hu Long Gu Mu Li Pian	柴胡龍骨牡蠣片</option>
+                        <option value="Du Huo Ji Sheng Pian	獨活寄生片">Du Huo Ji Sheng Pian	獨活寄生片</option>
+                        <option value="Er Long Zuo Ci Pian	耳聾左慈片">Er Long Zuo Ci Pian	耳聾左慈片</option>
+                        <option value="Fu Fang Dan Shen Pian	複方丹蔘片">Fu Fang Dan Shen Pian	複方丹蔘片</option>
+                        <option value="Gan Mai Da Zao Pian	甘麥大棗片">Gan Mai Da Zao Pian	甘麥大棗片</option>
+                        <option value="Geng Nian An Pian	更年安片">Geng Nian An Pian	更年安片</option>
+                        <option value="Gui Pi Pian	歸脾片">Gui Pi Pian	歸脾片</option>
+                        <option value="Gui Zi Fu Ling Pian	桂枝茯苓片">Gui Zi Fu Ling Pian	桂枝茯苓片</option>
+                        <option value="Jia Wei Xiao Yao Pian	加味逍遙片">Jia Wei Xiao Yao Pian	加味逍遙片</option>
+                        <option value="Jiang Ya Pian	降壓片">Jiang Ya Pian	降壓片</option>
+                        <option value="Jin Gui Shen Qi Pian	金匱腎氣片">Jin Gui Shen Qi Pian	金匱腎氣片</option>
+                        <option value="Kang Zhong Pian	抗腫片">Kang Zhong Pian	抗腫片</option>
+                        <option value="Li Shui Pai Shi Pian	利水排石片">Li Shui Pai Shi Pian	利水排石片</option>
+                        <option value="Liu Wei Di Huang Pian	六味地黃片">Liu Wei Di Huang Pian	六味地黃片</option>
+                        <option value="Long Dan Xie Gan Pian	龍膽瀉肝片">Long Dan Xie Gan Pian	龍膽瀉肝片</option>
+                        <option value="Ming Mu Di Huang Pian	明目地黃片">Ming Mu Di Huang Pian	明目地黃片</option>
+                        <option value="Qing Fei Tang	清肺湯">Qing Fei Tang	清肺湯</option>
+                        <option value="Sang Ju Yin	桑菊飲">Sang Ju Yin	桑菊飲</option>
+                        <option value="Shan Zha Jiang Zi Pian	山楂降脂片">Shan Zha Jiang Zi Pian	山楂降脂片</option>
+                        <option value="Shao Fu Zhu Yu Pian	少腹逐瘀片">Shao Fu Zhu Yu Pian	少腹逐瘀片</option>
+                        <option value="Shen Ling Bai Zhu Pian	參苓白朮片">Shen Ling Bai Zhu Pian	參苓白朮片</option>
+                        <option value="Shen Tong Zhu Yu Pian	身痛逐瘀片">Shen Tong Zhu Yu Pian	身痛逐瘀片</option>
+                        <option value="Shi Quan Da Bu Pian	十全大補片">Shi Quan Da Bu Pian	十全大補片</option>
+                        <option value="Si Jun Zi Tang Wan	四君子湯丸">Si Jun Zi Tang Wan	四君子湯丸</option>
+                        <option value="Si Wu Tang Pian	四物湯片">Si Wu Tang Pian	四物湯片</option>
+                        <option value="Te Xiao Zao Ren An Mian Pian	特效棗仁安眠片">Te Xiao Zao Ren An Mian Pian	特效棗仁安眠片</option>
+                        <option value="Tian Ma Gou Teng Pian	天麻鉤藤片">Tian Ma Gou Teng Pian	天麻鉤藤片</option>
+                        <option value="Tian Wang Bu Xin Dan	天王補心丹">Tian Wang Bu Xin Dan	天王補心丹</option>
+                        <option value="Tong Chang Pian	通暢片">Tong Chang Pian	通暢片</option>
+                        <option value="Wu Zi Yan Zong Pian	五子衍宗片">Wu Zi Yan Zong Pian	五子衍宗片</option>
+                        <option value="Xiang Sha Liu Jun Zi Pian	香砂六君子片">Xiang Sha Liu Jun Zi Pian	香砂六君子片</option>
+                        <option value="Xiang Sha Yang Wei Pian	香砂養胃片">Xiang Sha Yang Wei Pian	香砂養胃片</option>
+                        <option value="Xiao Chai Hu Tang Pian	小柴胡湯片">Xiao Chai Hu Tang Pian	小柴胡湯片</option>
+                        <option value="Xiao Feng Pian	消風片">Xiao Feng Pian	消風片</option>
+                        <option value="Xiao Yao Pian	逍遙片">Xiao Yao Pian	逍遙片</option>
+                        <option value="Yin Qiao Jie Du Pian	銀翹解毒片">Yin Qiao Jie Du Pian	銀翹解毒片</option>
+                        <option value="Zhi Bo Di Hunag Pian	知柏地黃片">Zhi Bo Di Hunag Pian	知柏地黃片</option>
+
+                    </select>
+
                 </div>
             </div>
+
+          
 
             <div class="form-group col-sm-6 col-md-6 col-lg-6">
                 @Html.LabelFor(model => model.HerbalFormulaId1Directions, "Herbal Formula #1 Directions", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -4022,9 +4251,55 @@
         <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="form-group col-sm-6 col-md-6 col-lg-6">
                 @Html.LabelFor(model => model.HerbalFormulaId2, "Herbal Formula #2", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.HerbalFormulaId2, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.HerbalFormulaId2, "", new { @class = "text-danger" })
+                <div>
+                    <select name="HerbalFormulaId21">
+
+                        <option value=""> </option>
+                        <option value="Ba Zhen Pian	八珍片">Ba Zhen Pian	八珍片</option>
+                        <option value="Bai He Gu Jin Tang	百合固金湯">Bai He Gu Jin Tang	百合固金湯</option>
+                        <option value="Bai Hu Jia Ren Shen Tang	白虎加人參湯">Bai Hu Jia Ren Shen Tang	白虎加人參湯</option>
+                        <option value="Bao He Pian	保和片">Bao He Pian	保和片</option>
+                        <option value="Bu Zhong Yi Qi Tang	補中益氣湯">Bu Zhong Yi Qi Tang	補中益氣湯</option>
+                        <option value="Chai Hu Long Gu Mu Li Pian	柴胡龍骨牡蠣片">Chai Hu Long Gu Mu Li Pian	柴胡龍骨牡蠣片</option>
+                        <option value="Du Huo Ji Sheng Pian	獨活寄生片">Du Huo Ji Sheng Pian	獨活寄生片</option>
+                        <option value="Er Long Zuo Ci Pian	耳聾左慈片">Er Long Zuo Ci Pian	耳聾左慈片</option>
+                        <option value="Fu Fang Dan Shen Pian	複方丹蔘片">Fu Fang Dan Shen Pian	複方丹蔘片</option>
+                        <option value="Gan Mai Da Zao Pian	甘麥大棗片">Gan Mai Da Zao Pian	甘麥大棗片</option>
+                        <option value="Geng Nian An Pian	更年安片">Geng Nian An Pian	更年安片</option>
+                        <option value="Gui Pi Pian	歸脾片">Gui Pi Pian	歸脾片</option>
+                        <option value="Gui Zi Fu Ling Pian	桂枝茯苓片">Gui Zi Fu Ling Pian	桂枝茯苓片</option>
+                        <option value="Jia Wei Xiao Yao Pian	加味逍遙片">Jia Wei Xiao Yao Pian	加味逍遙片</option>
+                        <option value="Jiang Ya Pian	降壓片">Jiang Ya Pian	降壓片</option>
+                        <option value="Jin Gui Shen Qi Pian	金匱腎氣片">Jin Gui Shen Qi Pian	金匱腎氣片</option>
+                        <option value="Kang Zhong Pian	抗腫片">Kang Zhong Pian	抗腫片</option>
+                        <option value="Li Shui Pai Shi Pian	利水排石片">Li Shui Pai Shi Pian	利水排石片</option>
+                        <option value="Liu Wei Di Huang Pian	六味地黃片">Liu Wei Di Huang Pian	六味地黃片</option>
+                        <option value="Long Dan Xie Gan Pian	龍膽瀉肝片">Long Dan Xie Gan Pian	龍膽瀉肝片</option>
+                        <option value="Ming Mu Di Huang Pian	明目地黃片">Ming Mu Di Huang Pian	明目地黃片</option>
+                        <option value="Qing Fei Tang	清肺湯">Qing Fei Tang	清肺湯</option>
+                        <option value="Sang Ju Yin	桑菊飲">Sang Ju Yin	桑菊飲</option>
+                        <option value="Shan Zha Jiang Zi Pian	山楂降脂片">Shan Zha Jiang Zi Pian	山楂降脂片</option>
+                        <option value="Shao Fu Zhu Yu Pian	少腹逐瘀片">Shao Fu Zhu Yu Pian	少腹逐瘀片</option>
+                        <option value="Shen Ling Bai Zhu Pian	參苓白朮片">Shen Ling Bai Zhu Pian	參苓白朮片</option>
+                        <option value="Shen Tong Zhu Yu Pian	身痛逐瘀片">Shen Tong Zhu Yu Pian	身痛逐瘀片</option>
+                        <option value="Shi Quan Da Bu Pian	十全大補片">Shi Quan Da Bu Pian	十全大補片</option>
+                        <option value="Si Jun Zi Tang Wan	四君子湯丸">Si Jun Zi Tang Wan	四君子湯丸</option>
+                        <option value="Si Wu Tang Pian	四物湯片">Si Wu Tang Pian	四物湯片</option>
+                        <option value="Te Xiao Zao Ren An Mian Pian	特效棗仁安眠片">Te Xiao Zao Ren An Mian Pian	特效棗仁安眠片</option>
+                        <option value="Tian Ma Gou Teng Pian	天麻鉤藤片">Tian Ma Gou Teng Pian	天麻鉤藤片</option>
+                        <option value="Tian Wang Bu Xin Dan	天王補心丹">Tian Wang Bu Xin Dan	天王補心丹</option>
+                        <option value="Tong Chang Pian	通暢片">Tong Chang Pian	通暢片</option>
+                        <option value="Wu Zi Yan Zong Pian	五子衍宗片">Wu Zi Yan Zong Pian	五子衍宗片</option>
+                        <option value="Xiang Sha Liu Jun Zi Pian	香砂六君子片">Xiang Sha Liu Jun Zi Pian	香砂六君子片</option>
+                        <option value="Xiang Sha Yang Wei Pian	香砂養胃片">Xiang Sha Yang Wei Pian	香砂養胃片</option>
+                        <option value="Xiao Chai Hu Tang Pian	小柴胡湯片">Xiao Chai Hu Tang Pian	小柴胡湯片</option>
+                        <option value="Xiao Feng Pian	消風片">Xiao Feng Pian	消風片</option>
+                        <option value="Xiao Yao Pian	逍遙片">Xiao Yao Pian	逍遙片</option>
+                        <option value="Yin Qiao Jie Du Pian	銀翹解毒片">Yin Qiao Jie Du Pian	銀翹解毒片</option>
+                        <option value="Zhi Bo Di Hunag Pian	知柏地黃片">Zhi Bo Di Hunag Pian	知柏地黃片</option>
+
+                    </select>
+
                 </div>
             </div>
 
@@ -4040,9 +4315,55 @@
         <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="form-group col-sm-6 col-md-6 col-lg-6">
                 @Html.LabelFor(model => model.HerbalFormulaId3, "Herbal Formula #3", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.HerbalFormulaId3, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.HerbalFormulaId3, "", new { @class = "text-danger" })
+                <div>
+                    <select name="HerbalFormulaId31">
+
+                        <option value=""> </option>
+                        <option value="Ba Zhen Pian	八珍片">Ba Zhen Pian	八珍片</option>
+                        <option value="Bai He Gu Jin Tang	百合固金湯">Bai He Gu Jin Tang	百合固金湯</option>
+                        <option value="Bai Hu Jia Ren Shen Tang	白虎加人參湯">Bai Hu Jia Ren Shen Tang	白虎加人參湯</option>
+                        <option value="Bao He Pian	保和片">Bao He Pian	保和片</option>
+                        <option value="Bu Zhong Yi Qi Tang	補中益氣湯">Bu Zhong Yi Qi Tang	補中益氣湯</option>
+                        <option value="Chai Hu Long Gu Mu Li Pian	柴胡龍骨牡蠣片">Chai Hu Long Gu Mu Li Pian	柴胡龍骨牡蠣片</option>
+                        <option value="Du Huo Ji Sheng Pian	獨活寄生片">Du Huo Ji Sheng Pian	獨活寄生片</option>
+                        <option value="Er Long Zuo Ci Pian	耳聾左慈片">Er Long Zuo Ci Pian	耳聾左慈片</option>
+                        <option value="Fu Fang Dan Shen Pian	複方丹蔘片">Fu Fang Dan Shen Pian	複方丹蔘片</option>
+                        <option value="Gan Mai Da Zao Pian	甘麥大棗片">Gan Mai Da Zao Pian	甘麥大棗片</option>
+                        <option value="Geng Nian An Pian	更年安片">Geng Nian An Pian	更年安片</option>
+                        <option value="Gui Pi Pian	歸脾片">Gui Pi Pian	歸脾片</option>
+                        <option value="Gui Zi Fu Ling Pian	桂枝茯苓片">Gui Zi Fu Ling Pian	桂枝茯苓片</option>
+                        <option value="Jia Wei Xiao Yao Pian	加味逍遙片">Jia Wei Xiao Yao Pian	加味逍遙片</option>
+                        <option value="Jiang Ya Pian	降壓片">Jiang Ya Pian	降壓片</option>
+                        <option value="Jin Gui Shen Qi Pian	金匱腎氣片">Jin Gui Shen Qi Pian	金匱腎氣片</option>
+                        <option value="Kang Zhong Pian	抗腫片">Kang Zhong Pian	抗腫片</option>
+                        <option value="Li Shui Pai Shi Pian	利水排石片">Li Shui Pai Shi Pian	利水排石片</option>
+                        <option value="Liu Wei Di Huang Pian	六味地黃片">Liu Wei Di Huang Pian	六味地黃片</option>
+                        <option value="Long Dan Xie Gan Pian	龍膽瀉肝片">Long Dan Xie Gan Pian	龍膽瀉肝片</option>
+                        <option value="Ming Mu Di Huang Pian	明目地黃片">Ming Mu Di Huang Pian	明目地黃片</option>
+                        <option value="Qing Fei Tang	清肺湯">Qing Fei Tang	清肺湯</option>
+                        <option value="Sang Ju Yin	桑菊飲">Sang Ju Yin	桑菊飲</option>
+                        <option value="Shan Zha Jiang Zi Pian	山楂降脂片">Shan Zha Jiang Zi Pian	山楂降脂片</option>
+                        <option value="Shao Fu Zhu Yu Pian	少腹逐瘀片">Shao Fu Zhu Yu Pian	少腹逐瘀片</option>
+                        <option value="Shen Ling Bai Zhu Pian	參苓白朮片">Shen Ling Bai Zhu Pian	參苓白朮片</option>
+                        <option value="Shen Tong Zhu Yu Pian	身痛逐瘀片">Shen Tong Zhu Yu Pian	身痛逐瘀片</option>
+                        <option value="Shi Quan Da Bu Pian	十全大補片">Shi Quan Da Bu Pian	十全大補片</option>
+                        <option value="Si Jun Zi Tang Wan	四君子湯丸">Si Jun Zi Tang Wan	四君子湯丸</option>
+                        <option value="Si Wu Tang Pian	四物湯片">Si Wu Tang Pian	四物湯片</option>
+                        <option value="Te Xiao Zao Ren An Mian Pian	特效棗仁安眠片">Te Xiao Zao Ren An Mian Pian	特效棗仁安眠片</option>
+                        <option value="Tian Ma Gou Teng Pian	天麻鉤藤片">Tian Ma Gou Teng Pian	天麻鉤藤片</option>
+                        <option value="Tian Wang Bu Xin Dan	天王補心丹">Tian Wang Bu Xin Dan	天王補心丹</option>
+                        <option value="Tong Chang Pian	通暢片">Tong Chang Pian	通暢片</option>
+                        <option value="Wu Zi Yan Zong Pian	五子衍宗片">Wu Zi Yan Zong Pian	五子衍宗片</option>
+                        <option value="Xiang Sha Liu Jun Zi Pian	香砂六君子片">Xiang Sha Liu Jun Zi Pian	香砂六君子片</option>
+                        <option value="Xiang Sha Yang Wei Pian	香砂養胃片">Xiang Sha Yang Wei Pian	香砂養胃片</option>
+                        <option value="Xiao Chai Hu Tang Pian	小柴胡湯片">Xiao Chai Hu Tang Pian	小柴胡湯片</option>
+                        <option value="Xiao Feng Pian	消風片">Xiao Feng Pian	消風片</option>
+                        <option value="Xiao Yao Pian	逍遙片">Xiao Yao Pian	逍遙片</option>
+                        <option value="Yin Qiao Jie Du Pian	銀翹解毒片">Yin Qiao Jie Du Pian	銀翹解毒片</option>
+                        <option value="Zhi Bo Di Hunag Pian	知柏地黃片">Zhi Bo Di Hunag Pian	知柏地黃片</option>
+
+                    </select>
+
                 </div>
             </div>
 

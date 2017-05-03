@@ -163,12 +163,13 @@
 <strong>
 @Html.ActionLink("Add new Soap", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "SOAP" }, null)
 </strong>
-    <br />
-    <strong>@Html.ActionLink("Complete SOAP", "RedirectToPatientSOAPIndex", new { id = ViewBag.ID })</strong> 
+
 
 </div>
 <div class="col-sm-6 col-md-6 col-lg-6">
    <a href="~/Content/PDFSoap.pdf">What is a SOAP form?</a>
+    <br />
+    <strong>@Html.ActionLink("SOAP Data Archive", "RedirectToPatientSOAPIndex", new { id = ViewBag.ID })</strong> 
 </div>
 @{
 

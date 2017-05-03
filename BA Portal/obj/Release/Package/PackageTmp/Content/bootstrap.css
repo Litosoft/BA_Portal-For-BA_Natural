@@ -6813,4 +6813,12 @@ td.visible-print {
   td.hidden-print {
     display: none !important;
   }
+
+
 }
+
+.long-textbox{
+    width:600px;
+    height:600px;
+}
+

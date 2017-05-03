@@ -85,7 +85,7 @@ namespace BA_Portal.Controllers
             {
                 db.Entry(pDF).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Subjects");
             }
             return View(pDF);
         }
@@ -113,7 +113,7 @@ namespace BA_Portal.Controllers
             PDF pDF = db.PDFDatabase.Find(id);
             db.PDFDatabase.Remove(pDF);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Subjects");
             //return RedirectToAction("PassSubjecttoAllForms", "Subjects", new { id = ID });
         }
 

@@ -8,8 +8,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-For Developers Use Only. <br />
+<h2>SOAP Data Archive</h2>
+<br />
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -20,10 +20,13 @@ For Developers Use Only. <br />
             @Html.DisplayNameFor(model => model.PractionerName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PractionerLicenseNumber)
+            @Html.DisplayNameFor(model => model.PatientName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PatientName)
+            @Html.DisplayNameFor(model => model.DateFilledIn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlanofTreatment)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.GroupingID)
@@ -42,10 +45,13 @@ For Developers Use Only. <br />
                     @Html.DisplayFor(modelItem => item.PractionerName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PractionerLicenseNumber)
+                    @Html.DisplayFor(modelItem => item.PatientName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PatientName)
+                    @Html.DisplayFor(modelItem => item.DateFilledIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlanofTreatment)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.GroupingID)
@@ -55,7 +61,6 @@ For Developers Use Only. <br />
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
-                    @Html.ActionLink("Generate PDF", "----", new { id = ViewBag.ID })
                     @Html.ActionLink("Generate PDF", "IncompleteSoapFormRedirecttocreatePDF", "SOAPForms", new { id = item.ID}, null)
                 </td>
             </tr>
