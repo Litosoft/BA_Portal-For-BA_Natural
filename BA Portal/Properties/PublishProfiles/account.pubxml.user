@@ -35,16 +35,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:50:58</publishTime>
     </File>
     <File Include="bin/App_Browsers.dll">
-      <publishTime>05/03/2017 00:12:43</publishTime>
+      <publishTime>05/03/2017 00:24:17</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>05/03/2017 00:12:42</publishTime>
+      <publishTime>05/03/2017 00:24:16</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>05/03/2017 00:12:42</publishTime>
+      <publishTime>05/03/2017 00:24:16</publishTime>
     </File>
     <File Include="bin/BA Portal.dll">
-      <publishTime>05/03/2017 00:12:22</publishTime>
+      <publishTime>05/03/2017 00:24:04</publishTime>
     </File>
     <File Include="bin/DayPilot.Web.Mvc.dll">
       <publishTime>04/10/2017 00:51:07</publishTime>
@@ -269,7 +269,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:43</publishTime>
     </File>
     <File Include="bin/__browserCapabilitiesCompiler.compiled">
-      <publishTime>05/03/2017 00:12:43</publishTime>
+      <publishTime>05/03/2017 00:24:17</publishTime>
     </File>
     <File Include="Content/backgroundimage1.jpg">
       <publishTime>04/10/2017 00:50:59</publishTime>
@@ -413,7 +413,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:04</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/03/2017 00:12:28</publishTime>
+      <publishTime>05/03/2017 00:24:08</publishTime>
     </File>
     <File Include="Rotativa/wkhtmltopdf.exe">
       <publishTime>04/10/2017 00:51:04</publishTime>
@@ -1031,7 +1031,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:06</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
-      <publishTime>04/10/2017 00:51:06</publishTime>
+      <publishTime>05/03/2017 00:22:23</publishTime>
     </File>
     <File Include="Views/Account/Register.cshtml">
       <publishTime>04/10/2017 00:51:06</publishTime>
