@@ -855,7 +855,7 @@
             <div class="col-sm-12 col-md-12 col-lg-12">
                 @Html.LabelFor(model => model.PulseRight, "Pulse Right", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.PulseRight, new { htmlAttributes = new { @class = "form-control long-textbox" } })
+                    @Html.EditorFor(model => model.PulseRight, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.PulseRight, "", new { @class = "text-danger" })
 
                 </div>

@@ -273,6 +273,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InsuranceInfoesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewFunctionTestsController.cs" />
     <Compile Include="Controllers\PDFsController.cs" />
@@ -291,6 +292,7 @@
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InsuranceInfo.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Patient.cs" />
@@ -665,6 +667,12 @@
     <Content Include="Views\Practioner\Index.cshtml" />
     <Content Include="Views\Practioner\AddNewPractioner.cshtml" />
     <Content Include="Views\Practioner\DeletePractioner.cshtml" />
+    <Content Include="Views\InsuranceInfoes\Create.cshtml" />
+    <Content Include="Views\InsuranceInfoes\Delete.cshtml" />
+    <Content Include="Views\InsuranceInfoes\Details.cshtml" />
+    <Content Include="Views\InsuranceInfoes\Edit.cshtml" />
+    <Content Include="Views\InsuranceInfoes\Index.cshtml" />
+    <Content Include="Views\InsuranceInfoes\PatientInsuranceIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

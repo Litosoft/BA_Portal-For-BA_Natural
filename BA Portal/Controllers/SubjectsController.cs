@@ -18,7 +18,7 @@ namespace BA_Portal.Controllers
         private SubjectDbContext db = new SubjectDbContext();
 
         // GET: Subjects
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string searchString = "This Default Search String is for Hippa Purposes")
         {
             var ClientsSelected = from m in db.SubjectDatabase select m;
 

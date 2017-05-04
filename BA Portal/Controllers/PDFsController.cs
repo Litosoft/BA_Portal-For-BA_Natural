@@ -150,6 +150,7 @@ namespace BA_Portal.Controllers
             PDFtoStore.SearchTag = tag;
             PDFtoStore.GroupingID = GroupingID;
             PDFtoStore.Description = DateTime.Now.ToShortDateString();
+            //PDFtoStore.Description = DateTime.Now.ToString();
 
             db.PDFDatabase.Add(PDFtoStore);
             db.SaveChanges();
@@ -191,6 +192,13 @@ namespace BA_Portal.Controllers
         {
             int passid = id;
             return RedirectToAction("PatientSOAPIndex", "SOAPForms", new { id = passid });
+
+        }
+
+        public ActionResult RedirectToPatientInsuranceIndex(int id)
+        {
+            int passid = id;
+            return RedirectToAction("PatientInsuranceIndex", "InsuranceInfoes", new { id = passid });
 
         }
 

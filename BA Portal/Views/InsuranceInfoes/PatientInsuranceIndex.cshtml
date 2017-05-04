@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BA_Portal.Models.InsuranceInfo>
+@{
+    ViewBag.Title = "PatientInsuranceIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Insurance Index</h2>
+
+
+
+
+
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryInsurer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InsuranceHolder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupingID)
+        </th>
+        <th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (ViewBag.ID == item.GroupingID)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrimaryInsurer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InsuranceHolder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroupingID)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
+                    //@Html.ActionLink("Generate PDF", "IncompleteSoapFormRedirecttocreatePDF", "SOAPForms", new { id = item.ID }, null)
+                </td>
+            </tr>
+
+
+        }
+
+    }
+
+</table>

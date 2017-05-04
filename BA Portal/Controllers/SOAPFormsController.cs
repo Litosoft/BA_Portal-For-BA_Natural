@@ -403,7 +403,9 @@ namespace BA_Portal.Controllers
                 db.SaveChanges();
                 //return RedirectToAction("GeneratePDFforSOAP");
                 TempData["SOAPFormID"] = sOAPForm.ID;
-                return RedirectToAction("GetDoctorSignatureSOAP", "Signatures");
+                //return RedirectToAction("GetDoctorSignatureSOAP", "Signatures");
+                return RedirectToAction("RedirectToPatientSOAPIndex", "PDFs", new { id = sOAPForm.GroupingID});
+                
             }
 
             return View(sOAPForm);
@@ -820,7 +822,8 @@ namespace BA_Portal.Controllers
             //string GroupingID = id.ToString();
 
             //pick up subject grouping id from tempdata
-            int groupingid = (int)TempData["MultiID"];
+            //int groupingid = (int)TempData["MultiID"];
+            int groupingid = sOAPFORM.GroupingID;
             string GroupingID = groupingid.ToString();
 
             //return View();

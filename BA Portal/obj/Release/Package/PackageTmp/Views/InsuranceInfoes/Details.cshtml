@@ -1,0 +1,83 @@
+﻿@model BA_Portal.Models.InsuranceInfo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InsuranceInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupingID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupingID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryInsurer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryInsurer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsuranceHolder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsuranceHolder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlanName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlanName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

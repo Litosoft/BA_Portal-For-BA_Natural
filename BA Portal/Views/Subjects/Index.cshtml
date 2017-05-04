@@ -5,8 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Clients</h1> <br />
-
+<h1>Clients</h1> 
+<span>For HIPAA purposes the patient list has been hidden. Please press search to load the patient list.</span>
+<br /><br />
 @using (Html.BeginForm())
 {
     <p>
@@ -14,6 +15,7 @@
         <input type="submit" value="Search" /> <br /> <br />
     </p>
 } <br />
+
 
 
  
