@@ -43,8 +43,17 @@
             <div class="form-group col-sm-6 col-md-6 col-lg-6">
                 @Html.LabelFor(model => model.PractionerLicenseNumber, "Practitioner License Number", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.PractionerLicenseNumber, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.PractionerLicenseNumber, "", new { @class = "text-danger" })
+                    <select name="LicenseID1">
+
+                        <option value=""> </option>
+
+                        @foreach (var item in PractionerList.PractionerFilledList)
+                        {
+                            <option value=@item.Name>@item.LicenseID</option>
+                        }
+
+
+                    </select>
                 </div>
             </div>
 

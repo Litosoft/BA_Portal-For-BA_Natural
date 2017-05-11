@@ -14,7 +14,7 @@ namespace BA_Portal.Models
 
     public static class PractionerList
     {
-        public static List<Practioner> PractionerFilledList = new List<Practioner>() { new Practioner {Name = "Betty", LicenseID = "Blank" }, new Practioner { Name = "Brandon", LicenseID = "Blank" }  };
+        public static List<Practioner> PractionerFilledList = new List<Practioner>() { new Practioner {Name = "Pei-Lu Chang", LicenseID = "AP3182" }, new Practioner { Name = "Chao Lung Liu", LicenseID = "AP2883" }  };
         
 
     }
