@@ -67,6 +67,7 @@
 {
                         @Html.ActionLink("Delete", "DeleteUser", new { id = user.Id })    <span>| | |</span>
                         <strong>@Html.ActionLink("Upgrade", "Upgrade", new { id = user.Id })</strong>    <span>| | |</span>
+                        @Html.ActionLink("Reset Password", "AdminResetPassword", new { id = user.Id, user = user.UserName })    <span>| | |</span>
 }
 
                         @Html.ActionLink("Details", "UserDetails", new { id = user.Id })

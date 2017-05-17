@@ -12,6 +12,7 @@ using BA_Portal.Models;
 using System.Web.Security;
 using System.Collections.Generic;
 using System.Net;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace BA_Portal.Controllers
 {
@@ -206,21 +207,6 @@ namespace BA_Portal.Controllers
             return View(stringrolesforuser);
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         //
@@ -586,5 +572,98 @@ namespace BA_Portal.Controllers
             }
         }
         #endregion
+
+        public ActionResult AdminResetPassword(string id, string user, int overloaddifferentiator = 0)
+        {
+            ViewBag.usernameARP = user;
+            ViewBag.useridARP = id;
+
+            return View();
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AdminResetPassword(string password, string id)
+        {
+
+            UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
+
+            userManager.RemovePassword(id);
+            userManager.AddPassword(id, password);
+
+            return RedirectToAction("Index");
+
+        }
+
+
+
+
+        public async Task<ActionResult> AdminResetPassword1(string id)
+        {
+
+            ViewBag.id = id;
+            ApplicationUser currentuser = await UserManager.FindByIdAsync(id);
+
+            ViewBag.username = currentuser.UserName;
+
+            //forbid canmanageusers from being deleted
+            var rolesForUser = await UserManager.GetRolesAsync(id);
+            var stringrolesforuser = rolesForUser.ToList();
+            int rolescount = stringrolesforuser.Count;
+
+            for (int k = 0; k < rolescount; k++)
+            {
+                if (stringrolesforuser[k] == "CanManageUsers")
+                {
+                    return RedirectToAction("Forbidden");
+                }
+            }
+
+            await UserManager.DeleteAsync(currentuser);
+
+
+
+            return RedirectToAction("Index");
+
+        }
+
+
+        }
+
+
+
+    /*
+    public ActionResult AdminResetPassword(string user)
+    {
+
+            MembershipUser usr = Membership.GetUser(user);
+            return View(usr);
+
     }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult AdminResetPassword(string password, string user)
+    {
+        if(password != null && password != "")
+        {
+        MembershipUser usr = Membership.GetUser(user);
+        string resetPwd = usr.ResetPassword();
+        usr.ChangePassword(resetPwd, password);
+
+        return RedirectToAction("Index");
+        }
+
+        return View();
+    }
+    */
+
+
+
+
+
+
+    //class
 }
+//namespace
+
+
