@@ -37,13 +37,14 @@ namespace BA_Portal.Controllers
 
         public ActionResult PatientInsuranceIndex(int id = -1)
         {
-            ViewBag.ID = id;
+            ViewBag.IDInsuranceInfoCreate = id;
             return View(db.InsuranceInfoDatabase.ToList());
         }
 
         // GET: InsuranceInfoes/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            TempData["InsuranceCreationKey"] = id;
             return View();
         }
 
@@ -52,10 +53,12 @@ namespace BA_Portal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,GroupingID,PatientName,DOB,PrimaryInsurer,InsuranceHolder,GroupNumber,IDNumber,PlanName")] InsuranceInfo insuranceInfo)
+        public ActionResult Create([Bind(Include = "ID,PatientName,DOB,PrimaryInsurer,InsuranceHolder,GroupNumber,IDNumber,PlanName")] InsuranceInfo insuranceInfo)
         {
             if (ModelState.IsValid)
             {
+                insuranceInfo.GroupingID = (int)TempData["InsuranceCreationKey"];
+
                 db.InsuranceInfoDatabase.Add(insuranceInfo);
                 db.SaveChanges();
                 //return RedirectToAction("Index");
