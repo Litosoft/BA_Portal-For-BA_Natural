@@ -271,7 +271,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InsuranceInfoesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -280,6 +279,7 @@
     <Compile Include="Controllers\SignaturesController.cs" />
     <Compile Include="Controllers\SOAPFormsController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -299,11 +299,6 @@
     <Compile Include="Models\PDF.cs" />
     <Compile Include="Models\PDFtestClass.cs" />
     <Compile Include="Models\Practioner.cs" />
-    <Compile Include="Models\Sample.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Sample.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Models\SchedulerModel.cs" />
     <Compile Include="Models\Signature.cs" />
     <Compile Include="Models\SOAPForm.cs" />
@@ -362,11 +357,6 @@
     <Content Include="Content\PDFforPersonalInformation.pdf" />
     <Content Include="PDF_handler\Elmo_Insurance_3_6_2017.pdf" />
     <Content Include="Content\PDFforInsurance.pdf" />
-    <Content Include="Models\Sample.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Sample.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Content\Disclaimer.pdf" />
     <Content Include="Content\Disclaimer_PT_Benefits.pdf" />
     <Content Include="Content\Paying.pdf" />
@@ -674,6 +664,9 @@
     <Content Include="Views\InsuranceInfoes\Index.cshtml" />
     <Content Include="Views\InsuranceInfoes\PatientInsuranceIndex.cshtml" />
     <Content Include="Views\Account\AdminResetPassword.cshtml" />
+    <Content Include="Views\Test\TESTFORM.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Test\TESTFORM2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -685,11 +678,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Models\Sample.dbml.layout">
-      <DependentUpon>Sample.dbml</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PDF_handler\Scans\" />
