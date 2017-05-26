@@ -948,6 +948,18 @@ namespace BA_Portal.Controllers
             return RedirectToAction("PassSubjecttoAllForms", "Subjects", new { id = id });
         }
 
+        public ActionResult PullSubjectForSOAP(int GroupingID)
+        {
+
+            Subject subject = db.SubjectDatabase.Find(GroupingID);
+
+            //pass the object to soap using tempdata
+            TempData["SOAP_Subject"] = subject;
+
+
+            return RedirectToAction("Create", "SOAPForms", new { GroupingID = GroupingID });
+        }
+
 
 
     }

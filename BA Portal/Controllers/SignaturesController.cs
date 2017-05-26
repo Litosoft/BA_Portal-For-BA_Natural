@@ -244,7 +244,9 @@ namespace BA_Portal.Controllers
             if (RedirectIdentifier == "SOAP")
             {
                 //redirect to create
-                return RedirectToAction("Create", "SOAPForms", new { GroupingID = id });
+                return RedirectToAction("PullSubjectForSOAP", "Subjects", new { GroupingID = id });
+
+                //redirect to pull subject first.
 
          
             }

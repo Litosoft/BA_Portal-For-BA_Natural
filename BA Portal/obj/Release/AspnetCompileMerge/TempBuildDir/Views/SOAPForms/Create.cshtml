@@ -1,10 +1,13 @@
 ﻿@using BA_Portal.Models;
 @model BA_Portal.Models.SOAPForm
 
+<script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script> 
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    Subject subjectpassed = (Subject)TempData["SOAP_Subject"];
 }
 
 <h2>New</h2>
@@ -26,14 +29,11 @@
                 @Html.LabelFor(model => model.PractionerName, "Practitioner Name", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     <br />
-                    <select name="PractionerName1">
+                    <select id="PractionerName" name="PractionerName1">
 
                             <option value=""> </option>
-
-                        @foreach (var item in PractionerList.PractionerFilledList)
-                        {
-                            <option value=@item.Name>@item.Name</option>
-                        }
+                            <option value="Pei-Lu Chang">Pei-Lu Chang</option>
+                            <option value="Chao Lung Liu">Chao Lung Liu</option>
 
 
                         </select>
@@ -43,17 +43,8 @@
             <div class="form-group col-sm-6 col-md-6 col-lg-6">
                 @Html.LabelFor(model => model.PractionerLicenseNumber, "Practitioner License Number", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <select name="LicenseID1">
-
-                        <option value=""> </option>
-
-                        @foreach (var item in PractionerList.PractionerFilledList)
-                        {
-                            <option value=@item.Name>@item.LicenseID</option>
-                        }
-
-
-                    </select>
+                    <br />
+                    <input id="LicenseID1" style="width:100px; background-color: lemonchiffon" readonly="readonly" type="text" name="LicenseID1"> 
                 </div>
             </div>
 
@@ -74,11 +65,11 @@
 
         <div class="col-sm-6 col-md-6 col-lg-6">
  
-
+            <!--Remove the  Value = subject.Name, to make it work with out the correct redirects-->
             <div class="form-group">
                 @Html.LabelFor(model => model.PatientName, "Patient Name", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.PatientName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.PatientName, new { htmlAttributes = new { @Value = subjectpassed.Name + " " + subjectpassed.LastName, @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.PatientName, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -871,56 +862,66 @@
         @* Pulse *@
 
         <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="form-group form-group col-sm-2 col-md-2 col-lg-2">
-                @Html.LabelFor(model => model.PulseRight, "Pulse Right", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-  
+
+     
+
+                <div class="form-group form-group col-sm-2 col-md-2 col-lg-2">
+                    @Html.LabelFor(model => model.PulseRight, "Pulse Right", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-5 col-md-5 col-lg-5">
+
+                    <select id="PulseRight" style="width:400px; height:100px;" multiple name="PulseRight1">
+
+                        <option value=""> </option>
+                        <option value="Floating, Superficial">Floating, Superficial</option>
+                        <option value="Excess, Full, Replete, Forceful">Excess, Full, Replete, Forceful</option>
+                        <option value="Wiry, Taut">Wiry, Taut</option>
+                        <option value="Slippery, Rolling">Slippery, Rolling</option>
+                        <option value="Deep">Deep</option>
+                        <option value="Hidden">Hidden</option>
+                        <option value="Weak">Weak</option>
+                        <option value="Slow">Slow</option>
+                        <option value="Soft or Soggy">Soft or Soggy</option>
+                        <option value="Choppy, Hesitant">Choppy, Hesitant</option>
+                        <option value="Short">Short</option>
+                        <option value="Long">Long</option>
+                        <option value="Large, Big">Large, Big</option>
+
+                        <option value="Surging, Flooding">Surging, Flooding</option>
+                        <option value="Leather, Drum-skin, Tympanic, Hard">Leather, Drum-skin, Tympanic, Hard</option>
+                        <option value="Hollow or Scallion Stalk, Green Onion">Hollow or Scallion Stalk, Green Onion</option>
+                        <option value="Scattered">Scattered</option>
+                        <option value="Forceless, Empty Deficient">Forceless, Empty Deficient</option>
+                        <option value="Firm, Confined">Firm, Confined</option>
+                        <option value="Slowed down, Moderate, or Relaxed">Slowed down, Moderate, or Relaxed</option>
+                        <option value="Knotted, Bound">Knotted, Bound</option>
+                        <option value="Tight, Tense">Tight, Tense</option>
+                        <option value="Minute, Faint, Indistinct">Minute, Faint, Indistinct</option>
+                        <option value="Thread, Thin">Thread, Thin</option>
+                        <option value="Regularly Intermittent">Regularly Intermittent</option>
+                        <option value="Rapid">Rapid</option>
+                        <option value="Racing, Swift, Hurried">Racing, Swift, Hurried</option>
+                        <option value="Rapid-Irregular, Skipping, Abrupt">Rapid-Irregular, Skipping, Abrupt</option>
+                        <option value="Moving, Throbbing, Stirring">Moving, Throbbing, Stirring</option>
+
+                    </select>
 
                 </div>
-            </div>
 
-            <div class="form-group col-sm-8 col-md-8 col-lg-8">
-
-                <select multiple name="PulseRight1">
-
-                    <option value=""> </option>
-                    <option value="Floating, Superficial">Floating, Superficial</option>
-                    <option value="Excess, Full, Replete, Forceful">Excess, Full, Replete, Forceful</option>
-                    <option value="Wiry, Taut">Wiry, Taut</option>
-                    <option value="Slippery, Rolling">Slippery, Rolling</option>
-                    <option value="Deep">Deep</option>
-                    <option value="Hidden">Hidden</option>
-                    <option value="Weak">Weak</option>
-                    <option value="Slow">Slow</option>
-                    <option value="Soft or Soggy">Soft or Soggy</option>
-                    <option value="Choppy, Hesitant">Choppy, Hesitant</option>
-                    <option value="Short">Short</option>
-                    <option value="Long">Long</option>
-                    <option value="Large, Big">Large, Big</option>
-
-                    <option value="Surging, Flooding">Surging, Flooding</option>
-                    <option value="Leather, Drum-skin, Tympanic, Hard">Leather, Drum-skin, Tympanic, Hard</option>
-                    <option value="Hollow or Scallion Stalk, Green Onion">Hollow or Scallion Stalk, Green Onion</option>
-                    <option value="Scattered">Scattered</option>
-                    <option value="Forceless, Empty Deficient">Forceless, Empty Deficient</option>
-                    <option value="Firm, Confined">Firm, Confined</option>
-                    <option value="Slowed down, Moderate, or Relaxed">Slowed down, Moderate, or Relaxed</option>
-                    <option value="Knotted, Bound">Knotted, Bound</option>
-                    <option value="Tight, Tense">Tight, Tense</option>
-                    <option value="Minute, Faint, Indistinct">Minute, Faint, Indistinct</option>
-                    <option value="Thread, Thin">Thread, Thin</option>
-                    <option value="Regularly Intermittent">Regularly Intermittent</option>
-                    <option value="Rapid">Rapid</option>
-                    <option value="Racing, Swift, Hurried">Racing, Swift, Hurried</option>
-                    <option value="Rapid-Irregular, Skipping, Abrupt">Rapid-Irregular, Skipping, Abrupt</option>
-                    <option value="Moving, Throbbing, Stirring">Moving, Throbbing, Stirring</option>
-
-                </select>
+            <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                <textarea id="PulseRightPreview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
 
             </div>
- 
 
-        </div>
+
+            </div>
+
+
  
         <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="form-group form-group col-sm-2 col-md-2 col-lg-2">
@@ -928,9 +929,9 @@
 
             </div>
 
-            <div class="form-group col-sm-8 col-md-8 col-lg-8">
+            <div class="form-group col-sm-5 col-md-5 col-lg-5">
 
-                <select multiple name="PulseLeft1">
+                <select id="PulseLeft" style="width:400px; height:100px;" multiple name="PulseLeft1">
 
                     <option value=""> </option>
                     <option value="Floating, Superficial">Floating, Superficial</option>
@@ -965,6 +966,11 @@
                     <option value="Moving, Throbbing, Stirring">Moving, Throbbing, Stirring</option>
 
                 </select>
+
+            </div>
+
+            <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                <textarea id="PulseLeftPreview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
 
             </div>
             
@@ -977,18 +983,18 @@
                 @Html.LabelFor(model => model.AssessmentandDiagnosis, "Assessment and Diagnosis", htmlAttributes: new { @class = "control-label col-md-2" })
           
             </div>
-            <div class="form-group col-sm-8 col-md-8 col-lg-8">
+            <div class="form-group col-sm-5 col-md-5 col-lg-5">
 
-                <select multiple name="AssessmentandDiagnosis1">
+                <select id="Diagnosis" style="width:400px; height:100px;" multiple name="AssessmentandDiagnosis1">
 
                     <option value=""> </option>
-                    <option value="Bladder Damp Heat">Bladder Damp Heat	</option>
+                    <option value="Bladder Damp Heat">Bladder Damp Heat</option>
                     <option value="Blood Stagnation">Blood Stagnation</option>
                     <option value="Heart Blood Deficiency">Heart Blood Deficiency</option>
                     <option value="Heart Blood Stagnation">Heart Blood Stagnation</option>
                     <option value="Heart Fire">Heart Fire</option>
                     <option value="Heart Qi Deficiency">Heart Qi Deficiency</option>
-                    <option value="Heart Yang Collapse">Heart Yang Collapse	</option>
+                    <option value="Heart Yang Collapse">Heart Yang Collapse</option>
                     <option value="Heart Yang Deficiency">Heart Yang Deficiency</option>
                     <option value="Heart Yin Deficiency">Heart Yin Deficiency</option>
                     <option value="Heat in the Blood">Heat in the Blood</option>
@@ -997,7 +1003,7 @@
                     <option value="Kidney Yang Deficiency">Kidney Yang Deficiency</option>
                     <option value="Kidney Yin Deficiency">Kidney Yin Deficiency</option>
                     <option value="Large Intestine Blood Stagnation">Large Intestine Blood Stagnation</option>
-                    <option value="Large Intestine Cold	">Large Intestine Cold	</option>
+                    <option value="Large Intestine Cold	">Large Intestine Cold</option>
                     <option value="Large Intestine Damp Heat from LI">Large Intestine Damp Heat from LI</option>
                     <option value="Large Intestine Dryness">Large Intestine Dryness</option>
                     <option value="Liver and Gallbladder Damp Heat">Liver and Gallbladder Damp Heat</option>
@@ -1009,12 +1015,12 @@
                     <option value="Liver Qi Stagnation">Liver Qi Stagnation</option>
                     <option value="Liver Wind">Liver Wind</option>
                     <option value="Liver Yang Rising">Liver Yang Rising</option>
-                    <option value="Liver Yin Deficiency	">Liver Yin Deficiency	</option>
+                    <option value="Liver Yin Deficiency	">Liver Yin Deficiency</option>
                     <option value="Lung Dampness - Phlegm Cold">Lung Dampness - Phlegm Cold</option>
-                    <option value="Lung Dampness - Phlegm Heat">Lung Dampness - Phlegm Heat	</option>
-                    <option value="Lung Dryness">Lung Dryness	</option>
+                    <option value="Lung Dampness - Phlegm Heat">Lung Dampness - Phlegm Heat</option>
+                    <option value="Lung Dryness">Lung Dryness</option>
                     <option value="Lung Qi Deficiency">Lung Qi Deficiency</option>
-                    <option value="Lung Rebellious Qi">Lung Rebellious Qi	</option>
+                    <option value="Lung Rebellious Qi">Lung Rebellious Qi</option>
                     <option value="Lung Wind Invasion - Wind Cold">Lung Wind Invasion - Wind Cold</option>
                     <option value="Lung Wind Invasion - Wind Heat">Lung Wind Invasion - Wind Heat</option>
                     <option value="Lung Yin Deficiency">Lung Yin Deficiency</option>
@@ -1043,6 +1049,11 @@
                 </select>
 
             </div>
+
+            <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                <textarea id="DiagnosisPreview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
+
+            </div>
         </div>
 
 
@@ -1053,7 +1064,15 @@
             </div>
             <div class="form-group col-sm-8 col-md-8 col-lg-8">
 
-                <select multiple name="TreatmentPrinciples1">
+                <!--
+                   <input id="Treatment" style="width:600px; height:200px;" readonly="readonly" type="text" name="TreatmentPrinciples1"> 
+                -->
+                <textarea id="Treatment" style="width:400px; height:100px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1">
+                    </textarea>
+                    <br>
+
+                <!--
+                    <select multiple name="TreatmentPrinciples1">
 
                     <option value=""> </option>
                     <option value="Expel UB Dampness / Clear Heat">Expel UB Dampness / Clear Heat</option>
@@ -1117,6 +1136,9 @@
 
 
                 </select>
+                
+                    -->
+                
 
             </div>
         </div>
@@ -1127,9 +1149,9 @@
                 @Html.LabelFor(model => model.PlanofTreatment, "Plan of treatment", htmlAttributes: new { @class = "control-label col-md-2" })
 
             </div>
-            <div class="form-group col-sm-8 col-md-8 col-lg-8">
+            <div class="form-group col-sm-5 col-md-5 col-lg-5">
 
-                <select multiple name="Planoftreatment1">
+                <select id="PlanOfTreatment" style="width:400px; height:100px;" multiple name="Planoftreatment1">
 
                     <option value=""> </option>
                     <option value="Acupuncture">Acupuncture</option>
@@ -1144,6 +1166,11 @@
 
 
                 </select>
+
+            </div>
+
+            <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                <textarea id="PlanOfTreatmentPreview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
 
             </div>
 
@@ -1172,7 +1199,7 @@
 
             <div class="form-group col-sm-8 col-md-8 col-lg-8">
                 <div> <br />
-                    <select multiple name="TongueBodyShape1">
+                    <select style="width:150px;" multiple name="TongueBodyShape1">
                         <option value=""></option>
                         <option value="Cracked">Cracked</option>
                         <option value="Deviated">Deviated</option>
@@ -1208,7 +1235,7 @@
                         <br />
          
 
-                        <select multiple name="TongueBodyColor1">
+                        <select style="width:150px;" multiple name="TongueBodyColor1">
 
 
                             <option value=""></option>
@@ -1236,7 +1263,7 @@
                 <div class="form-group col-sm-8 col-md-8 col-lg-8">
                     <div>
                         <br />
-                        <select multiple name="TongueCoating1">
+                        <select style="width:150px;" multiple name="TongueCoating1">
                             <option value=""></option>
                             <option value="Thin">Thin</option>
                             <option value="Thick">Thick</option>
@@ -1262,7 +1289,7 @@
                 <div class="form-group col-sm-8 col-md-8 col-lg-8">
                     <div>
                         <br />
-                        <select multiple name="CoatColoration1">
+                        <select style="width:150px;" multiple name="CoatColoration1">
                             <option value=""></option>
                             <option value="White">White</option>
                             <option value="Yellow">Yellow</option>
@@ -1286,7 +1313,7 @@
                 <div class="form-group col-sm-8 col-md-8 col-lg-8">
                     <div>
                         <br />
-                        <select multiple name="CoatRooting1">
+                        <select style="width:150px;" multiple name="CoatRooting1">
                             <option value=""></option>
                             <option value="Rooted">Rooted</option>
                             <option value="Rootless">Rootless</option>
@@ -1371,8 +1398,8 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="col-sm-1 col-md-1 col-lg-1">
-                    <select multiple name="Set1Points">
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <select id="NSet1" style="height:150px;" multiple name="Set1Points">
                         <option value=""> </option>
                         <option value="LU-1">LU-1</option>
                         <option value="LU-2">LU-2</option>
@@ -1790,6 +1817,10 @@
                         <option value="M-LE-34">M-LE-8</option>
                     </select>
                 </div>
+
+                <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                    <textarea id="NSet1Preview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
+                </div>
      
                 <br />
             </div>
@@ -1846,8 +1877,8 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="col-sm-1 col-md-1 col-lg-1">
-                    <select multiple name="Set2Points">
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <select id="NSet2" style="height:150px;" multiple name="Set2Points">
                         <option value=""> </option>
                         <option value="LU-1">LU-1</option>
                         <option value="LU-2">LU-2</option>
@@ -2266,6 +2297,10 @@
                     </select>
                 </div>
   
+                <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                    <textarea id="NSet2Preview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
+                </div>
+
             </div>
             <br />
 
@@ -2320,8 +2355,8 @@
                 </div>
             </div>
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="col-sm-1 col-md-1 col-lg-1">
-                    <select multiple name="Set3Points">
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <select id="NSet3" style="height:150px;" multiple name="Set3Points">
                         <option value=""> </option>
                         <option value="LU-1">LU-1</option>
                         <option value="LU-2">LU-2</option>
@@ -2739,6 +2774,9 @@
                         <option value="M-LE-34">M-LE-8</option>
                     </select>
                 </div>
+                    <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                        <textarea id="NSet3Preview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
+                    </div>
       
 
 
@@ -2796,8 +2834,8 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="col-sm-1 col-md-1 col-lg-1">
-                    <select multiple name="Set4Points">
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <select id="NSet4" style="height:150px;" multiple name="Set4Points">
                         <option value=""> </option>
                         <option value="LU-1">LU-1</option>
                         <option value="LU-2">LU-2</option>
@@ -3214,6 +3252,9 @@
                         <option value="M-LE-27">M-LE-8</option>
                         <option value="M-LE-34">M-LE-8</option>
                     </select>
+                </div>
+                <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                    <textarea id="NSet4Preview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
                 </div>
 
 
@@ -3272,8 +3313,8 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="col-sm-1 col-md-1 col-lg-1">
-                    <select multiple name="Set5Points">
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <select id="NSet5" style="height:150px;" multiple name="Set5Points">
                         <option value=""> </option>
                         <option value="LU-1">LU-1</option>
                         <option value="LU-2">LU-2</option>
@@ -3690,6 +3731,9 @@
                         <option value="M-LE-27">M-LE-8</option>
                         <option value="M-LE-34">M-LE-8</option>
                     </select>
+                </div>
+                <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                    <textarea id="NSet5Preview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
                 </div>
         
 
@@ -3749,8 +3793,8 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="col-sm-1 col-md-1 col-lg-1">
-                    <select multiple name="Set6Points">
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <select id="NSet6" style="height:150px;" multiple name="Set6Points">
                         <option value=""> </option>
                         <option value="LU-1">LU-1</option>
                         <option value="LU-2">LU-2</option>
@@ -4167,6 +4211,9 @@
                         <option value="M-LE-27">M-LE-8</option>
                         <option value="M-LE-34">M-LE-8</option>
                     </select>
+                </div>
+                <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                    <textarea id="NSet6Preview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
                 </div>
           
 
@@ -4427,4 +4474,515 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-@*13690!!!*@
+
+<!--conditional tree for plan of treatment-->
+<script>
+$(document).ready(function(){
+    $('#Diagnosis').mouseleave(function () {
+
+        //turn the multiselet into an array that can be iterated through. this is the only way that worked.
+        var Diagnosisvalue = [];
+        $('#Diagnosis :selected').each(function (i, selected) {
+            Diagnosisvalue[i] = $(selected).text();
+        });
+
+        //reset box value everytime it is called before filling the textbox again
+        $('#Treatment').val("")
+
+
+        for (var i = 0; i < Diagnosisvalue.length; i++)
+        {
+            //no comma on first print
+            if (i == 0)
+            {
+                if (Diagnosisvalue[i] == "Bladder Damp Heat") {
+                    $('#Treatment').val("Expel UB Dampness / Clear Heat")
+                }
+                else if (Diagnosisvalue[i] == "Blood Stagnation") {
+                    $('#Treatment').val("Remove Blood stasis")
+                }
+                else if (Diagnosisvalue[i] == "Heart Blood Deficiency") {
+                    $('#Treatment').val("Tonify HT Blood")
+                }
+                else if (Diagnosisvalue[i] == "Heart Blood Stagnation") {
+                    $('#Treatment').val("Remove HT Blood stasis")
+                }
+                else if (Diagnosisvalue[i] == "Heart Fire") {
+                    $('#Treatment').val("Clear HT Fire")
+                }
+                else if (Diagnosisvalue[i] == "Heart Qi Deficiency") {
+                    $('#Treatment').val("Tonify HT Qi")
+                }
+                else if (Diagnosisvalue[i] == "Heart Yang Collapse") {
+                    $('#Treatment').val("Revive HT Yang")
+                }
+                else if (Diagnosisvalue[i] == "Heart Yang Deficiency") {
+                    $('#Treatment').val("Tonify HT Yang")
+                }
+                else if (Diagnosisvalue[i] == "Heart Yin Deficiency") {
+                    $('#Treatment').val("Tonify HT Yin")
+                }
+                else if (Diagnosisvalue[i] == "Heat in the Blood") {
+                    $('#Treatment').val("Clear Heat in the Blood")
+                }
+                else if (Diagnosisvalue[i] == "Kidney Jing Deficiency") {
+                    $('#Treatment').val("Tonify KD Jing")
+                }
+                else if (Diagnosisvalue[i] == "Kidney Qi Deficiency") {
+                    $('#Treatment').val("Tonify KD Qi")
+                }
+                else if (Diagnosisvalue[i] == "Kidney Yang Deficiency") {
+                    $('#Treatment').val("Tonify KD Yang")
+                }
+                else if (Diagnosisvalue[i] == "Kidney Yin Deficiency") {
+                    $('#Treatment').val("Tonify KD Yin")
+                }
+                else if (Diagnosisvalue[i] == "Large Intestine Blood Stagnation") {
+                    $('#Treatment').val("Remove Blood Stasis from LI")
+                }
+                else if (Diagnosisvalue[i] == "Large Intestine Cold") {
+                    $('#Treatment').val("Warm up LI")
+                }
+                else if (Diagnosisvalue[i] == "Large Intestine Damp Heat") {
+                    $('#Treatment').val("Expel Dampness and Clear Heat from LI")
+                }
+                else if (Diagnosisvalue[i] == "Large Intestine Dryness") {
+                    $('#Treatment').val("Moisturize LI ")
+                }
+                else if (Diagnosisvalue[i] == "Liver and Gallbladder Damp Heat") {
+                    $('#Treatment').val("Clear Damp Heat from LR & GB")
+                }
+                else if (Diagnosisvalue[i] == "Liver Attacking the Spleen") {
+                    $('#Treatment').val("Harmonize LV & SP")
+                }
+                else if (Diagnosisvalue[i] == "Liver Blood Deficiency") {
+                    $('#Treatment').val("Tonify LV Blood")
+                }
+                else if (Diagnosisvalue[i] == "Liver Blood Stagnation") {
+                    $('#Treatment').val("Remove Blood Stasis from LV")
+                }
+                else if (Diagnosisvalue[i] == "Liver Cold Stagnation") {
+                    $('#Treatment').val("Warms up LV to remove Stagnation")
+                }
+                else if (Diagnosisvalue[i] == "Liver Fire") {
+                    $('#Treatment').val("Clear LV Fire")
+                }
+                else if (Diagnosisvalue[i] == "Liver Qi Stagnation") {
+                    $('#Treatment').val("Sooth LV Qi")
+                }
+                else if (Diagnosisvalue[i] == "Liver Wind") {
+                    $('#Treatment').val("Expel LV Wind")
+                }
+                else if (Diagnosisvalue[i] == "Liver Yang Rising") {
+                    $('#Treatment').val("Subdue LV Yang")
+                }
+                else if (Diagnosisvalue[i] == "Liver Yin Deficiency") {
+                    $('#Treatment').val("Tonify LV Yin")
+                }
+                else if (Diagnosisvalue[i] == "Lung Dampness - Phlegm Cold") {
+                    $('#Treatment').val("Expel LU Dampness – Warm up LU")
+                }
+                else if (Diagnosisvalue[i] == "Lung Dampness - Phlegm Heat") {
+                    $('#Treatment').val("Expel LU Dampness – Clear Heat in LU")
+                }
+                else if (Diagnosisvalue[i] == "Lung Dryness") {
+                    $('#Treatment').val("Moisten LU")
+                }
+                else if (Diagnosisvalue[i] == "Lung Qi Deficiency") {
+                    $('#Treatment').val("Tonify LU Qi")
+                }
+                else if (Diagnosisvalue[i] == "Lung Rebellious Qi") {
+                    $('#Treatment').val("Sooth LU Qi")
+                }
+                else if (Diagnosisvalue[i] == "Lung Wind Invasion - Wind Cold") {
+                    $('#Treatment').val("Expel Wind – Warm up LU")
+                }
+                else if (Diagnosisvalue[i] == "Lung Wind Invasion - Wind Heat") {
+                    $('#Treatment').val("Expel Wind – Clear Heat in LU")
+                }
+                else if (Diagnosisvalue[i] == "Lung Yin Deficiency") {
+                    $('#Treatment').val("Tonify LU Yin")
+                }
+                else if (Diagnosisvalue[i] == "Phlegm Fire") {
+                    $('#Treatment').val("Clear Phlegm & Fire")
+                }
+                else if (Diagnosisvalue[i] == "Phlegm Misting the Heart") {
+                    $('#Treatment').val("Clear Phlegm")
+                }
+                else if (Diagnosisvalue[i] == "Phlegm Stagnation") {
+                    $('#Treatment').val("Clear Phlegm, Remove Stagnation")
+                }
+                else if (Diagnosisvalue[i] == "Shen Disturbance") {
+                    $('#Treatment').val("Calm Shen")
+                }
+                else if (Diagnosisvalue[i] == "Spleen and Stomach Damp Heat") {
+                    $('#Treatment').val("Expel Damp Heat from SP & ST")
+                }
+                else if (Diagnosisvalue[i] == "Spleen Blood Deficiency") {
+                    $('#Treatment').val("Tonify SP Blood")
+                }
+                else if (Diagnosisvalue[i] == "Spleen Invasion - Cold Damp") {
+                    $('#Treatment').val("Expel damp & warm up spleen")
+                }
+                else if (Diagnosisvalue[i] == "Spleen Not Controlling the Blood") {
+                    $('#Treatment').val("Tonify SP")
+                }
+                else if (Diagnosisvalue[i] == "Spleen Qi Deficiency") {
+                    $('#Treatment').val("Tonify SP Qi")
+                }
+                else if (Diagnosisvalue[i] == "Spleen Qi Sinking") {
+                    $('#Treatment').val("Tonify & Raise SP Qi")
+                }
+                else if (Diagnosisvalue[i] == "Spleen Yang Deficiency") {
+                    $('#Treatment').val("Tonify SP Yang")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Blood Stagnation") {
+                    $('#Treatment').val("Remove blood stagnation")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Cold") {
+                    $('#Treatment').val("Warm up ST")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Dampness") {
+                    $('#Treatment').val("Expel ST Dampness")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Fire") {
+                    $('#Treatment').val("Clear ST Fire")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Food Stagnation") {
+                    $('#Treatment').val("Remove Food Stagnation")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Qi Deficiency") {
+                    $('#Treatment').val("Tonify ST Qi")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Rebellious Qi") {
+                    $('#Treatment').val("Sooth ST Qi")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Yin Deficiency") {
+                    $('#Treatment').val("Tonify ST Yin")
+                }
+                else if (Diagnosisvalue[i] == "Summer Heat	") {
+                    $('#Treatment').val("Clear Summer Heat")
+                }
+                else {
+                    $('#Treatment').val("")
+                }
+
+            }
+            else
+            {
+                //add comma
+                $('#Treatment').val($('#Treatment').val() + ", ")
+
+                if (Diagnosisvalue[i] == "Bladder Damp Heat") {
+                    $('#Treatment').val($('#Treatment').val() +"Expel UB Dampness / Clear Heat")
+                }
+                else if (Diagnosisvalue[i] == "Blood Stagnation") {
+                    $('#Treatment').val($('#Treatment').val() +"Remove Blood stasis")
+                }
+                else if (Diagnosisvalue[i] == "Heart Blood Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify HT Blood")
+                }
+                else if (Diagnosisvalue[i] == "Heart Blood Stagnation") {
+                    $('#Treatment').val($('#Treatment').val() + "Remove HT Blood stasis")
+                }
+                else if (Diagnosisvalue[i] == "Heart Fire") {
+                    $('#Treatment').val($('#Treatment').val() + "Clear HT Fire")
+                }
+                else if (Diagnosisvalue[i] == "Heart Qi Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify HT Qi")
+                }
+                else if (Diagnosisvalue[i] == "Heart Yang Collapse") {
+                    $('#Treatment').val($('#Treatment').val() + "Revive HT Yang")
+                }
+                else if (Diagnosisvalue[i] == "Heart Yang Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify HT Yang")
+                }
+                else if (Diagnosisvalue[i] == "Heart Yin Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify HT Yin")
+                }
+                else if (Diagnosisvalue[i] == "Heat in the Blood") {
+                    $('#Treatment').val($('#Treatment').val() + "Clear Heat in the Blood")
+                }
+                else if (Diagnosisvalue[i] == "Kidney Jing Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify KD Jing")
+                }
+                else if (Diagnosisvalue[i] == "Kidney Qi Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify KD Qi")
+                }
+                else if (Diagnosisvalue[i] == "Kidney Yang Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify KD Yang")
+                }
+                else if (Diagnosisvalue[i] == "Kidney Yin Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify KD Yin")
+                }
+                else if (Diagnosisvalue[i] == "Large Intestine Blood Stagnation") {
+                    $('#Treatment').val($('#Treatment').val() + "Remove Blood Stasis from LI")
+                }
+                else if (Diagnosisvalue[i] == "Large Intestine Cold") {
+                    $('#Treatment').val($('#Treatment').val() + "Warm up LI")
+                }
+                else if (Diagnosisvalue[i] == "Large Intestine Damp Heat") {
+                    $('#Treatment').val($('#Treatment').val() + "Expel Dampness and Clear Heat from LI")
+                }
+                else if (Diagnosisvalue[i] == "Large Intestine Dryness") {
+                    $('#Treatment').val($('#Treatment').val() + "Moisturize LI ")
+                }
+                else if (Diagnosisvalue[i] == "Liver and Gallbladder Damp Heat") {
+                    $('#Treatment').val($('#Treatment').val() + "Clear Damp Heat from LR & GB")
+                }
+                else if (Diagnosisvalue[i] == "Liver Attacking the Spleen") {
+                    $('#Treatment').val($('#Treatment').val() + "Harmonize LV & SP")
+                }
+                else if (Diagnosisvalue[i] == "Liver Blood Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify LV Blood")
+                }
+                else if (Diagnosisvalue[i] == "Liver Blood Stagnation") {
+                    $('#Treatment').val($('#Treatment').val() + "Remove Blood Stasis from LV")
+                }
+                else if (Diagnosisvalue[i] == "Liver Cold Stagnation") {
+                    $('#Treatment').val($('#Treatment').val() + "Warms up LV to remove Stagnation")
+                }
+                else if (Diagnosisvalue[i] == "Liver Fire") {
+                    $('#Treatment').val($('#Treatment').val() + "Clear LV Fire")
+                }
+                else if (Diagnosisvalue[i] == "Liver Qi Stagnation") {
+                    $('#Treatment').val($('#Treatment').val() + "Sooth LV Qi")
+                }
+                else if (Diagnosisvalue[i] == "Liver Wind") {
+                    $('#Treatment').val($('#Treatment').val() + "Expel LV Wind")
+                }
+                else if (Diagnosisvalue[i] == "Liver Yang Rising") {
+                    $('#Treatment').val($('#Treatment').val() + "Subdue LV Yang")
+                }
+                else if (Diagnosisvalue[i] == "Liver Yin Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify LV Yin")
+                }
+                else if (Diagnosisvalue[i] == "Lung Dampness - Phlegm Cold") {
+                    $('#Treatment').val($('#Treatment').val() + "Expel LU Dampness – Warm up LU")
+                }
+                else if (Diagnosisvalue[i] == "Lung Dampness - Phlegm Heat") {
+                    $('#Treatment').val($('#Treatment').val() + "Expel LU Dampness – Clear Heat in LU")
+                }
+                else if (Diagnosisvalue[i] == "Lung Dryness") {
+                    $('#Treatment').val($('#Treatment').val() + "Moisten LU")
+                }
+                else if (Diagnosisvalue[i] == "Lung Qi Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify LU Qi")
+                }
+                else if (Diagnosisvalue[i] == "Lung Rebellious Qi") {
+                    $('#Treatment').val($('#Treatment').val() + "Sooth LU Qi")
+                }
+                else if (Diagnosisvalue[i] == "Lung Wind Invasion - Wind Cold") {
+                    $('#Treatment').val($('#Treatment').val() + "Expel Wind – Warm up LU")
+                }
+                else if (Diagnosisvalue[i] == "Lung Wind Invasion - Wind Heat") {
+                    $('#Treatment').val($('#Treatment').val() + "Expel Wind – Clear Heat in LU")
+                }
+                else if (Diagnosisvalue[i] == "Lung Yin Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify LU Yin")
+                }
+                else if (Diagnosisvalue[i] == "Phlegm Fire") {
+                    $('#Treatment').val($('#Treatment').val() + "Clear Phlegm & Fire")
+                }
+                else if (Diagnosisvalue[i] == "Phlegm Misting the Heart") {
+                    $('#Treatment').val($('#Treatment').val() + "Clear Phlegm")
+                }
+                else if (Diagnosisvalue[i] == "Phlegm Stagnation") {
+                    $('#Treatment').val($('#Treatment').val() + "Clear Phlegm, Remove Stagnation")
+                }
+                else if (Diagnosisvalue[i] == "Shen Disturbance") {
+                    $('#Treatment').val($('#Treatment').val() + "Calm Shen")
+                }
+                else if (Diagnosisvalue[i] == "Spleen and Stomach Damp Heat") {
+                    $('#Treatment').val($('#Treatment').val() + "Expel Damp Heat from SP & ST")
+                }
+                else if (Diagnosisvalue[i] == "Spleen Blood Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify SP Blood")
+                }
+                else if (Diagnosisvalue[i] == "Spleen Invasion - Cold Damp") {
+                    $('#Treatment').val("Expel damp & warm up spleen")
+                }
+                else if (Diagnosisvalue[i] == "Spleen Not Controlling the Blood") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify SP")
+                }
+                else if (Diagnosisvalue[i] == "Spleen Qi Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify SP Qi")
+                }
+                else if (Diagnosisvalue[i] == "Spleen Qi Sinking") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify & Raise SP Qi")
+                }
+                else if (Diagnosisvalue[i] == "Spleen Yang Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify SP Yang")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Blood Stagnation") {
+                    $('#Treatment').val($('#Treatment').val() + "Remove blood stagnation")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Cold") {
+                    $('#Treatment').val($('#Treatment').val() + "Warm up ST")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Dampness") {
+                    $('#Treatment').val($('#Treatment').val() + "Expel ST Dampness")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Fire") {
+                    $('#Treatment').val($('#Treatment').val() + "Clear ST Fire")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Food Stagnation") {
+                    $('#Treatment').val($('#Treatment').val() + "Remove Food Stagnation")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Qi Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify ST Qi")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Rebellious Qi") {
+                    $('#Treatment').val($('#Treatment').val() + "Sooth ST Qi")
+                }
+                else if (Diagnosisvalue[i] == "Stomach Yin Deficiency") {
+                    $('#Treatment').val($('#Treatment').val() + "Tonify ST Yin")
+                }
+                else if (Diagnosisvalue[i] == "Summer Heat	") {
+                    $('#Treatment').val($('#Treatment').val() + "Clear Summer Heat")
+                }
+                else {
+                    $('#Treatment').val("")
+                }
+            }
+        }
+
+
+    });
+});
+</script>
+
+<!--Hardcoded. Needs to not be hardcoded-->
+<script>
+$(document).ready(function(){
+    $('#PractionerName').mouseleave(function () {
+
+        var PractionerNamevalue = $('#PractionerName').val();
+        $('#LicenseID1').val("")
+
+        if (PractionerNamevalue == "Pei-Lu Chang")
+        {
+            $('#LicenseID1').val("AP3182")
+        }
+        if (PractionerNamevalue == "Chao Lung Liu")
+        {
+            $('#LicenseID1').val("AP2883")
+        }
+
+
+
+
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $('#PulseRight').mouseleave(function () {
+
+        var PulseRightvalue = $('#PulseRight').val();
+        $('#PulseRightPreview').val(PulseRightvalue)
+
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $('#PulseLeft').mouseleave(function () {
+
+        var PulseLeftvalue = $('#PulseLeft').val();
+        $('#PulseLeftPreview').val(PulseLeftvalue)
+
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $('#Diagnosis').mouseleave(function () {
+
+        var Diagnosisvaluep = $('#Diagnosis').val();
+        $('#DiagnosisPreview').val(Diagnosisvaluep)
+
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $('#PlanOfTreatment').mouseleave(function () {
+
+        var PlanOfTreatmentvalue = $('#PlanOfTreatment').val();
+        $('#PlanOfTreatmentPreview').val(PlanOfTreatmentvalue)
+
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $('#NSet1').mouseleave(function () {
+
+        var NSet1value = $('#NSet1').val();
+        $('#NSet1Preview').val(NSet1value)
+
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $('#NSet2').mouseleave(function () {
+
+        var NSet2value = $('#NSet2').val();
+        $('#NSet2Preview').val(NSet2value)
+
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $('#NSet3').mouseleave(function () {
+
+        var NSet3value = $('#NSet3').val();
+        $('#NSet3Preview').val(NSet3value)
+
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $('#NSet4').mouseleave(function () {
+
+        var NSet4value = $('#NSet4').val();
+        $('#NSet4Preview').val(NSet4value)
+
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $('#NSet5').mouseleave(function () {
+
+        var NSet5value = $('#NSet5').val();
+        $('#NSet5Preview').val(NSet5value)
+
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $('#NSet6').mouseleave(function () {
+
+        var NSet6value = $('#NSet6').val();
+        $('#NSet6Preview').val(NSet6value)
+
+    });
+});
+</script>
+

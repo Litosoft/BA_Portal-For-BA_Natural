@@ -46,18 +46,18 @@ namespace BA_Portal.Controllers
             return View(sOAPForm);
         }
 
+        public ActionResult PatientSOAPIndex(int id)
+        {
+            ViewBag.ID = id;
+            return View(db.SOAPFormDatabase.ToList());
+        }
+
         // GET: SOAPForms/Create
         public ActionResult Create()
         {
            
 
             return View();
-        }
-
-        public ActionResult PatientSOAPIndex(int id)
-        {
-            ViewBag.ID = id;
-            return View(db.SOAPFormDatabase.ToList());
         }
 
         // POST: SOAPForms/Create

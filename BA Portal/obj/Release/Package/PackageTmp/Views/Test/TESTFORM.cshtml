@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "TESTFORM";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script> 
+
+<h2>TESTFORM</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal">
+        <h4>New Patient:</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <input id="text1" type="text" name="fname"><br>
+
+        <br /><br /><br /><br /><br /><br /><br />
+
+        <input id="text2" type="text" name="lname"><br>
+
+
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>
+}
+<script>
+$(document).ready(function(){
+    $('#text1').bind('keyup', function () {
+
+        $('#text2').val($('#text1').val());
+
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        alert("Value: " + $("#test").val());
+    });
+});
+</script>
+
+<p>Name: <input type="text" id="test" value="Mickey Mouse"></p>
+
+<button>Show Value</button>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+

@@ -374,44 +374,6 @@
         }
     }
 </table>
-<br />
-
-<h3>Scanned Files:</h3>
-@Html.ActionLink("Scan a new file", "file", "PDFs", new { id = ViewBag.Id, RedirectIdentifier = "Scan" }, null)
-<br />
-<table id="border02" class="table">
-    <tr>
-        <th>
-            @Html.DisplayName("Type")
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayName("Options")
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        if (item.SearchTag == "Scan")
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SearchTag)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.Description)
-                </td>
-                <td>
-                    <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>
-            </tr>
-        }
-    }
-</table>
 
 <br />
 
@@ -434,6 +396,45 @@
     @foreach (var item in Model)
     {
         if (item.SearchTag == "InsuranceInfo")
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SearchTag)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Description)
+                </td>
+                <td>
+                    <strong>@Html.ActionLink("View PDF", "ReadPDFfromDatabase", new { id = item.ID })</strong> |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+<br />
+
+<h3>Scanned Files:</h3>
+@Html.ActionLink("Scan a new file", "file", "PDFs", new { id = ViewBag.Id, RedirectIdentifier = "Scan" }, null)
+<br />
+<table id="border02" class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Type")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayName("Options")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.SearchTag == "Scan")
         {
             <tr>
                 <td>

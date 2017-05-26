@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "TESTFORM";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script> 
+
+<h2>TESTFORM</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal">
+        <h4>New Patient:</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <input id="text1" type="text" name="fname"><br>
+
+        <br /><br /><br /><br /><br /><br /><br />
+
+        <input id="Treatment" type="text" name="lname"><br>
+        <input id="Treatment2" type="text" name="lname"><br>
+        <input id="Treatment3" type="text" name="lname"><br>
+
+        <select id="text3" style="width:400px;" multiple name="PractionerName1">
+            <option value="">                         </option>
+            <option value="test1">test1</option>
+            <option value="test2">test2</option>
+            <option value="test3">test2</option>
+        </select>
+
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>
+}
+
+<!--this is the jquery automatic textbox finished basic logic. the on key up might need to be changed for something else. should work for drop downs too-->
+<!--alternatie event methods; maybe mouse up mouseup(). mouseup didnt work. but mouse leave works-->
+<!--So now I need to create the conditional tree. and change the thingy to a textbox. both of them. so the controller also needs to recieve them as string (I think it already does actually)-->
+
+
+<!--conditional tree for plan of treatment-->
+<script>
+$(document).ready(function(){
+    $('#text3').mouseleave(function () {
+
+        //var Diagnosisvalue = [];
+        //var Diagnosisvalue = $("#text3").val()
+
+        /*
+        var Diagnosisvalue = $("#text3").map(function () {
+            return this.value;
+        }).get();
+        */
+
+        var Diagnosisvalue = [];
+        $('#text3 :selected').each(function (i, selected) {
+            Diagnosisvalue[i] = $(selected).text();
+        });
+   
+
+        $('#Treatment').val("")
+        //$('#Treatment').val(Diagnosisvalue[0])
+        //$('#Treatment2').val(Diagnosisvalue[1])
+        //$('#Treatment3').val(Diagnosisvalue[2])
+
+       
+        for (var i = 0; i < Diagnosisvalue.length; i++)
+        {
+//comma but not for the first one
+            if (i == 0)
+            {
+                if (Diagnosisvalue[i] == "test1") {
+                    $('#Treatment').val($('#Treatment').val() + "testa")
+                }
+                else if (Diagnosisvalue[i] == "test2") {
+                    $('#Treatment').val($('#Treatment').val() + "testb")
+                }
+                else {
+                    $('#Treatment').val("")
+                }
+            }
+            else
+            {
+                if (Diagnosisvalue[i] == "test1") {
+                    $('#Treatment').val($('#Treatment').val() + ", testa")
+                }
+                else if (Diagnosisvalue[i] == "test2") {
+                    $('#Treatment').val($('#Treatment').val() + ", testb")
+                }
+                else {
+                    $('#Treatment').val("")
+                }
+            }
+
+        }
+        
+
+
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        alert("Value: " + $("#test").val());
+    });
+});
+</script>
+
+<p>Name: <input type="text" id="test" value="Mickey Mouse"></p>
+
+<button>Show Value</button>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+

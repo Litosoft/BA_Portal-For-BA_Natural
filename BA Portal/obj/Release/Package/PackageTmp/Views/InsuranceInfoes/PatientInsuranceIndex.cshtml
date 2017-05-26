@@ -14,62 +14,68 @@
 
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", "InsuranceInfoes", new { id = ViewBag.IDInsuranceInfoCreate }, null)
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PatientName)
+            <span>Patient Name</span>
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrimaryInsurer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InsuranceHolder)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GroupingID)
-        </th>
-        <th>
 
+        <th>
+            <span>Primary Insurer</span>
+        </th>
+        <th>
+            <span>Insurance Holder</span>
+        </th>
+        <th>
+            <span>Group #</span>
+        </th>
+        <th>
+            <span>ID #</span>
+        </th>
+        <th>
+            <span>Plan Name</span>
+        </th>
+        <th>
+            <span style="color: lightgreen">GI</span>
+        </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        if (ViewBag.ID == item.GroupingID)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PatientName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PrimaryInsurer)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.InsuranceHolder)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GroupingID)
-                </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientName)
+            </td>
 
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
-                    //@Html.ActionLink("Generate PDF", "IncompleteSoapFormRedirecttocreatePDF", "SOAPForms", new { id = item.ID }, null)
-                </td>
-            </tr>
-
-
-        }
-
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimaryInsurer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsuranceHolder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlanName)
+            </td>
+            <td>
+                <span style="color: lightgreen">@Html.DisplayFor(modelItem => item.GroupingID)</span>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                <span style="color: orange">@Html.ActionLink("Generate PDF", "IncompleteSoapFormRedirecttocreatePDF", "SOAPForms", new { id = item.ID }, null)</span>
+            </td>
+        </tr>
     }
 
 </table>
+
