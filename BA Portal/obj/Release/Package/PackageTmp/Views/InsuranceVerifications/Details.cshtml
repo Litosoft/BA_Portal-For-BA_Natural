@@ -1,0 +1,107 @@
+﻿@model BA_Portal.Models.InsuranceVerification
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InsuranceVerification</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupingID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupingID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutOfNetworkCoverage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutOfNetworkCoverage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfTreatment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfTreatment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Limitations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Limitations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deductibles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deductibles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeductiblesMet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeductiblesMet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoInsurance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoInsurance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoCoInsurance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoCoInsurance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutOfPocket)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutOfPocket)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutOfPocketMet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutOfPocketMet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsuranceCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsuranceCompany)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

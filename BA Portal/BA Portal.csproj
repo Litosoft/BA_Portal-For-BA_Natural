@@ -273,6 +273,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InsuranceInfoesController.cs" />
+    <Compile Include="Controllers\InsuranceVerificationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewFunctionTestsController.cs" />
     <Compile Include="Controllers\PDFsController.cs" />
@@ -293,6 +294,7 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InsuranceInfo.cs" />
+    <Compile Include="Models\InsuranceVerification.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Patient.cs" />
@@ -318,6 +320,14 @@
     </Content>
     <Content Include="bin\DayPilot.Web.Mvc.dll" />
     <Content Include="Content\backgroundimage1.jpg" />
+    <Content Include="Content\backgroundimage101.jpg.jpg" />
+    <Content Include="Content\backgroundimage102.jpg.jpg" />
+    <Content Include="Content\backgroundimage103.jpg.jpg" />
+    <Content Include="Content\backgroundimage104.jpg.jpg" />
+    <Content Include="Content\backgroundimage105.jpg.jpg" />
+    <Content Include="Content\backgroundimage106.jpg.jpg" />
+    <Content Include="Content\backgroundimage107.jpg.jpg" />
+    <Content Include="Content\backgroundimage108.jpg.jpg" />
     <Content Include="Content\backgroundimage18.jpg" />
     <Content Include="Content\backgroundimage2.jpg" />
     <Content Include="Content\backgroundimage22.jpg" />
@@ -667,6 +677,12 @@
     <Content Include="Views\Test\TESTFORM.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Test\TESTFORM2.cshtml" />
+    <Content Include="Views\InsuranceVerifications\Create.cshtml" />
+    <Content Include="Views\InsuranceVerifications\Delete.cshtml" />
+    <Content Include="Views\InsuranceVerifications\Details.cshtml" />
+    <Content Include="Views\InsuranceVerifications\Edit.cshtml" />
+    <Content Include="Views\InsuranceVerifications\Index.cshtml" />
+    <Content Include="Views\InsuranceVerifications\PatientInsuranceIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
