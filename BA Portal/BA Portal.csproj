@@ -320,14 +320,14 @@
     </Content>
     <Content Include="bin\DayPilot.Web.Mvc.dll" />
     <Content Include="Content\backgroundimage1.jpg" />
-    <Content Include="Content\backgroundimage101.jpg.jpg" />
-    <Content Include="Content\backgroundimage102.jpg.jpg" />
-    <Content Include="Content\backgroundimage103.jpg.jpg" />
-    <Content Include="Content\backgroundimage104.jpg.jpg" />
-    <Content Include="Content\backgroundimage105.jpg.jpg" />
-    <Content Include="Content\backgroundimage106.jpg.jpg" />
-    <Content Include="Content\backgroundimage107.jpg.jpg" />
-    <Content Include="Content\backgroundimage108.jpg.jpg" />
+    <Content Include="Content\backgroundimage101.jpg" />
+    <Content Include="Content\backgroundimage102.jpg" />
+    <Content Include="Content\backgroundimage103.jpg" />
+    <Content Include="Content\backgroundimage104.jpg" />
+    <Content Include="Content\backgroundimage105.jpg" />
+    <Content Include="Content\backgroundimage106.jpg" />
+    <Content Include="Content\backgroundimage107.jpg" />
+    <Content Include="Content\backgroundimage108.jpg" />
     <Content Include="Content\backgroundimage18.jpg" />
     <Content Include="Content\backgroundimage2.jpg" />
     <Content Include="Content\backgroundimage22.jpg" />

@@ -62,7 +62,8 @@ namespace BA_Portal.Controllers
                 db.InsuranceInfoDatabase.Add(insuranceInfo);
                 db.SaveChanges();
                 //return RedirectToAction("Index");
-                return RedirectToAction("Index", "Subjects");
+                //return RedirectToAction("Index", "Subjects");
+                return RedirectToAction("PatientInsuranceIndex" + "/" + insuranceInfo.GroupingID);
             }
 
             return View(insuranceInfo);

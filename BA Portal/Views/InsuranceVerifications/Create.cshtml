@@ -103,8 +103,15 @@
         <div class="form-group">
             @Html.LabelFor(model => model.InsuranceCompany, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.InsuranceCompany, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.InsuranceCompany, "", new { @class = "text-danger" })
+                <br />
+                <select id="InsuranceCompany" name="InsuranceCompany1">
+
+                    <option value=""> </option>
+                    <option value="Pei-Lu Chang">Pei-Lu Chang</option>
+                    <option value="Chao Lung Liu">Chao Lung Liu</option>
+
+
+                </select>
             </div>
         </div>
 

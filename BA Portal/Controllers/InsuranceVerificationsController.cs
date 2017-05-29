@@ -53,14 +53,16 @@ namespace BA_Portal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,GroupingID,OutOfNetworkCoverage,NumberOfTreatment,Limitations,Deductibles,DeductiblesMet,CoInsurance,NoCoInsurance,OutOfPocket,OutOfPocketMet,InsuranceCompany")] InsuranceVerification insuranceVerification)
+        public ActionResult Create(string InsuranceCompany1, [Bind(Include = "ID,GroupingID,OutOfNetworkCoverage,NumberOfTreatment,Limitations,Deductibles,DeductiblesMet,CoInsurance,NoCoInsurance,OutOfPocket,OutOfPocketMet")] InsuranceVerification insuranceVerification)
         {
             if (ModelState.IsValid)
             {
                 insuranceVerification.GroupingID = (int)TempData["InsuranceCreationKey2"];
+                insuranceVerification.InsuranceCompany = InsuranceCompany1;
                 db.InsuranceVerificationDatabase.Add(insuranceVerification);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index"); 
+                return RedirectToAction("PatientInsuranceIndex" + "/" + insuranceVerification.GroupingID); 
             }
 
             return View(insuranceVerification);
