@@ -1,6 +1,7 @@
 ﻿@model BA_Portal.Models.Subject
 
-<script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script> 
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.maskedinput.js"></script>
 
 @{
     ViewBag.Title = "Create";
@@ -83,7 +84,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control date" } })
                     @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -117,7 +118,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PhoneHome, "(Home) Phone" , htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PhoneHome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.PhoneHome, new { htmlAttributes = new { @class = "form-control phone" } })
                 @Html.ValidationMessageFor(model => model.PhoneHome, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -125,7 +126,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PhoneCell,"(Cell) Phone" , htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PhoneCell, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.PhoneCell, new { htmlAttributes = new { @class = "form-control phone" } })
                 @Html.ValidationMessageFor(model => model.PhoneCell, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -149,7 +150,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EmergencyContactPhone,"Contact's Phone Number", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EmergencyContactPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.EmergencyContactPhone, new { htmlAttributes = new { @class = "form-control phone" } })
                 @Html.ValidationMessageFor(model => model.EmergencyContactPhone, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -549,3 +550,10 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<script>
+    jQuery(function ($) {
+        $(".date").mask("99/99/9999", { placeholder: "mm/dd/yyyy" });
+        $(".phone").mask("(999)-999-9999");
+    });
+</script>

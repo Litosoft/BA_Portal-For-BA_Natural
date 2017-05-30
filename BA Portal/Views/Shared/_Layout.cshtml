@@ -63,6 +63,7 @@
                         <li>@Html.ActionLink("Manage PDFs", "Index", "PDFs")</li>
                         <li>@Html.ActionLink("Manage Signatures", "Index", "Signatures")</li>
                         <li>@Html.ActionLink("Manage SoapForms", "Index", "SOAPForms")</li>
+                        //<li>@Html.ActionLink("Manage Practioners", "Index", "Practioner")</li>
 
                     }
 
@@ -95,7 +96,23 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - BA Natural</p>
+            <br /><br /><br />
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <p>&copy; @DateTime.Now.Year - BA Natural</p>
+                </div>
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    <font color="lightgreen">
+                        Version: 1.18
+                    </font>
+                </div>
+            </div>
+  
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                
+            </div>
+
+
         </footer>
     </div>
 

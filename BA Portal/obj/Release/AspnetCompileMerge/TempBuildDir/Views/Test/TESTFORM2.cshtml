@@ -4,7 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script> 
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.maskedinput.js"></script>
 
 <h2>TESTFORM</h2>
 
@@ -19,6 +20,12 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <input id="text1" type="text" name="fname"><br>
+        phone<input id="textphone" type="text" name="fname"><br>
+        phone2<input class="textphone2" id="textphone2" type="text" name="fname"><br>
+        ssn <input class="ssn" id="ssn" type="text"/>
+        ssn2 <input class="ssn" id="ssn2" type="text" />
+
+        <p id="tin">999999999</p>
 
         <br /><br /><br /><br /><br /><br /><br />
 
@@ -117,6 +124,19 @@ $(document).ready(function(){
     });
 });
 </script>
+
+
+<!--masking format-->
+<script>
+    jQuery(function ($) {
+        $("#date").mask("99/99/9999", { placeholder: "mm/dd/yyyy" });
+        $("#phone").mask("(999) 999-9999");
+        $("#tin").mask("99-9999999");
+        $(".ssn").mask("(999)-999-9999");
+    });
+</script>
+
+
 
 <p>Name: <input type="text" id="test" value="Mickey Mouse"></p>
 
