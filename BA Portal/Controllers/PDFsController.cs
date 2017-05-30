@@ -195,10 +195,19 @@ namespace BA_Portal.Controllers
 
         }
 
-        public ActionResult RedirectToPatientInsuranceIndex(int id)
+        public ActionResult RedirectToPatientInsuranceIndex(int id, bool verification = false)
         {
             int passid = id;
+
+            if(verification == false)
+            {
             return RedirectToAction("PatientInsuranceIndex", "InsuranceInfoes", new { id = passid });
+            }
+            if (verification == true)
+            {
+                return RedirectToAction("PatientInsuranceIndex", "InsuranceVerifications", new { id = passid });
+            }
+            return RedirectToAction("Index", "Home", new { id = passid });
 
         }
 
