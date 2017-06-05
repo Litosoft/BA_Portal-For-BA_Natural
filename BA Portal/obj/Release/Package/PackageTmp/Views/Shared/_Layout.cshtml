@@ -11,11 +11,13 @@
 </head>
 
 <body>
-@if (ViewContext.HttpContext.User.IsInRole("CanManageUsers") || ViewContext.HttpContext.User.IsInRole("CanEdit"))
+@if (ViewContext.HttpContext.User.IsInRole("CanManageUsers") || ViewContext.HttpContext.User.IsInRole("CanEdit") || ViewContext.HttpContext.User.IsInRole("Guest"))
 {
 
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
+@if (ViewContext.HttpContext.User.IsInRole("CanManageUsers") || ViewContext.HttpContext.User.IsInRole("CanEdit"))
+{
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -24,12 +26,15 @@
                 </button>
                 @Html.ActionLink("BA Portal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+}
             <div class="navbar-collapse collapse">
+@if (ViewContext.HttpContext.User.IsInRole("CanManageUsers") || ViewContext.HttpContext.User.IsInRole("CanEdit"))
+{
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Clients", "Index", "Subjects")</li>
       
                 </ul>
-
+}
 
 @if (ViewContext.HttpContext.User.IsInRole("CanManageUsers") || ViewContext.HttpContext.User.IsInRole("CanEdit"))
 {
@@ -74,11 +79,14 @@
     </div>
 }
                 <div >
+@if (ViewContext.HttpContext.User.IsInRole("CanManageUsers") || ViewContext.HttpContext.User.IsInRole("CanEdit"))
+{
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Help", "Help", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
 
 
                     </ul>
+}
                 </div>
 
 
@@ -89,8 +97,8 @@
                 </div>
         </div>
     </div>
-}
 
+}
 
     <div class="container body-content">
         @RenderBody()
@@ -103,7 +111,7 @@
                 </div>
                 <div class="col-sm-2 col-md-2 col-lg-2">
                     <font color="lightgreen">
-                        Version: 1.19
+                        Version: 1.23
                     </font>
                 </div>
             </div>
@@ -122,3 +130,9 @@
 </body>
 
 </html>
+
+<script src="~/Scripts/keepAlive.js"></script>
+<script type="text/javascript">
+    // initialize Session Updater on page
+    SessionUpdater.Setup('@Url.Action("KeepSessionAlive","Home")');
+</script>

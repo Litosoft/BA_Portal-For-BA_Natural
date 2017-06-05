@@ -7,11 +7,12 @@
 
 <h2>User Management</h2><br />
 
-    There are at this time 4 levels of user authorization: <br />
+    There are at this time 5 levels of user authorization: <br />
 1. CanUserManage (SuperAdmin) <br />
 2. CanEdit (Admin) <br />
 3. CanView (may view record but not edit) <em>[Not implemented]</em><br />
-4. Anonymous (may not login) <br />
+4. Guest
+5. Anonymous (may not login) <br />
 <br />
 
     Currently SuperAdmin (the CanUserManage role) can create other admins of the CanEdit level (admin) by clicking on this link: <strong> @Html.ActionLink("New CanEdit Admin", "Register", "Account")</strong> <br />

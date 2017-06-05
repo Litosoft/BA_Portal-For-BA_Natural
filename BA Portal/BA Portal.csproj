@@ -284,11 +284,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\keepAlive.ashx.cs">
+      <DependentUpon>keepAlive.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\KeepAlive.cs" />
+    <Compile Include="Migrations\201706041221229_InitialMigrations.cs" />
+    <Compile Include="Migrations\201706041221229_InitialMigrations.Designer.cs">
+      <DependentUpon>201706041221229_InitialMigrations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\PDFDbContext\Configuration.cs" />
-    <Compile Include="Migrations\SignatureDbContext\Configuration.cs" />
-    <Compile Include="Migrations\SOAPFormDbContext\Configuration.cs" />
-    <Compile Include="Migrations\SubjectDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -372,6 +376,7 @@
     <Content Include="Content\Paying.pdf" />
     <Content Include="Content\FinancialPolicy.pdf" />
     <Content Include="Content\PDFSoap.pdf" />
+    <Content Include="Handlers\keepAlive.ashx" />
     <None Include="Properties\PublishProfiles\account.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DayPilot\daypilot-all.min.js" />
@@ -561,9 +566,11 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\keepAlive.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\SessionUpdater.js" />
     <Content Include="Scripts\SignaturePadInit.js" />
     <Content Include="Scripts\signature_pad.js" />
     <Content Include="Scripts\signature_pad.min.js" />
@@ -684,6 +691,8 @@
     <Content Include="Views\InsuranceVerifications\Edit.cshtml" />
     <Content Include="Views\InsuranceVerifications\Index.cshtml" />
     <Content Include="Views\InsuranceVerifications\PatientInsuranceIndex.cshtml" />
+    <Content Include="Views\Test\TESTFORM3.cshtml" />
+    <Content Include="Views\PDFs\TakeAnotherAction_InsuranceInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -698,6 +707,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PDF_handler\Scans\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706041221229_InitialMigrations.resx">
+      <DependentUpon>201706041221229_InitialMigrations.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

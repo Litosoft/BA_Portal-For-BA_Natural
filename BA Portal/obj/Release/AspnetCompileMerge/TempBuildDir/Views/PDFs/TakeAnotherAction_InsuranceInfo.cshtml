@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "TakeAnotherAction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} 
+
+<h3>Would you like to also add a consent form?</h3>
+<div>
+    <h2>@Html.ActionLink("Yes", "Create", "InsuranceInfoes", new { id = ViewBag.ID }, null)</h2>
+
+
+    <h2>@Html.ActionLink("No", "Index", "Home", new { id = ViewBag.ID }, null)</h2>
+
+
+
+
+</div>

@@ -1,65 +1,96 @@
-﻿
+﻿@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Text;
+@using System.Threading.Tasks;
+@using System.Net;
+@using System.Net.NetworkInformation;
+@using System.Threading;
+@using System.Timers;
+
 @{
-    ViewBag.Title = "TESTFORM";
+    ViewBag.Title = "TESTFORM3";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script> 
 
-<h2>TESTFORM</h2>
+<h2>Ping</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-
-    <div class="form-horizontal">
-        <h4>New Patient:</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-        <input id="text1" type="text" name="fname"><br>
-
-        <br /><br /><br /><br /><br /><br /><br />
-
-        <input id="text2" type="text" name="lname"><br>
-
-
-        <br />
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <textarea id="ping" style="width:400px; height:300px;" readonly="readonly" type="text" name="ping"></textarea>
     </div>
-}
-<script>
-$(document).ready(function(){
-    $('#text1').bind('keyup', function () {
-
-        $('#text2').val($('#text1').val());
-
-    });
-});
-</script>
-
-<script>
-$(document).ready(function(){
-    $("button").click(function(){
-        alert("Value: " + $("#test").val());
-    });
-});
-</script>
-
-<p>Name: <input type="text" id="test" value="Mickey Mouse"></p>
-
-<button>Show Value</button>
 
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @{
+
+        {
+            int total = 1000;
+            int i = 0;
+            string message;
+            DateTime secondsa = DateTime.Now;
+
+
+            for(i =1; i<10; i++)
+            {
+
+                if ((secondsa - DateTime.Now).Seconds > 1)
+                {
+                    using (var ping = new Ping())
+                    {
+                        var reply = ping.Send(IPAddress.Loopback);
+                        if (reply.Status == IPStatus.Success)
+                        {
+                            message = i + "/" + total + ". " + "Pinging with server: " + reply.Address + " --> Success";
+                            <script type="text/javascript">
+                                    $(document).ready(function () {
+                            $('#ping').val($('#ping').val() + " Pinging with server: "  + " --> Success");
+                                    });
+                            </script>
+                        }
+                        else
+                        {
+                            message = i + "/" + total + ". " + "Pinging with server: " + reply.Address + " --> Failure";
+                            <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#ping').val($('#ping').val() + " Pinging with server: "  + " --> Failure");
+                    });
+                            </script>
+                        }
+                    }
+                }
+
+
+            }
+
+        }
+
+
+    }
+
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            setInterval(function () {
+                $('#ping').val($(message));
+            }, 3000);
+
+            $('#ping').bind('keyup', function () {
+
+            });
+
+        });
+    </script>
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
 
 
 

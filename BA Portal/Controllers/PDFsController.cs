@@ -161,6 +161,11 @@ namespace BA_Portal.Controllers
 
                 return RedirectToAction("TakeAnotherAction", "PDFs", new { GroupingID = GroupingID });
             }
+            if (PDFtoStore.SearchTag == "Insurance")
+            {
+
+                return RedirectToAction("TakeAnotherAction_InsuranceInfo", "PDFs", new { GroupingID = GroupingID });
+            }
 
             if (PDFtoStore.SearchTag == "SOAP")
             {
@@ -218,17 +223,24 @@ namespace BA_Portal.Controllers
 
         }
 
-        public ActionResult TakeAnotherAction(int? GroupingID)
+        public ActionResult TakeAnotherAction(int GroupingID)
         {
             
-            if (GroupingID == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
 
             ViewBag.ID = GroupingID;
 
          
+
+            return View();
+        }
+
+        public ActionResult TakeAnotherAction_InsuranceInfo(int GroupingID)
+        {
+
+
+            ViewBag.ID = GroupingID;
+
+
 
             return View();
         }

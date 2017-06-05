@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbF18K+p3I0OVx62WVNK9CQAAAAACAAAAAAAQZgAAAAEAACAAAACblLcpxfOqQ5KmFj6LLHm0KNFEbwNH1dv9jIatRWRHsQAAAAAOgAAAAAIAACAAAAB50kT9e+wZyqtazuxeQ32wazYwYlmgkugyebn7tQY1+yAAAACLjLZyZt1fD6h0urxGKvRkat5qDYJrQHMSe/SMLlB/Y0AAAAB3bQSVYFHHiBFwQwk54I6J1zP50KKsh9dtDZnCtM7Ajd3/Qmwu4dwT9Y9zF0REOww++KQvGN+9Fix7UHAVV0HV</EncryptedPassword>
-    <_PublishTargetUrl>C:\Users\Tyler Loeper\Desktop\Release 1.19</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Tyler Loeper\Desktop\Release 1.23</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -35,16 +35,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:50:58</publishTime>
     </File>
     <File Include="bin/App_Browsers.dll">
-      <publishTime>05/30/2017 05:36:26</publishTime>
+      <publishTime>06/05/2017 01:50:31</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>05/30/2017 05:36:25</publishTime>
+      <publishTime>06/05/2017 01:50:31</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>05/30/2017 05:36:25</publishTime>
+      <publishTime>06/05/2017 01:50:31</publishTime>
     </File>
     <File Include="bin/BA Portal.dll">
-      <publishTime>05/30/2017 05:36:12</publishTime>
+      <publishTime>06/05/2017 01:50:20</publishTime>
     </File>
     <File Include="bin/DayPilot.Web.Mvc.dll">
       <publishTime>04/10/2017 00:51:07</publishTime>
@@ -269,7 +269,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:43</publishTime>
     </File>
     <File Include="bin/__browserCapabilitiesCompiler.compiled">
-      <publishTime>05/30/2017 05:36:26</publishTime>
+      <publishTime>06/05/2017 01:50:31</publishTime>
     </File>
     <File Include="Content/backgroundimage1.jpg">
       <publishTime>04/10/2017 00:50:59</publishTime>
@@ -451,6 +451,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Global.asax">
       <publishTime>04/01/2017 23:30:33</publishTime>
     </File>
+    <File Include="Handlers/keepAlive.ashx">
+      <publishTime>06/03/2017 20:42:31</publishTime>
+    </File>
     <File Include="Models/Sample.dbml">
       <publishTime>04/10/2017 00:51:04</publishTime>
     </File>
@@ -461,7 +464,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:04</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/30/2017 05:36:16</publishTime>
+      <publishTime>06/05/2017 01:50:24</publishTime>
     </File>
     <File Include="Rotativa/wkhtmltopdf.exe">
       <publishTime>04/10/2017 00:51:04</publishTime>
@@ -1039,6 +1042,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/jquery.validate.unobtrusive.min.js">
       <publishTime>04/10/2017 00:51:06</publishTime>
     </File>
+    <File Include="Scripts/keepAlive.js">
+      <publishTime>06/03/2017 07:18:42</publishTime>
+    </File>
     <File Include="Scripts/modernizr-2.6.2.js">
       <publishTime>04/10/2017 00:51:06</publishTime>
     </File>
@@ -1047,6 +1053,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/respond.min.js">
       <publishTime>04/10/2017 00:51:06</publishTime>
+    </File>
+    <File Include="Scripts/SessionUpdater.js">
+      <publishTime>06/03/2017 22:25:55</publishTime>
     </File>
     <File Include="Scripts/SignaturePadInit.js">
       <publishTime>04/10/2017 00:51:04</publishTime>
@@ -1058,7 +1067,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:06</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>05/30/2017 04:09:29</publishTime>
+      <publishTime>06/03/2017 21:43:01</publishTime>
     </File>
     <File Include="Views/Account/AdminResetPassword.cshtml">
       <publishTime>05/17/2017 01:01:10</publishTime>
@@ -1082,7 +1091,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:06</publishTime>
     </File>
     <File Include="Views/Account/Index.cshtml">
-      <publishTime>05/17/2017 00:49:56</publishTime>
+      <publishTime>06/04/2017 08:48:21</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
       <publishTime>05/30/2017 05:00:35</publishTime>
@@ -1124,7 +1133,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:07</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>04/10/2017 00:51:07</publishTime>
+      <publishTime>06/04/2017 09:06:00</publishTime>
     </File>
     <File Include="Views/InsuranceInfoes/Create.cshtml">
       <publishTime>05/04/2017 02:05:52</publishTime>
@@ -1145,7 +1154,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/30/2017 05:34:54</publishTime>
     </File>
     <File Include="Views/InsuranceVerifications/Create.cshtml">
-      <publishTime>05/30/2017 04:54:41</publishTime>
+      <publishTime>05/30/2017 05:52:34</publishTime>
     </File>
     <File Include="Views/InsuranceVerifications/Delete.cshtml">
       <publishTime>05/26/2017 20:32:03</publishTime>
@@ -1229,7 +1238,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/04/2017 02:07:30</publishTime>
     </File>
     <File Include="Views/PDFs/TakeAnotherAction.cshtml">
-      <publishTime>04/25/2017 23:51:41</publishTime>
+      <publishTime>06/04/2017 06:36:00</publishTime>
+    </File>
+    <File Include="Views/PDFs/TakeAnotherAction_InsuranceInfo.cshtml">
+      <publishTime>06/04/2017 06:36:19</publishTime>
     </File>
     <File Include="Views/Practioner/AddNewPractioner.cshtml">
       <publishTime>04/28/2017 17:17:51</publishTime>
@@ -1253,13 +1265,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:07</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/30/2017 05:35:15</publishTime>
+      <publishTime>06/05/2017 01:49:36</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutwithoutNavigation.cshtml">
       <publishTime>04/10/2017 00:51:07</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>04/10/2017 00:51:07</publishTime>
+      <publishTime>06/04/2017 09:03:49</publishTime>
     </File>
     <File Include="Views/Signatures/CaptureIDandRedirectforInsurance.cshtml">
       <publishTime>04/10/2017 00:51:07</publishTime>
@@ -1331,7 +1343,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:07</publishTime>
     </File>
     <File Include="Views/Subjects/Create.cshtml">
-      <publishTime>05/30/2017 04:48:13</publishTime>
+      <publishTime>06/04/2017 08:54:21</publishTime>
     </File>
     <File Include="Views/Subjects/Delete.cshtml">
       <publishTime>04/10/2017 00:51:07</publishTime>
@@ -1364,10 +1376,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/23/2017 15:01:28</publishTime>
     </File>
     <File Include="Views/Test/TESTFORM.cshtml">
-      <publishTime>05/23/2017 15:26:16</publishTime>
+      <publishTime>06/03/2017 10:28:43</publishTime>
     </File>
     <File Include="Views/Test/TESTFORM2.cshtml">
       <publishTime>05/30/2017 04:54:45</publishTime>
+    </File>
+    <File Include="Views/Test/TESTFORM3.cshtml">
+      <publishTime>06/03/2017 08:46:07</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>05/23/2017 15:54:39</publishTime>
@@ -1376,7 +1391,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:07</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/30/2017 05:02:20</publishTime>
+      <publishTime>06/03/2017 22:27:03</publishTime>
     </File>
   </ItemGroup>
 </Project>

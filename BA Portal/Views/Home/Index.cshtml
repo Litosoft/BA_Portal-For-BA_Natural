@@ -12,6 +12,20 @@
 
 </div>
 
+<div align="center">
+
+@if (ViewContext.HttpContext.User.IsInRole("Guest"))
+{
+    <h2>
+        <strong>@Html.ActionLink("New Patient", "Create", "Subjects", new { }, null)</strong>
+    </h2>
+
+
+
+}
+
+</div>
+
 
 
 
@@ -32,5 +46,10 @@
 
     })
 *@
+
+<script type="text/javascript">
+    // initialize Session Updater on page
+    SessionUpdater.Setup('@Url.Action("KeepSessionAlive","Default")');
+</script>
 
 
