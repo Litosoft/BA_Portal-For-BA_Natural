@@ -1,4 +1,5 @@
-﻿
+﻿<script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/SessionUpdater.js"></script>
 
 @{
     ViewBag.Title = "Home Page";
@@ -30,26 +31,22 @@
 
 
 
-
-
-@*
-    <script src="@Url.Content("~/Scripts/DayPilot/daypilot-all.min.js")" type="text/javascript"></script>
-
-    @Html.DayPilotMonth("dp", new DayPilotMonthConfig
-    {
-
-        BackendUrl = Url.Content("~/Home/Backend"),
-        EventMoveHandling = DayPilot.Web.Mvc.Events.Month.EventMoveHandlingType.CallBack,
-        EventResizeHandling = DayPilot.Web.Mvc.Events.Month.EventResizeHandlingType.CallBack,
-        TimeRangeSelectedHandling = DayPilot.Web.Mvc.Events.Month.TimeRangeSelectedHandlingType.JavaScript,
-        TimeRangeSelectedJavaScript = "dp.timeRangeSelectedCallBack(start, end, { name: prompt('New Event Name:', 'New Event') });"
-
-    })
-*@
-
 <script type="text/javascript">
     // initialize Session Updater on page
-    SessionUpdater.Setup('@Url.Action("KeepSessionAlive","Default")');
+    SetupSessionUpdater('/Home/KeepSessionAlive');
+    SessionUpdater.Setup('@Url.Action("KeepSessionAlive","Home")');
 </script>
 
+<script>
+
+    function keepAliveFunc() {
+        setTimeout("keepAlive()", 10000);
+    };
+
+    function keepAlive() {
+        $.post("/Home/KeepAlive", null, function () { keepAliveFunc(); });
+    };
+
+    $(keepAliveFunc());
+</script>
 

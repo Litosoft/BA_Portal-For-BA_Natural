@@ -1,0 +1,26 @@
+﻿<h1> Sessioncheck</h1>
+
+<img id="imgSessionCheck" width="1" height="1" />
+
+<script type="text/javascript" >
+//Variable used to prevent caching on some browsers and knowing the count how many times user sends request to server.
+    var counter;
+    counter = 0;
+
+    function KeepSession() {
+// Increase counter value
+    counter++;
+
+    // Gets reference of image
+    var img = document.getElementById("imgSessionCheck");
+
+    // Set new src value, which will send a request to the server
+img.src = "http://servername:port/appName/SessionCheck.aspx?count=" + counter;
+
+    // now schedule this process to happen in some time interval, in this example its 1 min
+    setTimeout(KeepSession, 60000);
+}
+
+    // Call this function for a first time
+    KeepSession();
+    </script>

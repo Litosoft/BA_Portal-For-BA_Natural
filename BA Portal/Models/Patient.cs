@@ -16,11 +16,6 @@ namespace BA_Portal.Models
 
         //phyiscal attributes
         public string Name { get; set; }
-        public string MiddleName { get; set; }
-        public string LastName { get; set; }
-
-
-
 
         public DateTime DOB { get; set; }
         public bool Male { get; set; }
@@ -46,7 +41,6 @@ namespace BA_Portal.Models
         public string ReferredBy { get; set; }
 
         public DateTime DateCreated { get; set; }
-        public DateTime LastSeen { get; set; }
 
         //all conditions
         public bool Allergy { get; set; }
@@ -79,6 +73,10 @@ namespace BA_Portal.Models
         public bool Fertility { get; set; }
         public bool WeightControl { get; set; }
         public bool Other { get; set; }
+
+        public DateTime LastSeen { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
 
 
 

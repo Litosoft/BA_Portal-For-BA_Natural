@@ -1,56 +1,25 @@
-﻿// http://stackoverflow.com/a/14195869/1366033
-SessionUpdater = (function () {
-    var clientMovedSinceLastTimeout = false;
-    var keepSessionAliveUrl = null;
-    var timeout = 1 * 1000 * 60; // 5 minutes
+﻿var keepSessionAlive = false;
+var keepSessionAliveUrl = null;
 
-    function setupSessionUpdater(actionUrl) {
-        // store local value
-        keepSessionAliveUrl = actionUrl;
-        // setup handlers
-        listenForChanges();
-        // start timeout - it'll run after n minutes
-        checkToKeepSessionAlive();
-    }
+function SetupSessionUpdater(actionUrl) {
+    keepSessionAliveUrl = actionUrl;
+    var container = $("#body");
+    container.mousemove(function () { keepSessionAlive = true; });
+    container.keydown(function () { keepSessionAlive = true; });
+    CheckToKeepSessionAlive();
+}
 
-    function listenForChanges() {
-        $("body").one("mousemove keydown", function () {
-            clientMovedSinceLastTimeout = true;
+function CheckToKeepSessionAlive() {
+    setTimeout("KeepSessionAlive()", 200000);
+}
+
+function KeepSessionAlive() {
+    if (keepSessionAlive && keepSessionAliveUrl != null) {
+        $.ajax({
+            type: "POST",
+            url: keepSessionAliveUrl,
+            success: function () { keepSessionAlive = false; }
         });
     }
-
-
-    // fires every n minutes - if there's been movement ping server and restart timer
-    function checkToKeepSessionAlive() {
-        setTimeout(function () { keepSessionAlive(); }, timeout);
-    }
-
-    function keepSessionAlive() {
-        // if we've had any movement since last run, ping the server
-        if (clientMovedSinceLastTimeout && keepSessionAliveUrl != null) {
-            $.ajax({
-                type: "POST",
-                url: keepSessionAliveUrl,
-                success: function (data) {
-                    // reset movement flag
-                    clientMovedSinceLastTimeout = false;
-                    // start listening for changes again
-                    listenForChanges();
-                    // restart timeout to check again in n minutes
-                    checkToKeepSessionAlive();
-
-
-                },
-                error: function (data) {
-                    console.log("Error posting to " & keepSessionAliveUrl);
-                }
-            });
-        }
-    }
-
-    // export setup method
-    return {
-        Setup: setupSessionUpdater
-    };
-
-})();
+    CheckToKeepSessionAlive();
+}

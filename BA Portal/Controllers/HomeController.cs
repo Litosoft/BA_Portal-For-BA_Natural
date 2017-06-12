@@ -34,8 +34,19 @@ namespace BA_Portal.Controllers
             return View();
         }
 
+        public ActionResult SessionCheck()
+        {
+            return View();
+        }
+
         [HttpPost]
         public JsonResult KeepSessionAlive()
+        {
+            return new JsonResult { Data = "Success" };
+        }
+
+        [HttpPost]
+        public JsonResult KeepAlive()
         {
             return new JsonResult { Data = "Success" };
         }
