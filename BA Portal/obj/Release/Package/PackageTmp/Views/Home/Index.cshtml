@@ -1,5 +1,4 @@
-﻿<script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/SessionUpdater.js"></script>
+﻿
 
 @{
     ViewBag.Title = "Home Page";
@@ -31,22 +30,5 @@
 
 
 
-<script type="text/javascript">
-    // initialize Session Updater on page
-    SetupSessionUpdater('/Home/KeepSessionAlive');
-    SessionUpdater.Setup('@Url.Action("KeepSessionAlive","Home")');
-</script>
 
-<script>
-
-    function keepAliveFunc() {
-        setTimeout("keepAlive()", 10000);
-    };
-
-    function keepAlive() {
-        $.post("/Home/KeepAlive", null, function () { keepAliveFunc(); });
-    };
-
-    $(keepAliveFunc());
-</script>
 

@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbF18K+p3I0OVx62WVNK9CQAAAAACAAAAAAAQZgAAAAEAACAAAACblLcpxfOqQ5KmFj6LLHm0KNFEbwNH1dv9jIatRWRHsQAAAAAOgAAAAAIAACAAAAB50kT9e+wZyqtazuxeQ32wazYwYlmgkugyebn7tQY1+yAAAACLjLZyZt1fD6h0urxGKvRkat5qDYJrQHMSe/SMLlB/Y0AAAAB3bQSVYFHHiBFwQwk54I6J1zP50KKsh9dtDZnCtM7Ajd3/Qmwu4dwT9Y9zF0REOww++KQvGN+9Fix7UHAVV0HV</EncryptedPassword>
-    <_PublishTargetUrl>C:\Users\Tyler Loeper\Desktop\Release 1.311</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Tyler Loeper\Desktop\Version 1.312</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -35,13 +35,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:50:58</publishTime>
     </File>
     <File Include="bin/App_Browsers.dll">
-      <publishTime>06/12/2017 17:32:29</publishTime>
+      <publishTime>06/15/2017 16:21:53</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>06/12/2017 17:32:28</publishTime>
+      <publishTime>06/15/2017 16:21:53</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>06/12/2017 17:32:28</publishTime>
+      <publishTime>06/15/2017 16:21:53</publishTime>
     </File>
     <File Include="bin/BA Portal.dll">
       <publishTime>06/12/2017 16:57:28</publishTime>
@@ -269,7 +269,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:43</publishTime>
     </File>
     <File Include="bin/__browserCapabilitiesCompiler.compiled">
-      <publishTime>06/12/2017 17:32:29</publishTime>
+      <publishTime>06/15/2017 16:21:53</publishTime>
     </File>
     <File Include="Content/backgroundimage1.jpg">
       <publishTime>04/10/2017 00:50:59</publishTime>
@@ -464,7 +464,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:04</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/12/2017 17:32:21</publishTime>
+      <publishTime>06/15/2017 16:21:46</publishTime>
     </File>
     <File Include="Rotativa/wkhtmltopdf.exe">
       <publishTime>04/10/2017 00:51:04</publishTime>
@@ -1136,7 +1136,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:07</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/12/2017 17:29:30</publishTime>
+      <publishTime>06/15/2017 15:34:48</publishTime>
     </File>
     <File Include="Views/InsuranceInfoes/Create.cshtml">
       <publishTime>05/04/2017 02:05:52</publishTime>
@@ -1268,7 +1268,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:07</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/12/2017 17:29:33</publishTime>
+      <publishTime>06/15/2017 16:14:28</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutwithoutNavigation.cshtml">
       <publishTime>04/10/2017 00:51:07</publishTime>
@@ -1325,7 +1325,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:07</publishTime>
     </File>
     <File Include="Views/SOAPForms/Create.cshtml">
-      <publishTime>05/30/2017 04:53:22</publishTime>
+      <publishTime>06/15/2017 16:08:10</publishTime>
     </File>
     <File Include="Views/SOAPForms/Delete.cshtml">
       <publishTime>04/10/2017 00:51:07</publishTime>
@@ -1340,7 +1340,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/29/2017 19:34:48</publishTime>
     </File>
     <File Include="Views/SOAPForms/PatientSOAPIndex.cshtml">
-      <publishTime>05/30/2017 05:34:36</publishTime>
+      <publishTime>06/15/2017 16:10:07</publishTime>
     </File>
     <File Include="Views/Subjects/ConsentFormModel.cshtml">
       <publishTime>04/10/2017 00:51:07</publishTime>
