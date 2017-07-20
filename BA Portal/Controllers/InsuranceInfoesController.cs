@@ -35,10 +35,11 @@ namespace BA_Portal.Controllers
             return View(insuranceInfo);
         }
 
-        public ActionResult PatientInsuranceIndex(int id = -1)
+        public ActionResult PatientInsuranceIndex(int id = 0)
         {
             ViewBag.IDInsuranceInfoCreate = id;
-            return View(db.InsuranceInfoDatabase.ToList());
+            var DatabaseSelection = from x in db.InsuranceInfoDatabase where x.GroupingID == id select x;
+            return View(DatabaseSelection.ToList());
         }
 
         // GET: InsuranceInfoes/Create
@@ -61,9 +62,8 @@ namespace BA_Portal.Controllers
 
                 db.InsuranceInfoDatabase.Add(insuranceInfo);
                 db.SaveChanges();
-                //return RedirectToAction("Index");
-                //return RedirectToAction("Index", "Subjects");
-                return RedirectToAction("PatientInsuranceIndex" + "/" + insuranceInfo.GroupingID);
+    
+                return RedirectToAction("Index", "Subjects");
             }
 
             return View(insuranceInfo);

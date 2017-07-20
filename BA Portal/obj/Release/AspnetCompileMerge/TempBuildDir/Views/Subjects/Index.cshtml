@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<BA_Portal.Models.Subject>
 
+<script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script> 
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,11 +10,14 @@
 <h1>Clients</h1> 
 <span>For HIPAA purposes the patient list has been hidden. Please press search to load the patient list.</span>
 <br /><br />
+
 @using (Html.BeginForm())
 {
+
     <p>
-        <strong>Search by Name:</strong> @Html.TextBox("SearchString", null, new { @class = "checkbox" }) 
-        <input type="submit" value="Search" /> <br /> <br />
+        <strong data-toggle="tooltip" title="Search by first or last name. 
+Leave blank to load all patients.">Search @Html.TextBox("SearchString", null, new { @class = "form-control" }) </strong>
+        <input type="submit" value="Search" class="btn btn-primary btn-sm"/> <br /> <br />
     </p>
 } <br />
 
@@ -55,7 +60,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @item.Name @item.LastName 
         </td>
         <td>
             @{
@@ -116,14 +121,16 @@
 
 
         <td>
-            <strong> @Html.ActionLink("All Form(s)", "PassSubjecttoAllForms", new { id = item.ID }) </strong>    
+            <strong> @Html.ActionLink("All Form(s)", "PassSubjecttoAllForms", "Subjects", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" }) </strong>  
+
         </td>
         <td>
 
             
             @Html.ActionLink("Update Personal Info", "Edit", new { id = item.ID }) |
             @Html.ActionLink("View Personal Info", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Delete Record", "Delete", new { id = item.ID })
+            @Html.ActionLink("Delete Record", "Delete", "Subjects", new { id = item.ID }, new { @class="text-danger"})
+
 
         </td>
     </tr>
@@ -133,3 +140,11 @@
 
 <br />
 
+
+
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>

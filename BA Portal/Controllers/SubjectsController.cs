@@ -20,13 +20,18 @@ namespace BA_Portal.Controllers
         // GET: Subjects
         public ActionResult Index(string searchString = "This Default Search String is for Hippa Purposes")
         {
-            var ClientsSelected = from m in db.SubjectDatabase select m;
+            var ClientsSelected = from m in db.SubjectDatabase
+                                  orderby m.LastName, m.Name   
+                                  select m;
 
         
 
                 if (!String.IsNullOrEmpty(searchString))
             {
-                ClientsSelected = ClientsSelected.Where(s => s.Name.Contains(searchString));
+                ClientsSelected = from m in db.SubjectDatabase
+                                  where m.Name == searchString || m.LastName == searchString
+                                  orderby m.LastName, m.Name                                 
+                                  select m;
             }
 
 
