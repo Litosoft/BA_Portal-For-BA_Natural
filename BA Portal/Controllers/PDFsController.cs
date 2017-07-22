@@ -149,7 +149,7 @@ namespace BA_Portal.Controllers
             PDFtoStore.PDFinbytes = bytes;
             PDFtoStore.SearchTag = tag;
             PDFtoStore.GroupingID = GroupingID;
-            PDFtoStore.Description = DateTime.Now.ToShortDateString();
+            PDFtoStore.Description = DateTime.Now.ToShortDateString() + " " + tag + " Generated at: " + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
             //PDFtoStore.Description = DateTime.Now.ToString();
 
             db.PDFDatabase.Add(PDFtoStore);

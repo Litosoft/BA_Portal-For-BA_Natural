@@ -17,22 +17,20 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PractionerName)
+            Practioner Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PatientName)
+            Patient Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateFilledIn)
+            Date Filled In
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PlanofTreatment)
+            Plan of Treatment
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.ID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GroupingID)
+            <span style="color: lightgreen">GI</span>
         </th>
         <th>
 
@@ -56,11 +54,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.PlanofTreatment)
                 </td>
+
                 <td>
-                    @Html.DisplayFor(modelItem => item.ID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GroupingID)
+                    <span style="color: lightgreen">@Html.DisplayFor(modelItem => item.GroupingID)</span>
                 </td>
 
                 <td>

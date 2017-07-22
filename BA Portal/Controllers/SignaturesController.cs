@@ -301,11 +301,12 @@ namespace BA_Portal.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult GetClientSignaturePI([Bind(Include = "ID,MySignature")] Signature signature)
+        public ActionResult GetClientSignaturePI([Bind(Include = "ID,MySignature")] Signature signature, string SignatureOnFile)
         {
             if (ModelState.IsValid)
             {
                 TempData["SignatureClientPI"] = signature;
+                TempData["SignatureOnFile"] = SignatureOnFile;
 
                 return RedirectToAction("GetPractitionerSignaturePI");
             }

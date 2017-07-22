@@ -396,7 +396,7 @@ namespace BA_Portal.Controllers
             }
             Subject subject = db.SubjectDatabase.Find(id);
 
-            
+
             //create new pdf form from template
             var reader = new PdfReader(Server.MapPath("~/Content/PDFforPersonalInformation.pdf"));
             //var output = new MemoryStream();
@@ -426,7 +426,7 @@ namespace BA_Portal.Controllers
             stamper.AcroFields.SetField("HeadacheLocation", subject.HeadacheDescription);
             stamper.AcroFields.SetField("AllergyDescription", subject.AllergyDescription);
 
-            
+
 
             //checkboxes
             if (subject.Allergy == true)
@@ -544,8 +544,9 @@ namespace BA_Portal.Controllers
             { gender = "Female"; }
             stamper.AcroFields.SetField("Sex", gender);
 
-            
+
             //put in signatures
+            string SignatureOnFile = (string)TempData["SignatureOnFile"];
             Signature signatureclient = (Signature)TempData["SignatureClientPI"];
             Signature signaturepractioner = (Signature)TempData["SignaturePractioner"];
 
@@ -554,28 +555,73 @@ namespace BA_Portal.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            Image x;
+            System.Drawing.Image img;
+            iTextSharp.text.Image sigImg;
+            PdfContentByte over;
+            //first signature : Use "On File" if On File is true.
+
+            if (signatureclient.MySignature != null)
+            {
+                x = (Bitmap)((new ImageConverter()).ConvertFrom(signatureclient.MySignature));
+                img = x;
+                img.Save(Server.MapPath("~/Content/signatureclient.png"), System.Drawing.Imaging.ImageFormat.Png);
             
-            //first signature
-            Image x = (Bitmap)((new ImageConverter()).ConvertFrom(signatureclient.MySignature));
-            System.Drawing.Image img = x;
-            img.Save(Server.MapPath("~/Content/signatureclient.png"), System.Drawing.Imaging.ImageFormat.Png);
-            iTextSharp.text.Image sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signatureclient.png"));
-            // Scale image to fit
-            sigImg.ScaleToFit(80, 80);
-            // Set signature position on page
-            sigImg.SetAbsolutePosition(169, 50);  //x, y
-            // Add signatures to desired page
-            PdfContentByte over = stamper.GetOverContent(1);
-            over.AddImage(sigImg);
-            //second signature
-            x = (Bitmap)((new ImageConverter()).ConvertFrom(signaturepractioner.MySignature));
-            img = x;
-            img.Save(Server.MapPath("~/Content/signaturepractioner.png"), System.Drawing.Imaging.ImageFormat.Png);
-            sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signaturepractioner.png"));
-            sigImg.ScaleToFit(80, 80);
-            sigImg.SetAbsolutePosition(440, 50);
-            over = stamper.GetOverContent(1);
-            over.AddImage(sigImg);
+                //if Signature on file was checked, use the signature on file default image.
+                if (SignatureOnFile == "True")
+                {
+                    sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/SignatureOnFile.png"));
+                }
+                else
+                {
+                    sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signatureclient.png"));
+                }
+
+
+                // Scale image to fit
+                sigImg.ScaleToFit(80, 80);
+                // Set signature position on page
+                sigImg.SetAbsolutePosition(169, 50);  //x, y
+                // Add signatures to desired page
+                over = stamper.GetOverContent(1);
+                over.AddImage(sigImg);
+            }
+            if (signatureclient.MySignature == null)
+            {
+
+                //if Signature on file was checked, use the signature on file default image.
+                if (SignatureOnFile == "True")
+                {
+                    sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/SignatureOnFile.png"));
+
+                    // Scale image to fit
+                    sigImg.ScaleToFit(80, 80);
+                    // Set signature position on page
+                    sigImg.SetAbsolutePosition(169, 50);  //x, y
+                    // Add signatures to desired page
+                    over = stamper.GetOverContent(1);
+                    over.AddImage(sigImg);
+                }
+
+
+            }
+
+
+            if (signaturepractioner.MySignature != null)
+            {
+                    //second signature
+                    x = (Bitmap)((new ImageConverter()).ConvertFrom(signaturepractioner.MySignature));
+                img = x;
+                img.Save(Server.MapPath("~/Content/signaturepractioner.png"), System.Drawing.Imaging.ImageFormat.Png);
+                sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signaturepractioner.png"));
+                sigImg.ScaleToFit(80, 80);
+                sigImg.SetAbsolutePosition(440, 50);
+                over = stamper.GetOverContent(1);
+                over.AddImage(sigImg);
+
+            }
+
+
             
 
             //close and create new pdf
