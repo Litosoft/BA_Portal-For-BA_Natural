@@ -260,7 +260,7 @@ namespace BA_Portal.Controllers
             }
             ViewBag.ID = GroupingID;
 
-            ViewBag.Name = subject.Name;
+            ViewBag.Name = subject.Name + " " + subject.LastName;
             ViewBag.DOB = subject.DOB.ToShortDateString();
             ViewBag.PhoneHome = subject.PhoneHome;
             ViewBag.PhoneCell = subject.PhoneCell;

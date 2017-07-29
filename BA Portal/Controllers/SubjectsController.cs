@@ -29,7 +29,7 @@ namespace BA_Portal.Controllers
                 if (!String.IsNullOrEmpty(searchString))
             {
                 ClientsSelected = from m in db.SubjectDatabase
-                                  where m.Name == searchString || m.LastName == searchString
+                                  where m.Name == searchString || m.LastName == searchString || (m.Name + " " + m.LastName).Contains(searchString) || (m.PhoneCell).Contains(searchString)
                                   orderby m.LastName, m.Name                                 
                                   select m;
             }
@@ -74,6 +74,56 @@ namespace BA_Portal.Controllers
             {
                 subject.DateCreated = DateTime.Now;
                 subject.LastSeen = DateTime.Now;
+
+                //all caps for string fields in the personal information form.
+                if (subject.Name != null)
+                {
+                    subject.Name = subject.Name.ToUpper();
+                }
+                if (subject.MiddleName != null)
+                {
+                    subject.MiddleName = subject.MiddleName.ToUpper();
+                }
+                if (subject.LastName != null)
+                {
+                    subject.LastName = subject.LastName.ToUpper();
+                }
+                if (subject.Address != null)
+                {
+                    subject.Address = subject.Address.ToUpper();
+                }
+                if (subject.City != null)
+                {
+                    subject.City = subject.City.ToUpper();
+                }
+                if (subject.EmergencyContact != null)
+                {
+                    subject.EmergencyContact = subject.EmergencyContact.ToUpper();
+                }
+                if (subject.EmergencyContactRelationship != null)
+                {
+                    subject.EmergencyContactRelationship = subject.EmergencyContactRelationship.ToUpper();
+                }
+                if (subject.ReferredBy != null)
+                {
+                    subject.ReferredBy = subject.ReferredBy.ToUpper();
+                }
+                if (subject.AllergyDescription != null)
+                {
+                    subject.AllergyDescription = subject.AllergyDescription.ToUpper();
+                }
+                if (subject.PainDescription != null)
+                {
+                    subject.PainDescription = subject.PainDescription.ToUpper();
+                }
+                if (subject.HeadacheDescription != null)
+                {
+                    subject.HeadacheDescription = subject.HeadacheDescription.ToUpper();
+                }
+
+
+
+
                 db.SubjectDatabase.Add(subject);
                 db.SaveChanges();
 
@@ -721,7 +771,7 @@ namespace BA_Portal.Controllers
             var stamper = new PdfStamper(reader, output);
 
             //fill fiels on pdf form. 
-            stamper.AcroFields.SetField("PrintName", subject.Name);
+            stamper.AcroFields.SetField("PrintName", subject.Name + " " + subject.LastName);
             stamper.AcroFields.SetField("Date", DateTime.Now.ToShortDateString());
 
 
@@ -788,13 +838,13 @@ namespace BA_Portal.Controllers
 
 
             //fill fields on pdf form. 
-            stamper.AcroFields.SetField("PrintName", subject.Name);
+            stamper.AcroFields.SetField("PrintName", subject.Name + " " + subject.LastName);
             stamper.AcroFields.SetField("DateFinal", DateTime.Now.ToShortDateString());
 
             if(MassagePaymentOption == "insurance")
             {
                 //get initials
-                string initials = subject.Name;
+                string initials = subject.Name + " " + subject.LastName;
                 var firstChars = " ";
                 initials.Split(' ').ToList().ForEach(i => firstChars = firstChars + i[0]);
 
@@ -807,7 +857,7 @@ namespace BA_Portal.Controllers
             if (MassagePaymentOption == "outofpocket")
             {
                 //get initials
-                string initials = subject.Name;
+                string initials = subject.Name + " " + subject.LastName;
                 var firstChars = " ";
                 initials.Split(' ').ToList().ForEach(i => firstChars = firstChars + i[0]);
 
