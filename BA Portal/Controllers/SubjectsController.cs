@@ -454,7 +454,7 @@ namespace BA_Portal.Controllers
             var stamper = new PdfStamper(reader, output);
 
             //fill fiels on pdf form. 
-            stamper.AcroFields.SetField("Name", subject.Name);
+            stamper.AcroFields.SetField("Name", subject.Name + " " + subject.LastName);
             //string DOB = subject.DOB.Date.ToString();
             stamper.AcroFields.SetField("DOB", subject.DOB.Date.ToShortDateString());
             stamper.AcroFields.SetField("Address", subject.Address);
@@ -714,12 +714,13 @@ namespace BA_Portal.Controllers
             var stamper = new PdfStamper(reader, output);
 
             //fill fiels on pdf form. 
-            stamper.AcroFields.SetField("FullName", subject.Name);
+            stamper.AcroFields.SetField("FullName", subject.Name + " " + subject.LastName);
             stamper.AcroFields.SetField("Date", DateTime.Now.ToShortDateString());
 
 
 
             //put in signatures
+            string SignatureOnFile = (string)TempData["SignatureOnFile"];
             Signature signatureclient = (Signature)TempData["SignatureClientInsurance"];
 
             if (signatureclient == null)
@@ -727,25 +728,79 @@ namespace BA_Portal.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            if (signatureclient.MySignature != null)
+            {
+                if (SignatureOnFile == "True")
+                {
+                    //first signature
+                    Image x = (Bitmap)((new ImageConverter()).ConvertFrom(signatureclient.MySignature));
+                    System.Drawing.Image img = x;
+                    PdfContentByte over = stamper.GetOverContent(1);
 
-            //first signature
-            Image x = (Bitmap)((new ImageConverter()).ConvertFrom(signatureclient.MySignature));
-            System.Drawing.Image img = x;
-            img.Save(Server.MapPath("~/Content/signatureclient.png"), System.Drawing.Imaging.ImageFormat.Png);
-            iTextSharp.text.Image sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signatureclient.png"));
-            // Scale image to fit
-            sigImg.ScaleToFit(75, 75);
-            // Set signature position on page
-            sigImg.SetAbsolutePosition(110, 112);  //x, y
-            // Add signatures to desired page
-            PdfContentByte over = stamper.GetOverContent(1);
-            over.AddImage(sigImg);
+                    img.Save(Server.MapPath("~/Content/signatureclient.png"), System.Drawing.Imaging.ImageFormat.Png);
+                    iTextSharp.text.Image sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/SignatureOnFile.png"));
+                    // Scale image to fit
+                    sigImg.ScaleToFit(75, 75);
+                    // Set signature position on page
+                    sigImg.SetAbsolutePosition(110, 112);  //x, y
+                                                           // Add signatures to desired page
+
+                    over.AddImage(sigImg);
 
 
-            stamper.FormFlattening = true;
+                    stamper.FormFlattening = true;
 
-            stamper.Close();
-            reader.Close();
+                    stamper.Close();
+                    reader.Close();
+                }
+                else
+                {
+                //first signature
+                Image x = (Bitmap)((new ImageConverter()).ConvertFrom(signatureclient.MySignature));
+                System.Drawing.Image img = x;
+                PdfContentByte over = stamper.GetOverContent(1);
+
+                img.Save(Server.MapPath("~/Content/signatureclient.png"), System.Drawing.Imaging.ImageFormat.Png);
+                iTextSharp.text.Image sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signatureclient.png"));
+                // Scale image to fit
+                sigImg.ScaleToFit(75, 75);
+                // Set signature position on page
+                sigImg.SetAbsolutePosition(110, 112);  //x, y
+                                                       // Add signatures to desired page
+
+                over.AddImage(sigImg);
+
+
+                stamper.FormFlattening = true;
+
+                stamper.Close();
+                reader.Close();
+                }
+
+            }
+            if (signatureclient.MySignature == null)
+            {
+                //if Signature on file was checked, use the signature on file default image.
+                if (SignatureOnFile == "True")
+                {
+                    iTextSharp.text.Image sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/SignatureOnFile.png"));
+                    // Scale image to fit
+                    sigImg.ScaleToFit(75, 75);
+                    // Set signature position on page
+                    sigImg.SetAbsolutePosition(110, 112);  //x, y
+                                                           // Add signatures to desired page
+                    PdfContentByte over = stamper.GetOverContent(1);
+                    over.AddImage(sigImg);
+
+
+                    stamper.FormFlattening = true;
+
+                    stamper.Close();
+                    reader.Close();
+                }
+            }
+
+
 
             string path = "~/PDF_handler/GeneratePDFforInsurance.pdf";
             string tag = "Insurance";

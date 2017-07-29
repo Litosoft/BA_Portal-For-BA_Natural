@@ -280,11 +280,12 @@ namespace BA_Portal.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult GetClientSignatureInsurance([Bind(Include = "ID,MySignature")] Signature signature)
+        public ActionResult GetClientSignatureInsurance([Bind(Include = "ID,MySignature")] Signature signature, string SignatureOnFile)
         {
             if (ModelState.IsValid)
             {
                 TempData["SignatureClientInsurance"] = signature;
+                TempData["SignatureOnFile"] = SignatureOnFile;
                 int idInsurance = (int)TempData["InsuranceID"];
 
                 return RedirectToAction("GeneratePDFforInsurance", "Subjects", new { id = idInsurance});

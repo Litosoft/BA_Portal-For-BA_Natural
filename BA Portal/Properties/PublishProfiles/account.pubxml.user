@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbF18K+p3I0OVx62WVNK9CQAAAAACAAAAAAAQZgAAAAEAACAAAACblLcpxfOqQ5KmFj6LLHm0KNFEbwNH1dv9jIatRWRHsQAAAAAOgAAAAAIAACAAAAB50kT9e+wZyqtazuxeQ32wazYwYlmgkugyebn7tQY1+yAAAACLjLZyZt1fD6h0urxGKvRkat5qDYJrQHMSe/SMLlB/Y0AAAAB3bQSVYFHHiBFwQwk54I6J1zP50KKsh9dtDZnCtM7Ajd3/Qmwu4dwT9Y9zF0REOww++KQvGN+9Fix7UHAVV0HV</EncryptedPassword>
-    <_PublishTargetUrl>C:\Users\Tyler Loeper\Desktop\1.35</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Tyler Loeper\Desktop\1.36</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -35,16 +35,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:50:58</publishTime>
     </File>
     <File Include="bin/App_Browsers.dll">
-      <publishTime>07/28/2017 21:35:40</publishTime>
+      <publishTime>07/29/2017 14:34:33</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/28/2017 21:35:39</publishTime>
+      <publishTime>07/29/2017 14:34:32</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/28/2017 21:35:39</publishTime>
+      <publishTime>07/29/2017 14:34:32</publishTime>
     </File>
     <File Include="bin/BA Portal.dll">
-      <publishTime>07/28/2017 21:35:26</publishTime>
+      <publishTime>07/29/2017 14:34:17</publishTime>
     </File>
     <File Include="bin/DayPilot.Web.Mvc.dll">
       <publishTime>04/10/2017 00:51:07</publishTime>
@@ -269,7 +269,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:43</publishTime>
     </File>
     <File Include="bin/__browserCapabilitiesCompiler.compiled">
-      <publishTime>07/28/2017 21:35:40</publishTime>
+      <publishTime>07/29/2017 14:34:33</publishTime>
     </File>
     <File Include="Content/backgroundimage1.jpg">
       <publishTime>04/10/2017 00:50:59</publishTime>
@@ -467,7 +467,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:04</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/28/2017 21:35:32</publishTime>
+      <publishTime>07/29/2017 14:34:22</publishTime>
     </File>
     <File Include="Rotativa/wkhtmltopdf.exe">
       <publishTime>04/10/2017 00:51:04</publishTime>
@@ -1244,10 +1244,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/04/2017 02:07:30</publishTime>
     </File>
     <File Include="Views/PDFs/TakeAnotherAction.cshtml">
-      <publishTime>06/04/2017 06:36:00</publishTime>
+      <publishTime>07/29/2017 12:11:39</publishTime>
     </File>
     <File Include="Views/PDFs/TakeAnotherAction_InsuranceInfo.cshtml">
-      <publishTime>06/08/2017 06:24:36</publishTime>
+      <publishTime>07/29/2017 12:12:28</publishTime>
     </File>
     <File Include="Views/Practioner/AddNewPractioner.cshtml">
       <publishTime>04/28/2017 17:17:51</publishTime>
@@ -1271,7 +1271,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2017 00:51:07</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/28/2017 21:33:19</publishTime>
+      <publishTime>07/29/2017 12:09:09</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutwithoutNavigation.cshtml">
       <publishTime>04/10/2017 00:51:07</publishTime>
@@ -1304,13 +1304,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/14/2017 21:24:48</publishTime>
     </File>
     <File Include="Views/Signatures/GetClientSignatureInsurance.cshtml">
-      <publishTime>04/14/2017 21:24:42</publishTime>
+      <publishTime>07/29/2017 14:32:26</publishTime>
     </File>
     <File Include="Views/Signatures/GetClientSignatureMultiple.cshtml">
       <publishTime>04/16/2017 23:38:10</publishTime>
     </File>
     <File Include="Views/Signatures/GetClientSignaturePI.cshtml">
-      <publishTime>07/22/2017 18:20:52</publishTime>
+      <publishTime>07/29/2017 12:45:27</publishTime>
     </File>
     <File Include="Views/Signatures/GetDoctorSignatureSOAP.cshtml">
       <publishTime>04/16/2017 22:29:59</publishTime>

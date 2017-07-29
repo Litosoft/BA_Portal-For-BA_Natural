@@ -15,8 +15,8 @@
     <div class="form-horizontal">
 
         <hr />
-        <span class="text-danger">Leave blank if you wish to fill this part out at later date.</span> <br /><br />
         <input type="checkbox" name="SignatureOnFile" value="True"> Check this box if the signature is on file.<br>
+        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.MySignature, "", htmlAttributes: new { @class = "control-label col-md-2" })
