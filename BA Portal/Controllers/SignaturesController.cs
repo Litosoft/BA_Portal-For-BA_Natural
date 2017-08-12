@@ -26,10 +26,6 @@ namespace BA_Portal.Controllers
         // GET: Signatures/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Signature signature = db.SignatureDatabase.Find(id);
             if (signature == null)
             {
@@ -64,10 +60,6 @@ namespace BA_Portal.Controllers
         // GET: Signatures/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Signature signature = db.SignatureDatabase.Find(id);
             if (signature == null)
             {
@@ -95,10 +87,6 @@ namespace BA_Portal.Controllers
         // GET: Signatures/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Signature signature = db.SignatureDatabase.Find(id);
             if (signature == null)
             {
@@ -135,11 +123,6 @@ namespace BA_Portal.Controllers
 
         public ActionResult GeneratePDFforSignature(int? id)
         {
-            /*
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }*/
 
 
             Signature signature = db.SignatureDatabase.Find(id);
@@ -191,10 +174,6 @@ namespace BA_Portal.Controllers
         //entry point for new insurance forms
         public ActionResult CaptureIDandRedirectforInsurance(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
 
             TempData["InsuranceID"] = id;
 
@@ -204,10 +183,6 @@ namespace BA_Portal.Controllers
 
         public ActionResult CaptureIDandRedirectforPI(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
 
             TempData["DatabaseID_PI"] = id;
 
@@ -217,10 +192,6 @@ namespace BA_Portal.Controllers
 
         public ActionResult CaptureIDandRedirectforMultipleForms(int? id, string RedirectIdentifier)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
 
             TempData["RedirectIdentifier"] = RedirectIdentifier;
             TempData["MultiID"] = id;
@@ -309,7 +280,15 @@ namespace BA_Portal.Controllers
                 TempData["SignatureClientPI"] = signature;
                 TempData["SignatureOnFile"] = SignatureOnFile;
 
+                if (User.IsInRole("Guest"))
+                {
+                    //skip if logged in as guest
+                    int ID = (int)TempData["DatabaseID_PI"];
+                    return RedirectToAction("GeneratePDFforPI", "Subjects", new { ID = ID });
+                }
+
                 return RedirectToAction("GetPractitionerSignaturePI");
+
             }
 
             return View(signature);
@@ -406,7 +385,6 @@ namespace BA_Portal.Controllers
 
         public ActionResult GetPractitionerSignaturePI()
         {
-
             return View();
         }
 
@@ -414,13 +392,13 @@ namespace BA_Portal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult GetPractitionerSignaturePI([Bind(Include = "ID,MySignature")] Signature signature)
         {
+
             if (ModelState.IsValid)
             {
                 TempData["SignaturePractioner"] = signature;
-
                 int ID = (int)TempData["DatabaseID_PI"];
-
-                return RedirectToAction("GeneratePDFforPI" + "/" + ID, "Subjects");
+                return RedirectToAction("GeneratePDFforPI", "Subjects", new { ID = ID });
+                //return RedirectToAction("GeneratePDFforPI" + "/" + ID, "Subjects");
             }
 
             return View(signature);

@@ -10,6 +10,7 @@ using BA_Portal.Models;
 using iTextSharp.text.pdf;
 using System.IO;
 using System.Drawing;
+using System.Web.Security;
 
 namespace BA_Portal.Controllers
 {
@@ -20,6 +21,11 @@ namespace BA_Portal.Controllers
         // GET: Subjects
         public ActionResult Index(string searchString = "This Default Search String is for Hippa Purposes")
         {
+            if (User.IsInRole("Guest"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             var ClientsSelected = from m in db.SubjectDatabase
                                   orderby m.LastName, m.Name   
                                   select m;
@@ -45,10 +51,7 @@ namespace BA_Portal.Controllers
         // GET: Subjects/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+
             Subject subject = db.SubjectDatabase.Find(id);
             if (subject == null)
             {
@@ -121,15 +124,8 @@ namespace BA_Portal.Controllers
                     subject.HeadacheDescription = subject.HeadacheDescription.ToUpper();
                 }
 
-
-
-
                 db.SubjectDatabase.Add(subject);
                 db.SaveChanges();
-
-
-
-
 
                 int ID = subject.ID;
                 TempData["DatabaseID_PI"] = ID;
@@ -143,10 +139,6 @@ namespace BA_Portal.Controllers
         // GET: Subjects/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Subject subject = db.SubjectDatabase.Find(id);
             if (subject == null)
             {
@@ -178,10 +170,6 @@ namespace BA_Portal.Controllers
         // GET: Subjects/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Subject subject = db.SubjectDatabase.Find(id);
             if (subject == null)
             {
@@ -222,30 +210,18 @@ namespace BA_Portal.Controllers
 
         public ActionResult Soap(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Subject subject = db.SubjectDatabase.Find(id);
             return View(subject);
         }
 
         public ActionResult PersonalInformation(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Subject subject = db.SubjectDatabase.Find(id);
             return View(subject);
         }
 
         public ActionResult Insurance(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Subject subject = db.SubjectDatabase.Find(id);
             return View(subject);
         }
@@ -254,10 +230,6 @@ namespace BA_Portal.Controllers
         {
             //personal info pdf generator
 
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Subject subject = db.SubjectDatabase.Find(id);
             
             /*
@@ -440,10 +412,6 @@ namespace BA_Portal.Controllers
 
         public ActionResult GeneratePDFforPI(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Subject subject = db.SubjectDatabase.Find(id);
 
 
@@ -700,10 +668,6 @@ namespace BA_Portal.Controllers
 
         public ActionResult GeneratePDFforInsurance(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Subject subject = db.SubjectDatabase.Find(id);
 
 
@@ -812,10 +776,6 @@ namespace BA_Portal.Controllers
 
         public ActionResult GeneratePDFforDisclaimer1(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Subject subject = db.SubjectDatabase.Find(id);
 
 
@@ -869,10 +829,6 @@ namespace BA_Portal.Controllers
 
         public ActionResult GeneratePDFforDisclaimer2(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Subject subject = db.SubjectDatabase.Find(id);
 
 
@@ -885,12 +841,6 @@ namespace BA_Portal.Controllers
             
             //check which checkbox to tick.
             string MassagePaymentOption = (string)TempData["MassagePaymentOption"];
-
-            if (MassagePaymentOption == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
 
             //fill fields on pdf form. 
             stamper.AcroFields.SetField("PrintName", subject.Name + " " + subject.LastName);
@@ -962,10 +912,6 @@ namespace BA_Portal.Controllers
 
         public ActionResult GeneratePDFforFinancialPolicy(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Subject subject = db.SubjectDatabase.Find(id);
 
 
@@ -1020,10 +966,6 @@ namespace BA_Portal.Controllers
 
         public ActionResult GeneratePDFforPayingatTimeofService(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Subject subject = db.SubjectDatabase.Find(id);
 
 
@@ -1078,12 +1020,7 @@ namespace BA_Portal.Controllers
 
         public ActionResult PassSubjecttoAllForms(int? id)
         {
-           
 
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Subject subject = db.SubjectDatabase.Find(id);
             TempData["PassSubjecttoAllForms"] = subject;
 
@@ -1095,7 +1032,7 @@ namespace BA_Portal.Controllers
         {
 
             Subject subject = db.SubjectDatabase.Find(id);
-            subject.LastSeen = DateTime.Now;
+            //subject.LastSeen = DateTime.Now;
  
             db.Entry(subject).State = EntityState.Modified;
             db.SaveChanges();

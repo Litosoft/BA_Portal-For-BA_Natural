@@ -33,10 +33,6 @@ namespace BA_Portal.Controllers
         // GET: SOAPForms/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             SOAPForm sOAPForm = db.SOAPFormDatabase.Find(id);
             if (sOAPForm == null)
             {
@@ -406,10 +402,6 @@ namespace BA_Portal.Controllers
         // GET: SOAPForms/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             SOAPForm sOAPForm = db.SOAPFormDatabase.Find(id);
             if (sOAPForm == null)
             {
@@ -437,10 +429,6 @@ namespace BA_Portal.Controllers
         // GET: SOAPForms/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             SOAPForm sOAPForm = db.SOAPFormDatabase.Find(id);
             if (sOAPForm == null)
             {
@@ -472,10 +460,6 @@ namespace BA_Portal.Controllers
 
         public ActionResult GeneratePDFforSOAP(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
 
             //ID is soapform ID. id is subject id
             //int ID = (int)TempData["SOAPFormID"];

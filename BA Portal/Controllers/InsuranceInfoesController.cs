@@ -23,10 +23,6 @@ namespace BA_Portal.Controllers
         // GET: InsuranceInfoes/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             InsuranceInfo insuranceInfo = db.InsuranceInfoDatabase.Find(id);
             if (insuranceInfo == null)
             {
@@ -72,10 +68,6 @@ namespace BA_Portal.Controllers
         // GET: InsuranceInfoes/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             InsuranceInfo insuranceInfo = db.InsuranceInfoDatabase.Find(id);
             if (insuranceInfo == null)
             {
@@ -104,10 +96,6 @@ namespace BA_Portal.Controllers
         // GET: InsuranceInfoes/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             InsuranceInfo insuranceInfo = db.InsuranceInfoDatabase.Find(id);
             if (insuranceInfo == null)
             {

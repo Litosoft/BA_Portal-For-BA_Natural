@@ -29,10 +29,6 @@ namespace BA_Portal.Controllers
         // GET: InsuranceVerifications/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             InsuranceVerification insuranceVerification = db.InsuranceVerificationDatabase.Find(id);
             if (insuranceVerification == null)
             {
@@ -71,10 +67,6 @@ namespace BA_Portal.Controllers
         // GET: InsuranceVerifications/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             InsuranceVerification insuranceVerification = db.InsuranceVerificationDatabase.Find(id);
             if (insuranceVerification == null)
             {
@@ -102,10 +94,6 @@ namespace BA_Portal.Controllers
         // GET: InsuranceVerifications/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             InsuranceVerification insuranceVerification = db.InsuranceVerificationDatabase.Find(id);
             if (insuranceVerification == null)
             {
