@@ -284,7 +284,9 @@ namespace BA_Portal.Controllers
                 {
                     //skip if logged in as guest
                     int ID = (int)TempData["DatabaseID_PI"];
+                    TempData["PractionerSignaturePIUnsigned"] = "true";
                     return RedirectToAction("GeneratePDFforPI", "Subjects", new { ID = ID });
+                    
                 }
 
                 return RedirectToAction("GetPractitionerSignaturePI");
@@ -399,6 +401,28 @@ namespace BA_Portal.Controllers
                 int ID = (int)TempData["DatabaseID_PI"];
                 return RedirectToAction("GeneratePDFforPI", "Subjects", new { ID = ID });
                 //return RedirectToAction("GeneratePDFforPI" + "/" + ID, "Subjects");
+            }
+
+            return View(signature);
+        }
+
+        public ActionResult GetPractitionerSignaturePIResign(int ID)
+        {
+            TempData["DatabaseID_PI_Resign_PDFID"] = ID;
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GetPractitionerSignaturePIResign([Bind(Include = "ID,MySignature")] Signature signature)
+        {
+
+            if (ModelState.IsValid)
+            {
+                TempData["SignaturePractionerresign"] = signature;
+                int ID = (int)TempData["DatabaseID_PI_Resign_PDFID"];
+                return RedirectToAction("ResignPIPractioner", "PDFs", new { ID = ID });
             }
 
             return View(signature);

@@ -288,9 +288,9 @@
       <DependentUpon>keepAlive.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\KeepAlive.cs" />
-    <Compile Include="Migrations\201706080942505_initial.cs" />
-    <Compile Include="Migrations\201706080942505_initial.Designer.cs">
-      <DependentUpon>201706080942505_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201708121659418_Initial2.cs" />
+    <Compile Include="Migrations\201708121659418_Initial2.Designer.cs">
+      <DependentUpon>201708121659418_Initial2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -693,6 +693,8 @@
     <Content Include="Views\Test\TESTFORM3.cshtml" />
     <Content Include="Views\PDFs\TakeAnotherAction_InsuranceInfo.cshtml" />
     <None Include="Views\Home\SessionCheck.cshtml" />
+    <Content Include="Views\Signatures\GetPractitionerSignaturePIResign.cshtml" />
+    <Content Include="Views\PDFs\NoPDFTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -709,8 +711,8 @@
     <Folder Include="PDF_handler\Scans\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706080942505_initial.resx">
-      <DependentUpon>201706080942505_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708121659418_Initial2.resx">
+      <DependentUpon>201708121659418_Initial2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

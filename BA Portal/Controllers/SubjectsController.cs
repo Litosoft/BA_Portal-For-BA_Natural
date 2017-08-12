@@ -414,7 +414,6 @@ namespace BA_Portal.Controllers
         {
             Subject subject = db.SubjectDatabase.Find(id);
 
-
             //create new pdf form from template
             var reader = new PdfReader(Server.MapPath("~/Content/PDFforPersonalInformation.pdf"));
             //var output = new MemoryStream();
@@ -568,11 +567,6 @@ namespace BA_Portal.Controllers
             Signature signatureclient = (Signature)TempData["SignatureClientPI"];
             Signature signaturepractioner = (Signature)TempData["SignaturePractioner"];
 
-            if (signatureclient == null || signaturepractioner == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
             Image x;
             System.Drawing.Image img;
             iTextSharp.text.Image sigImg;
@@ -624,23 +618,22 @@ namespace BA_Portal.Controllers
 
             }
 
-
-            if (signaturepractioner.MySignature != null)
+            //exception
+            if (signaturepractioner != null)
             {
-                    //second signature
+                if(signaturepractioner.MySignature != null)
+                {
+                        //second signature
                     x = (Bitmap)((new ImageConverter()).ConvertFrom(signaturepractioner.MySignature));
-                img = x;
-                img.Save(Server.MapPath("~/Content/signaturepractioner.png"), System.Drawing.Imaging.ImageFormat.Png);
-                sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signaturepractioner.png"));
-                sigImg.ScaleToFit(80, 80);
-                sigImg.SetAbsolutePosition(440, 50);
-                over = stamper.GetOverContent(1);
-                over.AddImage(sigImg);
-
+                    img = x;
+                    img.Save(Server.MapPath("~/Content/signaturepractioner.png"), System.Drawing.Imaging.ImageFormat.Png);
+                    sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Content/signaturepractioner.png"));
+                    sigImg.ScaleToFit(80, 80);
+                    sigImg.SetAbsolutePosition(440, 50);
+                    over = stamper.GetOverContent(1);
+                    over.AddImage(sigImg);
+                }
             }
-
-
-            
 
             //close and create new pdf
             // Form fields should no longer be editable
@@ -661,8 +654,10 @@ namespace BA_Portal.Controllers
             string tag = "Personal Information";
             string GroupingID = id.ToString();
 
+            string unsigned = (string)TempData["PractionerSignaturePIUnsigned"];
+
             //return View();
-            return RedirectToAction("SavePDFtoDatabase", "PDFs", new { path = path, tag = tag, GroupingID = GroupingID });
+            return RedirectToAction("SavePDFtoDatabase", "PDFs", new { path = path, tag = tag, GroupingID = GroupingID, unsigned = unsigned });
         }
 
 

@@ -18,6 +18,7 @@ namespace BA_Portal.Models
         //same as searchtag, but possibly more descriptive.
         public string Description { get; set; }
         public byte[] PDFinbytes { get; set; }
+        public bool Unsigned { get; set; }
 
     }
 

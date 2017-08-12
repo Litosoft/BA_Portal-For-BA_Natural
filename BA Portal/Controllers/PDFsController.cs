@@ -8,6 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using BA_Portal.Models;
 using System.IO;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.Drawing;
 
 namespace BA_Portal.Controllers
 {
@@ -125,7 +128,7 @@ namespace BA_Portal.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult SavePDFtoDatabase(string path, string tag, int GroupingID)
+        public ActionResult SavePDFtoDatabase(string path, string tag, int GroupingID, string unsigned = "false")
         {
 
             byte[] bytes = System.IO.File.ReadAllBytes(Server.MapPath(path));
@@ -135,6 +138,11 @@ namespace BA_Portal.Controllers
             PDFtoStore.GroupingID = GroupingID;
             PDFtoStore.Description = DateTime.Now.ToShortDateString() + " " + tag + " Generated at: " + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
             //PDFtoStore.Description = DateTime.Now.ToString();
+
+            if(unsigned == "true")
+            {
+                PDFtoStore.Unsigned = true;
+            }
 
             db.PDFDatabase.Add(PDFtoStore);
             db.SaveChanges();
@@ -206,26 +214,22 @@ namespace BA_Portal.Controllers
             return RedirectToAction("PatientInsuranceIndex", "InsuranceVerifications", new { id = passid });
 
         }
+       
+        public ActionResult NoPDFTemplate()
+        {
+
+            return View();
+        }
 
         public ActionResult TakeAnotherAction(int GroupingID)
         {
-            
-
             ViewBag.ID = GroupingID;
-
-         
-
             return View();
         }
 
         public ActionResult TakeAnotherAction_InsuranceInfo(int GroupingID)
         {
-
-
             ViewBag.ID = GroupingID;
-
-
-
             return View();
         }
 
@@ -264,6 +268,44 @@ namespace BA_Portal.Controllers
 
         }
 
+        public ActionResult ResignPIPractioner(int? id)
+        {
+            PDF pDF = db.PDFDatabase.Find(id);
+            System.IO.File.WriteAllBytes(Server.MapPath("~/PDF_handler/resignPIpdf.pdf"), pDF.PDFinbytes);
+
+            Signature signature = (Signature)TempData["SignaturePractionerresign"];
+            var reader = new PdfReader(Server.MapPath("~/PDF_handler/resignPIpdf.pdf"));
+            var output = new FileStream(Server.MapPath("~/PDF_handler/resignPIpdf_edit.pdf"), FileMode.Create);
+            var stamper = new PdfStamper(reader, output);
+
+            System.Drawing.Image x;
+            System.Drawing.Image img;
+            iTextSharp.text.Image sigImg;
+            PdfContentByte over;
+            x = (Bitmap)((new ImageConverter()).ConvertFrom(signature.MySignature));
+            img = x;
+            img.Save(Server.MapPath("~/PDF_handler/resignSig.png"), System.Drawing.Imaging.ImageFormat.Png);
+            sigImg = iTextSharp.text.Image.GetInstance(Server.MapPath("~/PDF_handler/resignSig.png"));
+            sigImg.ScaleToFit(80, 80);
+            sigImg.SetAbsolutePosition(440, 50);
+            over = stamper.GetOverContent(1);
+            over.AddImage(sigImg);
+            stamper.FormFlattening = true;
+            stamper.Close();
+            reader.Close();
+            byte[] bytes = System.IO.File.ReadAllBytes(Server.MapPath("~/PDF_handler/resignPIpdf_edit.pdf"));
+            pDF.PDFinbytes = bytes;
+
+            if (pDF.Unsigned == true)
+            {
+                pDF.Unsigned = false;
+            }
+
+            db.Entry(pDF).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Subjects");
+        }
 
         public ActionResult file(int id, string RedirectIdentifier)
         {

@@ -59,7 +59,7 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
-                <span style="color: orange">@Html.ActionLink("Generate PDF", "IncompleteSoapFormRedirecttocreatePDF", "SOAPForms", new { id = item.ID }, null)</span>
+                <span style="color: orange">@Html.ActionLink("Generate PDF", "NoPDFTemplate", "PDFs", new { id = item.GroupingID }, null)</span>
             </td>
         </tr>
     }
