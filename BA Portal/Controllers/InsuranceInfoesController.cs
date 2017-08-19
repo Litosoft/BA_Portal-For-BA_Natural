@@ -93,6 +93,33 @@ namespace BA_Portal.Controllers
             return View(insuranceInfo);
         }
 
+        public ActionResult AdminEdit(int? id)
+        {
+            InsuranceInfo insuranceInfo = db.InsuranceInfoDatabase.Find(id);
+            if (insuranceInfo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(insuranceInfo);
+        }
+
+        // POST: InsuranceInfoes/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AdminEdit([Bind(Include = "ID,GroupingID,PatientName,DOB,PrimaryInsurer,InsuranceHolder,GroupNumber,IDNumber,PlanName")] InsuranceInfo insuranceInfo)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(insuranceInfo).State = EntityState.Modified;
+                db.SaveChanges();
+                //return RedirectToAction("Index");
+                return RedirectToAction("Index", "Subjects");
+            }
+            return View(insuranceInfo);
+        }
+
         // GET: InsuranceInfoes/Delete/5
         public ActionResult Delete(int? id)
         {

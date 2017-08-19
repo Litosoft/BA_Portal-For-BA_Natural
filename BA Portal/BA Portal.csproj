@@ -352,6 +352,7 @@
     <Content Include="Content\logotransparent.gif" />
     <Content Include="Content\logoverytiny.gif" />
     <Content Include="Content\SignatureOnFile.png" />
+    <Content Include="Content\switch.png" />
     <Content Include="dhxscheduler.sample.mvc3.readme.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -560,6 +561,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.maskedinput.js" />
+    <Content Include="Scripts\jquery.multi-select.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -695,6 +697,8 @@
     <None Include="Views\Home\SessionCheck.cshtml" />
     <Content Include="Views\Signatures\GetPractitionerSignaturePIResign.cshtml" />
     <Content Include="Views\PDFs\NoPDFTemplate.cshtml" />
+    <Content Include="Views\Test\TESTFORM4.cshtml" />
+    <Content Include="Views\InsuranceInfoes\AdminEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

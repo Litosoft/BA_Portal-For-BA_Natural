@@ -12,6 +12,8 @@
 {
     @Html.AntiForgeryToken()
 
+    @Html.HiddenFor(model => model.GroupingID)
+
     <div class="form-horizontal">
         <h4>SOAP Form</h4>
         <hr />
