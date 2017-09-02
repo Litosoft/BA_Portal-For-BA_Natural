@@ -292,6 +292,10 @@
     <Compile Include="Migrations\201708121659418_Initial2.Designer.cs">
       <DependentUpon>201708121659418_Initial2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709021800245_OtherDescription_Subjects.cs" />
+    <Compile Include="Migrations\201709021800245_OtherDescription_Subjects.Designer.cs">
+      <DependentUpon>201709021800245_OtherDescription_Subjects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointment.cs" />
@@ -367,7 +371,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Browsers\qt.browser" />
-    <Content Include="Content\PDFforPersonalInformation.pdf" />
     <Content Include="PDF_handler\Elmo_Insurance_3_6_2017.pdf" />
     <Content Include="Content\PDFforInsurance.pdf" />
     <Content Include="Content\Disclaimer.pdf" />
@@ -376,6 +379,7 @@
     <Content Include="Content\FinancialPolicy.pdf" />
     <Content Include="Content\PDFSoap.pdf" />
     <Content Include="Handlers\keepAlive.ashx" />
+    <Content Include="Content\PDFforPersonalInformation.pdf" />
     <None Include="Properties\PublishProfiles\account.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DayPilot\daypilot-all.min.js" />
@@ -717,6 +721,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708121659418_Initial2.resx">
       <DependentUpon>201708121659418_Initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709021800245_OtherDescription_Subjects.resx">
+      <DependentUpon>201709021800245_OtherDescription_Subjects.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

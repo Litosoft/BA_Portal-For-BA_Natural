@@ -197,11 +197,10 @@
         </div>
 
         <div class="form-group col-sm-6 col-md-6 col-lg-6">
-            <div class="form-group col-sm-5 col-md-5 col-lg-5">
-@Html.LabelFor(model => model.HighBloodPressure, "High Blood Pressure", htmlAttributes: new { @class = "control-label col-md-2" })
-
+            <div class="form-group col-sm-3 col-md-3 col-lg-3">
+                @Html.LabelFor(model => model.HighBloodPressure, "High Blood Pressure", htmlAttributes: new { @class = "control-label col-md-2" })
             </div>
-            <div class="col-sm-1 col-md-1 col-lg-1">
+            <div class="col-sm-3 col-md-3 col-lg-3">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.HighBloodPressure)
                     @Html.ValidationMessageFor(model => model.HighBloodPressure, "", new { @class = "text-danger" })
@@ -347,15 +346,10 @@
                     <br />
 
         <div class="form-group col-sm-6 col-md-6 col-lg-6">
-
-
-           
-
-           
+            <div class="form-group col-sm-3 col-md-3 col-lg-3">
                 @Html.LabelFor(model => model.Pain, htmlAttributes: new { @class = "control-label col-md-2" })
-           
- 
-            <div class="col-sm-10 col-md-10 col-lg-10">
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Pain)
                     @Html.ValidationMessageFor(model => model.Pain, "", new { @class = "text-danger" })
@@ -372,8 +366,10 @@
         </div>
 
         <div class="form-group col-sm-6 col-md-6 col-lg-6">
-            @Html.LabelFor(model => model.Headache, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="form-group col-sm-3 col-md-3 col-lg-3">
+                @Html.LabelFor(model => model.Headache, htmlAttributes: new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Headache)
                     @Html.ValidationMessageFor(model => model.Headache, "", new { @class = "text-danger" })
@@ -390,12 +386,9 @@
         </div>
 
         <div class="form-group col-sm-6 col-md-6 col-lg-6">
-
             <div class="form-group col-sm-3 col-md-3 col-lg-3">
              @Html.LabelFor(model => model.CommonCold, "Common Cold", htmlAttributes: new { @class = "control-label col-md-2" })
-</div>
-
-            
+            </div>
             <div class="col-sm-3 col-md-3 col-lg-3">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.CommonCold)
@@ -405,12 +398,9 @@
         </div>
 
         <div class="form-group col-sm-6 col-md-6 col-lg-6">
-
-            
             <div class="form-group col-sm-3 col-md-3 col-lg-3">
-              @Html.LabelFor(model => model.HighBloodPressureConcern, "High Blood Pressure", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.HighBloodPressureConcern, "High Blood Pressure", htmlAttributes: new { @class = "control-label col-md-2" })
             </div>
-            
             <div class="col-sm-3 col-md-3 col-lg-3">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.HighBloodPressureConcern)
@@ -507,18 +497,22 @@
         </div>
 
         <div class="form-group col-sm-6 col-md-6 col-lg-6">
-
-
             <div class="form-group col-sm-3 col-md-3 col-lg-3">
                @Html.LabelFor(model => model.Other, htmlAttributes: new { @class = "control-label col-md-2" })
-
             </div>
-
             <div class="col-sm-3 col-md-3 col-lg-3">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Other)
                     @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
                 </div>
+            </div>
+        </div>
+
+        <div class="form-group col-sm-6 col-md-6 col-lg-6">
+            @Html.LabelFor(model => model.OtherDescription, "Describe Other:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OtherDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OtherDescription, "", new { @class = "text-danger" })
             </div>
         </div>
                     <br />

@@ -73,6 +73,7 @@ namespace BA_Portal.Models
         public bool Fertility { get; set; }
         public bool WeightControl { get; set; }
         public bool Other { get; set; }
+        public string OtherDescription { get; set; }
 
         public DateTime LastSeen { get; set; }
         public string MiddleName { get; set; }

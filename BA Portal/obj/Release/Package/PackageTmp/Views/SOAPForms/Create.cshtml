@@ -2,6 +2,7 @@
 @model BA_Portal.Models.SOAPForm
 
 <script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script> 
+<script type="text/javascript" src="~/Scripts/jquery.multi-select.js"></script>
 
 @{
     ViewBag.Title = "Create";
@@ -915,13 +916,6 @@
                     </select>
 
                 </div>
-
-            <div class="form-group col-sm-2 col-md-2 col-lg-2">
-                <textarea id="PulseRightPreview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
-
-            </div>
-
-
             </div>
 
 
@@ -970,13 +964,7 @@
 
                 </select>
 
-            </div>
-
-            <div class="form-group col-sm-2 col-md-2 col-lg-2">
-                <textarea id="PulseLeftPreview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
-
-            </div>
-            
+            </div>            
         </div>
 
         @*Assesment*@
@@ -1052,7 +1040,6 @@
                 </select>
 
             </div>
-
             <div class="form-group col-sm-2 col-md-2 col-lg-2">
                 <textarea id="DiagnosisPreview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
 
@@ -1067,81 +1054,9 @@
             </div>
             <div class="form-group col-sm-8 col-md-8 col-lg-8">
 
-                <!--
-                   <input id="Treatment" style="width:600px; height:200px;" readonly="readonly" type="text" name="TreatmentPrinciples1"> 
-                -->
                 <textarea id="Treatment" style="width:400px; height:100px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1">
                     </textarea>
-                    <br>
-
-                <!--
-                    <select multiple name="TreatmentPrinciples1">
-
-                    <option value=""> </option>
-                    <option value="Expel UB Dampness / Clear Heat">Expel UB Dampness / Clear Heat</option>
-                    <option value="Remove Blood stasis">Remove Blood stasis</option>
-                    <option value="Tonify HT Blood">Tonify HT Blood</option>
-                    <option value="Remove HT Blood stasis">Remove HT Blood stasis</option>
-                    <option value="Clear HT Fire">Clear HT Fire</option>
-                    <option value="Tonify HT Qi">Tonify HT Qi</option>
-                    <option value="Revive HT Yang">Revive HT Yang</option>
-                    <option value="Tonify HT Yang">Tonify HT Yang</option>
-                    <option value="Tonify HT Yin">Tonify HT Yin</option>
-                    <option value="Clear Heat in the Blood">Clear Heat in the Blood</option>
-                    <option value="Tonify KD Jing">Tonify KD Jing</option>
-                    <option value="Tonify KD Qi">Tonify KD Qi</option>
-                    <option value="Tonify KD Yang">Tonify KD Yang</option>
-                    <option value="Tonify KD Yin">Tonify KD Yin</option>
-                    <option value="Remove Blood Stasis from LI">Remove Blood Stasis from LI</option>
-                    <option value="Warm up LI">Warm up LI</option>
-                    <option value="Expel Dampness and Clear Heat from LI">Expel Dampness and Clear Heat from LI</option>
-                    <option value="Moisturize LI">Moisturize LI </option>
-                    <option value="Clear Damp Heat from LR & GB">Clear Damp Heat from LR & GB</option>
-                    <option value="Harmonize LV & SP">Harmonize LV & SP</option>
-                    <option value="Tonify LV Blood">Tonify LV Blood</option>
-                    <option value="Remove Blood Stasis from LV">Remove Blood Stasis from LV</option>
-                    <option value="Warms up LV to remove Stagnation">Warms up LV to remove Stagnation</option>
-                    <option value="Clear LV Fire">Clear LV Fire</option>
-                    <option value="Sooth LV Qi">Sooth LV Qi</option>
-                    <option value="Expel LV Wind">Expel LV Wind</option>
-                    <option value="Subdue LV Yang">Subdue LV Yang </option>
-                    <option value="Tonify LV Yin">Tonify LV Yin</option>
-                    <option value="Expel LU Dampness – Warm up LU">Expel LU Dampness – Warm up LU</option>
-                    <option value="Expel LU Dampness – Clear Heat in LU">Expel LU Dampness – Clear Heat in LU</option>
-                    <option value="Moisten LU">Moisten LU</option>
-                    <option value="Tonify LU Qi">Tonify LU Qi</option>
-                    <option value="Sooth LU Qi">Sooth LU Qi</option>
-                    <option value="Expel Wind – Warm up LU">Expel Wind – Warm up LU</option>
-                    <option value="Expel Wind – Clear Heat in LU">Expel Wind – Clear Heat in LU</option>
-                    <option value="Tonify LU Yin">Tonify LU Yin</option>
-                    <option value="Clear Phlegm & Fire">Clear Phlegm & Fire</option>
-                    <option value="Clear Phlegm">Clear Phlegm</option>
-                    <option value="Clear Phlegm, Remove Stagnation">Clear Phlegm, Remove Stagnation</option>
-                    <option value="Calm Shen">Calm Shen</option>
-                    <option value="Expel Damp Heat from SP & ST">Expel Damp Heat from SP & ST</option>
-                    <option value="Tonify SP Blood">Tonify SP Blood</option>
-                    <option value="Expel damp & warm up spleen">Expel damp & warm up spleen</option>
-                    <option value="Tonify SP">Tonify SP</option>
-                    <option value="Tonify SP Qi">Tonify SP Qi</option>
-                    <option value="Tonify & Raise SP Qi">Tonify & Raise SP Qi</option>
-                    <option value="Tonify SP Yang">Tonify SP Yang</option>
-                    <option value="Remove blood stagnation">Remove blood stagnation</option>
-
-                    <option value="Warm up ST">Warm up ST</option>
-                    <option value="Expel ST Dampness">Expel ST Dampness</option>
-                    <option value="Clear ST Fire">Clear ST Fire</option>
-                    <option value="Remove Food Stagnation">Remove Food Stagnation </option>
-                    <option value="Tonify ST Qi">Tonify ST Qi</option>
-                    <option value="Sooth ST Qi">Sooth ST Qi</option>
-                    <option value="Tonify ST Yin">Tonify ST Yin</option>
-                    <option value="Clear Summer Heat">Clear Summer Heat</option>
-
-
-
-                </select>
-                
-                    -->
-                
+                    <br>               
 
             </div>
         </div>
@@ -1172,10 +1087,6 @@
 
             </div>
 
-            <div class="form-group col-sm-2 col-md-2 col-lg-2">
-                <textarea id="PlanOfTreatmentPreview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
-
-            </div>
 
         </div>
 
@@ -1202,7 +1113,7 @@
 
             <div class="form-group col-sm-8 col-md-8 col-lg-8">
                 <div> <br />
-                    <select style="width:150px;" multiple name="TongueBodyShape1">
+                    <select style="width:150px;" multiple name="TongueBodyShape1" id="TongueBodyShape">
                         <option value=""></option>
                         <option value="Cracked">Cracked</option>
                         <option value="Deviated">Deviated</option>
@@ -1238,7 +1149,7 @@
                         <br />
          
 
-                        <select style="width:150px;" multiple name="TongueBodyColor1">
+                        <select style="width:150px;" multiple name="TongueBodyColor1" id="TongueBodyColor">
 
 
                             <option value=""></option>
@@ -1266,7 +1177,7 @@
                 <div class="form-group col-sm-8 col-md-8 col-lg-8">
                     <div>
                         <br />
-                        <select style="width:150px;" multiple name="TongueCoating1">
+                        <select style="width:150px;" multiple name="TongueCoating1" id="TongueCoating">
                             <option value=""></option>
                             <option value="Thin">Thin</option>
                             <option value="Thick">Thick</option>
@@ -1292,7 +1203,7 @@
                 <div class="form-group col-sm-8 col-md-8 col-lg-8">
                     <div>
                         <br />
-                        <select style="width:150px;" multiple name="CoatColoration1">
+                        <select style="width:150px;" multiple name="CoatColoration1" id="CoatColoration">
                             <option value=""></option>
                             <option value="White">White</option>
                             <option value="Yellow">Yellow</option>
@@ -1316,7 +1227,7 @@
                 <div class="form-group col-sm-8 col-md-8 col-lg-8">
                     <div>
                         <br />
-                        <select style="width:150px;" multiple name="CoatRooting1">
+                        <select style="width:150px;" multiple name="CoatRooting1" id="CoatRooting">
                             <option value=""></option>
                             <option value="Rooted">Rooted</option>
                             <option value="Rootless">Rootless</option>
@@ -1506,14 +1417,14 @@
                         <option value="SP-21">SP-21</option>
                         <option value=""> </option>
                         <option value="HT-1">HT-1</option>
-                        <option value="HT-2">HT-1</option>
-                        <option value="HT-3">HT-1</option>
-                        <option value="HT-4">HT-1</option>
-                        <option value="HT-5">HT-1</option>
-                        <option value="HT-6">HT-1</option>
-                        <option value="HT-7">HT-1</option>
-                        <option value="HT-8">HT-1</option>
-                        <option value="HT-9">HT-1</option>
+                        <option value="HT-2">HT-2</option>
+                        <option value="HT-3">HT-3</option>
+                        <option value="HT-4">HT-4</option>
+                        <option value="HT-5">HT-5</option>
+                        <option value="HT-6">HT-6</option>
+                        <option value="HT-7">HT-7</option>
+                        <option value="HT-8">HT-8</option>
+                        <option value="HT-9">HT-9</option>
                         <option value=""> </option>
                         <option value="SI-1">SI-1</option>
                         <option value="SI-2">SI-2</option>
@@ -1813,16 +1724,12 @@
                         <option value="M-UE-48">M-UE-48</option>
                         <option value=""> </option>
                         <option value="M-LE-8">M-LE-8</option>
-                        <option value="M-LE-13">M-LE-8</option>
-                        <option value="M-LE-16">M-LE-8</option>
-                        <option value="M-LE-23">M-LE-8</option>
-                        <option value="M-LE-27">M-LE-8</option>
-                        <option value="M-LE-34">M-LE-8</option>
+                        <option value="M-LE-13">M-LE-13</option>
+                        <option value="M-LE-16">M-LE-16</option>
+                        <option value="M-LE-23">M-LE-23</option>
+                        <option value="M-LE-27">M-LE-27</option>
+                        <option value="M-LE-34">M-LE-34</option>
                     </select>
-                </div>
-
-                <div class="form-group col-sm-2 col-md-2 col-lg-2">
-                    <textarea id="NSet1Preview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
                 </div>
      
                 <br />
@@ -1985,14 +1892,14 @@
                         <option value="SP-21">SP-21</option>
                         <option value=""> </option>
                         <option value="HT-1">HT-1</option>
-                        <option value="HT-2">HT-1</option>
-                        <option value="HT-3">HT-1</option>
-                        <option value="HT-4">HT-1</option>
-                        <option value="HT-5">HT-1</option>
-                        <option value="HT-6">HT-1</option>
-                        <option value="HT-7">HT-1</option>
-                        <option value="HT-8">HT-1</option>
-                        <option value="HT-9">HT-1</option>
+                        <option value="HT-2">HT-2</option>
+                        <option value="HT-3">HT-3</option>
+                        <option value="HT-4">HT-4</option>
+                        <option value="HT-5">HT-5</option>
+                        <option value="HT-6">HT-6</option>
+                        <option value="HT-7">HT-7</option>
+                        <option value="HT-8">HT-8</option>
+                        <option value="HT-9">HT-9</option>
                         <option value=""> </option>
                         <option value="SI-1">SI-1</option>
                         <option value="SI-2">SI-2</option>
@@ -2292,16 +2199,12 @@
                         <option value="M-UE-48">M-UE-48</option>
                         <option value=""> </option>
                         <option value="M-LE-8">M-LE-8</option>
-                        <option value="M-LE-13">M-LE-8</option>
-                        <option value="M-LE-16">M-LE-8</option>
-                        <option value="M-LE-23">M-LE-8</option>
-                        <option value="M-LE-27">M-LE-8</option>
-                        <option value="M-LE-34">M-LE-8</option>
+                        <option value="M-LE-13">M-LE-13</option>
+                        <option value="M-LE-16">M-LE-16</option>
+                        <option value="M-LE-23">M-LE-23</option>
+                        <option value="M-LE-27">M-LE-27</option>
+                        <option value="M-LE-34">M-LE-34</option>
                     </select>
-                </div>
-  
-                <div class="form-group col-sm-2 col-md-2 col-lg-2">
-                    <textarea id="NSet2Preview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
                 </div>
 
             </div>
@@ -2463,14 +2366,14 @@
                         <option value="SP-21">SP-21</option>
                         <option value=""> </option>
                         <option value="HT-1">HT-1</option>
-                        <option value="HT-2">HT-1</option>
-                        <option value="HT-3">HT-1</option>
-                        <option value="HT-4">HT-1</option>
-                        <option value="HT-5">HT-1</option>
-                        <option value="HT-6">HT-1</option>
-                        <option value="HT-7">HT-1</option>
-                        <option value="HT-8">HT-1</option>
-                        <option value="HT-9">HT-1</option>
+                        <option value="HT-2">HT-2</option>
+                        <option value="HT-3">HT-3</option>
+                        <option value="HT-4">HT-4</option>
+                        <option value="HT-5">HT-5</option>
+                        <option value="HT-6">HT-6</option>
+                        <option value="HT-7">HT-7</option>
+                        <option value="HT-8">HT-8</option>
+                        <option value="HT-9">HT-9</option>
                         <option value=""> </option>
                         <option value="SI-1">SI-1</option>
                         <option value="SI-2">SI-2</option>
@@ -2770,16 +2673,13 @@
                         <option value="M-UE-48">M-UE-48</option>
                         <option value=""> </option>
                         <option value="M-LE-8">M-LE-8</option>
-                        <option value="M-LE-13">M-LE-8</option>
-                        <option value="M-LE-16">M-LE-8</option>
-                        <option value="M-LE-23">M-LE-8</option>
-                        <option value="M-LE-27">M-LE-8</option>
-                        <option value="M-LE-34">M-LE-8</option>
+                        <option value="M-LE-13">M-LE-13</option>
+                        <option value="M-LE-16">M-LE-16</option>
+                        <option value="M-LE-23">M-LE-23</option>
+                        <option value="M-LE-27">M-LE-27</option>
+                        <option value="M-LE-34">M-LE-34</option>
                     </select>
                 </div>
-                    <div class="form-group col-sm-2 col-md-2 col-lg-2">
-                        <textarea id="NSet3Preview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
-                    </div>
       
 
 
@@ -2942,14 +2842,14 @@
                         <option value="SP-21">SP-21</option>
                         <option value=""> </option>
                         <option value="HT-1">HT-1</option>
-                        <option value="HT-2">HT-1</option>
-                        <option value="HT-3">HT-1</option>
-                        <option value="HT-4">HT-1</option>
-                        <option value="HT-5">HT-1</option>
-                        <option value="HT-6">HT-1</option>
-                        <option value="HT-7">HT-1</option>
-                        <option value="HT-8">HT-1</option>
-                        <option value="HT-9">HT-1</option>
+                        <option value="HT-2">HT-2</option>
+                        <option value="HT-3">HT-3</option>
+                        <option value="HT-4">HT-4</option>
+                        <option value="HT-5">HT-5</option>
+                        <option value="HT-6">HT-6</option>
+                        <option value="HT-7">HT-7</option>
+                        <option value="HT-8">HT-8</option>
+                        <option value="HT-9">HT-9</option>
                         <option value=""> </option>
                         <option value="SI-1">SI-1</option>
                         <option value="SI-2">SI-2</option>
@@ -3249,15 +3149,12 @@
                         <option value="M-UE-48">M-UE-48</option>
                         <option value=""> </option>
                         <option value="M-LE-8">M-LE-8</option>
-                        <option value="M-LE-13">M-LE-8</option>
-                        <option value="M-LE-16">M-LE-8</option>
-                        <option value="M-LE-23">M-LE-8</option>
-                        <option value="M-LE-27">M-LE-8</option>
-                        <option value="M-LE-34">M-LE-8</option>
+                        <option value="M-LE-13">M-LE-13</option>
+                        <option value="M-LE-16">M-LE-16</option>
+                        <option value="M-LE-23">M-LE-23</option>
+                        <option value="M-LE-27">M-LE-27</option>
+                        <option value="M-LE-34">M-LE-34</option>
                     </select>
-                </div>
-                <div class="form-group col-sm-2 col-md-2 col-lg-2">
-                    <textarea id="NSet4Preview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
                 </div>
 
 
@@ -3421,14 +3318,14 @@
                         <option value="SP-21">SP-21</option>
                         <option value=""> </option>
                         <option value="HT-1">HT-1</option>
-                        <option value="HT-2">HT-1</option>
-                        <option value="HT-3">HT-1</option>
-                        <option value="HT-4">HT-1</option>
-                        <option value="HT-5">HT-1</option>
-                        <option value="HT-6">HT-1</option>
-                        <option value="HT-7">HT-1</option>
-                        <option value="HT-8">HT-1</option>
-                        <option value="HT-9">HT-1</option>
+                        <option value="HT-2">HT-2</option>
+                        <option value="HT-3">HT-3</option>
+                        <option value="HT-4">HT-4</option>
+                        <option value="HT-5">HT-5</option>
+                        <option value="HT-6">HT-6</option>
+                        <option value="HT-7">HT-7</option>
+                        <option value="HT-8">HT-8</option>
+                        <option value="HT-9">HT-9</option>
                         <option value=""> </option>
                         <option value="SI-1">SI-1</option>
                         <option value="SI-2">SI-2</option>
@@ -3728,20 +3625,13 @@
                         <option value="M-UE-48">M-UE-48</option>
                         <option value=""> </option>
                         <option value="M-LE-8">M-LE-8</option>
-                        <option value="M-LE-13">M-LE-8</option>
-                        <option value="M-LE-16">M-LE-8</option>
-                        <option value="M-LE-23">M-LE-8</option>
-                        <option value="M-LE-27">M-LE-8</option>
-                        <option value="M-LE-34">M-LE-8</option>
+                        <option value="M-LE-13">M-LE-13</option>
+                        <option value="M-LE-16">M-LE-16</option>
+                        <option value="M-LE-23">M-LE-23</option>
+                        <option value="M-LE-27">M-LE-27</option>
+                        <option value="M-LE-34">M-LE-34</option>
                     </select>
                 </div>
-                <div class="form-group col-sm-2 col-md-2 col-lg-2">
-                    <textarea id="NSet5Preview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
-                </div>
-        
-
-
-
             </div>
             <br />
 
@@ -3901,14 +3791,14 @@
                         <option value="SP-21">SP-21</option>
                         <option value=""> </option>
                         <option value="HT-1">HT-1</option>
-                        <option value="HT-2">HT-1</option>
-                        <option value="HT-3">HT-1</option>
-                        <option value="HT-4">HT-1</option>
-                        <option value="HT-5">HT-1</option>
-                        <option value="HT-6">HT-1</option>
-                        <option value="HT-7">HT-1</option>
-                        <option value="HT-8">HT-1</option>
-                        <option value="HT-9">HT-1</option>
+                        <option value="HT-2">HT-2</option>
+                        <option value="HT-3">HT-3</option>
+                        <option value="HT-4">HT-4</option>
+                        <option value="HT-5">HT-5</option>
+                        <option value="HT-6">HT-6</option>
+                        <option value="HT-7">HT-7</option>
+                        <option value="HT-8">HT-8</option>
+                        <option value="HT-9">HT-9</option>
                         <option value=""> </option>
                         <option value="SI-1">SI-1</option>
                         <option value="SI-2">SI-2</option>
@@ -4208,18 +4098,13 @@
                         <option value="M-UE-48">M-UE-48</option>
                         <option value=""> </option>
                         <option value="M-LE-8">M-LE-8</option>
-                        <option value="M-LE-13">M-LE-8</option>
-                        <option value="M-LE-16">M-LE-8</option>
-                        <option value="M-LE-23">M-LE-8</option>
-                        <option value="M-LE-27">M-LE-8</option>
-                        <option value="M-LE-34">M-LE-8</option>
+                        <option value="M-LE-13">M-LE-13</option>
+                        <option value="M-LE-16">M-LE-16</option>
+                        <option value="M-LE-23">M-LE-23</option>
+                        <option value="M-LE-27">M-LE-27</option>
+                        <option value="M-LE-34">M-LE-34</option>
                     </select>
                 </div>
-                <div class="form-group col-sm-2 col-md-2 col-lg-2">
-                    <textarea id="NSet6Preview" style="width:400px; height:50px; background-color:lemonchiffon;" readonly="readonly" type="text" name="TreatmentPrinciples1"></textarea>
-                </div>
-          
-
 
             </div>
             <br />
@@ -4987,5 +4872,50 @@ $(document).ready(function(){
 
     });
 });
+</script>
+
+<script>
+    $('#PulseRight').multiSelect()
+</script>
+<script>
+    $('#PulseLeft').multiSelect()
+</script>
+<script>
+    $('#PlanOfTreatment').multiSelect()
+</script>
+<script>
+    $('#TongueBodyShape').multiSelect()
+</script>
+<script>
+    $('#TongueBodyColor').multiSelect()
+</script>
+<script>
+    $('#TongueCoating').multiSelect()
+</script>
+<script>
+    $('#CoatColoration').multiSelect()
+</script>
+<script>
+    $('#CoatRooting').multiSelect()
+</script>
+
+
+<script>
+    $('#NSet1').multiSelect()
+</script>
+<script>
+    $('#NSet2').multiSelect()
+</script>
+<script>
+    $('#NSet3').multiSelect()
+</script>
+<script>
+    $('#NSet4').multiSelect()
+</script>
+<script>
+    $('#NSet5').multiSelect()
+</script>
+<script>
+    $('#NSet6').multiSelect()
 </script>
 

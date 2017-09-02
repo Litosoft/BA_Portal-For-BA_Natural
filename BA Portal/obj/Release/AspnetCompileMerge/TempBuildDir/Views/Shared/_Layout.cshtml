@@ -62,13 +62,15 @@
         <ul class="nav navbar-nav">
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><em>Backend Management</em> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Debugging <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     @if (ViewContext.HttpContext.User.IsInRole("CanManageUsers"))
     {
                         <li>@Html.ActionLink("Manage PDFs", "Index", "PDFs")</li>
                         <li>@Html.ActionLink("Manage Signatures", "Index", "Signatures")</li>
                         <li>@Html.ActionLink("Manage SoapForms", "Index", "SOAPForms")</li>
+                        <li>@Html.ActionLink("Manage Insurance Verification", "Index", "InsuranceVerifications")</li>
+                        <li>@Html.ActionLink("Manage Insurance Info", "Index", "InsuranceInfoes")</li>
                         //<li>@Html.ActionLink("Manage Practioners", "Index", "Practioner")</li>
 
                     }
@@ -103,6 +105,7 @@
 
     <div class="container body-content">
         @RenderBody()
+        <br />
         <hr />
         <footer>
             <br /><br /><br />
@@ -115,7 +118,7 @@
                 </div>
                 <div  class="col-sm-2 col-md-2 col-lg-2">
                     <font color="lightgreen">
-                        Version: 1.317
+                        Version: 1.318
                     </font>
                 </div>
             </div>

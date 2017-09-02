@@ -71,7 +71,7 @@ namespace BA_Portal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,MiddleName,LastName,DOB,Male,Female,Address,City,ZIP,PhoneHome,PhoneCell,Email,EmergencyContact,EmergencyContactPhone,EmergencyContactRelationship,ReferredBy,DateCreated,Allergy,AllergyDescription,HighBloodPressure,LowBloodPressure,HeartCondition,Diabetes,Anemia,HighCholesterol,Pacemaker,Epilepsy,Pregnant,Cancer,STD,Pain,PainDescription,Headache,HeadacheDescription,CommonCold,HighBloodPressureConcern,Stress,Depression,Sleep,Menstruation,Fertility,WeightControl,Other")] Subject subject)
+        public ActionResult Create([Bind(Include = "ID,Name,MiddleName,LastName,DOB,Male,Female,Address,City,ZIP,PhoneHome,PhoneCell,Email,EmergencyContact,EmergencyContactPhone,EmergencyContactRelationship,ReferredBy,DateCreated,Allergy,AllergyDescription,HighBloodPressure,LowBloodPressure,HeartCondition,Diabetes,Anemia,HighCholesterol,Pacemaker,Epilepsy,Pregnant,Cancer,STD,Pain,PainDescription,Headache,HeadacheDescription,CommonCold,HighBloodPressureConcern,Stress,Depression,Sleep,Menstruation,Fertility,WeightControl,Other,OtherDescription")] Subject subject)
         {
             if (ModelState.IsValid)
             {
@@ -123,6 +123,11 @@ namespace BA_Portal.Controllers
                 {
                     subject.HeadacheDescription = subject.HeadacheDescription.ToUpper();
                 }
+                if (subject.OtherDescription != null)
+                {
+                    subject.OtherDescription = subject.OtherDescription.ToUpper();
+                }
+
 
                 db.SubjectDatabase.Add(subject);
                 db.SaveChanges();
@@ -152,7 +157,7 @@ namespace BA_Portal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,DateCreated,LastSeen,Name,MiddleName,LastName,DOB,Male,Female,Address,City,ZIP,PhoneHome,PhoneCell,Email,EmergencyContact,EmergencyContactPhone,EmergencyContactRelationship,ReferredBy,DateCreated,Allergy,AllergyDescription,HighBloodPressure,LowBloodPressure,HeartCondition,Diabetes,Anemia,HighCholesterol,Pacemaker,Epilepsy,Pregnant,Cancer,STD,Pain,PainDescription,Headache,HeadacheDescription,CommonCold,HighBloodPressureConcern,Stress,Depression,Sleep,Menstruation,Fertility,WeightControl,Other")] Subject subject)
+        public ActionResult Edit([Bind(Include = "ID,DateCreated,LastSeen,Name,MiddleName,LastName,DOB,Male,Female,Address,City,ZIP,PhoneHome,PhoneCell,Email,EmergencyContact,EmergencyContactPhone,EmergencyContactRelationship,ReferredBy,DateCreated,Allergy,AllergyDescription,HighBloodPressure,LowBloodPressure,HeartCondition,Diabetes,Anemia,HighCholesterol,Pacemaker,Epilepsy,Pregnant,Cancer,STD,Pain,PainDescription,Headache,HeadacheDescription,CommonCold,HighBloodPressureConcern,Stress,Depression,Sleep,Menstruation,Fertility,WeightControl,Other, OtherDescription")] Subject subject)
         {
             if (ModelState.IsValid)
             {
@@ -442,6 +447,7 @@ namespace BA_Portal.Controllers
             //headache description
             stamper.AcroFields.SetField("HeadacheLocation", subject.HeadacheDescription);
             stamper.AcroFields.SetField("AllergyDescription", subject.AllergyDescription);
+            stamper.AcroFields.SetField("OtherDescription", subject.OtherDescription);
 
 
 

@@ -278,3 +278,4 @@ C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\bin\System.Xml.Linq.dll
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\obj\Debug\BA_Portal.Migrations.Initial2.resources
 C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\obj\Debug\BA Portal.csproj.GenerateResource.Cache
+C:\Users\Tyler Loeper\Documents\Visual Studio 2015\Projects\BA-Portal\BA Portal\obj\Debug\BA_Portal.Migrations.OtherDescription_Subjects.resources
