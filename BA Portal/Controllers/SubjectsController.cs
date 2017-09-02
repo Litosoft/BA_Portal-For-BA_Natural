@@ -23,7 +23,7 @@ namespace BA_Portal.Controllers
         {
             if (User.IsInRole("Guest"))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home", new { thanks = 1 });
             }
 
             var ClientsSelected = from m in db.SubjectDatabase

@@ -10,8 +10,9 @@ namespace BA_Portal.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int thanks=0)
         {
+            ViewBag.Thanks = thanks;
             return View();
         }
 
