@@ -11,17 +11,28 @@
     <img src="~/Content/logotransparent.gif" />
 
 </div>
+@if (ViewBag.Thanks == 1)
+{
+    <div>
+        <h2>Thanks for signing up!</h2>
+    </div>
+}
+
 
 <div align="center">
 
-@if (ViewContext.HttpContext.User.IsInRole("Guest"))
+@if (ViewContext.HttpContext.User.IsInRole("Guest") && ViewBag.Thanks != 1)
 {
     <h2>
-        <strong>@Html.ActionLink("New Patient", "Create", "Subjects", new { }, null)</strong>
+        <strong>@Html.ActionLink("New Patient", "Create", "Subjects", new { }, new { @class = "btn-block btn-success btn-lg" })</strong>
     </h2>
+}
 
-
-
+@if (ViewContext.HttpContext.User.IsInRole("Guest") && ViewBag.Thanks == 1)
+{
+    <h2>
+        <strong>@Html.ActionLink("Finish", "Index", "Home", new { }, new { @class = "btn-block btn-success btn-lg" })</strong>
+    </h2>
 }
 
 </div>

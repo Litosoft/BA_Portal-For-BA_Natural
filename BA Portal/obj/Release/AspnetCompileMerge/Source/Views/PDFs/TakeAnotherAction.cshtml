@@ -4,14 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 } 
 
-<h3>Please also sign a consent form</h3> 
-<div >
-    <h3>@Html.ActionLink("Continue", "CaptureIDandRedirectforInsurance", "Signatures", new { id = ViewBag.ID },null) </h3>
-    
-        @*
-        <h2>@Html.ActionLink("No", "PassSubjecttoAllForms", "Subjects", new { id = ViewBag.ID }, null)</h2>
-        *@
-    
-
-
+<h2>Please also sign a <u>Consent Form</u>.</h2> 
+<div align="center">
+    <br />
+    <h2>
+        <strong>
+            @Html.ActionLink("Continue", "CaptureIDandRedirectforInsurance", "Signatures", new { id = ViewBag.ID }, new { @class = "btn-block btn-success btn-lg" })
+        </strong>
+    </h2>
 </div>

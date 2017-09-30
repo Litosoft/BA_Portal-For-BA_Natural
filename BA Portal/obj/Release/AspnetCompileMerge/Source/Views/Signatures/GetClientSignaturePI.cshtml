@@ -13,9 +13,11 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-
         <hr />
-        <input type="checkbox" name="SignatureOnFile" value="True"> Check this box if the signature is on file.<br>
+        @if (!ViewContext.HttpContext.User.IsInRole("Guest"))
+        {
+            <input type="checkbox" name="SignatureOnFile" value="True"> <span>Check this box if the signature is on file.</span><br>
+        }
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

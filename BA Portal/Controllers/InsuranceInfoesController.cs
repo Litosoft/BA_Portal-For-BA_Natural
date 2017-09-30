@@ -15,6 +15,14 @@ namespace BA_Portal.Controllers
         private InsuranceInfoDbContext db = new InsuranceInfoDbContext();
 
         // GET: InsuranceInfoes
+        public ActionResult GenerateIVPartial(int id)
+        {
+            
+            InsuranceInfo insuranceInfo = db.InsuranceInfoDatabase.Find(id);
+            TempData["insuranceInfo"] = insuranceInfo;
+            return RedirectToAction("GeneratePDFforIV", "InsuranceVerifications", new { id = id });
+        }
+
         public ActionResult Index()
         {
             return View(db.InsuranceInfoDatabase.ToList());

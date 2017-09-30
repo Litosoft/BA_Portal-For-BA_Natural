@@ -4,12 +4,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 } 
 
-<h3>Would you like to add your insurance information?</h3>
-<div>
-    <h2>@Html.ActionLink("Yes", "Create", "InsuranceInfoes", new { id = ViewBag.ID }, null)</h2>
+<h2>Would you like to add your <u>Insurance Information</u>?</h2>
+<br />
+<div align="center" class="form-group col-sm-4 col-md-4 col-lg-4">
+    <h2>
+        <strong>
+            @Html.ActionLink("Yes", "Create", "InsuranceInfoes", new { id = ViewBag.ID }, new { @class = "btn-block btn-success btn-lg" })
+        </strong>
+    
+    </h2>
 
 
-    <h2>@Html.ActionLink("No", "Index", "Home", new { id = ViewBag.ID }, null)</h2>
+    <h2>
+        <strong>
+            @Html.ActionLink("No", "Index", "Home", new { thanks = 1 }, new { @class = "btn-block btn-success btn-lg" })
+        </strong>
+    
+    </h2>
 
 
 

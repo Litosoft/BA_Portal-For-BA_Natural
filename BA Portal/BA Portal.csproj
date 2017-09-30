@@ -380,6 +380,7 @@
     <Content Include="Content\PDFSoap.pdf" />
     <Content Include="Handlers\keepAlive.ashx" />
     <Content Include="Content\PDFforPersonalInformation.pdf" />
+    <Content Include="Content\PDFInsurance_Verification.pdf" />
     <None Include="Properties\PublishProfiles\account.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DayPilot\daypilot-all.min.js" />

@@ -460,17 +460,12 @@ namespace BA_Portal.Controllers
 
         public ActionResult GeneratePDFforSOAP(int? id)
         {
-
-            //ID is soapform ID. id is subject id
-            //int ID = (int)TempData["SOAPFormID"];
-            //int ID = id;
             SOAPForm sOAPFORM = db.SOAPFormDatabase.Find(id);
-
 
             //create new pdf form from template
             var reader = new PdfReader(Server.MapPath("~/Content/PDFSoap.pdf"));
-            //var output = new MemoryStream();
-            var output = new FileStream(Server.MapPath("~/PDF_handler/PDFSoap.pdf"), FileMode.Create);
+            var guidFilename = Guid.NewGuid();
+            var output = new FileStream(Server.MapPath("~/PDF_handler/" + guidFilename + ".pdf"), FileMode.Create);
             var stamper = new PdfStamper(reader, output);
 
             //fill header
@@ -542,8 +537,6 @@ namespace BA_Portal.Controllers
 
             stamper.AcroFields.SetField("PostTreatmentAssessment", sOAPFORM.PostTreatmentAssessment);
             stamper.AcroFields.SetField("Recommendations", sOAPFORM.Recomendations);
-
-
 
             //all checkboxes
             if (sOAPFORM.SymptomsChillsFeverNone == true)
@@ -756,15 +749,6 @@ namespace BA_Portal.Controllers
                 stamper.AcroFields.SetField("ThirstO", "205", true);
             }
 
-
-
-
-
-
-
-
-
-
             //put in signatures
             Signature signatureclient = (Signature)TempData["SignaturePractioner"];
 
@@ -772,7 +756,6 @@ namespace BA_Portal.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
 
             //first signature
             Image x = (Bitmap)((new ImageConverter()).ConvertFrom(signatureclient.MySignature));
@@ -787,18 +770,15 @@ namespace BA_Portal.Controllers
             PdfContentByte over = stamper.GetOverContent(3);
             over.AddImage(sigImg);
 
-
             stamper.FormFlattening = true;
 
             stamper.Close();
             reader.Close();
 
-            string path = "~/PDF_handler/PDFSoap.pdf";
+            string path = "~/PDF_handler/" + guidFilename + ".pdf";
             string tag = "SOAP";
-            //string GroupingID = id.ToString();
 
             //pick up subject grouping id from tempdata
-            //int groupingid = (int)TempData["MultiID"];
             int groupingid = sOAPFORM.GroupingID;
             string GroupingID = groupingid.ToString();
 
