@@ -125,7 +125,7 @@ namespace BA_Portal.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult GeneratePDFforIV(int? id)
+        public ActionResult GeneratePDFforIV(int id)
         {
             InsuranceVerification iVerification = db.InsuranceVerificationDatabase.Find(id);
             InsuranceInfo iInfo = (InsuranceInfo)TempData["insuranceInfo"];
@@ -138,30 +138,39 @@ namespace BA_Portal.Controllers
             var stamper = new PdfStamper(reader, output);
 
             //fill header
-            stamper.AcroFields.SetField("PatientName", iInfo.PatientName);
-            stamper.AcroFields.SetField("DOB", iInfo.DOB);
-            stamper.AcroFields.SetField("PolicyPlan", iInfo.PlanName);
-            stamper.AcroFields.SetField("PrimaryInsurerDOB", iInfo.DOB);
-            stamper.AcroFields.SetField("ID", iInfo.IDNumber);
-            stamper.AcroFields.SetField("Group_Number", iInfo.GroupNumber);
-            stamper.AcroFields.SetField("InsuranceCompanyName", iInfo.PrimaryInsurer);
+            if(iInfo != null)
+            {
+                stamper.AcroFields.SetField("PatientName", iInfo.PatientName);
+                stamper.AcroFields.SetField("DOB", iInfo.DOB);
+                stamper.AcroFields.SetField("PolicyPlan", iInfo.PlanName);
+                stamper.AcroFields.SetField("PrimaryInsurerDOB", iInfo.DOB);
+                stamper.AcroFields.SetField("ID", iInfo.IDNumber);
+                stamper.AcroFields.SetField("Group_Number", iInfo.GroupNumber);
+                stamper.AcroFields.SetField("InsuranceCompanyName", iInfo.PrimaryInsurer);
+            }
+
             stamper.AcroFields.SetField("InsurancePhone", " ");
             stamper.AcroFields.SetField("ElectronicPayer ID", " ");
             stamper.AcroFields.SetField("DateofVerification", " ");
             stamper.AcroFields.SetField("TimelyFilingRequirement", " ");
-            stamper.AcroFields.SetField("PrimaryInsurerName", iVerification.InsuranceCompany);
-            stamper.AcroFields.SetField("DeductibleAmount", iVerification.Deductibles);
-            stamper.AcroFields.SetField("Howmuchmet", iVerification.DeductiblesMet);
 
-            //all checkboxes
-            if (iVerification.NoCoInsurance == true)
+            if(iVerification != null)
             {
-                stamper.AcroFields.SetField("ChillsFeverNone", "200", true);
+                stamper.AcroFields.SetField("PrimaryInsurerName", iVerification.InsuranceCompany);
+                stamper.AcroFields.SetField("DeductibleAmount", iVerification.Deductibles);
+                stamper.AcroFields.SetField("Howmuchmet", iVerification.DeductiblesMet);
+
+                //all checkboxes
+                if (iVerification.NoCoInsurance == true)
+                {
+                    stamper.AcroFields.SetField("ChillsFeverNone", "200", true);
+                }
+                if (iVerification.OutOfNetworkCoverage == true)
+                {
+                    stamper.AcroFields.SetField("ChillsFeverS", "201", true);
+                }
             }
-            if (iVerification.OutOfNetworkCoverage == true)
-            {
-                stamper.AcroFields.SetField("ChillsFeverS", "201", true);
-            }
+
 
             stamper.FormFlattening = true;
 
@@ -170,11 +179,7 @@ namespace BA_Portal.Controllers
 
             string path = "~/PDF_handler/" + guidFilename + ".pdf";
             string tag = "Insurance_Verification";
-            //string GroupingID = id.ToString();
-
-            //pick up subject grouping id from tempdata
-            //int groupingid = (int)TempData["MultiID"];
-            int groupingid = iVerification.GroupingID;
+            int groupingid = id;
             string GroupingID = groupingid.ToString();
 
             //return View();
