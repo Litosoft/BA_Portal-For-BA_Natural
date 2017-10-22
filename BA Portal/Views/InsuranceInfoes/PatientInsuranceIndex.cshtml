@@ -71,7 +71,7 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID, groupingid = item.GroupingID }) |
                 <span style="color: orange">@Html.ActionLink("Generate PDF", "GenerateIVPartial", "InsuranceInfoes", new { id = item.GroupingID }, null)</span>
             </td>
         </tr>

@@ -39,30 +39,34 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OutOfNetworkCoverage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberOfTreatment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Limitations)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InsuranceCompany)
-            </td>
-            <td>
-                <span style="color: lightgreen">@Html.DisplayFor(modelItem => item.GroupingID)</span>
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
-                <span style="color: orange">@Html.ActionLink("Generate PDF", "GenerateIVPartial", "InsuranceInfoes", new { id = item.GroupingID }, null)</span>
-            </td>
-        </tr>
-    }
+            if (item.GroupingID == ViewBag.NotExclude)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OutOfNetworkCoverage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberOfTreatment)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Limitations)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InsuranceCompany)
+                    </td>
+                    <td>
+                        <span style="color: lightgreen">@Html.DisplayFor(modelItem => item.GroupingID)</span>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID, groupingid = item.GroupingID }) |
+                        <span style="color: orange">@Html.ActionLink("Generate PDF", "GenerateIVPartial", "InsuranceInfoes", new { id = item.GroupingID }, null)</span>
+                    </td>
+                </tr>
+            }
+
+            }
 
 </table>
 

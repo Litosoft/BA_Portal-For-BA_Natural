@@ -17,8 +17,8 @@ namespace BA_Portal.Controllers
         // GET: InsuranceInfoes
         public ActionResult GenerateIVPartial(int id)
         {
-            
-            InsuranceInfo insuranceInfo = db.InsuranceInfoDatabase.Find(id);
+            var DatabaseSelection = from x in db.InsuranceInfoDatabase where x.GroupingID == id select x;
+            InsuranceInfo insuranceInfo = DatabaseSelection.First();
             TempData["insuranceInfo"] = insuranceInfo;
             return RedirectToAction("GeneratePDFforIV", "InsuranceVerifications", new { id = id });
         }
@@ -142,13 +142,13 @@ namespace BA_Portal.Controllers
         // POST: InsuranceInfoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id, int groupingid)
         {
             InsuranceInfo insuranceInfo = db.InsuranceInfoDatabase.Find(id);
             db.InsuranceInfoDatabase.Remove(insuranceInfo);
             db.SaveChanges();
             //return RedirectToAction("Index");
-            return RedirectToAction("Index", "Subjects");
+            return RedirectToAction("PatientInsuranceIndex", "InsuranceInfoes", new { id = groupingid });
         }
 
         protected override void Dispose(bool disposing)

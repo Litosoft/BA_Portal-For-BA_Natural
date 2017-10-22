@@ -26,7 +26,7 @@ namespace BA_Portal
 
         
         //exception handler. remove this to see detailed exceptions, but they will crash the application.
-        
+        /*
         protected void Application_Error(object sender, EventArgs e)
         {
             Exception exception = Server.GetLastError();
@@ -37,7 +37,7 @@ namespace BA_Portal
             // Redirect somewhere or return an error code in case of web api
             Response.Redirect("/Account/Forbidden");
         }
-        
+        */
          
 
 

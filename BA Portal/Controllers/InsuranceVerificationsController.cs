@@ -23,9 +23,11 @@ namespace BA_Portal.Controllers
             return View(db.InsuranceVerificationDatabase.ToList());
         }
 
-        public ActionResult PatientInsuranceIndex(int id = -1)
+        public ActionResult PatientInsuranceIndex(int id = 0)
         {
             ViewBag.IDInsuranceInfoCreate = id;
+            var DatabaseSelection = from x in db.InsuranceVerificationDatabase where x.GroupingID == id select x;
+            ViewBag.NotExclude = id;
             return View(db.InsuranceVerificationDatabase.ToList());
         }
 
@@ -108,12 +110,12 @@ namespace BA_Portal.Controllers
         // POST: InsuranceVerifications/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id, int groupingid)
         {
             InsuranceVerification insuranceVerification = db.InsuranceVerificationDatabase.Find(id);
             db.InsuranceVerificationDatabase.Remove(insuranceVerification);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("PatientInsuranceIndex", "InsuranceVerifications", new { id = groupingid });
         }
 
         protected override void Dispose(bool disposing)
@@ -127,7 +129,8 @@ namespace BA_Portal.Controllers
 
         public ActionResult GeneratePDFforIV(int id)
         {
-            InsuranceVerification iVerification = db.InsuranceVerificationDatabase.Find(id);
+            var DatabaseSelection = from x in db.InsuranceVerificationDatabase where x.GroupingID == id select x;
+            InsuranceVerification iVerification = DatabaseSelection.First();
             InsuranceInfo iInfo = (InsuranceInfo)TempData["insuranceInfo"];
 
             //create new pdf form from template
