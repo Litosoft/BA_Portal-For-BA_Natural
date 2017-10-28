@@ -704,6 +704,8 @@
     <Content Include="Views\PDFs\NoPDFTemplate.cshtml" />
     <Content Include="Views\Test\TESTFORM4.cshtml" />
     <Content Include="Views\InsuranceInfoes\AdminEdit.cshtml" />
+    <Content Include="Views\Subjects\ActiveClientsScheduler.cshtml" />
+    <Content Include="Views\Subjects\CheckIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

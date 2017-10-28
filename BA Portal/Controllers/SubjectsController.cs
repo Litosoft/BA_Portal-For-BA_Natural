@@ -30,8 +30,6 @@ namespace BA_Portal.Controllers
                                   orderby m.LastName, m.Name   
                                   select m;
 
-        
-
                 if (!String.IsNullOrEmpty(searchString))
             {
                 ClientsSelected = from m in db.SubjectDatabase
@@ -40,12 +38,85 @@ namespace BA_Portal.Controllers
                                   select m;
             }
 
+            return View(ClientsSelected);
+        }
 
+        public ActionResult ActiveClientsScheduler()
+        {
+            if (User.IsInRole("Guest"))
+            {
+                return RedirectToAction("Index", "Home", new { thanks = 1 });
+            }
+            DateTime Yesterday = DateTime.Today.AddDays(-6);
+            var ClientsSelected = from m in db.SubjectDatabase
+                                  where m.LastSeen > Yesterday
+                                  orderby m.LastSeen descending
+                                  select m;
 
             return View(ClientsSelected);
+        }
+
+        public ActionResult CheckinAndFinish(int id = 0)
+        {   
+            Subject subject = db.SubjectDatabase.Find(id);
+            if(subject != null)
+            {
+            subject.LastSeen = DateTime.Now;
+            db.Entry(subject).State = EntityState.Modified;
+            db.SaveChanges();
+            }
+
+            return RedirectToAction("Index", "Home", new { thanks = 2 });
+        }
+
+        public ActionResult Checkin()
+        {
+            
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CheckIn(string firstname, string middlename, string lastname, string DOB = null)
+        {
+            var ClientsSelected = from m in db.SubjectDatabase
+                                    where m.Name == firstname && m.LastName == lastname
+                                    orderby m.LastSeen descending
+                                    select m;
+            if(DOB != null)
+            {
+                DateTime BirthDate = DateTime.Parse(DOB);
+                ClientsSelected = from m in db.SubjectDatabase
+                                      where m.Name == firstname && m.LastName == lastname && m.DOB.Year == BirthDate.Year && m.DOB.Month == BirthDate.Month
+                                      && m.DOB.Day == BirthDate.Day
+                                  orderby m.LastSeen descending
+                                      select m;
+            }
+  
 
 
-            //return View(db.SubjectDatabase.ToList());
+            int clientsSelected = ClientsSelected.Count();
+            if(clientsSelected == 1)
+            {
+                ViewBag.Message = "Is this You?";
+                ViewBag.AdditionalLookUp = false;
+                return View(ClientsSelected);
+            }
+            else if(clientsSelected > 1)
+            {
+                // Multiple Clients
+                ViewBag.Message = "You will need to provide additional Information.";
+                ViewBag.AdditionalLookUp = true;
+                return View();
+            }
+            else
+            {
+                // Not Found
+                ViewBag.Message = "This client was not found. An employee may need to check you in.";
+                ViewBag.AdditionalLookUp = false;
+                return View();
+            }
+
         }
 
         // GET: Subjects/Details/5
