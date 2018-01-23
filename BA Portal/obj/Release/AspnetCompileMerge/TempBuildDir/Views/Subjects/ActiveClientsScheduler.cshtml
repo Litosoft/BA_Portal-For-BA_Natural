@@ -1,0 +1,74 @@
+﻿@model IEnumerable<BA_Portal.Models.Subject>
+
+<script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Checked in clients</h1>
+<br /><br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            Checked In
+        </th>
+        <th>
+            Seen
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Name @item.LastName
+            </td>
+            <td>
+                @{
+                    DateTime now = DateTime.Today;
+                    int age = now.Year - item.DOB.Year;
+                    if (now < item.DOB.AddYears(age))
+                    {
+                        age--;
+                    }
+                    @age
+                }
+            </td>
+            <td>
+                @if (item.Male == true)
+                { @Html.DisplayNameFor(model => model.Male)}
+                else if (item.Female == true)
+                {@Html.DisplayNameFor(model => model.Female) }
+            </td>
+            <td>
+                @{
+                    string lastseen = item.LastSeen.ToShortDateString();
+                    @lastseen
+                }
+            </td>
+            <td>
+                ?
+            </td>
+            <td>
+                <strong> @Html.ActionLink("All Form(s)", "PassSubjecttoAllForms", "Subjects", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" }) </strong>
+
+            </td>
+        </tr>
+                    }
+
+</table>
+
+<br />

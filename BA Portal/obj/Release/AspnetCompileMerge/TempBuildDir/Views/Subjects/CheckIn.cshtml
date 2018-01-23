@@ -1,0 +1,87 @@
+﻿@model IEnumerable<BA_Portal.Models.Subject>
+
+@{
+    ViewBag.Title = "CheckIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Check In:</h1>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        <h4>Please input your details</h4>
+        <hr />
+
+        First Name @Html.TextBox("firstname", null, new { @class = "form-control" })
+        Middle Name @Html.TextBox("middlename", null, new { @class = "form-control" })
+        Last Name @Html.TextBox("lastname", null, new { @class = "form-control" })
+
+        @{
+            if (ViewBag.AdditionalLookUp == true)
+            {
+                <span>Date of Birth @Html.TextBox("DOB", null, new { @class = "form-control date" })</span>
+            }
+        }
+
+
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Look Up" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+            }
+
+@{
+
+
+    if (ViewBag.Message != null)
+    {
+        <hr />
+        <h4>@ViewBag.Message</h4>
+        <hr />
+        if (Model != null)
+        {
+            <table class="table">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Name @item.MiddleName @item.LastName
+                        </td>
+                        <td>
+                            @Html.ActionLink("Check In", "CheckinAndFinish", "Subjects", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        }
+
+    }
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    jQuery(function ($) {
+        $(".date").mask("99/99/9999", { placeholder: "mm/dd/yyyy" });
+    });
+</script>
