@@ -41,6 +41,28 @@ namespace BA_Portal.Controllers
             return View(ClientsSelected);
         }
 
+        public ActionResult QuickNotesIndex(string searchString = "This Default Search String is for Hippa Purposes")
+        {
+            if (User.IsInRole("Guest"))
+            {
+                return RedirectToAction("Index", "Home", new { thanks = 1 });
+            }
+
+            var ClientsSelected = from m in db.SubjectDatabase
+                                  orderby m.LastName, m.Name
+                                  select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                ClientsSelected = from m in db.SubjectDatabase
+                                  where m.Name == searchString || m.LastName == searchString || (m.Name + " " + m.LastName).Contains(searchString) || (m.PhoneCell).Contains(searchString)
+                                  orderby m.LastName, m.Name
+                                  select m;
+            }
+
+            return View(ClientsSelected);
+        }
+
         public ActionResult ActiveClientsScheduler()
         {
             if (User.IsInRole("Guest"))

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BA_Portal.Models.Subject>
+
+<script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script> 
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Quick Notes Lookup</h1> 
+<br /><br />
+
+@using (Html.BeginForm())
+{
+
+    <p>
+        <strong data-toggle="tooltip" title="Search by first, last name, or phone number. 
+Leave blank to load all patients.">Search @Html.TextBox("SearchString", null, new { @class = "form-control" }) </strong>
+        <input type="submit" value="Search" class="btn btn-primary btn-sm"/> <br /> <br />
+    </p>
+} <br />
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            Cell Phone
+ 
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Name @item.LastName 
+        </td>
+        <td>
+            @{ 
+                DateTime now = DateTime.Today;
+                int age = now.Year - item.DOB.Year;
+                if (now < item.DOB.AddYears(age))
+                {
+                    age--;
+                }
+                @age
+            }
+        </td>
+        <td>
+            @if (item.Male == true)
+            { @Html.DisplayNameFor(model => model.Male)}
+            else if (item.Female == true)
+            {@Html.DisplayNameFor(model => model.Female) }
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneCell)
+        </td>
+        <td>       
+            @Html.ActionLink("New Quick Note", "Index", "QuickNotes", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>
+
+<br />

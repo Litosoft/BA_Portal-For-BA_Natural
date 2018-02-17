@@ -1,0 +1,72 @@
+﻿@model BA_Portal.Models.QuickNote
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>QuickNote</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UniqueID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UniqueID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ReturnDateRecommended)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ReturnDateRecommended)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.HerbalSupplement)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.HerbalSupplement)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.OtherDetails)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.OtherDetails)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>
