@@ -15,6 +15,11 @@
     <ProjectView>ShowAllFiles</ProjectView>
     <IISExpressSSLPort>44399</IISExpressSSLPort>
     <NameOfLastUsedPublishProfile>account</NameOfLastUsedPublishProfile>
+    <Use64BitIISExpress />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
