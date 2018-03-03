@@ -553,6 +553,7 @@
     <Compile Include="Models\PDFtestClass.cs" />
     <Compile Include="Models\Practioner.cs" />
     <Compile Include="Models\QuickNote.cs" />
+    <Compile Include="Models\QuickSoapNote.cs" />
     <Compile Include="Models\SchedulerModel.cs" />
     <Compile Include="Models\Signature.cs" />
     <Compile Include="Models\SOAPForm.cs" />
