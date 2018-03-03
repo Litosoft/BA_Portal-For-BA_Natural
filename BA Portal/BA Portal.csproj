@@ -520,6 +520,7 @@
     <Compile Include="Controllers\NewFunctionTestsController.cs" />
     <Compile Include="Controllers\PDFsController.cs" />
     <Compile Include="Controllers\QuickNotesController.cs" />
+    <Compile Include="Controllers\QuickSoapNotesController.cs" />
     <Compile Include="Controllers\SignaturesController.cs" />
     <Compile Include="Controllers\SOAPFormsController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
@@ -953,6 +954,11 @@
     <Content Include="Views\QuickNotes\Edit.cshtml" />
     <Content Include="Views\QuickNotes\Index.cshtml" />
     <Content Include="Views\Subjects\QuickNotesIndex.cshtml" />
+    <Content Include="Views\QuickSoapNotes\Create.cshtml" />
+    <Content Include="Views\QuickSoapNotes\Delete.cshtml" />
+    <Content Include="Views\QuickSoapNotes\Details.cshtml" />
+    <Content Include="Views\QuickSoapNotes\Edit.cshtml" />
+    <Content Include="Views\QuickSoapNotes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

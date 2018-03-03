@@ -15,7 +15,6 @@
 @if (!ViewContext.HttpContext.User.IsInRole("Guest"))
 {
     <br /><br />
-    <h3>@Html.ActionLink("Add Quick Note(s)", "QuickNotesIndex", "Subjects", new { }, new { @class = "btn-info btn-lg" })</h3><br /><br />
 
     using (Html.BeginForm())
     {
@@ -27,8 +26,6 @@
         </h4>
     } <br />
 }
-
-
 
 
 @if (ViewBag.Thanks == 1)

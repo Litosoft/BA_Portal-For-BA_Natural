@@ -1,0 +1,153 @@
+﻿@model IEnumerable<BA_Portal.Models.QuickSoapNote>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniqueID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnDateRecommended)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HerbalSupplement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtherDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateSeen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPTcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedleSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ElectroStimulation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TreatmentTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PainScale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeedlesPerformed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SField)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OField)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AField)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PField)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ICD10CM_Entry1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ICD10CM_Entry2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ICD10CM_Entry3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ICD10CM_Entry4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ICD10CM_Entry5)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniqueID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReturnDateRecommended)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HerbalSupplement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtherDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateSeen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPTcode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedleSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ElectroStimulation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TreatmentTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PainScale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeedlesPerformed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SField)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OField)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AField)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PField)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ICD10CM_Entry1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ICD10CM_Entry2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ICD10CM_Entry3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ICD10CM_Entry4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ICD10CM_Entry5)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

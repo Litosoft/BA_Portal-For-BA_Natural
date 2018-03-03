@@ -1,0 +1,192 @@
+﻿@model BA_Portal.Models.QuickSoapNote
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>QuickSoapNote</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UniqueID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UniqueID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnDateRecommended)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnDateRecommended)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HerbalSupplement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HerbalSupplement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateSeen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateSeen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPTcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPTcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NeedleSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NeedleSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ElectroStimulation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ElectroStimulation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TreatmentTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TreatmentTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PainScale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PainScale)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NeedlesPerformed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NeedlesPerformed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SField)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SField)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OField)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OField)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AField)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AField)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PField)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PField)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ICD10CM_Entry1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ICD10CM_Entry1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ICD10CM_Entry2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ICD10CM_Entry2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ICD10CM_Entry3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ICD10CM_Entry3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ICD10CM_Entry4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ICD10CM_Entry4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ICD10CM_Entry5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ICD10CM_Entry5)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

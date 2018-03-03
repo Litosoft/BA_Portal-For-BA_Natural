@@ -7,7 +7,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
 <h1>Clients</h1> 
+@Html.ActionLink("Add Quick Note(s)", "QuickNotesIndex", "Subjects", new { }, new { @class = "btn-info btn-sm", @style = "float: right;" })<br />
 <span>For HIPAA purposes the patient list has been hidden. Please press search to load the patient list.</span>
 <br /><br />
 
@@ -16,7 +19,7 @@
 
     <p>
         <strong data-toggle="tooltip" title="Search by first, last name, or phone number. 
-Leave blank to load all patients.">Search @Html.TextBox("SearchString", null, new { @class = "form-control" }) </strong>
+Leave blank to load all patients.">Search @Html.TextBox("SearchString", null, new { @class = "form-control", @style = "width: 50% !important; max-width: 40% !important;" }) </strong>
         <input type="submit" value="Search" class="btn btn-primary btn-sm"/> <br /> <br />
     </p>
 } <br />
