@@ -56,7 +56,7 @@ namespace BA_Portal.BANaturalDAL
             }
             else if(SelectedDB == DBcontext_Options.QuickSoapNoteDbContext)
             {
-                 DbInUse = new QuickSoapNoteDbContext();
+                 DbInUse = new QuickSoapNotesDbContext();
             }
         }
 

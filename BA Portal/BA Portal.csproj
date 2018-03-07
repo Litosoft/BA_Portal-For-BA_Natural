@@ -519,7 +519,6 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewFunctionTestsController.cs" />
     <Compile Include="Controllers\PDFsController.cs" />
-    <Compile Include="Controllers\QuickNotesController.cs" />
     <Compile Include="Controllers\QuickSoapNotesController.cs" />
     <Compile Include="Controllers\SignaturesController.cs" />
     <Compile Include="Controllers\SOAPFormsController.cs" />
@@ -554,7 +553,7 @@
     <Compile Include="Models\PDFtestClass.cs" />
     <Compile Include="Models\Practioner.cs" />
     <Compile Include="Models\QuickNote.cs" />
-    <Compile Include="Models\QuickSoapNote.cs" />
+    <Compile Include="Models\QuickSoapNotes.cs" />
     <Compile Include="Models\SchedulerModel.cs" />
     <Compile Include="Models\Signature.cs" />
     <Compile Include="Models\SOAPForm.cs" />
@@ -948,11 +947,6 @@
     <Content Include="Views\InsuranceInfoes\AdminEdit.cshtml" />
     <Content Include="Views\Subjects\ActiveClientsScheduler.cshtml" />
     <Content Include="Views\Subjects\CheckIn.cshtml" />
-    <Content Include="Views\QuickNotes\Create.cshtml" />
-    <Content Include="Views\QuickNotes\Delete.cshtml" />
-    <Content Include="Views\QuickNotes\Details.cshtml" />
-    <Content Include="Views\QuickNotes\Edit.cshtml" />
-    <Content Include="Views\QuickNotes\Index.cshtml" />
     <Content Include="Views\Subjects\QuickNotesIndex.cshtml" />
     <Content Include="Views\QuickSoapNotes\Create.cshtml" />
     <Content Include="Views\QuickSoapNotes\Delete.cshtml" />

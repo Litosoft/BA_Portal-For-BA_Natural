@@ -8,7 +8,7 @@ using System.Globalization;
 
 namespace BA_Portal.Models
 {
-    public class QuickSoapNote
+    public class QuickSoapNotes
     {
         // Quick Note 
         public int ID { get; set; }
@@ -20,6 +20,7 @@ namespace BA_Portal.Models
 
         // Quick Soap Note
         public string DateSeen { get; set; }
+        public DateTime DateCompleted { get; set; }
         public string CPTcode { get; set; }
         public string NeedleSize { get; set; }
         public bool ElectroStimulation { get; set; }
@@ -37,12 +38,12 @@ namespace BA_Portal.Models
         public string ICD10CM_Entry5 { get; set; }
     }
 
-    public class QuickSoapNoteDbContext : System.Data.Entity.DbContext
+    public class QuickSoapNotesDbContext : System.Data.Entity.DbContext
     {
-        public QuickSoapNoteDbContext() : base("DefaultConnection")
+        public QuickSoapNotesDbContext() : base("DefaultConnection")
         {
 
         }
-        public DbSet<QuickSoapNote> QuickSoapNoteDatabase { get; set; }
+        public DbSet<QuickSoapNotes> QuickSoapNotesDatabase { get; set; }
     }
 }

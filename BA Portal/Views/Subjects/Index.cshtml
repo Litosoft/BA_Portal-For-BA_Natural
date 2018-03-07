@@ -7,20 +7,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
-<h1>Clients</h1> 
-@Html.ActionLink("Add Quick Note(s)", "QuickNotesIndex", "Subjects", new { }, new { @class = "btn-info btn-sm", @style = "float: right;" })<br />
-<span>For HIPAA purposes the patient list has been hidden. Please press search to load the patient list.</span>
-<br /><br />
+<h1>Clients</h1>
 
 @using (Html.BeginForm())
 {
+    <input id="Date" value="TodaysDate" type="text" name="SearchString" class="btn-info btn-sm" style="display: none;" />
+    <input type="submit" value="Seen Today" class="btn-info btn-sm" style="float: right;" /><br />
+}
 
+    <span>For HIPAA purposes the patient list has been hidden. Please press search to load the patient list.</span>
+    <br /><br />
+
+@using (Html.BeginForm())
+{
     <p>
-        <strong data-toggle="tooltip" title="Search by first, last name, or phone number. 
-Leave blank to load all patients.">Search @Html.TextBox("SearchString", null, new { @class = "form-control", @style = "width: 50% !important; max-width: 40% !important;" }) </strong>
-        <input type="submit" value="Search" class="btn btn-primary btn-sm"/> <br /> <br />
+            <strong data-toggle="tooltip" title="Search by first, last name, or phone number.
+    Leave blank to load all patients.">Search
+        @Html.TextBox("SearchString", null, new { @class = "form-control", @style = "width: 50% !important; max-width: 40% !important;" })</strong>
+    <input type="submit" value="Search" class="btn btn-primary btn-sm" /> <br /> <br />
     </p>
 } <br />
 
@@ -122,17 +126,21 @@ Leave blank to load all patients.">Search @Html.TextBox("SearchString", null, ne
         }
     </td>
 
-
-
         <td>
-            <strong> @Html.ActionLink("All Form(s)", "PassSubjecttoAllForms", "Subjects", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" }) </strong>  
+            <strong> @Html.ActionLink("Quick SOAP", "Create", "QuickSoapNotes", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" }) </strong>
 
         </td>
+
+        <td>
+            <strong> @Html.ActionLink("All Form(s)", "PassSubjecttoAllForms", "Subjects", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" }) </strong> 
+
+        </td>
+
         <td>
 
             
             @Html.ActionLink("Update Personal Info", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("View Personal Info", "Details", new { id = item.ID }) |
+            @Html.ActionLink("View Personal Info", "Details", new { id = item.ID }) <br />
             @Html.ActionLink("Delete Record", "Delete", "Subjects", new { id = item.ID }, new { @class="text-danger"})
 
 
