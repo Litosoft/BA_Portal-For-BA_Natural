@@ -1,19 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using DayPilot.Web.Mvc;
-using DayPilot.Web.Mvc.Events.Month;
+using BA_Portal.Models;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Drawing;
+using System.Web.Security;
 
 namespace BA_Portal.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(int thanks=0)
+        // DAL
+        private QuickSoapNotesDbContext db2 = new QuickSoapNotesDbContext();
+
+        // GET: Subjects
+        public ActionResult Index(int thanks = 0, string searchString = "")
         {
-            ViewBag.Thanks = thanks;
-            return View();
+
+
+            if (User.IsInRole("Guest"))
+            {
+                ViewBag.Thanks = thanks;
+                return View();
+            }
+
+            // Select nothing by default
+            var QuickNotesToday = from m in db2.QuickSoapNotesDatabase
+                                  where m.UniqueID == -1
+                                  select m;
+
+            if(searchString == "+")
+            {
+                DateTime yesterday = DateTime.Today.AddDays(-1);
+                ViewBag.Notes = 1;
+                QuickNotesToday = from m in db2.QuickSoapNotesDatabase
+                                    where m.DateCompleted > yesterday
+                                    orderby m.DateCompleted descending
+                                    select m;             
+            }
+
+            return View(QuickNotesToday);
         }
 
         public ActionResult About()

@@ -46,12 +46,16 @@ namespace BA_Portal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,UniqueID,ReturnDateRecommended,HerbalSupplement,OtherDetails,DateSeen,DateCompleted,CPTcode,NeedleSize,ElectroStimulation,TreatmentTime,PainScale,NeedlesPerformed,SField,OField,AField,PField,ICD10CM_Entry1,ICD10CM_Entry2,ICD10CM_Entry3,ICD10CM_Entry4,ICD10CM_Entry5")] QuickSoapNotes quickSoapNotes)
+        public ActionResult Create([Bind(Include = "ID,Name,UniqueID,ReturnDateRecommended,HerbalSupplement,OtherDetails,CPTcode,NeedleSize,ElectroStimulation,TreatmentTime,PainScale,NeedlesPerformed,SField,OField,AField,PField,ICD10CM_Entry1,ICD10CM_Entry2,ICD10CM_Entry3,ICD10CM_Entry4,ICD10CM_Entry5")] QuickSoapNotes quickSoapNotes)
         {
             if (ModelState.IsValid)
             {
+                quickSoapNotes.DateSeen = DateTime.Now.ToShortDateString();
+                quickSoapNotes.DateCompleted = DateTime.Now;
                 db.QuickSoapNotesDatabase.Add(quickSoapNotes);
                 db.SaveChanges();
+
+                // Need to change redirect
                 return RedirectToAction("Index");
             }
 
