@@ -17,7 +17,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.Name } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -25,7 +25,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.UniqueID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.UniqueID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.UniqueID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.UniqueId } })
                 @Html.ValidationMessageFor(model => model.UniqueID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -54,21 +54,8 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DateSeen, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DateSeen, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DateSeen, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DateCompleted, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DateCompleted, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DateCompleted, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <br /><br /><br />
 
         <div class="form-group">
             @Html.LabelFor(model => model.CPTcode, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -96,21 +83,43 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TreatmentTime, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group col-sm-12 col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.TreatmentTime, "Treatment Time", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TreatmentTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TreatmentTime, "", new { @class = "text-danger" })
+                <br />
+                <select id="TreatmentTime" name="TreatmentTime">
+                    <option value="0 Minutes">0 Minutes</option>
+                    <option value="5-15 Minutes">5-15 Minutes</option>
+                    <option value="16-30 Minutes">16-30 Minutes</option>
+                    <option value="31-45 Minutes">31-45 Minutes</option>
+                    <option value="46-60 Minutes">46-60 Minutes</option>
+                </select>
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.PainScale, htmlAttributes: new { @class = "control-label col-md-2" })
+        <br />
+        <br />
+
+        <div class="form-group col-sm-12 col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.PainScale, "Pain Scale", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PainScale, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PainScale, "", new { @class = "text-danger" })
+                <br />
+                <select id="PainScale" name="PainScale">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
             </div>
         </div>
+<br />
 
         <div class="form-group">
             @Html.LabelFor(model => model.NeedlesPerformed, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -152,45 +161,88 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ICD10CM_Entry1, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group col-sm-12 col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.ICD10CM_Entry1, "ICD10CM #1", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ICD10CM_Entry1, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ICD10CM_Entry1, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <br />
+                <select id="ICD10CM_Entry1" name="ICD10CM_Entry1">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ICD10CM_Entry2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ICD10CM_Entry2, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ICD10CM_Entry2, "", new { @class = "text-danger" })
+                    <option value=""> </option>
+                    <option value="Shoulder">Shoulder</option>
+                    <option value="Upper Arm">Upper Arm</option>
+                    <option value="Forearm">Forearm</option>
+                    <option value="Hand">Hand</option>
+                    <option value="Pelvic and Thigh">Pelvic and Thigh</option>
+                    <option value="Ankle and Foot">Ankle and Foot</option>
+                </select>
             </div>
         </div>
+        <br />
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ICD10CM_Entry3, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group col-sm-12 col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.ICD10CM_Entry2, "ICD10CM #2", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ICD10CM_Entry3, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ICD10CM_Entry3, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <br />
+                <select id="ICD10CM_Entry2" name="ICD10CM_Entry2">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ICD10CM_Entry4, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ICD10CM_Entry4, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ICD10CM_Entry4, "", new { @class = "text-danger" })
+                    <option value=""> </option>
+                    <option value="Neck Pain">Neck Pain</option>
+                    <option value="Sciatica">Sciatica</option>
+                    <option value="LBP with Sciatica">LBP with Sciatica</option>
+                    <option value="Thoracic Pain">Thoracic Pain</option>
+                    <option value="LBP">LBP and Thigh</option>
+                    <option value="Other">Other and Foot</option>
+                </select>
             </div>
         </div>
+        <br />
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ICD10CM_Entry5, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group col-sm-12 col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.ICD10CM_Entry3, "ICD10CM #3", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ICD10CM_Entry5, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ICD10CM_Entry5, "", new { @class = "text-danger" })
+                <br />
+                <select id="ICD10CM_Entry3" name="ICD10CM_Entry3">
+
+                    <option value=""> </option>
+                    <option value="Headache">Headache</option>
+                    <option value="Migraine with aura">Migraine with aura</option>
+                    <option value="Migrain without aura">Migrain without aura</option>
+                </select>
             </div>
         </div>
+        <br />
+
+        <div class="form-group col-sm-12 col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.ICD10CM_Entry4, "ICD10CM #4", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <br />
+                <select id="ICD10CM_Entry4" name="ICD10CM_Entry4">
+
+                    <option value=""> </option>
+                    <option value="TMJ">TMJ</option>
+                    <option value="Ear Pain">Ear Pain</option>
+                    <option value="Eye Pain">Eye Pain</option>
+                    <option value="Jaw Pain">Jaw Pain</option>
+                    <option value="Throat Pain">Throat Pain</option>
+                    <option value="Generalized Pain">Generalized Pain</option>
+                </select>
+            </div>
+        </div>
+        <br />
+
+        <div class="form-group col-sm-12 col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.ICD10CM_Entry5, "ICD10CM #5", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <br />
+                <select id="ICD10CM_Entry5" name="ICD10CM_Entry5">
+                    <option value=""> </option>
+                    <option value="Myalgia">Myalgia</option>
+                    <option value="Fibromyalgia">Fibromyalgia</option>
+                    <option value="Muscle Spasm">Muscle Spasm</option>
+                </select>
+            </div>
+        </div>
+        <br />
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

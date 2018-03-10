@@ -13,6 +13,7 @@ namespace BA_Portal.Controllers
     public class QuickSoapNotesController : Controller
     {
         private QuickSoapNotesDbContext db = new QuickSoapNotesDbContext();
+        private SubjectDbContext dbSubjects = new SubjectDbContext();
 
         // GET: QuickSoapNotes
         public ActionResult Index()
@@ -36,8 +37,15 @@ namespace BA_Portal.Controllers
         }
 
         // GET: QuickSoapNotes/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            var ClientsSelected = from m in dbSubjects.SubjectDatabase
+                                  where m.ID == id
+                                  select m;
+            var subject = ClientsSelected.First();
+            ViewBag.Name = subject.Name + " " + subject.LastName;
+            ViewBag.UniqueId = subject.ID;
+
             return View();
         }
 
