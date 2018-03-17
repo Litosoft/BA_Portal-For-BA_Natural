@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Quick Soap Notes</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -15,67 +15,25 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UniqueID)
+            Return Date
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ReturnDateRecommended)
+            Supplement
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HerbalSupplement)
+            Other Details
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OtherDetails)
+            Seen
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateSeen)
+            CPT Code
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateCompleted)
+            Duration
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CPTcode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NeedleSize)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ElectroStimulation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TreatmentTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PainScale)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NeedlesPerformed)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SField)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OField)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AField)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PField)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ICD10CM_Entry1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ICD10CM_Entry2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ICD10CM_Entry3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ICD10CM_Entry4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ICD10CM_Entry5)
+            Pain Scale
         </th>
         <th></th>
     </tr>
@@ -84,9 +42,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UniqueID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ReturnDateRecommended)
@@ -101,16 +56,7 @@
             @Html.DisplayFor(modelItem => item.DateSeen)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateCompleted)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.CPTcode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NeedleSize)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ElectroStimulation)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TreatmentTime)
@@ -118,36 +64,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.PainScale)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NeedlesPerformed)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SField)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OField)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AField)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PField)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ICD10CM_Entry1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ICD10CM_Entry2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ICD10CM_Entry3)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ICD10CM_Entry4)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ICD10CM_Entry5)
-        </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |

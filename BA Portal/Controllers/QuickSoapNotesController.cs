@@ -12,13 +12,17 @@ namespace BA_Portal.Controllers
 {
     public class QuickSoapNotesController : Controller
     {
-        private QuickSoapNotesDbContext db = new QuickSoapNotesDbContext();
+        private QuickSoapNotesDbContext dbQuickSoap = new QuickSoapNotesDbContext();
         private SubjectDbContext dbSubjects = new SubjectDbContext();
 
         // GET: QuickSoapNotes
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View(db.QuickSoapNotesDatabase.ToList());
+            var QuickSoapSelected = from m in dbQuickSoap.QuickSoapNotesDatabase
+                                  where m.UniqueID == id
+                                  select m;
+
+            return View(QuickSoapSelected.ToList());
         }
 
         // GET: QuickSoapNotes/Details/5
@@ -28,7 +32,7 @@ namespace BA_Portal.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            QuickSoapNotes quickSoapNotes = db.QuickSoapNotesDatabase.Find(id);
+            QuickSoapNotes quickSoapNotes = dbQuickSoap.QuickSoapNotesDatabase.Find(id);
             if (quickSoapNotes == null)
             {
                 return HttpNotFound();
@@ -37,14 +41,23 @@ namespace BA_Portal.Controllers
         }
 
         // GET: QuickSoapNotes/Create
-        public ActionResult Create(int id)
+        public ActionResult Create(int? id = -1)
         {
-            var ClientsSelected = from m in dbSubjects.SubjectDatabase
-                                  where m.ID == id
-                                  select m;
-            var subject = ClientsSelected.First();
-            ViewBag.Name = subject.Name + " " + subject.LastName;
-            ViewBag.UniqueId = subject.ID;
+            if(id != -1)
+            {
+                var ClientsSelected = from m in dbSubjects.SubjectDatabase
+                                      where m.ID == id
+                                      select m;
+                var subject = ClientsSelected.First();
+                ViewBag.Name = subject.Name + " " + subject.LastName;
+                ViewBag.UniqueId = subject.ID;
+            }
+            else
+            {
+                ViewBag.Name = "";
+                ViewBag.UniqueId = "";
+            }
+
 
             return View();
         }
@@ -54,17 +67,18 @@ namespace BA_Portal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,UniqueID,ReturnDateRecommended,HerbalSupplement,OtherDetails,CPTcode,NeedleSize,ElectroStimulation,TreatmentTime,PainScale,NeedlesPerformed,SField,OField,AField,PField,ICD10CM_Entry1,ICD10CM_Entry2,ICD10CM_Entry3,ICD10CM_Entry4,ICD10CM_Entry5")] QuickSoapNotes quickSoapNotes)
+        public ActionResult Create(string TreatmentTime, string PainScale, string ICD10CM_Entry1, string ICD10CM_Entry2, string ICD10CM_Entry3, string ICD10CM_Entry4, string ICD10CM_Entry5, [Bind(Include = "ID,Name,UniqueID,ReturnDateRecommended,HerbalSupplement,OtherDetails,CPTcode,NeedleSize,ElectroStimulation,NeedlesPerformed,SField,OField,AField,PField")] QuickSoapNotes quickSoapNotes)
         {
             if (ModelState.IsValid)
             {
                 quickSoapNotes.DateSeen = DateTime.Now.ToShortDateString();
                 quickSoapNotes.DateCompleted = DateTime.Now;
-                db.QuickSoapNotesDatabase.Add(quickSoapNotes);
-                db.SaveChanges();
+                dbQuickSoap.QuickSoapNotesDatabase.Add(quickSoapNotes);
+                dbQuickSoap.SaveChanges();
 
                 // Need to change redirect
                 return RedirectToAction("Index");
+                return RedirectToAction("Index", "QuickSoapNotes", new { id = quickSoapNotes.UniqueID });
             }
 
             return View(quickSoapNotes);
@@ -77,7 +91,7 @@ namespace BA_Portal.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            QuickSoapNotes quickSoapNotes = db.QuickSoapNotesDatabase.Find(id);
+            QuickSoapNotes quickSoapNotes = dbQuickSoap.QuickSoapNotesDatabase.Find(id);
             if (quickSoapNotes == null)
             {
                 return HttpNotFound();
@@ -94,8 +108,8 @@ namespace BA_Portal.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(quickSoapNotes).State = EntityState.Modified;
-                db.SaveChanges();
+                dbQuickSoap.Entry(quickSoapNotes).State = EntityState.Modified;
+                dbQuickSoap.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(quickSoapNotes);
@@ -108,7 +122,7 @@ namespace BA_Portal.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            QuickSoapNotes quickSoapNotes = db.QuickSoapNotesDatabase.Find(id);
+            QuickSoapNotes quickSoapNotes = dbQuickSoap.QuickSoapNotesDatabase.Find(id);
             if (quickSoapNotes == null)
             {
                 return HttpNotFound();
@@ -121,9 +135,9 @@ namespace BA_Portal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            QuickSoapNotes quickSoapNotes = db.QuickSoapNotesDatabase.Find(id);
-            db.QuickSoapNotesDatabase.Remove(quickSoapNotes);
-            db.SaveChanges();
+            QuickSoapNotes quickSoapNotes = dbQuickSoap.QuickSoapNotesDatabase.Find(id);
+            dbQuickSoap.QuickSoapNotesDatabase.Remove(quickSoapNotes);
+            dbQuickSoap.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -131,7 +145,7 @@ namespace BA_Portal.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                dbQuickSoap.Dispose();
             }
             base.Dispose(disposing);
         }

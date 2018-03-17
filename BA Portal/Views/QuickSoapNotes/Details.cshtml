@@ -17,41 +17,24 @@
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.UniqueID)
+            CPT Code
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.UniqueID)
+            @Html.DisplayFor(model => model.CPTcode)
         </dd>
 
+        <br />
         <dt>
-            @Html.DisplayNameFor(model => model.ReturnDateRecommended)
+            Duration
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ReturnDateRecommended)
+            @Html.DisplayFor(model => model.TreatmentTime)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.HerbalSupplement)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HerbalSupplement)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.OtherDetails)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OtherDetails)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateSeen)
+            Date Seen
         </dt>
 
         <dd>
@@ -59,47 +42,20 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateCompleted)
+            Return Date
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DateCompleted)
+            @Html.DisplayFor(model => model.ReturnDateRecommended)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CPTcode)
-        </dt>
+        <br />
 
         <dd>
-            @Html.DisplayFor(model => model.CPTcode)
+            @Html.DisplayFor(model => model.OtherDetails)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NeedleSize)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NeedleSize)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ElectroStimulation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ElectroStimulation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TreatmentTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TreatmentTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PainScale)
+            Pain Scale
         </dt>
 
         <dd>
@@ -107,12 +63,28 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NeedlesPerformed)
+            Needles Performed
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.NeedlesPerformed)
         </dd>
+        <dt>
+            Needle Size
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NeedleSize)
+        </dd>
+
+        <dt>
+            Electro Stimulation
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ElectroStimulation)
+        </dd>
+        <br />
 
         <dt>
             @Html.DisplayNameFor(model => model.SField)
@@ -145,7 +117,7 @@
         <dd>
             @Html.DisplayFor(model => model.PField)
         </dd>
-
+        <br />
         <dt>
             @Html.DisplayNameFor(model => model.ICD10CM_Entry1)
         </dt>
@@ -185,6 +157,19 @@
         <dd>
             @Html.DisplayFor(model => model.ICD10CM_Entry5)
         </dd>
+
+        <br />
+        <dt>
+            Supplement
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HerbalSupplement)
+        </dd>
+
+        <dt>
+            Details
+        </dt>
 
     </dl>
 </div>

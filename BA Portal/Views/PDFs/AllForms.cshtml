@@ -179,10 +179,12 @@
 @Html.ActionLink("Add new Soap", "CaptureIDandRedirectforMultipleForms", "Signatures", new { id = ViewBag.Id, RedirectIdentifier = "SOAP" }, new { @class = "btn btn-success btn-xs" })
 </strong>
 <br />
-
-<strong>@Html.ActionLink("SOAP Data Archive", "RedirectToPatientSOAPIndex", new { id = ViewBag.ID })</strong> 
-
+<strong>@Html.ActionLink("SOAP Data Archive", "RedirectToPatientSOAPIndex", new { id = ViewBag.ID })</strong> <br />
 </div>
+<br />
+<strong> @Html.ActionLink("View Quick SOAP Notes", "Index", "QuickSoapNotes", new { id = ViewBag.ID }, new { @class = "btn btn-info btn-xs", @style = "float: right; margin-left: 5px;" }) </strong>
+<strong> @Html.ActionLink("New Quick SOAP Notes", "Create", "QuickSoapNotes", new { id = ViewBag.ID }, new { @class = "btn btn-primary btn-xs", @style = "float: right;" }) </strong>
+<br />
 <div class="col-sm-6 col-md-6 col-lg-6">
    <a href="~/Content/PDFSoap.pdf">What is a SOAP form?</a>
     <br />
